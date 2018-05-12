@@ -48,7 +48,13 @@ img {
 
 /*登录框*/
 #loginpart {
-    margin-left: 66%;
+    margin-left: 60%;
+    display: none;
+    z-index: 3;
+}
+
+#loginpartbysms {
+    margin-left: 60%;
     display: none;
     z-index: 3;
 }

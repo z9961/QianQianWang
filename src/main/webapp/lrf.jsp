@@ -40,7 +40,7 @@
 </div>
 
 <!--登陆部分-->
-<form id="loginpart" action="login" method="POST">
+<form id="loginpart" action="Login.mvc" method="POST">
     <table id="table">
         <caption>会员登录</caption>
         <tr>
@@ -53,11 +53,20 @@
         </tr>
 
         <tr>
+
             <td>
 
             </td>
             <td>
-                <input type="button" value="点击登陆" onClick="userLogin();"/>
+                <input type="button" value="验证码登录" onclick="showloginbysms();"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <input type="submit" value="点击登陆"/>
             </td>
         </tr>
 
@@ -83,6 +92,58 @@
 
     </table>
 </form>
+
+
+<!--验证码登陆部分-->
+<form id="loginpartbysms" action="LoginBySms.mvc" method="POST">
+    <table id="table">
+        <caption>会员登录</caption>
+        <tr>
+            <td class="word">手机号</td>
+            <td><input id="phone" name="phone" type="text" size="20"/></td>
+        </tr>
+        <tr>
+            <td class="word">验证码</td>
+            <td><input id="sms" name="sms" type="text"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="word" style="width: 400px">
+                <input id="getsms" name="getsms" type="button" value="获取验证码" onclick="getSms()"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="点击登陆"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="button" value="密码登录" onclick="showloginbypwd();"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="button" value="新用户注册" onclick="showregister();"/>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="button" value="返回首页" onclick="BackIndex();"/>
+            </td>
+        </tr>
+
+    </table>
+</form>
+
 
 <!--注册部分-->
 <form id="register" action="Register.mvc" method="POST">
@@ -174,6 +235,10 @@
         var msg = "${msg}";
         if (msgtype == "register") {
             showregister();
+            alert(msg);
+        }
+        if (msgtype == "login") {
+            showlogin();
             alert(msg);
         }
     }

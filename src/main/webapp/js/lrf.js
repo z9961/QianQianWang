@@ -138,6 +138,22 @@ function showlogin() {
     lrf.style.display = "none";
 }
 
+function showloginbypwd() {
+    var login = document.getElementById("loginpart");
+    login.style.display = "block";
+    var login = document.getElementById("loginpartbysms");
+    login.style.display = "none";
+
+}
+
+function showloginbysms() {
+    var login = document.getElementById("loginpart");
+    login.style.display = "none";
+    var login = document.getElementById("loginpartbysms");
+    login.style.display = "block";
+
+}
+
 function showregister() {
     var login = document.getElementById("loginpart");
     login.style.display = "none";
