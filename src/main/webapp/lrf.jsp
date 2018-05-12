@@ -45,7 +45,7 @@
         <caption>会员登录</caption>
         <tr>
             <td class="word">手机号</td>
-            <td><input id="phone" name="phone" type="text" size="20"/></td>
+            <td><input id="phone" name="phone" type="text" size="20" value="15610053553"/></td>
         </tr>
         <tr>
             <td class="word">密码</td>

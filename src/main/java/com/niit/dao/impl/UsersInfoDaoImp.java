@@ -11,12 +11,6 @@ import javax.annotation.Resource;
 @Repository
 public class UsersInfoDaoImp implements IUsersInfoDao {
 
-   /* @Resource
-    private HibernateTemplate hibernateTemplate;
-
-    public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
-        this.hibernateTemplate = hibernateTemplate;
-    }*/
 
     @Resource(name = "sessionFactory")
     private SessionFactory sessionFactory;

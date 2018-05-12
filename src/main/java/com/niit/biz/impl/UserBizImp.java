@@ -1,9 +1,11 @@
 package com.niit.biz.impl;
 
 import com.niit.biz.IUserBiz;
+import com.niit.dao.IUsersAddressDao;
 import com.niit.dao.IUsersDao;
 import com.niit.dao.IUsersInfoDao;
 import com.niit.entity.Users;
+import com.niit.entity.UsersAddress;
 import com.niit.entity.UsersInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,9 @@ public class UserBizImp implements IUserBiz {
     private IUsersDao usersDao;
     @Autowired
     private IUsersInfoDao usersInfoDao;
+    @Autowired
+    private IUsersAddressDao usersAddressDao;
+
 
     @Override
     public void save(Users u) {
@@ -89,6 +94,16 @@ public class UserBizImp implements IUserBiz {
             System.out.println("biz:注册失败");
             return "error";
         }
+    }
+
+    @Override
+    public List<UsersAddress> findAllAddress(String Phone) {
+        return usersAddressDao.findAllAddress(Phone);
+    }
+
+    @Override
+    public boolean saveAddress(UsersAddress addr) {
+        return false;
     }
 
     @Override
