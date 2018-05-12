@@ -1,15 +1,13 @@
 package com.niit.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 public class ProjectImg {
     private int imgId;
     private String imgPath;
+    private Project projectByPid;
 
     @Id
     @Column(name = "ImgId")
@@ -44,5 +42,15 @@ public class ProjectImg {
     public int hashCode() {
 
         return Objects.hash(imgId, imgPath);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "Pid", referencedColumnName = "PId")
+    public Project getProjectByPid() {
+        return projectByPid;
+    }
+
+    public void setProjectByPid(Project projectByPid) {
+        this.projectByPid = projectByPid;
     }
 }

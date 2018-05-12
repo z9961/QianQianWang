@@ -1,9 +1,7 @@
 package com.niit.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -13,6 +11,9 @@ public class Users {
     private String uPwd;
     private int uType;
     private int uFlag;
+    private Collection<ProjectComment> projectCommentsByUPhone;
+    private Collection<UsersAddress> usersAddressesByUPhone;
+    private UsersInfo usersInfoByUPhone;
 
     @Id
     @Column(name = "UPhone")
@@ -80,5 +81,32 @@ public class Users {
     public int hashCode() {
 
         return Objects.hash(uPhone, uName, uPwd, uType, uFlag);
+    }
+
+    @OneToMany(mappedBy = "usersByUPhone")
+    public Collection<ProjectComment> getProjectCommentsByUPhone() {
+        return projectCommentsByUPhone;
+    }
+
+    public void setProjectCommentsByUPhone(Collection<ProjectComment> projectCommentsByUPhone) {
+        this.projectCommentsByUPhone = projectCommentsByUPhone;
+    }
+
+    @OneToMany(mappedBy = "usersByUPhone")
+    public Collection<UsersAddress> getUsersAddressesByUPhone() {
+        return usersAddressesByUPhone;
+    }
+
+    public void setUsersAddressesByUPhone(Collection<UsersAddress> usersAddressesByUPhone) {
+        this.usersAddressesByUPhone = usersAddressesByUPhone;
+    }
+
+    @OneToOne(mappedBy = "usersByUPhone")
+    public UsersInfo getUsersInfoByUPhone() {
+        return usersInfoByUPhone;
+    }
+
+    public void setUsersInfoByUPhone(UsersInfo usersInfoByUPhone) {
+        this.usersInfoByUPhone = usersInfoByUPhone;
     }
 }

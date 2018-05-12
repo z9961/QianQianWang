@@ -77,6 +77,7 @@ public class LoginController {
         }
 
         Users user = userBiz.findUserByPhone(phone);
+
         try {
             if (!phone.equals(user.getuPhone())) {
                 map.addAttribute("msg", "该手机号未注册");

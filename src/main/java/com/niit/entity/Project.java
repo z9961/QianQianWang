@@ -1,11 +1,9 @@
 package com.niit.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -25,6 +23,9 @@ public class Project {
     private String pTeam;
     private Integer pState;
     private String pPlan;
+    private ProjectType projectTypeByPCategoryId;
+    private Collection<ProjectComment> projectCommentsByPId;
+    private Collection<ProjectImg> projectImgsByPId;
 
     @Id
     @Column(name = "PId")
@@ -202,5 +203,33 @@ public class Project {
     public int hashCode() {
 
         return Objects.hash(pId, pName, pDesc, psd, ped, pTarget, pnm, pnp, pMilestone, pRemark, pmf, pLimit, pTeam, pState, pPlan);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "PCategoryId", referencedColumnName = "ProjectTypeId")
+    public ProjectType getProjectTypeByPCategoryId() {
+        return projectTypeByPCategoryId;
+    }
+
+    public void setProjectTypeByPCategoryId(ProjectType projectTypeByPCategoryId) {
+        this.projectTypeByPCategoryId = projectTypeByPCategoryId;
+    }
+
+    @OneToMany(mappedBy = "projectByPid")
+    public Collection<ProjectComment> getProjectCommentsByPId() {
+        return projectCommentsByPId;
+    }
+
+    public void setProjectCommentsByPId(Collection<ProjectComment> projectCommentsByPId) {
+        this.projectCommentsByPId = projectCommentsByPId;
+    }
+
+    @OneToMany(mappedBy = "projectByPid")
+    public Collection<ProjectImg> getProjectImgsByPId() {
+        return projectImgsByPId;
+    }
+
+    public void setProjectImgsByPId(Collection<ProjectImg> projectImgsByPId) {
+        this.projectImgsByPId = projectImgsByPId;
     }
 }

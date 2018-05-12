@@ -10,5 +10,18 @@
         <property name="uPwd" column="UPwd"/>
         <property name="uType" column="UType"/>
         <property name="uFlag" column="UFlag"/>
+        <one-to-one name="usersInfoByUPhone" class="com.niit.entity.UsersInfo"/>
+        <set name="projectCommentsByUPhone" inverse="true">
+            <key>
+                <column name="UPhone"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.niit.entity.ProjectComment"/>
+        </set>
+        <set name="usersAddressesByUPhone" inverse="true">
+            <key>
+                <column name="UPhone" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.niit.entity.UsersAddress"/>
+        </set>
     </class>
 </hibernate-mapping>

@@ -1,15 +1,14 @@
 package com.niit.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
 public class ProjectType {
     private int projectTypeId;
     private String projectTypeName;
+    private Collection<Project> projectsByProjectTypeId;
 
     @Id
     @Column(name = "ProjectTypeId")
@@ -44,5 +43,14 @@ public class ProjectType {
     public int hashCode() {
 
         return Objects.hash(projectTypeId, projectTypeName);
+    }
+
+    @OneToMany(mappedBy = "projectTypeByPCategoryId")
+    public Collection<Project> getProjectsByProjectTypeId() {
+        return projectsByProjectTypeId;
+    }
+
+    public void setProjectsByProjectTypeId(Collection<Project> projectsByProjectTypeId) {
+        this.projectsByProjectTypeId = projectsByProjectTypeId;
     }
 }

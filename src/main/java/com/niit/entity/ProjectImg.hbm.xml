@@ -7,5 +7,8 @@
     <class name="com.niit.entity.ProjectImg" table="ProjectImg" schema="dbo" catalog="Qianqianwang">
         <id name="imgId" column="ImgId"/>
         <property name="imgPath" column="ImgPath"/>
+        <many-to-one name="projectByPid" class="com.niit.entity.Project">
+            <column name="Pid" not-null="true"/>
+        </many-to-one>
     </class>
 </hibernate-mapping>

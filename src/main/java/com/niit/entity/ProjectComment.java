@@ -9,6 +9,8 @@ public class ProjectComment {
     private int pid;
     private String pComment;
     private String uPhone;
+    private Project projectByPid;
+    private Users usersByUPhone;
 
     @Id
     @Column(name = "Pid")
@@ -54,5 +56,25 @@ public class ProjectComment {
     public int hashCode() {
 
         return Objects.hash(pid, pComment, uPhone);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "Pid", referencedColumnName = "PId", nullable = false)
+    public Project getProjectByPid() {
+        return projectByPid;
+    }
+
+    public void setProjectByPid(Project projectByPid) {
+        this.projectByPid = projectByPid;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "UPhone", referencedColumnName = "UPhone", nullable = false)
+    public Users getUsersByUPhone() {
+        return usersByUPhone;
+    }
+
+    public void setUsersByUPhone(Users usersByUPhone) {
+        this.usersByUPhone = usersByUPhone;
     }
 }

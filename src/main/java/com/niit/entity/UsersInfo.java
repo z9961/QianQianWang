@@ -1,9 +1,6 @@
 package com.niit.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -13,6 +10,7 @@ public class UsersInfo {
     private String uZipCode;
     private String uEmail;
     private String uCardNumber;
+    private Users usersByUPhone;
 
     @Id
     @Column(name = "UPhone")
@@ -80,5 +78,15 @@ public class UsersInfo {
     public int hashCode() {
 
         return Objects.hash(uPhone, uName, uZipCode, uEmail, uCardNumber);
+    }
+
+    @OneToOne
+    @JoinColumn(name = "UPhone", referencedColumnName = "UPhone", nullable = false)
+    public Users getUsersByUPhone() {
+        return usersByUPhone;
+    }
+
+    public void setUsersByUPhone(Users usersByUPhone) {
+        this.usersByUPhone = usersByUPhone;
     }
 }

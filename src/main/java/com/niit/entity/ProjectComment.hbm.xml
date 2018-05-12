@@ -10,5 +10,11 @@
             <key-property name="uPhone" column="UPhone"/>
         </composite-id>
         <property name="pComment" column="PComment"/>
+        <many-to-one name="projectByPid" class="com.niit.entity.Project">
+            <column name="Pid"/>
+        </many-to-one>
+        <many-to-one name="usersByUPhone" class="com.niit.entity.Users">
+            <column name="UPhone"/>
+        </many-to-one>
     </class>
 </hibernate-mapping>

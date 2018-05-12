@@ -56,118 +56,118 @@
 
 
     <!--设置轮播图的大小-->
-    <h:outputScript library="js" name="Carousel_figure.js"/>
+    <%--<script type="text/javascript" src="js/Carousel_figure.js"/>--%>
     <!--插入页眉-->
-    <h:outputScript library="js" name="head_div.js"/>
+    <script type="text/javascript" src="js/head_div.js"></script>
 
 
     <!--模块2-->
-    <div id="b2">
-        <h2><span></span>手机数码</h2>
-        <div class="body_box">
+    <%--  <div id="b2">
+          <h2><span></span>手机数码</h2>
+          <div class="body_box">
 
-            <ul id="menu">
-                <c:forEach items="#{indexBean.getPhone}" var="pro">
+              <ul id="menu">
+                  <c:forEach items="#{indexBean.getPhone}" var="pro">
 
-                    <li>
-                        <p class="picture">
-                            <a href="Product.xhtml?param=${pro.pid}">
-                                <img src="${pro.pimagePath}"/>
-                            </a>
-                        </p>
-                        <p class="title">
-                                    <span class="kuaimai">
-                                        快买
-                                    </span>
-                            <a href="Product.xhtml?param=${pro.pid}">
-                                    ${pro.pname}
-                            </a>
-                        </p>
-                        <p class="author">
-                                ${pro.users.uname}
-                        </p>
-                        <p class="price"><span class="sale">¥</span><span class="sale_price">
-                                ${pro.pprice}
-                        </span>
-                        </p>
-                    </li>
+                      <li>
+                          <p class="picture">
+                              <a href="Product.xhtml?param=${pro.pid}">
+                                  <img src="${pro.pimagePath}"/>
+                              </a>
+                          </p>
+                          <p class="title">
+                                      <span class="kuaimai">
+                                          快买
+                                      </span>
+                              <a href="Product.xhtml?param=${pro.pid}">
+                                      ${pro.pname}
+                              </a>
+                          </p>
+                          <p class="author">
+                                  ${pro.users.uname}
+                          </p>
+                          <p class="price"><span class="sale">¥</span><span class="sale_price">
+                                  ${pro.pprice}
+                          </span>
+                          </p>
+                      </li>
 
-                </c:forEach>
-            </ul>
+                  </c:forEach>
+              </ul>
 
-        </div>
-        <br/>
-        <h2><span></span>生活家具</h2>
-        <div class="body_box">
+          </div>
+          <br/>
+          <h2><span></span>生活家具</h2>
+          <div class="body_box">
 
-            <ul id="menu">
-                <c:forEach items="#{indexBean.getfitment}" var="pro">
+              <ul id="menu">
+                  <c:forEach items="#{indexBean.getfitment}" var="pro">
 
-                    <li>
-                        <p class="picture">
-                            <a href="Product.xhtml?param=${pro.pid}">
-                                <img src="${pro.pimagePath}"/>
-                            </a>
-                        </p>
-                        <p class="title">
-                                    <span class="kuaimai">
-                                        快买
-                                    </span>
-                            <a href="Product.xhtml?param=${pro.pid}">
-                                    ${pro.users.uname}
-                            </a>
-                        </p>
-                        <p class="author">
+                      <li>
+                          <p class="picture">
+                              <a href="Product.xhtml?param=${pro.pid}">
+                                  <img src="${pro.pimagePath}"/>
+                              </a>
+                          </p>
+                          <p class="title">
+                                      <span class="kuaimai">
+                                          快买
+                                      </span>
+                              <a href="Product.xhtml?param=${pro.pid}">
+                                      ${pro.users.uname}
+                              </a>
+                          </p>
+                          <p class="author">
 
-                                ${pro.pnum}
-                        </p>
-                        <p class="price"><span class="sale">¥</span><span class="sale_price">
-                                ${pro.pprice}
-                        </span>
-                        </p>
-                    </li>
+                                  ${pro.pnum}
+                          </p>
+                          <p class="price"><span class="sale">¥</span><span class="sale_price">
+                                  ${pro.pprice}
+                          </span>
+                          </p>
+                      </li>
 
-                </c:forEach>
-            </ul>
+                  </c:forEach>
+              </ul>
 
-        </div>
-        <br/>
-        <h2><span></span>代步工具</h2>
-        <div class="body_box">
+          </div>
+          <br/>
+          <h2><span></span>代步工具</h2>
+          <div class="body_box">
 
-            <ul id="menu">
-                <c:forEach items="#{indexBean.gettool}" var="pro">
+              <ul id="menu">
+                  <c:forEach items="#{indexBean.gettool}" var="pro">
 
-                    <li>
-                        <p class="picture">
-                            <a href="Product.xhtml?param=${pro.pid}">
-                                <img src="${pro.pimagePath}"/>
-                            </a>
-                        </p>
-                        <p class="title">
-                                    <span class="kuaimai">
-                                        快买
-                                    </span>
-                            <a href="Product.xhtml?param=${pro.pid}">
-                                    ${pro.users.uname}
-                            </a>
-                        </p>
-                        <p class="author">
+                      <li>
+                          <p class="picture">
+                              <a href="Product.xhtml?param=${pro.pid}">
+                                  <img src="${pro.pimagePath}"/>
+                              </a>
+                          </p>
+                          <p class="title">
+                                      <span class="kuaimai">
+                                          快买
+                                      </span>
+                              <a href="Product.xhtml?param=${pro.pid}">
+                                      ${pro.users.uname}
+                              </a>
+                          </p>
+                          <p class="author">
 
-                                ${pro.pnum}
-                        </p>
-                        <p class="price"><span class="sale">¥</span><span class="sale_price">
-                                ${pro.pprice}
-                        </span>
-                        </p>
-                    </li>
+                                  ${pro.pnum}
+                          </p>
+                          <p class="price"><span class="sale">¥</span><span class="sale_price">
+                                  ${pro.pprice}
+                          </span>
+                          </p>
+                      </li>
 
-                </c:forEach>
-            </ul>
+                  </c:forEach>
+              </ul>
 
-        </div>
+          </div>
 
-    </div>
+      </div>--%>
 </div>
 
 

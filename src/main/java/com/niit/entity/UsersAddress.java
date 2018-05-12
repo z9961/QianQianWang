@@ -1,15 +1,13 @@
 package com.niit.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 public class UsersAddress {
     private int aId;
     private String address;
+    private Users usersByUPhone;
 
     @Id
     @Column(name = "AId")
@@ -44,5 +42,15 @@ public class UsersAddress {
     public int hashCode() {
 
         return Objects.hash(aId, address);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "UPhone", referencedColumnName = "UPhone")
+    public Users getUsersByUPhone() {
+        return usersByUPhone;
+    }
+
+    public void setUsersByUPhone(Users usersByUPhone) {
+        this.usersByUPhone = usersByUPhone;
     }
 }

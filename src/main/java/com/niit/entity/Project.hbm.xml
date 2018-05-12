@@ -20,5 +20,20 @@
         <property name="pTeam" column="PTeam"/>
         <property name="pState" column="PState"/>
         <property name="pPlan" column="PPlan"/>
+        <many-to-one name="projectTypeByPCategoryId" class="com.niit.entity.ProjectType">
+            <column name="PCategoryId" not-null="true"/>
+        </many-to-one>
+        <set name="projectCommentsByPId" inverse="true">
+            <key>
+                <column name="Pid"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.niit.entity.ProjectComment"/>
+        </set>
+        <set name="projectImgsByPId" inverse="true">
+            <key>
+                <column name="Pid" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.niit.entity.ProjectImg"/>
+        </set>
     </class>
 </hibernate-mapping>

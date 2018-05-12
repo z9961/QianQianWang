@@ -10,5 +10,6 @@
         <property name="uZipCode" column="UZipCode"/>
         <property name="uEmail" column="UEmail"/>
         <property name="uCardNumber" column="UCardNumber"/>
+        <one-to-one name="usersByUPhone" class="com.niit.entity.Users"/>
     </class>
 </hibernate-mapping>
