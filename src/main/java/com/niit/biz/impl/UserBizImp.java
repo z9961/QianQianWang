@@ -2,7 +2,9 @@ package com.niit.biz.impl;
 
 import com.niit.biz.IUserBiz;
 import com.niit.dao.IUsersDao;
+import com.niit.dao.IUsersInfoDao;
 import com.niit.entity.Users;
+import com.niit.entity.UsersInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,8 @@ public class UserBizImp implements IUserBiz {
 
     @Autowired
     private IUsersDao usersDao;
+    @Autowired
+    private IUsersInfoDao usersInfoDao;
 
     @Override
     public void save(Users u) {
@@ -34,25 +38,57 @@ public class UserBizImp implements IUserBiz {
         return null;
     }
 
-    //根据手机号查找用户是否存在
+    //注册业务
     @Override
-    public boolean findByPhone(String phone) {
+    public String RegisterUser(Users u) {
 
-        Users user = usersDao.findByPhone(phone);
+        //根据手机号查询用户
+        Users user = usersDao.findByPhone(u.getuPhone());
 
-        if (null == user)
-            return false;
+        //判断用户是否存在
+        boolean PhoneExistFlag = true;
         try {
-            if (user.getuPhone().equals(phone)) {
-                return true;
+            if (null == user)
+                PhoneExistFlag = false;
+            if (user.getuPhone().equals(u.getuPhone())) {
+                PhoneExistFlag = true;
             } else {
-                return false;
+                PhoneExistFlag = false;
             }
         } catch (Exception e) {
-            return false;
+            PhoneExistFlag = false;
         }
 
+        if (PhoneExistFlag) {
+            System.out.println("biz:手机号已存在!");
+            return "UserExisted";
+        } else {
+            System.out.println("biz:手机号不存在");
 
+            if (u.getuType() == 1) {
+                if (usersDao.save(u)) {
+                    System.out.println("biz:注册成功");
+                    return "ok";
+                } else {
+                    System.out.println("biz:注册失败");
+                    return "error";
+                }
+            } else {
+                System.out.println("biz:用户类型为2");
+                return "Type2";
+            }
+        }
+    }
+
+    @Override
+    public String RegisterUser(Users user, UsersInfo userinfo) {
+        if (usersInfoDao.save(user, userinfo)) {
+            System.out.println("biz:注册成功");
+            return "ok";
+        } else {
+            System.out.println("biz:注册失败");
+            return "error";
+        }
     }
 
     @Override
@@ -60,4 +96,6 @@ public class UserBizImp implements IUserBiz {
         Users user = usersDao.findByPhone(phone);
         return user;
     }
+
+
 }

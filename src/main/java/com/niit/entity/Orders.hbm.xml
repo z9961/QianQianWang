@@ -6,7 +6,7 @@
 
     <class name="com.niit.entity.Orders" table="Orders" schema="dbo" catalog="Qianqianwang">
         <id name="orderId" column="OrderId"/>
-        <property name="uId" column="UId"/>
+        <property name="uPhone" column="UPhone"/>
         <property name="pId" column="PId"/>
         <property name="aId" column="AId"/>
         <property name="money" column="Money"/>

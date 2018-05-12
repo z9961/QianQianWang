@@ -5,11 +5,10 @@
 <hibernate-mapping>
 
     <class name="com.niit.entity.Users" table="Users" schema="dbo" catalog="Qianqianwang">
-        <id name="uId" column="UId"/>
+        <id name="uPhone" column="UPhone"/>
         <property name="uName" column="UName"/>
         <property name="uPwd" column="UPwd"/>
         <property name="uType" column="UType"/>
-        <property name="uPhone" column="UPhone"/>
         <property name="uFlag" column="UFlag"/>
     </class>
 </hibernate-mapping>

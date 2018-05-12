@@ -11,7 +11,7 @@ import java.util.Objects;
 @Entity
 public class Orders {
     private int orderId;
-    private Integer uId;
+    private String uPhone;
     private Integer pId;
     private Integer aId;
     private BigDecimal money;
@@ -31,13 +31,13 @@ public class Orders {
     }
 
     @Basic
-    @Column(name = "UId")
-    public Integer getuId() {
-        return uId;
+    @Column(name = "UPhone")
+    public String getuPhone() {
+        return uPhone;
     }
 
-    public void setuId(Integer uId) {
-        this.uId = uId;
+    public void setuPhone(String uPhone) {
+        this.uPhone = uPhone;
     }
 
     @Basic
@@ -116,7 +116,7 @@ public class Orders {
         if (o == null || getClass() != o.getClass()) return false;
         Orders orders = (Orders) o;
         return orderId == orders.orderId &&
-                Objects.equals(uId, orders.uId) &&
+                Objects.equals(uPhone, orders.uPhone) &&
                 Objects.equals(pId, orders.pId) &&
                 Objects.equals(aId, orders.aId) &&
                 Objects.equals(money, orders.money) &&
@@ -129,6 +129,6 @@ public class Orders {
     @Override
     public int hashCode() {
 
-        return Objects.hash(orderId, uId, pId, aId, money, expect, expectType, exceptOther, orderDate);
+        return Objects.hash(orderId, uPhone, pId, aId, money, expect, expectType, exceptOther, orderDate);
     }
 }

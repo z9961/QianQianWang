@@ -7,6 +7,7 @@ form {
     /*固定位置*/
     position: absolute;
     margin-left: 60%;
+    z-index: 3;
 }
 
 img {
@@ -15,13 +16,21 @@ img {
     margin-left: 300px;
 }
 
+#logo {
+    /*position: absolute;*/
+    height: 75px;
+    margin: 20px 200px;
+    z-index: 2;
+}
+
 #bg {
-    margin-top: 30px;
+    /*margin-top: 30px;*/
     position: absolute;
     height: 770px;
     background-image: url(../images/LRFbg.jpg);
     width: 100%;
     background-size: cover;
+    z-index: 1;
 }
 
 /*注册框*/
@@ -29,6 +38,7 @@ img {
     position: absolute;
     display: none;
     margin-left: 33%;
+    z-index: 3;
 }
 
 /*撑高页面*/
@@ -40,6 +50,14 @@ img {
 #loginpart {
     margin-left: 66%;
     display: none;
+    z-index: 3;
+}
+
+#registerinfo {
+    margin-top: 10%;
+    position: absolute;
+    margin-left: 33%;
+    z-index: 5;
 }
 
 form {
@@ -122,9 +140,10 @@ span {
 #LRF {
     float: left;
     position: absolute;
-    margin-top: 200px;
+    margin-top: 400px;
     margin-left: 40%;
     font-size: 70px;
+    z-index: 3;
 }
 
 #blank {

@@ -7,7 +7,7 @@
     <class name="com.niit.entity.ProjectComment" table="ProjectComment" schema="dbo" catalog="Qianqianwang">
         <composite-id mapped="true" class="com.niit.entity.ProjectCommentPK">
             <key-property name="pid" column="Pid"/>
-            <key-property name="uid" column="Uid"/>
+            <key-property name="uPhone" column="UPhone"/>
         </composite-id>
         <property name="pComment" column="PComment"/>
     </class>

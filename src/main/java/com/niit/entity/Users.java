@@ -8,21 +8,20 @@ import java.util.Objects;
 
 @Entity
 public class Users {
-    private int uId;
+    private String uPhone;
     private String uName;
     private String uPwd;
     private int uType;
-    private String uPhone;
     private int uFlag;
 
     @Id
-    @Column(name = "UId")
-    public int getuId() {
-        return uId;
+    @Column(name = "UPhone")
+    public String getuPhone() {
+        return uPhone;
     }
 
-    public void setuId(int uId) {
-        this.uId = uId;
+    public void setuPhone(String uPhone) {
+        this.uPhone = uPhone;
     }
 
     @Basic
@@ -56,16 +55,6 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "UPhone")
-    public String getuPhone() {
-        return uPhone;
-    }
-
-    public void setuPhone(String uPhone) {
-        this.uPhone = uPhone;
-    }
-
-    @Basic
     @Column(name = "UFlag")
     public int getuFlag() {
         return uFlag;
@@ -80,17 +69,16 @@ public class Users {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Users users = (Users) o;
-        return uId == users.uId &&
-                uType == users.uType &&
+        return uType == users.uType &&
                 uFlag == users.uFlag &&
+                Objects.equals(uPhone, users.uPhone) &&
                 Objects.equals(uName, users.uName) &&
-                Objects.equals(uPwd, users.uPwd) &&
-                Objects.equals(uPhone, users.uPhone);
+                Objects.equals(uPwd, users.uPwd);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(uId, uName, uPwd, uType, uPhone, uFlag);
+        return Objects.hash(uPhone, uName, uPwd, uType, uFlag);
     }
 }

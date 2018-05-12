@@ -11,7 +11,7 @@
     <!-- 1:启动SpringMVC基于注解的默认配置,因为默认是基于xml的 -->
     <mvc:annotation-driven/>
     <!-- 2.扫描创建类 -->
-    <context:component-scan base-package="com.niit"/>
+    <context:component-scan base-package="com.niit.controller"/>
 
     <!-- 3.返回的视图的解释 -->
     <!-- 因为SpringMVC默认已经配置jsp视图解释器,所以如果页面是jsp就不用配置了 -->

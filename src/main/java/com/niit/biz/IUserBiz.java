@@ -1,6 +1,7 @@
 package com.niit.biz;
 
 import com.niit.entity.Users;
+import com.niit.entity.UsersInfo;
 
 import java.util.List;
 
@@ -15,8 +16,10 @@ public interface IUserBiz {
 
     List<Users> findAll();
 
-    //根据手机号查找用户
-    boolean findByPhone(String phone);
+    String RegisterUser(Users user);
 
     Users findUserByPhone(String phone);
+
+    //融资者注册
+    String RegisterUser(Users user, UsersInfo userinfo);
 }

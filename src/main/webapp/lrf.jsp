@@ -30,7 +30,7 @@
 </head>
 
 <body>
-<img src="images/logo.png"/>
+<img id="logo" src="images/logo.png"/>
 
 <div id="bg"></div>
 
@@ -90,16 +90,16 @@
         <caption>新用户注册</caption>
         <tr>
             <td class="word">昵称</td>
-            <td><input id="UName" name="UName" type="text"/></td>
+            <td><input id="UName" name="UName" type="text" value="123"/></td>
         </tr>
         <tr>
             <td class="word">密码</td>
-            <td><input id="newpassword" name="newpassword" type="password"/></td>
+            <td><input id="newpassword" name="newpassword" type="password" value="234"/></td>
 
         </tr>
         <tr>
             <td class="word">确认密码</td>
-            <td><input id="newpassword2" name="password" type="password"/></td>
+            <td><input id="newpassword2" name="password" type="password" value="234"/></td>
 
         </tr>
 
@@ -166,6 +166,19 @@
 
 <!--撑出页脚-->
 <div id="blank"></div>
+<script type="text/javascript">
+    window.onunload = msgtype();
+
+    function msgtype() {
+        var msgtype = "${msgtype}";
+        var msg = "${msg}";
+        if (msgtype == "register") {
+            showregister();
+            alert(msg);
+        }
+    }
+
+</script>
 </body>
 
 </html>

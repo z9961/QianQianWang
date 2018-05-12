@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class ProjectCommentPK implements Serializable {
     private int pid;
-    private int uid;
+    private String uPhone;
 
     @Column(name = "Pid")
     @Id
@@ -19,14 +19,14 @@ public class ProjectCommentPK implements Serializable {
         this.pid = pid;
     }
 
-    @Column(name = "Uid")
+    @Column(name = "UPhone")
     @Id
-    public int getUid() {
-        return uid;
+    public String getuPhone() {
+        return uPhone;
     }
 
-    public void setUid(int uid) {
-        this.uid = uid;
+    public void setuPhone(String uPhone) {
+        this.uPhone = uPhone;
     }
 
     @Override
@@ -35,12 +35,12 @@ public class ProjectCommentPK implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         ProjectCommentPK that = (ProjectCommentPK) o;
         return pid == that.pid &&
-                uid == that.uid;
+                Objects.equals(uPhone, that.uPhone);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(pid, uid);
+        return Objects.hash(pid, uPhone);
     }
 }

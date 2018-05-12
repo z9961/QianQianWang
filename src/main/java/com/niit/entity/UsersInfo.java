@@ -8,20 +8,20 @@ import java.util.Objects;
 
 @Entity
 public class UsersInfo {
-    private int uId;
+    private String uPhone;
     private String uName;
     private String uZipCode;
     private String uEmail;
-    private String uIdentityNumber;
+    private String uCardNumber;
 
     @Id
-    @Column(name = "UId")
-    public int getuId() {
-        return uId;
+    @Column(name = "UPhone")
+    public String getuPhone() {
+        return uPhone;
     }
 
-    public void setuId(int uId) {
-        this.uId = uId;
+    public void setuPhone(String uPhone) {
+        this.uPhone = uPhone;
     }
 
     @Basic
@@ -55,13 +55,13 @@ public class UsersInfo {
     }
 
     @Basic
-    @Column(name = "UIdentityNumber")
-    public String getuIdentityNumber() {
-        return uIdentityNumber;
+    @Column(name = "UCardNumber")
+    public String getuCardNumber() {
+        return uCardNumber;
     }
 
-    public void setuIdentityNumber(String uIdentityNumber) {
-        this.uIdentityNumber = uIdentityNumber;
+    public void setuCardNumber(String uCardNumber) {
+        this.uCardNumber = uCardNumber;
     }
 
     @Override
@@ -69,16 +69,16 @@ public class UsersInfo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UsersInfo usersInfo = (UsersInfo) o;
-        return uId == usersInfo.uId &&
+        return Objects.equals(uPhone, usersInfo.uPhone) &&
                 Objects.equals(uName, usersInfo.uName) &&
                 Objects.equals(uZipCode, usersInfo.uZipCode) &&
                 Objects.equals(uEmail, usersInfo.uEmail) &&
-                Objects.equals(uIdentityNumber, usersInfo.uIdentityNumber);
+                Objects.equals(uCardNumber, usersInfo.uCardNumber);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(uId, uName, uZipCode, uEmail, uIdentityNumber);
+        return Objects.hash(uPhone, uName, uZipCode, uEmail, uCardNumber);
     }
 }

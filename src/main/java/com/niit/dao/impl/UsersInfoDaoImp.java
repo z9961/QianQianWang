@@ -1,15 +1,15 @@
 package com.niit.dao.impl;
 
-import com.niit.dao.IUsersDao;
+import com.niit.dao.IUsersInfoDao;
 import com.niit.entity.Users;
+import com.niit.entity.UsersInfo;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 
 @Repository
-public class UsersDaoImp implements IUsersDao {
+public class UsersInfoDaoImp implements IUsersInfoDao {
 
    /* @Resource
     private HibernateTemplate hibernateTemplate;
@@ -25,31 +25,15 @@ public class UsersDaoImp implements IUsersDao {
         this.sessionFactory = sessionFactory;
     }
 
+
     @Override
-    public boolean save(Users u) {
+    public boolean save(Users user, UsersInfo usersInfo) {
         try {
-            sessionFactory.getCurrentSession().save(u);
+            sessionFactory.getCurrentSession().save(user);
+            sessionFactory.getCurrentSession().save(usersInfo);
             return true;
         } catch (Exception e) {
             return false;
         }
     }
-
-
-    @Override
-    public Users findByPhone(String phone) {
-        System.out.println("Dao");
-        System.out.println("phone = " + phone);
-
-        String hql = "from Users where uPhone=?";
-        Query query = sessionFactory.getCurrentSession().createQuery(hql);
-        query.setParameter(0, phone);
-
-        //这里的user在没有对应的数据时为NULL
-        Users user = (Users) query.uniqueResult();
-
-        return user;
-    }
-
-
 }

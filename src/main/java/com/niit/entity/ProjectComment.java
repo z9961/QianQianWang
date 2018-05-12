@@ -8,7 +8,7 @@ import java.util.Objects;
 public class ProjectComment {
     private int pid;
     private String pComment;
-    private int uid;
+    private String uPhone;
 
     @Id
     @Column(name = "Pid")
@@ -31,13 +31,13 @@ public class ProjectComment {
     }
 
     @Id
-    @Column(name = "Uid")
-    public int getUid() {
-        return uid;
+    @Column(name = "UPhone")
+    public String getuPhone() {
+        return uPhone;
     }
 
-    public void setUid(int uid) {
-        this.uid = uid;
+    public void setuPhone(String uPhone) {
+        this.uPhone = uPhone;
     }
 
     @Override
@@ -46,13 +46,13 @@ public class ProjectComment {
         if (o == null || getClass() != o.getClass()) return false;
         ProjectComment that = (ProjectComment) o;
         return pid == that.pid &&
-                uid == that.uid &&
-                Objects.equals(pComment, that.pComment);
+                Objects.equals(pComment, that.pComment) &&
+                Objects.equals(uPhone, that.uPhone);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(pid, pComment, uid);
+        return Objects.hash(pid, pComment, uPhone);
     }
 }
