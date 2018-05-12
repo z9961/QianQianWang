@@ -1,0 +1,49 @@
+﻿body {
+    /*禁用滚动条*/
+    overflow-x: hidden;
+    /*overflow-y: hidden;*/
+}
+
+#AboutUs {
+    position: absolute;
+    /*设置位置*/
+    margin-top: 270px;
+    margin-left: 0 auto;
+    width: 100%;
+}
+
+#AboutUs_table {
+    /*设置字体*/
+    font-size: 30px;
+    margin: auto;
+    /*去除表格边框*/
+    border = "0";
+    font-family: youyuan;
+    color: darkblue;
+}
+
+#footer {
+    position: absolute;
+    bottom: -400px;
+    /*固定页脚*/
+}
+
+/*正文*/
+
+#a1 {
+    text-align: center;
+    font-family: youyuan;
+}
+
+#img {
+    width: 200px;
+    text-align: center;
+}
+
+#dituContent {
+    top: 880px;
+    width: 800px;
+    height: 400px;
+    border: #ccc solid 1px;
+}
+

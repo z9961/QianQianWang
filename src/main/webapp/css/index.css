@@ -1,0 +1,35 @@
+body {
+    /*铺满屏幕*/
+    margin: 0;
+    background: rgba(240, 248, 255, 1);
+}
+
+#Carousel_figure {
+    /*设置轮播图的高度*/
+    height: 600px;
+}
+
+#IndexText {
+    margin: 0;
+    width: 100%;
+}
+
+.IndexText {
+    border-left: 2px solid grey;
+    margin: 0;
+    height: 280px;
+    width: 33%;
+    float: left;
+}
+
+.IndexText img {
+    margin-left: 250px;
+    width: 150px;
+}
+
+.IndexText .IndexUl {
+    margin-top: 20px;
+    margin-left: 200px;
+    font-size: 20px;
+    line-height: 25px
+}

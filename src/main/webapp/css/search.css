@@ -1,0 +1,41 @@
+/*搜索的样式*/
+
+#search_box {
+    /*始终在屏幕上显示*/
+    position: fixed;
+    opacity: 0.8;
+    text-align: right;
+    margin-top: 270px;
+    margin-left: 85%;
+}
+
+#search_btn {
+    /*搜索按钮*/
+    background: #0f79be;
+    margin-top: 6px;
+    border-radius: 2px;
+    border: 0px;
+    width: 100px;
+    line-height: 24px;
+    color: white;
+}
+
+#searchstr {
+    font-size: 14px;
+    height: 20px;
+}
+
+.highlight {
+    /*高亮标识搜索到的内容*/
+    background: yellow;
+    color: red;
+}
+
+#tip {
+    background: #ffc;
+    border: 1px solid #999;
+    width: 110px;
+    text-align: center;
+    display: none;
+    font-size: 12px;
+}

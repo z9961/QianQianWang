@@ -1,0 +1,16 @@
+/*页脚样式*/
+#footer {
+    width: 100%;
+    height: 50px;
+    color: gray;
+    font-size: 14px;
+    /*文本居中显示*/
+    text-align: center;
+}
+
+/*去除全站的水平滚动条*/
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+}

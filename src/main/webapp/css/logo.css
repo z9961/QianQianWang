@@ -1,0 +1,23 @@
+#logo {
+    /*设置Logo的宽度*/
+    width: 400px;
+}
+
+#LRF {
+    /*设置账户管理的位置*/
+    position: absolute;
+    margin-top: -50px;
+    margin-left: 70%;
+}
+
+.top_nav {
+    display: inline;
+    font-size: 20px;
+    /*将背景设为透明*/
+    background-color: transparent;
+    width: 20px;
+}
+
+.top_nav img {
+    width: 20px;
+}
