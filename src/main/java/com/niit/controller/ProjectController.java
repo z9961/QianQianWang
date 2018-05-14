@@ -3,6 +3,7 @@ package com.niit.controller;
 import com.niit.biz.IProjectBiz;
 import com.niit.entity.Project;
 import com.niit.entity.ProjectType;
+import com.niit.entity.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -38,7 +39,11 @@ public class ProjectController {
         BigDecimal pnm = BigDecimal.valueOf(0);
         ProjectType projectType = new ProjectType();
         projectType.setProjectTypeId(ppid);
-        Project project = new Project(PName, PDesc, tss, tse, pt, pnm, 0, PMilestone, PRemark, pmf, plimit, PTeam, 0, PPlan, projectType);
+        Users u = (Users) session.getAttribute("user");
+        String phone = u.getuPhone();
+
+        Project project = new Project(phone, PName, PDesc, tss, tse, pt,
+                pnm, 0, PMilestone, ppid, PRemark, pmf, plimit, PTeam, 0, PPlan);
 
         System.out.println("project = " + project.toString());
 

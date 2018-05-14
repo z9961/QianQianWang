@@ -1,12 +1,11 @@
 package com.niit.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @IdClass(ProjectCommentPK.class)
-public class ProjectComment implements Serializable {
+public class ProjectComment {
     private int pid;
     private String pComment;
     private String uPhone;

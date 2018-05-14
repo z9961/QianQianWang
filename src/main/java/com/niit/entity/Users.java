@@ -11,8 +11,10 @@ public class Users {
     private String uPwd;
     private int uType;
     private int uFlag;
+    private Collection<Project> projectsByUPhone;
     private Collection<ProjectComment> projectCommentsByUPhone;
     private Collection<UsersAddress> usersAddressesByUPhone;
+    private Collection<UsersAddress> usersAddressesByUPhone_0;
     private UsersInfo usersInfoByUPhone;
 
     @Id
@@ -84,6 +86,15 @@ public class Users {
     }
 
     @OneToMany(mappedBy = "usersByUPhone")
+    public Collection<Project> getProjectsByUPhone() {
+        return projectsByUPhone;
+    }
+
+    public void setProjectsByUPhone(Collection<Project> projectsByUPhone) {
+        this.projectsByUPhone = projectsByUPhone;
+    }
+
+    @OneToMany(mappedBy = "usersByUPhone")
     public Collection<ProjectComment> getProjectCommentsByUPhone() {
         return projectCommentsByUPhone;
     }
@@ -99,6 +110,15 @@ public class Users {
 
     public void setUsersAddressesByUPhone(Collection<UsersAddress> usersAddressesByUPhone) {
         this.usersAddressesByUPhone = usersAddressesByUPhone;
+    }
+
+    @OneToMany(mappedBy = "usersByUPhone_0")
+    public Collection<UsersAddress> getUsersAddressesByUPhone_0() {
+        return usersAddressesByUPhone_0;
+    }
+
+    public void setUsersAddressesByUPhone_0(Collection<UsersAddress> usersAddressesByUPhone_0) {
+        this.usersAddressesByUPhone_0 = usersAddressesByUPhone_0;
     }
 
     @OneToOne(mappedBy = "usersByUPhone")

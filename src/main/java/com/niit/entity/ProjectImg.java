@@ -6,6 +6,7 @@ import java.util.Objects;
 @Entity
 public class ProjectImg {
     private int imgId;
+    private Integer pid;
     private String imgPath;
     private Project projectByPid;
 
@@ -17,6 +18,16 @@ public class ProjectImg {
 
     public void setImgId(int imgId) {
         this.imgId = imgId;
+    }
+
+    @Basic
+    @Column(name = "Pid")
+    public Integer getPid() {
+        return pid;
+    }
+
+    public void setPid(Integer pid) {
+        this.pid = pid;
     }
 
     @Basic
@@ -35,13 +46,14 @@ public class ProjectImg {
         if (o == null || getClass() != o.getClass()) return false;
         ProjectImg that = (ProjectImg) o;
         return imgId == that.imgId &&
+                Objects.equals(pid, that.pid) &&
                 Objects.equals(imgPath, that.imgPath);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(imgId, imgPath);
+        return Objects.hash(imgId, pid, imgPath);
     }
 
     @ManyToOne

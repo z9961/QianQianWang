@@ -5,11 +5,13 @@
 <hibernate-mapping>
 
     <class name="com.niit.entity.UsersAddress" table="UsersAddress" schema="dbo" catalog="Qianqianwang">
-        <id name="aId" column="AId">
-            <generator class="identity"/>
-        </id>
+        <id name="aId" column="AId"/>
         <property name="address" column="Address"/>
+        <property name="uPhone" column="UPhone"/>
         <many-to-one name="usersByUPhone" class="com.niit.entity.Users">
+            <column name="UPhone" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="usersByUPhone_0" class="com.niit.entity.Users">
             <column name="UPhone" not-null="true"/>
         </many-to-one>
     </class>
