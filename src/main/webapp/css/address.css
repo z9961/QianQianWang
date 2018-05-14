@@ -1,0 +1,33 @@
+
+#logo {
+
+    height: 75px;
+    margin: 20px 200px;
+
+}
+
+#addaddr {
+    font-size: 1.5em;
+    margin-left: 70%;
+}
+
+#addr {
+    background-color: #CCCCCC;
+    min-height: 700px;
+}
+
+#addrtable {
+    margin-left: 15%;
+    /*border: 1px solid #0f79be;*/
+    width: 70%;
+
+}
+
+#addrtable tr {
+    height: 60px;
+}
+
+#addrtable td {
+    border: 1px solid #0f79be;
+
+}

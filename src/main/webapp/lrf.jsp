@@ -41,7 +41,7 @@
 
 <!--登陆部分-->
 <form id="loginpart" action="Login.mvc" method="POST">
-    <table id="table">
+    <table name="table">
         <caption>会员登录</caption>
         <tr>
             <td class="word">手机号</td>
@@ -49,7 +49,7 @@
         </tr>
         <tr>
             <td class="word">密码</td>
-            <td><input id="password" name="password" type="password"/></td>
+            <td><input id="password" name="password" type="password" value="234"/></td>
         </tr>
 
         <tr>
@@ -96,20 +96,20 @@
 
 <!--验证码登陆部分-->
 <form id="loginpartbysms" action="LoginBySms.mvc" method="POST">
-    <table id="table">
+    <table name="table">
         <caption>会员登录</caption>
         <tr>
             <td class="word">手机号</td>
-            <td><input id="phone" name="phone" type="text" size="20"/></td>
+            <td><input id="phone2" name="phone" type="text" size="20"/></td>
         </tr>
         <tr>
             <td class="word">验证码</td>
-            <td><input id="sms" name="sms" type="text"/></td>
+            <td><input id="sms2" name="sms" type="text"/></td>
         </tr>
         <tr>
             <td></td>
             <td class="word" style="width: 400px">
-                <input id="getsms" name="getsms" type="button" value="获取验证码" onclick="getSms()"/>
+                <input id="getsms2" name="getsms" type="button" value="获取验证码" onclick="getSms()"/>
             </td>
         </tr>
 
@@ -147,7 +147,7 @@
 
 <!--注册部分-->
 <form id="register" action="Register.mvc" method="POST">
-    <table id="table">
+    <table name="table">
         <caption>新用户注册</caption>
         <tr>
             <td class="word">昵称</td>

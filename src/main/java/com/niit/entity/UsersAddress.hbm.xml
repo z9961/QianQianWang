@@ -5,7 +5,9 @@
 <hibernate-mapping>
 
     <class name="com.niit.entity.UsersAddress" table="UsersAddress" schema="dbo" catalog="Qianqianwang">
-        <id name="aId" column="AId"/>
+        <id name="aId" column="AId">
+            <generator class="identity"/>
+        </id>
         <property name="address" column="Address"/>
         <many-to-one name="usersByUPhone" class="com.niit.entity.Users">
             <column name="UPhone" not-null="true"/>

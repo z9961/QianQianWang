@@ -29,7 +29,7 @@ public class AddressController {
     }
 
 
-    @RequestMapping(value = " AddAdress.mvc", method = RequestMethod.POST)
+    @RequestMapping(value = "AddAddress.mvc", method = RequestMethod.POST)
     public String AddAdress(String address, HttpServletRequest req, ModelMap map) {
         System.out.println("添加地址");
         Users user = (Users) req.getSession().getAttribute("user");
@@ -40,7 +40,6 @@ public class AddressController {
         boolean isok = userBiz.saveAddress(addr);
         if (isok) {
             map.addAttribute("msg", "添加地址成功");
-
         } else {
             map.addAttribute("msg", "添加地址失败");
         }

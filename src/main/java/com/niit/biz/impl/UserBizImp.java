@@ -22,7 +22,6 @@ public class UserBizImp implements IUserBiz {
     @Autowired
     private IUsersAddressDao usersAddressDao;
 
-
     @Override
     public void save(Users u) {
 
@@ -101,9 +100,10 @@ public class UserBizImp implements IUserBiz {
         return usersAddressDao.findAllAddress(Phone);
     }
 
+
     @Override
     public boolean saveAddress(UsersAddress addr) {
-        return false;
+        return usersAddressDao.save(addr);
     }
 
     @Override

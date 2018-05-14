@@ -30,6 +30,7 @@ function invokeSettime(obj) {
 }
 
 new invokeSettime("#getsms");
+new invokeSettime("#getsms2");
 
 
 function userRegister() {
@@ -191,6 +192,7 @@ function getSms() {
             //发送后计时60s
             countdown = 60;
             new invokeSettime("#getsms");
+            new invokeSettime("#getsms2");
         } else {
             alert("手机号码不正确!");
         }

@@ -1,13 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ page isELIgnored="false" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://"
-            + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-%>
 
+<c:if test="${hot==null}">
+    <!-- JSP提供的 转发标签 -->
+    <jsp:forward page="Index.mvc"/>
+</c:if>
 
 <head>
     <title>钱钱网</title>
@@ -32,27 +30,10 @@
 <!--总体div-->
 <div id="all">
 
-    <!--模块1-->
-    <div>
-        <div id="catalog">
-            <div style="margin-top: 20px;">
-                <a href="ProductsList.xhtml?param=1">手机/数码/运营商</a><br/>
-                <a href="ProductsList.xhtml?param=2">电脑/办公</a><br/>
-                <a href="ProductsList.xhtml?param=3">生活家具/家装/厨具</a><br/>
-                <a href="ProductsList.xhtml?param=4">代步工具</a><br/>
-                <a href="ProductsList.xhtml?param=5">礼品鲜花/农资绿植</a><br/>
-                <a href="ProductsList.xhtml?param=6">男鞋/运动/户外</a><br/>
-                <a href="ProductsList.xhtml?param=7">男装</a><br/>
-                <a href="ProductsList.xhtml?param=8">女鞋/箱包/珠宝/钟表</a><br/>
-                <a href="ProductsList.xhtml?param=9">女装/童装</a><br/>
-                <a href="ProductsList.xhtml?param=10">图书/音像/电子书</a>
-            </div>
-        </div>
+
         <div id="if">
-            <!--<iframe id="Carousel_figure" src="Carousel_figure/index.html"></iframe>-->
             <iframe id="Carousel_figure" src="Carousel.xhtml"></iframe>
         </div>
-    </div>
 
 
     <!--设置轮播图的大小-->
@@ -60,114 +41,314 @@
     <!--插入页眉-->
     <script type="text/javascript" src="js/head_div.js"></script>
 
+    <%--热门推荐 --%>
+    <div id="project1">
+        <c:forEach items="${hot}" var="pro">
+            <div>
+                <div>
+                    <p class="picture">
+                        <a href="Product.xhtml?param=${pro.pId}">
+                            <c:if test="${empty pro.projectImgsByPId.get(0).imgPath}">
+                                暂无图片
+                            </c:if>
+                            <c:if test="${not empty pro.projectImgsByPId.get(0).imgPath}">
+                                <img src="${pro.projectImgsByPId.get(0).imgPath}"/>
+                            </c:if>
 
-    <!--模块2-->
-    <%--  <div id="b2">
-          <h2><span></span>手机数码</h2>
-          <div class="body_box">
+                        </a>
+                    </p>
 
-              <ul id="menu">
-                  <c:forEach items="#{indexBean.getPhone}" var="pro">
+                    <p class="pname">
+                        <a href="Product.xhtml?param=${pro.pId}">
+                                ${pro.pName}
+                        </a>
+                    </p>
+                    <p class="ptype">
+                        <a href="Product.xhtml?param=${pro.pId}">
+                                ${pro.projectTypeByPCategoryId.projectTypeName}
+                        </a>
+                    </p>
+                </div>
 
-                      <li>
-                          <p class="picture">
-                              <a href="Product.xhtml?param=${pro.pid}">
-                                  <img src="${pro.pimagePath}"/>
-                              </a>
-                          </p>
-                          <p class="title">
-                                      <span class="kuaimai">
-                                          快买
-                                      </span>
-                              <a href="Product.xhtml?param=${pro.pid}">
-                                      ${pro.pname}
-                              </a>
-                          </p>
-                          <p class="author">
-                                  ${pro.users.uname}
-                          </p>
-                          <p class="price"><span class="sale">¥</span><span class="sale_price">
-                                  ${pro.pprice}
-                          </span>
-                          </p>
-                      </li>
+                <div>
+                    <table>
+                        <tr>
+                            <td>
+                                <p class="ptype">
+                                        ${pro.pnp}
+                                    </a>
+                                </p>
+                            </td>
 
-                  </c:forEach>
-              </ul>
+                            <td>
+                                <p class="ptype">
+                                        ${pro.pnm}
+                                    </a>
+                                </p>
+                            </td>
 
-          </div>
-          <br/>
-          <h2><span></span>生活家具</h2>
-          <div class="body_box">
+                            <td>
+                                <p class="ptype">
+                                        ${pro.ped}
+                                    </a>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>已达</td>
+                            <td>已筹</td>
+                            <td>剩余时间</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+    <%--
+        &lt;%&ndash;最新上架 &ndash;%&gt;
+        <div id="project1">
+            <c:forEach items="${indexBean.getPhone}" var="pro">
+                <div>
+                    <div>
+                        <p class="picture">
+                            <a href="Product.xhtml?param=${pro.pid}">
+                                <img src="${pro.pimagePath}"/>
+                            </a>
+                        </p>
 
-              <ul id="menu">
-                  <c:forEach items="#{indexBean.getfitment}" var="pro">
+                        <p class="pname">
+                            <a href="Product.xhtml?param=${pro.pid}">
+                                    ${pro.pname}
+                            </a>
+                        </p>
+                        <p class="ptype">
+                            <a href="Product.xhtml?param=${pro.ptype}">
+                                    ${pro.ptype}
+                            </a>
+                        </p>
+                    </div>
 
-                      <li>
-                          <p class="picture">
-                              <a href="Product.xhtml?param=${pro.pid}">
-                                  <img src="${pro.pimagePath}"/>
-                              </a>
-                          </p>
-                          <p class="title">
-                                      <span class="kuaimai">
-                                          快买
-                                      </span>
-                              <a href="Product.xhtml?param=${pro.pid}">
-                                      ${pro.users.uname}
-                              </a>
-                          </p>
-                          <p class="author">
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <p class="ptype">
+                                        <a href="Product.xhtml?param=${pro.ptype}">
+                                                ${pro.ptype}
+                                        </a>
+                                    </p>
+                                </td>
 
-                                  ${pro.pnum}
-                          </p>
-                          <p class="price"><span class="sale">¥</span><span class="sale_price">
-                                  ${pro.pprice}
-                          </span>
-                          </p>
-                      </li>
+                                <td>
+                                    <p class="ptype">
+                                        <a href="Product.xhtml?param=${pro.ptype}">
+                                                ${pro.ptype}
+                                        </a>
+                                    </p>
+                                </td>
 
-                  </c:forEach>
-              </ul>
+                                <td>
+                                    <p class="ptype">
+                                        <a href="Product.xhtml?param=${pro.ptype}">
+                                                ${pro.ptype}
+                                        </a>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>已达</td>
+                                <td>已筹</td>
+                                <td>剩余时间</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
 
-          </div>
-          <br/>
-          <h2><span></span>代步工具</h2>
-          <div class="body_box">
+        &lt;%&ndash;商品类型 1 &ndash;%&gt;
+        <div id="project1">
+            <c:forEach items="${indexBean.getPhone}" var="pro">
+                <div>
+                    <div>
+                        <p class="picture">
+                            <a href="Product.xhtml?param=${pro.pid}">
+                                <img src="${pro.pimagePath}"/>
+                            </a>
+                        </p>
 
-              <ul id="menu">
-                  <c:forEach items="#{indexBean.gettool}" var="pro">
+                        <p class="pname">
+                            <a href="Product.xhtml?param=${pro.pid}">
+                                    ${pro.pname}
+                            </a>
+                        </p>
+                        <p class="ptype">
+                            <a href="Product.xhtml?param=${pro.ptype}">
+                                    ${pro.ptype}
+                            </a>
+                        </p>
+                    </div>
 
-                      <li>
-                          <p class="picture">
-                              <a href="Product.xhtml?param=${pro.pid}">
-                                  <img src="${pro.pimagePath}"/>
-                              </a>
-                          </p>
-                          <p class="title">
-                                      <span class="kuaimai">
-                                          快买
-                                      </span>
-                              <a href="Product.xhtml?param=${pro.pid}">
-                                      ${pro.users.uname}
-                              </a>
-                          </p>
-                          <p class="author">
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <p class="ptype">
+                                        <a href="Product.xhtml?param=${pro.ptype}">
+                                                ${pro.ptype}
+                                        </a>
+                                    </p>
+                                </td>
 
-                                  ${pro.pnum}
-                          </p>
-                          <p class="price"><span class="sale">¥</span><span class="sale_price">
-                                  ${pro.pprice}
-                          </span>
-                          </p>
-                      </li>
+                                <td>
+                                    <p class="ptype">
+                                        <a href="Product.xhtml?param=${pro.ptype}">
+                                                ${pro.ptype}
+                                        </a>
+                                    </p>
+                                </td>
 
-                  </c:forEach>
-              </ul>
+                                <td>
+                                    <p class="ptype">
+                                        <a href="Product.xhtml?param=${pro.ptype}">
+                                                ${pro.ptype}
+                                        </a>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>已达</td>
+                                <td>已筹</td>
+                                <td>剩余时间</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
 
-          </div>
+        &lt;%&ndash;商品类型 2 &ndash;%&gt;
+        <div id="project1">
+            <c:forEach items="${indexBean.getPhone}" var="pro">
+                <div>
+                    <div>
+                        <p class="picture">
+                            <a href="Product.xhtml?param=${pro.pid}">
+                                <img src="${pro.pimagePath}"/>
+                            </a>
+                        </p>
 
-      </div>--%>
+                        <p class="pname">
+                            <a href="Product.xhtml?param=${pro.pid}">
+                                    ${pro.pname}
+                            </a>
+                        </p>
+                        <p class="ptype">
+                            <a href="Product.xhtml?param=${pro.ptype}">
+                                    ${pro.ptype}
+                            </a>
+                        </p>
+                    </div>
+
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <p class="ptype">
+                                        <a href="Product.xhtml?param=${pro.ptype}">
+                                                ${pro.ptype}
+                                        </a>
+                                    </p>
+                                </td>
+
+                                <td>
+                                    <p class="ptype">
+                                        <a href="Product.xhtml?param=${pro.ptype}">
+                                                ${pro.ptype}
+                                        </a>
+                                    </p>
+                                </td>
+
+                                <td>
+                                    <p class="ptype">
+                                        <a href="Product.xhtml?param=${pro.ptype}">
+                                                ${pro.ptype}
+                                        </a>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>已达</td>
+                                <td>已筹</td>
+                                <td>剩余时间</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+
+        &lt;%&ndash;商品类型 3 &ndash;%&gt;
+        <div id="project1">
+            <c:forEach items="${indexBean.getPhone}" var="pro">
+                <div>
+                    <div>
+                        <p class="picture">
+                            <a href="Product.xhtml?param=${pro.pid}">
+                                <img src="${pro.pimagePath}"/>
+                            </a>
+                        </p>
+
+                        <p class="pname">
+                            <a href="Product.xhtml?param=${pro.pid}">
+                                    ${pro.pname}
+                            </a>
+                        </p>
+                        <p class="ptype">
+                            <a href="Product.xhtml?param=${pro.ptype}">
+                                    ${pro.ptype}
+                            </a>
+                        </p>
+                    </div>
+
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <p class="ptype">
+                                        <a href="Product.xhtml?param=${pro.ptype}">
+                                                ${pro.ptype}
+                                        </a>
+                                    </p>
+                                </td>
+
+                                <td>
+                                    <p class="ptype">
+                                        <a href="Product.xhtml?param=${pro.ptype}">
+                                                ${pro.ptype}
+                                        </a>
+                                    </p>
+                                </td>
+
+                                <td>
+                                    <p class="ptype">
+                                        <a href="Product.xhtml?param=${pro.ptype}">
+                                                ${pro.ptype}
+                                        </a>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>已达</td>
+                                <td>已筹</td>
+                                <td>剩余时间</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>--%>
+
 </div>
 
 
