@@ -6,7 +6,9 @@ body {
 
 #Carousel_figure {
     /*设置轮播图的高度*/
-    height: 600px;
+    height: 400px;
+    width: 1000px;
+    border: 0;
 }
 
 #IndexText {
@@ -32,4 +34,104 @@ body {
     margin-left: 200px;
     font-size: 20px;
     line-height: 25px
+}
+
+input {
+    border: 0px;
+    outline: none;
+    background-color: white;
+
+}
+
+#all {
+    margin: 0 auto;
+    padding-top: 145px;
+    width: 1400px
+}
+
+#catalog a {
+    line-height: 35px;
+    margin-left: 45px;
+}
+
+#b2 {
+    clear: both;
+    margin-top: 450px;
+    height: 600px;
+}
+
+#catalog {
+    height: 400px;
+    float: left;
+    background-color: #f4f4f4;
+    width: 320px;
+    font-family: 微软雅黑;
+    font-size: 1.2em;
+}
+
+#if {
+    float: left;
+    width: 1000px;
+}
+
+#b2 > div {
+
+    height: 300px;
+
+    margin-top: 10px;
+}
+
+#b2 li {
+    left: 0px;
+    border: 1px solid #f6f6f6;
+    box-shadow: 0 0 50px rgba(216, 216, 216, .8);
+    width: 300px;
+    height: 260px;
+    list-style-type: none;
+    float: left; /* 往左浮动 */
+    margin-right: 24px;
+    padding-left: 6px;
+    background-color: white;
+}
+
+#b2 li a {
+    display: block; /* 将链接设为块级元素 */
+    /*padding:8px 10px;  设置内边距*/
+    padding-top: 8px;
+    padding-left: 0px;
+    padding-right: 3px;
+    text-decoration: none; /* 去掉下划线 */
+
+    margin-top: 0px;
+}
+
+#b2 li a.last {
+    border-right: 0;
+    border-left: 0;
+}
+
+.body_box {
+    height: 370px;
+    width: 1320px;
+}
+
+.body_box img {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    top: 50%;
+}
+
+.body_box li {
+    width: 250px;
+}
+
+h2 {
+    padding-top: 20px;
+}
+
+.ptype {
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    color: #a5a5a5;
 }

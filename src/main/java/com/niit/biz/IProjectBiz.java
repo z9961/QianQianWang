@@ -16,4 +16,5 @@ public interface IProjectBiz {
 
     List<Project> findProject3();
 
+    int save(Project project);
 }

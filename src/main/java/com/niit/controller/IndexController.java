@@ -29,7 +29,7 @@ public class IndexController {
         List<Project> p3 = projectBiz.findProject3();
 
         map.addAttribute("hot", hot);
-        map.addAttribute("new", newp);
+        map.addAttribute("newp", newp);
         map.addAttribute("p1", hot);
         map.addAttribute("p2", hot);
         map.addAttribute("p3", hot);
@@ -40,9 +40,6 @@ public class IndexController {
             Project project = hot.get(i);
             System.out.println("project = " + project.toString());
         }
-
-        hot.get(0).getProjectImgsByPId()
-
         return "index.jsp";
     }
 

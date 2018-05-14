@@ -14,4 +14,6 @@ public interface IProjectDao {
     List<Project> findProject2();
 
     List<Project> findProject3();
+
+    int save(Project project);
 }

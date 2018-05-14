@@ -25,8 +25,12 @@ public class ProjectDaoImp implements IProjectDao {
         String hql = "from Project order by pnm desc";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
         query.setMaxResults(5);
-        //这里的user在没有对应的数据时为NULL
-        return query.list();
+        List<Project> list = query.list();
+        for (int i = 0; i < list.size(); i++) {
+            Project project = list.get(i);
+            System.out.println("dao:hotproject = " + project.toString());
+        }
+        return list;
     }
 
     @Override
@@ -34,8 +38,12 @@ public class ProjectDaoImp implements IProjectDao {
         String hql = "from Project order by psd desc";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
         query.setMaxResults(5);
-        //这里的user在没有对应的数据时为NULL
-        return query.list();
+        List<Project> list = query.list();
+        for (int i = 0; i < list.size(); i++) {
+            Project project = list.get(i);
+            System.out.println("dao:newproject = " + project.toString());
+        }
+        return list;
     }
 
     @Override
@@ -43,8 +51,12 @@ public class ProjectDaoImp implements IProjectDao {
         String hql = "from Project where projectTypeByPCategoryId.projectTypeId = 1";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
         query.setMaxResults(5);
-        //这里的user在没有对应的数据时为NULL
-        return query.list();
+        List<Project> list = query.list();
+        for (int i = 0; i < list.size(); i++) {
+            Project project = list.get(i);
+            System.out.println("dao:p1project = " + project.toString());
+        }
+        return list;
     }
 
     @Override
@@ -52,8 +64,12 @@ public class ProjectDaoImp implements IProjectDao {
         String hql = "from Project where projectTypeByPCategoryId.projectTypeId = 2";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
         query.setMaxResults(5);
-        //这里的user在没有对应的数据时为NULL
-        return query.list();
+        List<Project> list = query.list();
+        for (int i = 0; i < list.size(); i++) {
+            Project project = list.get(i);
+            System.out.println("dao:p2project = " + project.toString());
+        }
+        return list;
     }
 
     @Override
@@ -61,7 +77,22 @@ public class ProjectDaoImp implements IProjectDao {
         String hql = "from Project where projectTypeByPCategoryId.projectTypeId = 3";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
         query.setMaxResults(5);
-        //这里的user在没有对应的数据时为NULL
-        return query.list();
+
+        List<Project> list = query.list();
+        for (int i = 0; i < list.size(); i++) {
+            Project project = list.get(i);
+            System.out.println("dao:p3project = " + project.toString());
+        }
+        return list;
+    }
+
+    @Override
+    public int save(Project project) {
+        try {
+            sessionFactory.getCurrentSession().save(project);
+            return project.getpId();
+        } catch (Exception e) {
+            return -1;
+        }
     }
 }

@@ -40,4 +40,9 @@ public class IProjectBizImp implements IProjectBiz {
         return projectDao.findProject3();
     }
 
+    @Override
+    public int save(Project project) {
+        return projectDao.save(project);
+    }
+
 }
