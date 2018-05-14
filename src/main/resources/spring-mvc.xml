@@ -16,6 +16,12 @@
     <!-- 3.返回的视图的解释 -->
     <!-- 因为SpringMVC默认已经配置jsp视图解释器,所以如果页面是jsp就不用配置了 -->
 
-    <!-- 静态文件-->
-    <!--    <mvc:default-servlet-handler/>-->
+    <!-- 上传文件 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        <!-- 最大内存大小 -->
+        <property name="maxInMemorySize" value="10240"/>
+        <!-- 最大文件大小，-1为不限制大小 -->
+        <property name="maxUploadSize" value="-1"/>
+    </bean>
 </beans>

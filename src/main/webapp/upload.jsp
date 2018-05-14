@@ -19,18 +19,21 @@
 <div id="bg"></div>
 
 <!--注册部分-->
-<form id="registerinfo" action="AddProject.mvc" method="POST" style="margin-top: 0;">
+<form id="registerinfo" action="Upload.mvc" method="POST" style="margin-top: 0;" enctype="multipart/form-data">
     <table id="table">
         <caption style="color: white">上传项目图片</caption>
 
-        <tr>
-            <td class="word">项目开发计划</td>
-            <td><input id="PPlan" name="PPlan" type="text" value="123123123" required maxlength="100"/></td>
+        <tr id="firstfile">
+            <td>
+                <input type="file" name="file"/>
+            </td>
         </tr>
-
-
         <tr>
-            <td></td>
+            <td>
+                <input id="addfilenum" type="button" value="增加图片数量" onclick="addfilenum()"/>
+            </td>
+        </tr>
+        <tr>
             <td>
                 <input id="subbtn" type="submit" value="提交项目"/>
             </td>
