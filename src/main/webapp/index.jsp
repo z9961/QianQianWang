@@ -56,6 +56,7 @@
 
     <div id="b2">
         <%--热门推荐 --%>
+        <img class="imgtitle" src="images/热门推荐.png"/>
         <div name="projectdiv">
             <ul name="menu">
                 <c:forEach items="${hot}" var="pro">
@@ -63,7 +64,7 @@
                         <div>
                             <p class="picture">
                                 <a href="ShowProject.mvc?pid=${pro.pId}">
-                                    <img class="pimg" src="${pro.projectImgsByPId[0].imgPath}"/>
+                                    <img src="images/${pro.pId}/0.jpg"/>
                                 </a>
                             </p>
 
@@ -121,6 +122,7 @@
         </div>
         <br/>
         <%--最新上架 --%>
+        <img class="imgtitle" src="images/最新.png"/>
         <div name="projectdiv">
             <ul name="menu">
 
@@ -182,7 +184,9 @@
             </ul>
         </div>
         <br/>
+
         <%--商品类型 1 --%>
+        <img class="imgtitle" src="images/数码.png"/>
         <div name="projectdiv">
             <ul name="menu">
 
@@ -245,6 +249,7 @@
         </div>
         <br/>
         <%--商品类型 2 --%>
+        <img class="imgtitle" src="images/生活.png"/>
         <div name="projectdiv">
             <ul name="menu">
                 <c:forEach items="${p2}" var="pro">
@@ -306,6 +311,7 @@
         </div>
         <br/>
         <%--商品类型 3 --%>
+        <img class="imgtitle" src="images/艺术.png"/>
         <div name="projectdiv">
             <ul name="menu">
                 <c:forEach items="${p3}" var="pro">

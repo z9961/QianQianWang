@@ -1,11 +1,13 @@
 package com.niit.entity;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
 public class ProjectComment {
     private int pcId;
+    private Timestamp pcTime;
     private String pComment;
     private Project projectByCPid;
     private Users usersByUPhone;
@@ -18,6 +20,16 @@ public class ProjectComment {
 
     public void setPcId(int pcId) {
         this.pcId = pcId;
+    }
+
+    @Basic
+    @Column(name = "PCTime")
+    public Timestamp getPcTime() {
+        return pcTime;
+    }
+
+    public void setPcTime(Timestamp pcTime) {
+        this.pcTime = pcTime;
     }
 
     @Basic
@@ -36,13 +48,14 @@ public class ProjectComment {
         if (o == null || getClass() != o.getClass()) return false;
         ProjectComment that = (ProjectComment) o;
         return pcId == that.pcId &&
+                Objects.equals(pcTime, that.pcTime) &&
                 Objects.equals(pComment, that.pComment);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(pcId, pComment);
+        return Objects.hash(pcId, pcTime, pComment);
     }
 
     @ManyToOne

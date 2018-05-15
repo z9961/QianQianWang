@@ -28,7 +28,50 @@ public class Project {
     private Collection<ProjectComment> projectCommentsByPId;
     private Collection<ProjectImg> projectImgsByPId;
 
+    public Project(String pName, String pDesc, Timestamp psd, Timestamp ped, BigDecimal pTarget, BigDecimal pnm, Integer pnp, String pMilestone, String pRemark, Integer pmf, Integer pLimit, String pTeam, Integer pState, String pPlan, Users usersByUPhone) {
+        this.pName = pName;
+        this.pDesc = pDesc;
+        this.psd = psd;
+        this.ped = ped;
+        this.pTarget = pTarget;
+        this.pnm = pnm;
+        this.pnp = pnp;
+        this.pMilestone = pMilestone;
+        this.pRemark = pRemark;
+        this.pmf = pmf;
+        this.pLimit = pLimit;
+        this.pTeam = pTeam;
+        this.pState = pState;
+        this.pPlan = pPlan;
+        this.usersByUPhone = usersByUPhone;
+    }
+
     public Project() {
+    }
+
+    @Override
+    public String toString() {
+        return "Project{" +
+                "pId=" + pId +
+                ", pName='" + pName + '\'' +
+                ", pDesc='" + pDesc + '\'' +
+                ", psd=" + psd +
+                ", ped=" + ped +
+                ", pTarget=" + pTarget +
+                ", pnm=" + pnm +
+                ", pnp=" + pnp +
+                ", pMilestone='" + pMilestone + '\'' +
+                ", pRemark='" + pRemark + '\'' +
+                ", pmf=" + pmf +
+                ", pLimit=" + pLimit +
+                ", pTeam='" + pTeam + '\'' +
+                ", pState=" + pState +
+                ", pPlan='" + pPlan + '\'' +
+                ", usersByUPhone=" + usersByUPhone +
+                ", projectTypeByPCategoryId=" + projectTypeByPCategoryId +
+                ", projectCommentsByPId=" + projectCommentsByPId +
+                ", projectImgsByPId=" + projectImgsByPId +
+                '}';
     }
 
     public Project(String pName, String pDesc, Timestamp psd, Timestamp ped, BigDecimal pTarget, BigDecimal pnm, Integer pnp, String pMilestone, String pRemark, Integer pmf, Integer pLimit, String pTeam, Integer pState, String pPlan, Users usersByUPhone, ProjectType projectTypeByPCategoryId) {
@@ -110,31 +153,6 @@ public class Project {
         this.pTarget = pTarget;
     }
 
-    @Override
-    public String toString() {
-        return "Project{" +
-                "pId=" + pId +
-                ", pName='" + pName + '\'' +
-                ", pDesc='" + pDesc + '\'' +
-                ", psd=" + psd +
-                ", ped=" + ped +
-                ", pTarget=" + pTarget +
-                ", pnm=" + pnm +
-                ", pnp=" + pnp +
-                ", pMilestone='" + pMilestone + '\'' +
-                ", pRemark='" + pRemark + '\'' +
-                ", pmf=" + pmf +
-                ", pLimit=" + pLimit +
-                ", pTeam='" + pTeam + '\'' +
-                ", pState=" + pState +
-                ", pPlan='" + pPlan + '\'' +
-                ", usersByUPhone=" + usersByUPhone +
-                ", projectTypeByPCategoryId=" + projectTypeByPCategoryId +
-                ", projectCommentsByPId=" + projectCommentsByPId +
-                ", projectImgsByPId=" + projectImgsByPId +
-                '}';
-    }
-    
     @Basic
     @Column(name = "PNM")
     public BigDecimal getPnm() {

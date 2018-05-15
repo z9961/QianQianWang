@@ -2,12 +2,16 @@ package com.niit.dao.impl;
 
 import com.niit.dao.IProjectDao;
 import com.niit.entity.Project;
+import com.niit.entity.ProjectComment;
 import com.niit.entity.ProjectImg;
+import com.niit.entity.Users;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -133,6 +137,25 @@ public class ProjectDaoImp implements IProjectDao {
             projectImg.setImgId(max + 1);
             sessionFactory.getCurrentSession().save(projectImg);
         }
+        return true;
+    }
+
+    @Override
+    public boolean savecom(Project p, Users u, String newcom) {
+
+        int max = 0;
+        try {
+            max = (int) sessionFactory.getCurrentSession().createQuery("select max(a.pcId) from ProjectComment a ").uniqueResult();
+        } catch (Exception e) {
+            System.out.println("pmax=0");
+        }
+
+        ProjectComment projectComment = new ProjectComment();
+        projectComment.setpComment(newcom);
+        projectComment.setPcTime(new Timestamp(new Date().getTime()));
+        projectComment.setProjectByCPid(p);
+        projectComment.setUsersByUPhone(u);
+        sessionFactory.getCurrentSession().save(projectComment);
         return true;
     }
 }

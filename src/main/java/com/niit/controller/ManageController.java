@@ -33,11 +33,11 @@ public class ManageController {
             myprojects.add(next);
         }
 
-        List<Project> projects = new ArrayList<Project>();
+        List<Project> mynewprojects = new ArrayList<Project>();
         Collection<Project> projectsByUPhone = user.getProjectsByUPhone();
         for (Iterator<Project> iterator = projectsByUPhone.iterator(); iterator.hasNext(); ) {
             Project next = iterator.next();
-            projects.add(next);
+            mynewprojects.add(next);
         }
 
         List<ProjectComment> mycomments = new ArrayList<>();
@@ -46,6 +46,12 @@ public class ManageController {
             ProjectComment next = iterator.next();
             mycomments.add(next);
         }
+
+        map.addAttribute("myprojects", myprojects);
+        map.addAttribute("mynewprojects", myprojects);
+        map.addAttribute("mycomments", myprojects);
+
+
         return "manage.jsp";
     }
 

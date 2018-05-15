@@ -1,6 +1,7 @@
 package com.niit.biz;
 
 import com.niit.entity.Project;
+import com.niit.entity.Users;
 
 import java.util.List;
 
@@ -21,4 +22,6 @@ public interface IProjectBiz {
     Project findProjectById(int pid);
 
     boolean saveimg(int pid, List<String> listImagePath);
+
+    boolean savecom(Project p, Users u, String newcom);
 }

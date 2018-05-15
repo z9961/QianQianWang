@@ -1,10 +1,7 @@
 package com.niit.controller;
 
 import com.niit.biz.IProjectBiz;
-import com.niit.entity.Project;
-import com.niit.entity.ProjectImg;
-import com.niit.entity.ProjectType;
-import com.niit.entity.Users;
+import com.niit.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -165,26 +162,47 @@ public class ProjectController {
         map.addAttribute("timestr", timestr);
 
         //将所有图片转为list
-
-
         List imglist = new ArrayList();
         Collection<ProjectImg> c = project.getProjectImgsByPId();
         for (Iterator<ProjectImg> iterator = c.iterator(); iterator.hasNext(); ) {
             ProjectImg next = iterator.next();
             imglist.add(next);
         }
+        map.addAttribute("imglist", imglist);
         System.out.println("imglist = " + imglist.size());
 
-        map.addAttribute("imglist", imglist);
+        //所有评论转list
+        List comlist = new ArrayList();
+        Collection<ProjectComment> com = project.getProjectCommentsByPId();
+        for (Iterator<ProjectComment> iterator = com.iterator(); iterator.hasNext(); ) {
+            ProjectComment next = iterator.next();
+            comlist.add(next);
+        }
+        map.addAttribute("comlist", comlist);
+        System.out.println("comlist = " + comlist.size());
+
+
         String pathRoot = session.getServletContext().getRealPath("");
         String savePath = pathRoot + "/images/" + pid + "/";
         File countfile = new File(savePath);
         String[] files = countfile.list();
         int i = files.length;
 
-
+        session.setAttribute("pid", pid);
+        session.setAttribute("showproject", project);
         return "project.jsp";
     }
 
+
+    @RequestMapping(value = "AddComment.mvc", method = RequestMethod.POST)
+    public String AddComment(HttpSession session, ModelMap map, String newcom, String pid) {
+        Project p = (Project) session.getAttribute("showproject");
+        Users u = (Users) session.getAttribute("user");
+
+        projectBiz.savecom(p, u, newcom);
+        map.addAttribute("msg", "添加评论成功");
+        map.addAttribute("url", "ShowProject.mvc?pid=" + p.getpId());
+        return "msg.jsp";
+    }
 
 }

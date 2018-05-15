@@ -3,6 +3,7 @@ package com.niit.biz.impl;
 import com.niit.biz.IProjectBiz;
 import com.niit.dao.IProjectDao;
 import com.niit.entity.Project;
+import com.niit.entity.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,5 +55,11 @@ public class IProjectBizImp implements IProjectBiz {
     public boolean saveimg(int pid, List<String> listImagePath) {
         return projectDao.saveimg(pid, listImagePath);
     }
+
+    @Override
+    public boolean savecom(Project p, Users u, String newcom) {
+        return projectDao.savecom(p, u, newcom);
+    }
+
 
 }

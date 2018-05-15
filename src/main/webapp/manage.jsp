@@ -54,7 +54,7 @@
     <p class="title">我发起的
     <p/>
     <div>
-        <c:forEach items="${projects}" var="pro">
+        <c:forEach items="${mynewprojects}" var="pro">
             <table>
                 <tr>
                     <td>商品名称</td>
@@ -93,8 +93,8 @@
                     <td>评论内容</td>
                 </tr>
                 <tr>
-                    <td>${com.getProjectByCPid().getpName()}</td>
-                    <td>${com.getpComment()}</td>
+                    <td>${com.projectByCPid.pName}</td>
+                    <td>${com.pComment}</td>
                 </tr>
             </table>
         </c:forEach>
@@ -102,8 +102,5 @@
 
     <!--撑出页脚-->
     <div id="blank" style="height:1100px"></div>
-
-    <script type="text/javascript">
-        window.onload = cheangetime();
-    </script>
+</div>
 </body>

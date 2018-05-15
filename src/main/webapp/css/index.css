@@ -136,8 +136,7 @@ h2 {
     color: #a5a5a5;
 }
 
-/*图片大小*/
-.pimg {
-    width: 280px;
-    height: 220px;
+.imgtitle {
+    margin-left: 30px;
+    width: 230px;
 }

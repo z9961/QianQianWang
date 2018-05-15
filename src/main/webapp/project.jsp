@@ -40,7 +40,9 @@
                         <p>${showproject.pnp}名支持者</p>
                     </div>
                 </div>
-                <p>此项目必须在${showproject.ped}前得到${showproject.pTarget}的支持才可成功！剩余${timestr}！</p>
+                <p>此项目必须在${showproject.ped}前得到${showproject.pTarget}的支持才可成功！剩余
+                <p><input class="ped" name="ped" value="${showproject.ped}" disabled></p>
+                </p>
                 支持额：<input type="number"/>
                 <button type="submit"/>
             </form>
@@ -60,52 +62,57 @@
         <%--显示产品介绍--%>
     </div>
     <div id="commentsDiv">
-        <form id="comments">
-            <c:if test="{showproject.projectCommentsByPId!=null}">
-                <c:forEach items="#{showproject.projectCommentsByPId}" var="fb">
+
+        <c:if test="{showproject.projectCommentsByPId!=null}">
+            test
+            <c:forEach items="#{comlist}" var="fb">
+                <div>
+                    <hr/>
                     <div>
-                        <hr/>
                         <div>
-                            <div>
-                                <table>
+                            <table>
 
-                                    <tr>
-                                        <td>
-                                            用户名： ${fb.usersByBuyuserId.uName}
-                                        </td>
-                                        <td id="commentsinfo">
-                                            评论时间： ${fb.id.time}
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td>
+                                        用户名： ${fb.usersByBuyuserId.uName}
+                                    </td>
+                                    <td id="commentsinfo">
+                                        评论时间： ${fb.pcTime}
+                                    </td>
+                                </tr>
 
-                                </table>
+                            </table>
 
-                            </div>
-                            <br/>
-                            <div>
-                                <p id="comment">${fb.comment}</p>
-                            </div>
                         </div>
-
                         <br/>
-
-                        <hr/>
+                        <div>
+                            <p id="comment">${fb.pComment}</p>
+                        </div>
                     </div>
 
-                </c:forEach>
+                    <br/>
+
+                    <hr/>
+                </div>
+
+            </c:forEach>
 
 
-            </c:if>
+        </c:if>
 
-            <div id="inputComment">
+        <div id="inputComment">
+            <form action="AddComment.mvc?pid=%{showproject.pId}" method="post">
                 <br/>
                 <p>请说出您对该商品的看法：</p>
-                <br/><h:inputTextarea id="commentsinput" rows="3" cols="100" value="#{productBean.comments}"/>
                 <br/>
-                <h:commandButton value="提交" type="submit" action="#{productBean.insertComment()}"/>
-            </div>
-
+                <input type="text" id="newcom" name="newcom" style="row-span: 3;column-span: 100" required>
+                <br/>
+                <input value="提交" type="submit"/>
+            </form>
+        </div>
         </form>
+
+
     </div>
 
 
