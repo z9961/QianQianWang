@@ -9,7 +9,6 @@ import java.util.Objects;
 @Entity
 public class Project {
     private int pId;
-    private String uPhone;
     private String pName;
     private String pDesc;
     private Timestamp psd;
@@ -18,7 +17,6 @@ public class Project {
     private BigDecimal pnm;
     private Integer pnp;
     private String pMilestone;
-    private Integer pCategoryId;
     private String pRemark;
     private Integer pmf;
     private Integer pLimit;
@@ -30,52 +28,6 @@ public class Project {
     private Collection<ProjectComment> projectCommentsByPId;
     private Collection<ProjectImg> projectImgsByPId;
 
-    public Project(String uPhone, String pName, String pDesc, Timestamp psd, Timestamp ped, BigDecimal pTarget, BigDecimal pnm, Integer pnp, String pMilestone, Integer pCategoryId, String pRemark, Integer pmf, Integer pLimit, String pTeam, Integer pState, String pPlan) {
-        this.uPhone = uPhone;
-        this.pName = pName;
-        this.pDesc = pDesc;
-        this.psd = psd;
-        this.ped = ped;
-        this.pTarget = pTarget;
-        this.pnm = pnm;
-        this.pnp = pnp;
-        this.pMilestone = pMilestone;
-        this.pCategoryId = pCategoryId;
-        this.pRemark = pRemark;
-        this.pmf = pmf;
-        this.pLimit = pLimit;
-        this.pTeam = pTeam;
-        this.pState = pState;
-        this.pPlan = pPlan;
-    }
-
-    @Override
-    public String toString() {
-        return "Project{" +
-                "pId=" + pId +
-                ", uPhone='" + uPhone + '\'' +
-                ", pName='" + pName + '\'' +
-                ", pDesc='" + pDesc + '\'' +
-                ", psd=" + psd +
-                ", ped=" + ped +
-                ", pTarget=" + pTarget +
-                ", pnm=" + pnm +
-                ", pnp=" + pnp +
-                ", pMilestone='" + pMilestone + '\'' +
-                ", pCategoryId=" + pCategoryId +
-                ", pRemark='" + pRemark + '\'' +
-                ", pmf=" + pmf +
-                ", pLimit=" + pLimit +
-                ", pTeam='" + pTeam + '\'' +
-                ", pState=" + pState +
-                ", pPlan='" + pPlan + '\'' +
-                ", usersByUPhone=" + usersByUPhone +
-                ", projectTypeByPCategoryId=" + projectTypeByPCategoryId +
-                ", projectCommentsByPId=" + projectCommentsByPId +
-                ", projectImgsByPId=" + projectImgsByPId +
-                '}';
-    }
-
     @Id
     @Column(name = "PId")
     public int getpId() {
@@ -84,16 +36,6 @@ public class Project {
 
     public void setpId(int pId) {
         this.pId = pId;
-    }
-
-    @Basic
-    @Column(name = "UPhone")
-    public String getuPhone() {
-        return uPhone;
-    }
-
-    public void setuPhone(String uPhone) {
-        this.uPhone = uPhone;
     }
 
     @Basic
@@ -177,16 +119,6 @@ public class Project {
     }
 
     @Basic
-    @Column(name = "PCategoryId")
-    public Integer getpCategoryId() {
-        return pCategoryId;
-    }
-
-    public void setpCategoryId(Integer pCategoryId) {
-        this.pCategoryId = pCategoryId;
-    }
-
-    @Basic
     @Column(name = "PRemark")
     public String getpRemark() {
         return pRemark;
@@ -252,7 +184,6 @@ public class Project {
         if (o == null || getClass() != o.getClass()) return false;
         Project project = (Project) o;
         return pId == project.pId &&
-                Objects.equals(uPhone, project.uPhone) &&
                 Objects.equals(pName, project.pName) &&
                 Objects.equals(pDesc, project.pDesc) &&
                 Objects.equals(psd, project.psd) &&
@@ -261,7 +192,6 @@ public class Project {
                 Objects.equals(pnm, project.pnm) &&
                 Objects.equals(pnp, project.pnp) &&
                 Objects.equals(pMilestone, project.pMilestone) &&
-                Objects.equals(pCategoryId, project.pCategoryId) &&
                 Objects.equals(pRemark, project.pRemark) &&
                 Objects.equals(pmf, project.pmf) &&
                 Objects.equals(pLimit, project.pLimit) &&
@@ -273,7 +203,7 @@ public class Project {
     @Override
     public int hashCode() {
 
-        return Objects.hash(pId, uPhone, pName, pDesc, psd, ped, pTarget, pnm, pnp, pMilestone, pCategoryId, pRemark, pmf, pLimit, pTeam, pState, pPlan);
+        return Objects.hash(pId, pName, pDesc, psd, ped, pTarget, pnm, pnp, pMilestone, pRemark, pmf, pLimit, pTeam, pState, pPlan);
     }
 
     @ManyToOne
@@ -296,7 +226,7 @@ public class Project {
         this.projectTypeByPCategoryId = projectTypeByPCategoryId;
     }
 
-    @OneToMany(mappedBy = "projectByPid")
+    @OneToMany(mappedBy = "projectByCPid")
     public Collection<ProjectComment> getProjectCommentsByPId() {
         return projectCommentsByPId;
     }

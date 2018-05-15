@@ -7,9 +7,7 @@ import java.util.Objects;
 public class UsersAddress {
     private int aId;
     private String address;
-    private String uPhone;
-    private Users usersByUPhone;
-    private Users usersByUPhone_0;
+    private Users usersByAUPhone;
 
     @Id
     @Column(name = "AId")
@@ -31,49 +29,28 @@ public class UsersAddress {
         this.address = address;
     }
 
-    @Basic
-    @Column(name = "UPhone")
-    public String getuPhone() {
-        return uPhone;
-    }
-
-    public void setuPhone(String uPhone) {
-        this.uPhone = uPhone;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UsersAddress that = (UsersAddress) o;
         return aId == that.aId &&
-                Objects.equals(address, that.address) &&
-                Objects.equals(uPhone, that.uPhone);
+                Objects.equals(address, that.address);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(aId, address, uPhone);
+        return Objects.hash(aId, address);
     }
 
     @ManyToOne
-    @JoinColumn(name = "UPhone", referencedColumnName = "UPhone")
-    public Users getUsersByUPhone() {
-        return usersByUPhone;
+    @JoinColumn(name = "aUPhone", referencedColumnName = "UPhone")
+    public Users getUsersByAUPhone() {
+        return usersByAUPhone;
     }
 
-    public void setUsersByUPhone(Users usersByUPhone) {
-        this.usersByUPhone = usersByUPhone;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "UPhone", referencedColumnName = "UPhone")
-    public Users getUsersByUPhone_0() {
-        return usersByUPhone_0;
-    }
-
-    public void setUsersByUPhone_0(Users usersByUPhone_0) {
-        this.usersByUPhone_0 = usersByUPhone_0;
+    public void setUsersByAUPhone(Users usersByAUPhone) {
+        this.usersByAUPhone = usersByAUPhone;
     }
 }

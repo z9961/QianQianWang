@@ -35,7 +35,7 @@ public class AddressController {
         Users user = (Users) req.getSession().getAttribute("user");
         UsersAddress addr = new UsersAddress();
         addr.setAddress(address);
-        addr.setUsersByUPhone(user);
+        addr.setUsersByAUPhone(user);
 
         boolean isok = userBiz.saveAddress(addr);
         if (isok) {

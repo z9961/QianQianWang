@@ -4,22 +4,20 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@IdClass(ProjectCommentPK.class)
 public class ProjectComment {
-    private int pid;
+    private int pcId;
     private String pComment;
-    private String uPhone;
-    private Project projectByPid;
+    private Project projectByCPid;
     private Users usersByUPhone;
 
     @Id
-    @Column(name = "Pid")
-    public int getPid() {
-        return pid;
+    @Column(name = "PCId")
+    public int getPcId() {
+        return pcId;
     }
 
-    public void setPid(int pid) {
-        this.pid = pid;
+    public void setPcId(int pcId) {
+        this.pcId = pcId;
     }
 
     @Basic
@@ -32,44 +30,33 @@ public class ProjectComment {
         this.pComment = pComment;
     }
 
-    @Id
-    @Column(name = "UPhone")
-    public String getuPhone() {
-        return uPhone;
-    }
-
-    public void setuPhone(String uPhone) {
-        this.uPhone = uPhone;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProjectComment that = (ProjectComment) o;
-        return pid == that.pid &&
-                Objects.equals(pComment, that.pComment) &&
-                Objects.equals(uPhone, that.uPhone);
+        return pcId == that.pcId &&
+                Objects.equals(pComment, that.pComment);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(pid, pComment, uPhone);
+        return Objects.hash(pcId, pComment);
     }
 
     @ManyToOne
-    @JoinColumn(name = "Pid", referencedColumnName = "PId", nullable = false)
-    public Project getProjectByPid() {
-        return projectByPid;
+    @JoinColumn(name = "CPid", referencedColumnName = "PId")
+    public Project getProjectByCPid() {
+        return projectByCPid;
     }
 
-    public void setProjectByPid(Project projectByPid) {
-        this.projectByPid = projectByPid;
+    public void setProjectByCPid(Project projectByCPid) {
+        this.projectByCPid = projectByCPid;
     }
 
     @ManyToOne
-    @JoinColumn(name = "UPhone", referencedColumnName = "UPhone", nullable = false)
+    @JoinColumn(name = "UPhone", referencedColumnName = "UPhone")
     public Users getUsersByUPhone() {
         return usersByUPhone;
     }

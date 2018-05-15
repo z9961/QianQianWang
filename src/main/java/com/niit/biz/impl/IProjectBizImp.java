@@ -45,4 +45,9 @@ public class IProjectBizImp implements IProjectBiz {
         return projectDao.save(project);
     }
 
+    @Override
+    public Project findProjectById(int pid) {
+        return projectDao.findProjectById(pid);
+    }
+    
 }

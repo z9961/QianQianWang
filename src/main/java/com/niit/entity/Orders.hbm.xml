@@ -6,7 +6,6 @@
 
     <class name="com.niit.entity.Orders" table="Orders" schema="dbo" catalog="Qianqianwang">
         <id name="orderId" column="OrderId"/>
-        <property name="uPhone" column="UPhone"/>
         <property name="pId" column="PId"/>
         <property name="aId" column="AId"/>
         <property name="money" column="Money"/>
@@ -14,5 +13,8 @@
         <property name="expectType" column="ExpectType"/>
         <property name="exceptOther" column="ExceptOther"/>
         <property name="orderDate" column="OrderDate"/>
+        <many-to-one name="usersByUPhone" class="com.niit.entity.Users">
+            <column name="UPhone" not-null="true"/>
+        </many-to-one>
     </class>
 </hibernate-mapping>

@@ -11,10 +11,10 @@ public class Users {
     private String uPwd;
     private int uType;
     private int uFlag;
+    private Collection<Orders> ordersByUPhone;
     private Collection<Project> projectsByUPhone;
     private Collection<ProjectComment> projectCommentsByUPhone;
     private Collection<UsersAddress> usersAddressesByUPhone;
-    private Collection<UsersAddress> usersAddressesByUPhone_0;
     private UsersInfo usersInfoByUPhone;
 
     @Id
@@ -86,6 +86,15 @@ public class Users {
     }
 
     @OneToMany(mappedBy = "usersByUPhone")
+    public Collection<Orders> getOrdersByUPhone() {
+        return ordersByUPhone;
+    }
+
+    public void setOrdersByUPhone(Collection<Orders> ordersByUPhone) {
+        this.ordersByUPhone = ordersByUPhone;
+    }
+
+    @OneToMany(mappedBy = "usersByUPhone")
     public Collection<Project> getProjectsByUPhone() {
         return projectsByUPhone;
     }
@@ -103,22 +112,13 @@ public class Users {
         this.projectCommentsByUPhone = projectCommentsByUPhone;
     }
 
-    @OneToMany(mappedBy = "usersByUPhone")
+    @OneToMany(mappedBy = "usersByAUPhone")
     public Collection<UsersAddress> getUsersAddressesByUPhone() {
         return usersAddressesByUPhone;
     }
 
     public void setUsersAddressesByUPhone(Collection<UsersAddress> usersAddressesByUPhone) {
         this.usersAddressesByUPhone = usersAddressesByUPhone;
-    }
-
-    @OneToMany(mappedBy = "usersByUPhone_0")
-    public Collection<UsersAddress> getUsersAddressesByUPhone_0() {
-        return usersAddressesByUPhone_0;
-    }
-
-    public void setUsersAddressesByUPhone_0(Collection<UsersAddress> usersAddressesByUPhone_0) {
-        this.usersAddressesByUPhone_0 = usersAddressesByUPhone_0;
     }
 
     @OneToOne(mappedBy = "usersByUPhone")

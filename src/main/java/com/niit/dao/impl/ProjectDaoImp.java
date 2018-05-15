@@ -95,4 +95,15 @@ public class ProjectDaoImp implements IProjectDao {
             return -1;
         }
     }
+
+    @Override
+    public Project findProjectById(int pid) {
+        String hql = "from Project where pId = :pid";
+        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+        query.setParameter("pid", pid);
+
+        Project project = (Project) query.uniqueResult();
+
+        return project;
+    }
 }

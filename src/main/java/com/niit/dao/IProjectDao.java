@@ -16,4 +16,6 @@ public interface IProjectDao {
     List<Project> findProject3();
 
     int save(Project project);
+
+    Project findProjectById(int pid);
 }

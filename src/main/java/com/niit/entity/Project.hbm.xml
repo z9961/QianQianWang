@@ -6,7 +6,6 @@
 
     <class name="com.niit.entity.Project" table="Project" schema="dbo" catalog="Qianqianwang">
         <id name="pId" column="PId"/>
-        <property name="uPhone" column="UPhone"/>
         <property name="pName" column="PName"/>
         <property name="pDesc" column="PDesc"/>
         <property name="psd" column="PSD"/>
@@ -15,7 +14,6 @@
         <property name="pnm" column="PNM"/>
         <property name="pnp" column="PNP"/>
         <property name="pMilestone" column="PMilestone"/>
-        <property name="pCategoryId" column="PCategoryId"/>
         <property name="pRemark" column="PRemark"/>
         <property name="pmf" column="PMF"/>
         <property name="pLimit" column="PLimit"/>
@@ -30,7 +28,7 @@
         </many-to-one>
         <set name="projectCommentsByPId" inverse="true">
             <key>
-                <column name="Pid"/>
+                <column name="CPid" not-null="true"/>
             </key>
             <one-to-many not-found="ignore" class="com.niit.entity.ProjectComment"/>
         </set>

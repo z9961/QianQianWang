@@ -45,6 +45,7 @@
         </property>
         <!-- 扫描实体类的位置 -->
         <property name="packagesToScan" value="com.niit.entity"/>
+
     </bean>
 
     <!-- HibernateTemplate对象 -->

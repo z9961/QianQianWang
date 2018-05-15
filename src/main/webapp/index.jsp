@@ -62,18 +62,18 @@
                     <li>
                         <div>
                             <p class="picture">
-                                <a href="Product.xhtml?param=${pro.pId}">
+                                <a href="ShowProject.mvc/${pro.pId}">
                                     <img src="images/${pro.pId}/0.jpg"/>
                                 </a>
                             </p>
 
                             <p class="pname">
-                                <a href="Product.xhtml?param=${pro.pId}">
+                                <a href="ShowProject.mvc/${pro.pId}">
                                         ${pro.pName}
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                <a href="Product.xhtml?param=${pro.pId}">
+                                <a href="ShowProject.mvc/${pro.pId}">
                                         ${pro.projectTypeByPCategoryId.projectTypeName}
                                 </a>
                             </p>
@@ -129,18 +129,18 @@
                         <div>
                             <div>
                                 <p class="picture">
-                                    <a href="Product.xhtml?param=${pro.pId}">
+                                    <a href="ShowProject.mvc/${pro.pId}">
                                         <img src="images/${pro.pId}/0.jpg"/>
                                     </a>
                                 </p>
 
                                 <p class="pname">
-                                    <a href="Product.xhtml?param=${pro.pId}">
+                                    <a href="ShowProject.mvc/${pro.pId}">
                                             ${pro.pName}
                                     </a>
                                 </p>
                                 <p class="ptype">
-                                    <a href="Product.xhtml?param=${pro.pId}">
+                                    <a href="ShowProject.mvc/${pro.pId}">
                                             ${pro.projectTypeByPCategoryId.projectTypeName}
                                     </a>
                                 </p>
@@ -191,18 +191,18 @@
                         <div>
                             <div>
                                 <p class="picture">
-                                    <a href="Product.xhtml?param=${pro.pId}">
+                                    <a href="ShowProject.mvc/${pro.pId}">
                                         <img src="images/${pro.pId}/0.jpg"/>
                                     </a>
                                 </p>
 
                                 <p class="pname">
-                                    <a href="Product.xhtml?param=${pro.pId}">
+                                    <a href="ShowProject.mvc/${pro.pId}">
                                             ${pro.pName}
                                     </a>
                                 </p>
                                 <p class="ptype">
-                                    <a href="Product.xhtml?param=${pro.pId}">
+                                    <a href="ShowProject.mvc/${pro.pId}">
                                             ${pro.projectTypeByPCategoryId.projectTypeName}
                                     </a>
                                 </p>
@@ -252,18 +252,18 @@
                         <div>
                             <div>
                                 <p class="picture">
-                                    <a href="Product.xhtml?param=${pro.pId}">
+                                    <a href="ShowProject.mvc/${pro.pId}">
                                         <img src="images/${pro.pId}/0.jpg"/>
                                     </a>
                                 </p>
 
                                 <p class="pname">
-                                    <a href="Product.xhtml?param=${pro.pId}">
+                                    <a href="ShowProject.mvc/${pro.pId}">
                                             ${pro.pName}
                                     </a>
                                 </p>
                                 <p class="ptype">
-                                    <a href="Product.xhtml?param=${pro.pId}">
+                                    <a href="ShowProject.mvc/${pro.pId}">
                                             ${pro.projectTypeByPCategoryId.projectTypeName}
                                     </a>
                                 </p>
@@ -313,18 +313,18 @@
                         <div>
                             <div>
                                 <p class="picture">
-                                    <a href="Product.xhtml?param=${pro.pId}">
+                                    <a href="ShowProject.mvc/${pro.pId}">
                                         <img src="images/${pro.pId}/0.jpg"/>
                                     </a>
                                 </p>
 
                                 <p class="pname">
-                                    <a href="Product.xhtml?param=${pro.pId}">
+                                    <a href="ShowProject.mvc/${pro.pId}">
                                             ${pro.pName}
                                     </a>
                                 </p>
                                 <p class="ptype">
-                                    <a href="Product.xhtml?param=${pro.pId}">
+                                    <a href="ShowProject.mvc/${pro.pId}">
                                             ${pro.projectTypeByPCategoryId.projectTypeName}
                                     </a>
                                 </p>

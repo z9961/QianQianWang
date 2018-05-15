@@ -1,9 +1,6 @@
 package com.niit.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Objects;
@@ -11,7 +8,6 @@ import java.util.Objects;
 @Entity
 public class Orders {
     private int orderId;
-    private String uPhone;
     private Integer pId;
     private Integer aId;
     private BigDecimal money;
@@ -19,6 +15,7 @@ public class Orders {
     private Integer expectType;
     private String exceptOther;
     private Timestamp orderDate;
+    private Users usersByUPhone;
 
     @Id
     @Column(name = "OrderId")
@@ -28,16 +25,6 @@ public class Orders {
 
     public void setOrderId(int orderId) {
         this.orderId = orderId;
-    }
-
-    @Basic
-    @Column(name = "UPhone")
-    public String getuPhone() {
-        return uPhone;
-    }
-
-    public void setuPhone(String uPhone) {
-        this.uPhone = uPhone;
     }
 
     @Basic
@@ -116,7 +103,6 @@ public class Orders {
         if (o == null || getClass() != o.getClass()) return false;
         Orders orders = (Orders) o;
         return orderId == orders.orderId &&
-                Objects.equals(uPhone, orders.uPhone) &&
                 Objects.equals(pId, orders.pId) &&
                 Objects.equals(aId, orders.aId) &&
                 Objects.equals(money, orders.money) &&
@@ -129,6 +115,16 @@ public class Orders {
     @Override
     public int hashCode() {
 
-        return Objects.hash(orderId, uPhone, pId, aId, money, expect, expectType, exceptOther, orderDate);
+        return Objects.hash(orderId, pId, aId, money, expect, expectType, exceptOther, orderDate);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "UPhone", referencedColumnName = "UPhone")
+    public Users getUsersByUPhone() {
+        return usersByUPhone;
+    }
+
+    public void setUsersByUPhone(Users usersByUPhone) {
+        this.usersByUPhone = usersByUPhone;
     }
 }

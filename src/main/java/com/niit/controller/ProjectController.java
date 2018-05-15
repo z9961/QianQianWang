@@ -1,7 +1,6 @@
 package com.niit.controller;
 
 import com.niit.biz.IProjectBiz;
-import com.niit.entity.Project;
 import com.niit.entity.ProjectType;
 import com.niit.entity.Users;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +41,8 @@ public class ProjectController {
         Users u = (Users) session.getAttribute("user");
         String phone = u.getuPhone();
 
-        Project project = new Project(phone, PName, PDesc, tss, tse, pt,
-                pnm, 0, PMilestone, ppid, PRemark, pmf, plimit, PTeam, 0, PPlan);
+        /*Project project = new Project(PName, PDesc, tss, tse, pt,
+                pnm, 0, PMilestone, PRemark, pmf, plimit, PTeam, 0, PPlan, u, projectType);
 
         System.out.println("project = " + project.toString());
 
@@ -57,7 +56,7 @@ public class ProjectController {
             map.addAttribute("msg", "添加地址失败");
             map.addAttribute("url", "addproject.jsp");
         }
-
+*/
         return "msg.jsp";
     }
 
