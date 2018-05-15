@@ -52,10 +52,10 @@ public class ProjectController {
         int isok = projectBiz.save(project);
         if (isok >= 0) {
             session.setAttribute("addprojectid", isok);
-            map.addAttribute("msg", "添加地址成功,请上传图片");
+            map.addAttribute("msg", "添加项目成功,请上传图片");
             map.addAttribute("url", "upload.jsp");
         } else {
-            map.addAttribute("msg", "添加地址失败");
+            map.addAttribute("msg", "添加项目失败");
             map.addAttribute("url", "addproject.jsp");
         }
 
@@ -102,9 +102,10 @@ public class ProjectController {
                 //获得文件类型
                 String contentType = mf.getContentType();
                 System.out.println("contentType = " + contentType);
-                if (contentType == "image/jpeg" || contentType == "image/png") {
+                if (contentType.equals("image/jpeg") || contentType.equals("image/png")) {
                     //获得文件后缀名称
                     String imageName = contentType.substring(contentType.indexOf("/") + 1);
+                    System.out.println("imageName = " + imageName);
                     path = "/images/" + pid + "/" + i + "." + imageName;
                     mf.transferTo(new File(pathRoot + path));
                     listImagePath.add(path);

@@ -89,6 +89,9 @@ public class ProjectDaoImp implements IProjectDao {
     @Override
     public int save(Project project) {
         try {
+
+            int max = (int) sessionFactory.getCurrentSession().createQuery("select max(a.pId) from Project a ").uniqueResult();
+            project.setpId(max + 1);
             System.out.println("project = " + project.toString());
             sessionFactory.getCurrentSession().save(project);
             return project.getpId();
