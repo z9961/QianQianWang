@@ -5,7 +5,10 @@
 <hibernate-mapping>
 
     <class name="com.niit.entity.Project" table="Project" schema="dbo" catalog="Qianqianwang">
-        <id name="pId" column="PId"/>
+        <id name="pId" column="PId" type="java.lang.Integer">
+            <column name="pId"/>
+            <generator class="uuid"/>
+        </id>
         <property name="pName" column="PName"/>
         <property name="pDesc" column="PDesc"/>
         <property name="psd" column="PSD"/>

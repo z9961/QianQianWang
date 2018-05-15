@@ -6,7 +6,6 @@
 <head>
     <title>添加项目</title>
     <script src="js/jquery.js" type="text/javascript"></script>
-    <script src="js/addproject.js" type="text/javascript"></script>
     <script src="js/footer.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="css/lrf.css"/>
     <link rel="stylesheet" type="text/css" href="css/footer.css"/>
@@ -52,7 +51,7 @@
 
         <tr>
             <td class="word">项目类型</td>
-            <td><input id="PCategoryId" name="PCategoryId" type="text" value="123123123" required/></td>
+            <td><input id="PCategoryId" name="PCategoryId" type="text" value="1" required/></td>
 
         </tr>
         <tr>

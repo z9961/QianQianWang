@@ -18,7 +18,10 @@
 		http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!--开启包扫描 -->
-    <context:component-scan base-package="com.niit"/>
+    <context:component-scan base-package="com.niit">
+        <!-- 扫描时跳过 @Controller 注解的JAVA类（控制器） -->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 
     <!--开启mvc -->
     <mvc:annotation-driven/>
@@ -38,7 +41,7 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.SQLServer2012Dialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
                 <prop key="hibernate.connection.url">jdbc:sqlserver://aloli.cn;database=Qianqianwang</prop>
                 <prop key="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</prop>
             </props>

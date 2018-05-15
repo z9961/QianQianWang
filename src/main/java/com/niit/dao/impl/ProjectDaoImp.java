@@ -89,6 +89,7 @@ public class ProjectDaoImp implements IProjectDao {
     @Override
     public int save(Project project) {
         try {
+            System.out.println("project = " + project.toString());
             sessionFactory.getCurrentSession().save(project);
             return project.getpId();
         } catch (Exception e) {

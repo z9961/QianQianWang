@@ -6,11 +6,19 @@
 <head>
     <title>上传图片</title>
     <script src="js/jquery.js" type="text/javascript"></script>
-    <script src="js/addproject.js" type="text/javascript"></script>
     <script src="js/footer.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="css/lrf.css"/>
     <link rel="stylesheet" type="text/css" href="css/footer.css"/>
-
+    <script type="text/javascript">
+        function adnum() {
+            $("#firstfile").after(
+                "        <tr>\n" +
+                "            <td>\n" +
+                "                <input  type=\"file\" name=\"file\"/>\n" +
+                "            </td>\n" +
+                "        </tr>");
+        }
+    </script>
 </head>
 <body>
 
@@ -30,7 +38,7 @@
         </tr>
         <tr>
             <td>
-                <input id="addfilenum" type="button" value="增加图片数量" onclick="addfilenum()"/>
+                <input id="addfilenum" type="button" value="增加图片数量" onclick="adnum();"/>
             </td>
         </tr>
         <tr>

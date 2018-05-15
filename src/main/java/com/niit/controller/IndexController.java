@@ -30,9 +30,9 @@ public class IndexController {
 
         map.addAttribute("hot", hot);
         map.addAttribute("newp", newp);
-        map.addAttribute("p1", hot);
-        map.addAttribute("p2", hot);
-        map.addAttribute("p3", hot);
+        map.addAttribute("p1", p1);
+        map.addAttribute("p2", p2);
+        map.addAttribute("p3", p3);
         System.out.println("getIndexData======================================");
         System.out.println("hot = " + hot.size());
         System.out.println("hot = " + hot.toString());

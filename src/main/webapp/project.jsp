@@ -2,11 +2,6 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ page isELIgnored="false" %>
 
-<c:if test="${project==null}">
-    <!-- JSP提供的 转发标签 -->
-    <jsp:forward page="ShowProject.mvc.mvc"/>
-</c:if>
-
 <html>
 <head>
     <title>钱钱网</title>
@@ -29,23 +24,23 @@
     <!--模块1-->
     <div>
         <div id="left">
-            <img id="product" src="${productBean.product.pimagePath}"/>
+            <img id="product" src="${imglist.get(0).imgPath}"/>
         </div>
         <div id="right">
             <form>
-                <p>${用于存放项目名}</p>
+                <p>${showproject.pName}</p>
                 <p>已筹到</p>
-                <p>${用于存放现在金额}</p>
+                <p>${showproject.pnm}</p>
                 <div>
                     <div>
                         <%--此地放进度条--%>
                     </div>
                     <div>
-                        <p>当前进度...</p>
-                        <p>...名支持者</p>
+                        <p>当前进度${percentage}</p>
+                        <p>${showproject.pnp}名支持者</p>
                     </div>
                 </div>
-                <p>此项目必须在${日期}前得到${目标金额}的支持才可成功！剩余${日期}天！</p>
+                <p>此项目必须在${showproject.ped}前得到${showproject.pTarget}的支持才可成功！剩余${timestr}！</p>
                 支持额：<input type="number"/>
                 <button type="submit"/>
             </form>
