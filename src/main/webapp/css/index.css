@@ -135,3 +135,9 @@ h2 {
     border-radius: 10px;
     color: #a5a5a5;
 }
+
+/*图片大小*/
+.pimg {
+    width: 280px;
+    height: 220px;
+}

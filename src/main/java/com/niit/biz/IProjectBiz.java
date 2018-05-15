@@ -19,4 +19,6 @@ public interface IProjectBiz {
     int save(Project project);
 
     Project findProjectById(int pid);
+
+    boolean saveimg(int pid, List<String> listImagePath);
 }

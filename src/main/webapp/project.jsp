@@ -24,7 +24,7 @@
     <!--模块1-->
     <div>
         <div id="left">
-            <img id="product" src="${imglist.get(0).imgPath}"/>
+            <img id="product" src="${imglist[0].imgPath}"/>
         </div>
         <div id="right">
             <form>
@@ -61,37 +61,42 @@
     </div>
     <div id="commentsDiv">
         <form id="comments">
-            <c:forEach items="#{评论}" var="fb">
-                <div>
-                    <hr/>
+            <c:if test="{showproject.projectCommentsByPId!=null}">
+                <c:forEach items="#{showproject.projectCommentsByPId}" var="fb">
                     <div>
+                        <hr/>
                         <div>
-                            <table>
+                            <div>
+                                <table>
 
-                                <tr>
-                                    <td>
-                                        用户名： ${fb.usersByBuyuserId.uname}
-                                    </td>
-                                    <td id="commentsinfo">
-                                        评论时间： ${fb.id.time}
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td>
+                                            用户名： ${fb.usersByBuyuserId.uName}
+                                        </td>
+                                        <td id="commentsinfo">
+                                            评论时间： ${fb.id.time}
+                                        </td>
+                                    </tr>
 
-                            </table>
+                                </table>
 
+                            </div>
+                            <br/>
+                            <div>
+                                <p id="comment">${fb.comment}</p>
+                            </div>
                         </div>
+
                         <br/>
-                        <div>
-                            <p id="comment">${fb.comment}</p>
-                        </div>
+
+                        <hr/>
                     </div>
 
-                    <br/>
+                </c:forEach>
 
-                    <hr/>
-                </div>
 
-            </c:forEach>
+            </c:if>
+
             <div id="inputComment">
                 <br/>
                 <p>请说出您对该商品的看法：</p>

@@ -2,6 +2,7 @@ package com.niit.dao.impl;
 
 import com.niit.dao.IProjectDao;
 import com.niit.entity.Project;
+import com.niit.entity.ProjectImg;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
@@ -88,16 +89,18 @@ public class ProjectDaoImp implements IProjectDao {
 
     @Override
     public int save(Project project) {
+        System.out.println("保存项目到数据库========================================");
+        int max = 0;
         try {
-
-            int max = (int) sessionFactory.getCurrentSession().createQuery("select max(a.pId) from Project a ").uniqueResult();
-            project.setpId(max + 1);
-            System.out.println("project = " + project.toString());
-            sessionFactory.getCurrentSession().save(project);
-            return project.getpId();
+            max = (int) sessionFactory.getCurrentSession().createQuery("select max(a.pId) from Project a ").uniqueResult();
         } catch (Exception e) {
-            return -1;
+            System.out.println("pmax=0");
         }
+        project.setpId(max + 1);
+        System.out.println("max = " + max + 1);
+        System.out.println("project = " + project.toString());
+        sessionFactory.getCurrentSession().save(project);
+        return project.getpId();
     }
 
     @Override
@@ -109,5 +112,27 @@ public class ProjectDaoImp implements IProjectDao {
         Project project = (Project) query.uniqueResult();
 
         return project;
+    }
+
+    @Override
+    public boolean saveimg(int pid, List<String> listImagePath) {
+        int max = 0;
+
+        for (String s : listImagePath) {
+            try {
+                max = (int) sessionFactory.getCurrentSession().createQuery("select max(a.imgId) from ProjectImg a ").uniqueResult();
+
+            } catch (Exception e) {
+                max = 0;
+            }
+            ProjectImg projectImg = new ProjectImg();
+            Project project = new Project();
+            project.setpId(pid);
+            projectImg.setProjectByPid(project);
+            projectImg.setImgPath(s);
+            projectImg.setImgId(max + 1);
+            sessionFactory.getCurrentSession().save(projectImg);
+        }
+        return true;
     }
 }

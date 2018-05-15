@@ -63,7 +63,7 @@
                         <div>
                             <p class="picture">
                                 <a href="ShowProject.mvc?pid=${pro.pId}">
-                                    <img src="images/${pro.pId}/0.jpg"/>
+                                    <img class="pimg" src="${pro.projectImgsByPId[0].imgPath}"/>
                                 </a>
                             </p>
 

@@ -56,7 +56,7 @@ public class LoginController {
             if (user.getuType() == 1) {
                 map.addAttribute("url", "index.jsp");
             } else {
-                map.addAttribute("url", "manger.jsp");
+                map.addAttribute("url", "manage.jsp");
             }
             return "msg.jsp";
         } else {
@@ -100,7 +100,7 @@ public class LoginController {
             if (user.getuType() == 1) {
                 map.addAttribute("url", "index.jsp");
             } else {
-                map.addAttribute("url", "manger.jsp");
+                map.addAttribute("url", "manage.jsp");
             }
             return "msg.jsp";
         } else {

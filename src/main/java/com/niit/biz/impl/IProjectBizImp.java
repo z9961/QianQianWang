@@ -49,5 +49,10 @@ public class IProjectBizImp implements IProjectBiz {
     public Project findProjectById(int pid) {
         return projectDao.findProjectById(pid);
     }
-    
+
+    @Override
+    public boolean saveimg(int pid, List<String> listImagePath) {
+        return projectDao.saveimg(pid, listImagePath);
+    }
+
 }

@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="css/footer.css"/>
     <script type="text/javascript">
         function adnum() {
-            $("#firstfile").after(
+            $("#addfilenum").before(
                 "        <tr>\n" +
                 "            <td>\n" +
                 "                <input  type=\"file\" name=\"file\"/>\n" +

@@ -8,13 +8,11 @@ import com.niit.entity.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.math.BigDecimal;
@@ -64,11 +62,12 @@ public class ProjectController {
 
     @RequestMapping(value = "Upload.mvc", method = RequestMethod.POST)
     private String fildUpload(@RequestParam(value = "file", required = false) MultipartFile[] file,
-                              HttpServletRequest request, ModelMap map) throws Exception {
+                              HttpSession session, ModelMap map) throws Exception {
 
-        int pid = (int) request.getSession().getAttribute("addprojectid");
-        String pathRoot = request.getSession().getServletContext().getRealPath("");
+        int pid = (int) session.getAttribute("addprojectid");
+        String pathRoot = session.getServletContext().getRealPath("");
         String path = "";
+        String imgpath = "";
 
         String savePath = pathRoot + "/images/" + pid + "/";
 
@@ -91,13 +90,14 @@ public class ProjectController {
 
         //保存图片
         List<String> listImagePath = new ArrayList<String>();
+        boolean upload = true;
         for (MultipartFile mf : file) {
             if (!mf.isEmpty()) {
 
                 //得到文件名
                 File countfile = new File(savePath);
                 String[] files = countfile.list();
-                int i = files.length;
+                int i = files.length + 1;
 
                 //获得文件类型
                 String contentType = mf.getContentType();
@@ -107,24 +107,32 @@ public class ProjectController {
                     String imageName = contentType.substring(contentType.indexOf("/") + 1);
                     System.out.println("imageName = " + imageName);
                     path = "/images/" + pid + "/" + i + "." + imageName;
+                    imgpath = "images/" + pid + "/" + i + "." + imageName;
                     mf.transferTo(new File(pathRoot + path));
-                    listImagePath.add(path);
-                    map.addAttribute("msg", "图片上传成功");
-                    map.addAttribute("url", "manger.jsp");
+                    listImagePath.add(imgpath);
+                    System.out.println(imgpath);
                 } else {
                     map.addAttribute("msg", "图片类型不正确");
                     map.addAttribute("url", "upload.jsp");
+                    //失败清空list
+                    upload = false;
+                    listImagePath = new ArrayList<String>();
                 }
             }
         }
-        System.out.println(path);
-        request.setAttribute("imagesPathList", listImagePath);
+        boolean isok = projectBiz.saveimg(pid, listImagePath);
+        if (upload && isok) {
+            map.addAttribute("msg", "添加图片成功");
+            map.addAttribute("url", "manage.jsp");
+        }
+
+
         return "msg.jsp";
     }
 
 
-    @RequestMapping(value = "ShowProject.mvc/{pid}", method = RequestMethod.POST)
-    public String project(ModelMap map, @PathVariable("pid") String pid) {
+    @RequestMapping(value = "ShowProject.mvc", method = RequestMethod.GET)
+    public String project(HttpSession session, ModelMap map, String pid) {
         Project project = projectBiz.findProjectById(Integer.parseInt(pid));
         String pname = project.getpName();
         BigDecimal pnm = project.getPnm();
@@ -165,8 +173,15 @@ public class ProjectController {
             ProjectImg next = iterator.next();
             imglist.add(next);
         }
+        System.out.println("imglist = " + imglist.size());
 
         map.addAttribute("imglist", imglist);
+        String pathRoot = session.getServletContext().getRealPath("");
+        String savePath = pathRoot + "/images/" + pid + "/";
+        File countfile = new File(savePath);
+        String[] files = countfile.list();
+        int i = files.length;
+
 
         return "project.jsp";
     }
