@@ -41,7 +41,7 @@
         <c:if test="${sessionScope.user!=null}">
             <div onclick="toUser();" class="top_nav">
                 <img src="images/register.png">
-                    ${sessionScope.user.uname}的个人中心
+                    ${sessionScope.user.uName}的个人中心
             </div>
             <div onclick="toExit();" class="top_nav">
                 <img src="images/login.png">

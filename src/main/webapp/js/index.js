@@ -2,7 +2,7 @@ function cheangetime() {
 
 
     var controls = document.getElementsByName("ped");
-    for (var i = 0; i < controls.length; i++)//这里是length还是count记不清了
+    for (var i = 0; i < controls.length; i++)
     {
         var ped = controls[i].value;
 

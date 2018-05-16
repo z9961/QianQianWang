@@ -149,12 +149,13 @@ public class ProjectDaoImp implements IProjectDao {
         } catch (Exception e) {
             System.out.println("pmax=0");
         }
-
+        max++;
         ProjectComment projectComment = new ProjectComment();
         projectComment.setpComment(newcom);
         projectComment.setPcTime(new Timestamp(new Date().getTime()));
         projectComment.setProjectByCPid(p);
         projectComment.setUsersByUPhone(u);
+        projectComment.setPcId(max);
         sessionFactory.getCurrentSession().save(projectComment);
         return true;
     }

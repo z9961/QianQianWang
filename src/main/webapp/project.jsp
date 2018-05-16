@@ -43,8 +43,64 @@
                 <p>此项目必须在${showproject.ped}前得到${showproject.pTarget}的支持才可成功！剩余
                 <p><input class="ped" name="ped" value="${showproject.ped}" disabled></p>
                 </p>
-                支持额：<input type="number"/>
-                <button type="submit"/>
+                <form action="AddOrder.mvc" method="post">
+                    <table>
+                        <tr>
+                            <td>
+                                支持额：
+                            </td>
+                            <td>
+                                <input type="number" name="ordernum"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                是否需要回报:
+                            </td>
+                            <td>
+                                <input name="oexpect" type="radio" checked="checked" value="1" onclick="showdiv()">是
+                                <input name="oexpect" type="radio" value="0" onclick="notshowdiv()">否
+                            </td>
+                        </tr>
+                        <tr name="cdiv">
+                            <td>
+                                期许的回报:
+                            </td>
+                            <td>
+                                <input name="oexpectType" type="radio" checked="checked" value="1">投资产品享受折扣
+
+                            </td>
+                        </tr>
+                        <tr name="cdiv">
+                            <td>
+
+                            </td>
+                            <td>
+                                <input name="oexpectType" type="radio" value="2">购买产品享有更高折扣或附加服务
+                            </td>
+                        </tr>
+                        <tr name="cdiv">
+                            <td>
+
+                            </td>
+                            <td>
+                                <input name="oexpectType" type="radio" value="3">免费获得投资产品
+                            </td>
+                        </tr>
+                        <tr name="cdiv">
+                            <td>
+
+                            </td>
+                            <td>
+                                <input name="oexpectType" type="radio" value="4">其他
+                                <br>
+                                <input type="text" name="oexpectOther">
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="submit" value="确认支持"/>
+                </form>
+
             </form>
         </div>
     </div>
@@ -63,9 +119,9 @@
     </div>
     <div id="commentsDiv">
 
-        <c:if test="{showproject.projectCommentsByPId!=null}">
+        <c:if test="${comlist!=null}">
             test
-            <c:forEach items="#{comlist}" var="fb">
+            <c:forEach items="${comlist}" var="fb">
                 <div>
                     <hr/>
                     <div>
@@ -74,7 +130,7 @@
 
                                 <tr>
                                     <td>
-                                        用户名： ${fb.usersByBuyuserId.uName}
+                                        用户名： ${fb.usersByUPhone.uName}
                                     </td>
                                     <td id="commentsinfo">
                                         评论时间： ${fb.pcTime}
@@ -114,12 +170,30 @@
 
 
     </div>
+</div>
+
+<!--撑出页脚-->
+<div id="blank" style="height:1100px"></div>
+
+<script type="text/javascript">
+    window.onload = cheangetime();
+
+    function showdiv() {
+        var controls = document.getElementsByName("cdiv");
+        for (var i = 0; i < controls.length; i++) {
+            var c = controls[i];
+            c.style.display = "table-row-group";
+        }
+    }
+
+    function notshowdiv() {
+        var controls = document.getElementsByName("cdiv");
+        for (var i = 0; i < controls.length; i++) {
+            var c = controls[i];
+            c.style.display = "none";
+        }
+    }
 
 
-    <!--撑出页脚-->
-    <div id="blank" style="height:1100px"></div>
-
-    <script type="text/javascript">
-        window.onload = cheangetime();
-    </script>
+</script>
 </body>

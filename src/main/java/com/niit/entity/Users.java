@@ -17,6 +17,18 @@ public class Users {
     private Collection<UsersAddress> usersAddressesByUPhone;
     private UsersInfo usersInfoByUPhone;
 
+    @Override
+    public String toString() {
+        return "Users{" +
+                "uPhone='" + uPhone + '\'' +
+                ", uName='" + uName + '\'' +
+                ", uPwd='" + uPwd + '\'' +
+                ", uType=" + uType +
+                ", uFlag=" + uFlag +
+                ", ordersByUPhone=" + ordersByUPhone +
+                '}';
+    }
+
     @Id
     @Column(name = "UPhone")
     public String getuPhone() {

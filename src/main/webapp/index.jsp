@@ -64,7 +64,7 @@
                         <div>
                             <p class="picture">
                                 <a href="ShowProject.mvc?pid=${pro.pId}">
-                                    <img src="images/${pro.pId}/0.jpg"/>
+                                    <img class="pimg" src="images/${pro.pId}/0.jpg"/>
                                 </a>
                             </p>
 
@@ -74,7 +74,7 @@
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                <a href="ShowProject.mvc/${pro.pId}">
+                                <a class="ptypea" href="ShowProject.mvc/${pro.pId}">
                                         ${pro.projectTypeByPCategoryId.projectTypeName}
                                 </a>
                             </p>
@@ -85,7 +85,7 @@
                                 <tr>
                                     <td>
                                         <p class="ptype">
-                                                ${pro.pTarget}人
+                                                ${pro.pnp}人
 
                                         </p>
                                     </td>
@@ -102,7 +102,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width="140px">目标</td>
+                                    <td width="100px">支持</td>
                                     <td width="140px">已筹</td>
 
                                 </tr>
@@ -110,7 +110,7 @@
                                     <td>剩余时间</td>
                                     <td>
                                         <p>
-                                            <input name="ped" value="${pro.ped}" disabled>
+                                            <input class="ped" name="ped" value="${pro.ped}" disabled>
                                         </p>
                                     </td>
                                 </tr>
@@ -376,7 +376,7 @@
 
 
 <!--撑出页脚-->
-<div id="blank" style="height:1100px"></div>
+<div id="blank" style="height:1950px"></div>
 
 <script type="text/javascript">
     window.onload = cheangetime();

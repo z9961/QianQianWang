@@ -36,6 +36,16 @@ body {
     line-height: 25px
 }
 
+.ptypea {
+!important;
+    clear: both;
+    padding-top: 1px;
+    padding-right: 1px;
+    color: #a5a5a5;
+    font-family: 'Microsoft Yahei';
+    font-size: 16px;
+}
+
 input {
     border: 0px;
     outline: none;
@@ -76,7 +86,7 @@ input {
 
 #b2 > div {
 
-    height: 300px;
+    height: 420px;
 
     margin-top: 10px;
 }
@@ -86,7 +96,7 @@ input {
     border: 1px solid #f6f6f6;
     box-shadow: 0 0 50px rgba(216, 216, 216, .8);
     width: 300px;
-    height: 260px;
+    height: 430px;
     list-style-type: none;
     float: left; /* 往左浮动 */
     margin-right: 24px;
@@ -139,4 +149,13 @@ h2 {
 .imgtitle {
     margin-left: 30px;
     width: 230px;
+}
+
+.ped {
+    width: 180px;
+}
+
+.pimg {
+    width: 280px;
+    height: 220px;
 }

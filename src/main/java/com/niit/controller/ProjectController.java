@@ -181,6 +181,11 @@ public class ProjectController {
         map.addAttribute("comlist", comlist);
         System.out.println("comlist = " + comlist.size());
 
+        for (int i = 0; i < comlist.size(); i++) {
+            ProjectComment projectComment = (ProjectComment) comlist.get(i);
+            System.out.println("projectComment = " + projectComment.toString());
+            System.out.println("projectCommentUser = " + projectComment.getUsersByUPhone().toString());
+        }
 
         String pathRoot = session.getServletContext().getRealPath("");
         String savePath = pathRoot + "/images/" + pid + "/";

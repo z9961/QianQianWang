@@ -49,7 +49,7 @@ public class Project {
     public Project() {
     }
 
-    @Override
+
     public String toString() {
         return "Project{" +
                 "pId=" + pId +
@@ -67,9 +67,9 @@ public class Project {
                 ", pTeam='" + pTeam + '\'' +
                 ", pState=" + pState +
                 ", pPlan='" + pPlan + '\'' +
-                ", usersByUPhone=" + usersByUPhone +
+
                 ", projectTypeByPCategoryId=" + projectTypeByPCategoryId +
-                ", projectCommentsByPId=" + projectCommentsByPId +
+
                 ", projectImgsByPId=" + projectImgsByPId +
                 '}';
     }
