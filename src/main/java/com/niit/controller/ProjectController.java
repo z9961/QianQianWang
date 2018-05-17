@@ -94,17 +94,14 @@ public class ProjectController {
                 //得到文件名
                 File countfile = new File(savePath);
                 String[] files = countfile.list();
-                int i = files.length + 1;
+                int i = files.length;
 
                 //获得文件类型
                 String contentType = mf.getContentType();
                 System.out.println("contentType = " + contentType);
-                if (contentType.equals("image/jpeg") || contentType.equals("image/png")) {
-                    //获得文件后缀名称
-                    String imageName = contentType.substring(contentType.indexOf("/") + 1);
-                    System.out.println("imageName = " + imageName);
-                    path = "/images/" + pid + "/" + i + "." + imageName;
-                    imgpath = "images/" + pid + "/" + i + "." + imageName;
+                if (contentType.equals("image/jpeg")) {
+                    path = "/images/" + pid + "/" + i + ".jpg";
+                    imgpath = "images/" + pid + "/" + i + ".jpg";
                     mf.transferTo(new File(pathRoot + path));
                     listImagePath.add(imgpath);
                     System.out.println(imgpath);
@@ -120,14 +117,14 @@ public class ProjectController {
         boolean isok = projectBiz.saveimg(pid, listImagePath);
         if (upload && isok) {
             map.addAttribute("msg", "添加图片成功");
-            map.addAttribute("url", "manage.jsp");
+            map.addAttribute("url", "Manage.mvc");
         }
 
 
         return "msg.jsp";
     }
 
-
+    //project.jsp
     @RequestMapping(value = "ShowProject.mvc", method = RequestMethod.GET)
     public String project(HttpSession session, ModelMap map, String pid) {
         Project project = projectBiz.findProjectById(Integer.parseInt(pid));
@@ -136,7 +133,8 @@ public class ProjectController {
         int pnp = project.getPnp();
         Timestamp deadline = project.getPed();
         BigDecimal ptarget = project.getpTarget();
-        String percentage = ((pnm.intValue() / ptarget.intValue()) * 100) + "%";
+//        String percentage = ((pnm.intValue() / ptarget.intValue()) * 100) + "";
+        String percentage = (pnm.divide(ptarget).multiply(BigDecimal.valueOf(Long.parseLong(100 + "")))).toString();
         map.addAttribute("showproject", project);
 
         map.addAttribute("percentage", percentage);
@@ -208,6 +206,147 @@ public class ProjectController {
         map.addAttribute("msg", "添加评论成功");
         map.addAttribute("url", "ShowProject.mvc?pid=" + p.getpId());
         return "msg.jsp";
+    }
+
+    @RequestMapping(value = "Projectlist.mvc")
+    public String Projectlist(ModelMap map, HttpSession session, String type, String searchstr) {
+        //Type:0 hot,1 new,2 most people,3 数码,4 生活,5 艺术,6 搜索
+
+        int typeint = Integer.parseInt(type);
+        List<Project> projectlist = null;
+
+        String typestr = "";
+
+        if (typeint == 6) {
+            if (searchstr == null || searchstr.isEmpty()) {
+                //搜索内容为空
+                map.addAttribute("existpagemsg", "true");
+                map.addAttribute("pagemsg", "请输入要搜索的内容");
+                return "projectlist.jsp";
+            }
+        } else {
+            map.addAttribute("existpagemsg", "false");
+        }
+
+
+        switch (typeint) {
+            case 0:
+                projectlist = projectBiz.findHotProject();
+                typestr = "最热的项目";
+                break;
+            case 1:
+                projectlist = projectBiz.findNewProject();
+                typestr = "最新的项目";
+                break;
+            case 2:
+                projectlist = projectBiz.findMostProject();
+                typestr = "最多支持的项目";
+                break;
+            case 3:
+                projectlist = projectBiz.findProject1();
+                typestr = "新奇酷玩";
+                break;
+            case 4:
+                projectlist = projectBiz.findProject2();
+                typestr = "生活美学";
+                break;
+            case 5:
+                projectlist = projectBiz.findProject3();
+                typestr = "文化艺术";
+                break;
+            case 6:
+                projectlist = projectBiz.findProjectBySearch(searchstr);
+                typestr = "searchstr";
+                break;
+        }
+        session.setAttribute("projectlist", projectlist);
+        session.setAttribute("projectlistAll", projectlist);
+        session.setAttribute("typestr", typestr);
+        session.setAttribute("countlist", projectlist.size());
+
+
+        //显示的数量
+        int pageShowNum = 8;
+        session.setAttribute("pageShowNum", pageShowNum);
+        if (projectlist.size() > pageShowNum) {
+            //分页
+            double psize = projectlist.size();
+            double psn = pageShowNum;
+            double pagesd = psize / psn;
+            System.out.println(pagesd);
+            int pages = (int) Math.ceil(pagesd);
+            //总页数
+            session.setAttribute("pages", pages);
+
+
+            System.out.println("pages = " + pages);
+            System.out.println("projectlist = " + projectlist.size());
+            System.out.println("pageShowNum = " + pageShowNum);
+
+
+            return "Projectlistpage.mvc?page=1";
+        } else {
+            session.setAttribute("nowpage", 1);
+            session.setAttribute("pages", 1);
+            return "projectlist.jsp";
+        }
+    }
+
+    @RequestMapping(value = "Projectlistpage.mvc")
+    public String Projectlistpage(HttpSession session, ModelMap map, String page) {
+        int pageShowNum = (int) session.getAttribute("pageShowNum");
+        int pages = (int) session.getAttribute("pages");
+        map.addAttribute("existpagemsg", "true");
+
+        //分页显示
+        int pageint = 1;
+
+        System.out.println("pages = " + pages);
+
+        try {
+            pageint = Integer.parseInt(page);
+        } catch (Exception e) {
+            map.addAttribute("pagemsg", "请输入页码");
+            System.out.println("输入的不是页码,跳转第一页");
+        }
+
+        if (pageint < 1 || pageint > pages) {
+            map.addAttribute("pagemsg", "请输入正确的页码");
+            System.out.println("错误的页码,跳转第一页");
+        } else {
+
+            List<Project> projectlist = (List<Project>) session.getAttribute("projectlistAll");
+
+            List<Project> projectlistpage = new ArrayList<>();
+
+            int start = (pageint - 1) * pageShowNum;
+            int end = (pageint) * pageShowNum;
+            if (pageint == pages) {
+                //最后一页
+                end = projectlist.size();
+
+            }
+
+            System.out.println("start = " + start);
+            System.out.println("end = " + end);
+
+            for (int i = start; i < end; i++) {
+                Project project = projectlist.get(i);
+                System.out.println("pages: show i = " + i);
+                System.out.println("project = " + project.getpId());
+                projectlistpage.add(project);
+            }
+
+            //放入数据
+            session.setAttribute("projectlist", projectlistpage);
+            //当前是第几页
+            session.setAttribute("nowpage", pageint);
+            //ok
+            map.addAttribute("existpagemsg", "false");
+        }
+
+
+        return "projectlist.jsp";
     }
 
 }

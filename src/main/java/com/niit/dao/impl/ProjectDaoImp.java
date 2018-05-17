@@ -29,7 +29,7 @@ public class ProjectDaoImp implements IProjectDao {
     public List<Project> findHotProject() {
         String hql = "from Project order by pnm desc";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
-        query.setMaxResults(5);
+//        query.setMaxResults(5);
         List<Project> list = query.list();
         for (int i = 0; i < list.size(); i++) {
             Project project = list.get(i);
@@ -42,7 +42,7 @@ public class ProjectDaoImp implements IProjectDao {
     public List<Project> findNewProject() {
         String hql = "from Project order by psd desc";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
-        query.setMaxResults(5);
+//        query.setMaxResults(5);
         List<Project> list = query.list();
         for (int i = 0; i < list.size(); i++) {
             Project project = list.get(i);
@@ -52,10 +52,36 @@ public class ProjectDaoImp implements IProjectDao {
     }
 
     @Override
+    public List<Project> findMostProject() {
+        String hql = "from Project order by pnp desc";
+        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+//        query.setMaxResults(5);
+        List<Project> list = query.list();
+        for (int i = 0; i < list.size(); i++) {
+            Project project = list.get(i);
+            System.out.println("dao:findMostProject = " + project.toString());
+        }
+        return list;
+    }
+
+    @Override
+    public List<Project> findProjectBySearch(String searchstr) {
+        String hql = "from Project where pName like :pname";
+        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+        query.setParameter("pname", "%" + searchstr + "%");
+        List<Project> list = query.list();
+        for (int i = 0; i < list.size(); i++) {
+            Project project = list.get(i);
+            System.out.println("dao:searchstr = " + project.toString());
+        }
+        return list;
+    }
+
+    @Override
     public List<Project> findProject1() {
         String hql = "from Project where projectTypeByPCategoryId.projectTypeId = 1";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
-        query.setMaxResults(5);
+//        query.setMaxResults(5);
         List<Project> list = query.list();
         for (int i = 0; i < list.size(); i++) {
             Project project = list.get(i);
@@ -68,7 +94,7 @@ public class ProjectDaoImp implements IProjectDao {
     public List<Project> findProject2() {
         String hql = "from Project where projectTypeByPCategoryId.projectTypeId = 2";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
-        query.setMaxResults(5);
+//        query.setMaxResults(5);
         List<Project> list = query.list();
         for (int i = 0; i < list.size(); i++) {
             Project project = list.get(i);
@@ -81,7 +107,7 @@ public class ProjectDaoImp implements IProjectDao {
     public List<Project> findProject3() {
         String hql = "from Project where projectTypeByPCategoryId.projectTypeId = 3";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
-        query.setMaxResults(5);
+//        query.setMaxResults(5);
 
         List<Project> list = query.list();
         for (int i = 0; i < list.size(); i++) {
@@ -159,4 +185,6 @@ public class ProjectDaoImp implements IProjectDao {
         sessionFactory.getCurrentSession().save(projectComment);
         return true;
     }
+
+
 }

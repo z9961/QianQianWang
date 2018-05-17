@@ -23,4 +23,8 @@ public interface IProjectDao {
     boolean saveimg(int pid, List<String> listImagePath);
 
     boolean savecom(Project p, Users u, String newcom);
+
+    List<Project> findMostProject();
+
+    List<Project> findProjectBySearch(String searchstr);
 }

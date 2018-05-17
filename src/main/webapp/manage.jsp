@@ -26,78 +26,81 @@
     <p class="title">我参与的
     <p/>
     <div>
-        <c:forEach items="${myprojects}" var="pro">
-            <table>
-                <tr>
-                    <td>商品名称</td>
-                    <td>状态</td>
-                    <td>发布时间</td>
-                    <td></td>
-                </tr>
 
+        <table>
+            <tr>
+                <td>商品名称</td>
+                <td>状态</td>
+                <td>发布时间</td>
+                <td></td>
+            </tr>
+            <c:forEach items="${myprojects}" var="pro">
                 <tr>
-                    <td>${pro.getpName()}</td>
-                    <td>${pro.getpState()}
-                        <c:if test="${pro.getpState() == 1}">进行中</c:if>
-                        <c:if test="${pro.getpState() == 2}">已完成</c:if>
-                        <c:if test="${pro.getpState() == 1}">未成功</c:if>
+                    <td>${pro.pName}</td>
+                    <td>
+                        <c:if test="${pro.pState == 1}">进行中</c:if>
+                        <c:if test="${pro.pState == 2}">已完成</c:if>
+                        <c:if test="${pro.pState == 1}">未成功</c:if>
                     </td>
-                    <td>${pro.getPsd()}</td>
+                    <td>${pro.psd}</td>
                     <td><a href="">查看详情</a></td>
                 </tr>
-            </table>
-            >
-        </c:forEach>
+            </c:forEach>
+        </table>
+
+
     </div>
 
     <!--我发起的-->
     <p class="title">我发起的
     <p/>
     <div>
-        <c:forEach items="${mynewprojects}" var="pro">
-            <table>
-                <tr>
-                    <td>商品名称</td>
-                    <td>状态</td>
-                    <td>发布时间</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
 
+        <table>
+            <tr>
+                <td>商品名称</td>
+                <td>状态</td>
+                <td>发布时间</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <c:forEach items="${mynewprojects}" var="pro">
                 <tr>
-                    <td>${pro.getpName()}</td>
-                    <td>${pro.getpState()}
-                        <c:if test="${pro.getpState() == 1}">进行中</c:if>
-                        <c:if test="${pro.getpState() == 2}">已完成</c:if>
-                        <c:if test="${pro.getpState() == 1}">未成功</c:if>
+                    <td>${pro.pName}</td>
+                    <td>
+                        <c:if test="${pro.pState == 1}">进行中</c:if>
+                        <c:if test="${pro.pState == 2}">已完成</c:if>
+                        <c:if test="${pro.pState == 1}">未成功</c:if>
                     </td>
-                    <td>${pro.getPsd()}</td>
+                    <td>${pro.psd}</td>
                     <td><a href="">查看详情</a></td>
                     <td><a href="">编辑项目</a></td>
                     <td><a href="">撤销项目</a></td>
                 </tr>
-            </table>
-            >
-        </c:forEach>
+            </c:forEach>
+        </table>
+
     </div>
 
     <!--我的评论-->
     <p class="title">我的评论
     <p/>
     <div>
-        <c:forEach items="${mycomments}" var="com">
-            <table>
-                <tr>
-                    <td>项目名称</td>
-                    <td>评论内容</td>
-                </tr>
+
+        <table>
+            <tr>
+                <td>项目名称</td>
+                <td>评论内容</td>
+            </tr>
+            <c:forEach items="${mycomments}" var="com">
                 <tr>
                     <td>${com.projectByCPid.pName}</td>
                     <td>${com.pComment}</td>
                 </tr>
-            </table>
-        </c:forEach>
+            </c:forEach>
+        </table>
+
     </div>
 
     <!--撑出页脚-->

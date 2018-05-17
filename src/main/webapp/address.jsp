@@ -2,7 +2,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ page isELIgnored="false" %>
 
-<c:if test="${addr==null}">
+<c:if test="${getaddrok!=1}">
     <!-- JSP提供的 转发标签 -->
     <jsp:forward page="GetAddress.mvc"/>
 </c:if>

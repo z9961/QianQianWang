@@ -59,21 +59,21 @@ public class RegisterController {
             return "lrf.jsp";
         } else if (result == "ok") {
             System.out.println("注册成功");
-            map.addAttribute("url", "lrf.jsp");
-            map.addAttribute("msg", "注册成功!");
-            return "msg.jsp";
+            map.addAttribute("msg", "注册成功");
+            map.addAttribute("msgtype", "login");
+            return "lrf.jsp";
         } else if (result == "error") {
-            map.addAttribute("url", "lrf.jsp");
-            map.addAttribute("msg", "注册失败!");
-            return "msg.jsp";
+            map.addAttribute("msg", "注册失败");
+            map.addAttribute("msgtype", "register");
+            return "lrf.jsp";
         } else if (result == "Type2") {
             System.out.println("con:Type2");
             //注册类型为融资者,需要进一步填写信息
             return "userinfo.jsp";
         } else {
-            map.addAttribute("url", "lrf.jsp");
-            map.addAttribute("msg", "注册失败!");
-            return "msg.jsp";
+            map.addAttribute("msg", "注册失败");
+            map.addAttribute("msgtype", "register");
+            return "lrf.jsp";
         }
 
 
@@ -88,9 +88,9 @@ public class RegisterController {
         try {
             UPhone = user.getuPhone();
         } catch (Exception e) {
-            map.addAttribute("url", "lrf.jsp");
-            map.addAttribute("msg", "注册失败!");
-            return "msg.jsp";
+            map.addAttribute("msg", "注册失败");
+            map.addAttribute("msgtype", "register");
+            return "lrf.jsp";
         }
 
         UsersInfo userinfo = new UsersInfo();
@@ -105,17 +105,17 @@ public class RegisterController {
 
         if (result == "ok") {
             System.out.println("注册成功");
-            map.addAttribute("url", "lrf.jsp");
-            map.addAttribute("msg", "注册成功!");
-            return "msg.jsp";
+            map.addAttribute("msg", "注册成功");
+            map.addAttribute("msgtype", "login");
+            return "lrf.jsp";
         } else if (result == "error") {
-            map.addAttribute("url", "lrf.jsp");
-            map.addAttribute("msg", "注册失败!");
-            return "msg.jsp";
+            map.addAttribute("msg", "注册失败");
+            map.addAttribute("msgtype", "register");
+            return "lrf.jsp";
         } else {
-            map.addAttribute("url", "lrf.jsp");
-            map.addAttribute("msg", "注册失败!");
-            return "msg.jsp";
+            map.addAttribute("msg", "注册失败");
+            map.addAttribute("msgtype", "register");
+            return "lrf.jsp";
         }
 
     }

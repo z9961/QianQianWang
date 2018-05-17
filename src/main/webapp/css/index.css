@@ -6,9 +6,10 @@ body {
 
 #Carousel_figure {
     /*设置轮播图的高度*/
-    height: 400px;
-    width: 1000px;
+    height: 420px;
+    width: 1320px;
     border: 0;
+
 }
 
 #IndexText {
@@ -81,7 +82,7 @@ input {
 
 #if {
     float: left;
-    width: 1000px;
+    width: 1320px;
 }
 
 #b2 > div {
@@ -102,6 +103,7 @@ input {
     margin-right: 24px;
     padding-left: 6px;
     background-color: white;
+    margin-top: 15px;
 }
 
 #b2 li a {
@@ -156,6 +158,7 @@ h2 {
 }
 
 .pimg {
+    padding-left: 7px;
     width: 280px;
     height: 220px;
 }

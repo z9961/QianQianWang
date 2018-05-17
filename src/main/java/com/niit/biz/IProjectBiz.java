@@ -1,5 +1,6 @@
 package com.niit.biz;
 
+import com.niit.entity.Orders;
 import com.niit.entity.Project;
 import com.niit.entity.Users;
 
@@ -24,4 +25,10 @@ public interface IProjectBiz {
     boolean saveimg(int pid, List<String> listImagePath);
 
     boolean savecom(Project p, Users u, String newcom);
+
+    List<Project> findMostProject();
+
+    boolean saveorder(Orders o);
+
+    List<Project> findProjectBySearch(String searchstr);
 }

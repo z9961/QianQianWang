@@ -1,7 +1,9 @@
 package com.niit.biz.impl;
 
 import com.niit.biz.IProjectBiz;
+import com.niit.dao.IOrderDao;
 import com.niit.dao.IProjectDao;
+import com.niit.entity.Orders;
 import com.niit.entity.Project;
 import com.niit.entity.Users;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,10 @@ public class IProjectBizImp implements IProjectBiz {
     private IProjectDao projectDao;
 
 
+    @Autowired
+    private IOrderDao iOrderDao;
+
+
     @Override
     public List<Project> findHotProject() {
         return projectDao.findHotProject();
@@ -24,6 +30,21 @@ public class IProjectBizImp implements IProjectBiz {
     @Override
     public List<Project> findNewProject() {
         return projectDao.findNewProject();
+    }
+
+    @Override
+    public List<Project> findMostProject() {
+        return projectDao.findMostProject();
+    }
+
+    @Override
+    public boolean saveorder(Orders o) {
+        return iOrderDao.saveorder(o);
+    }
+
+    @Override
+    public List<Project> findProjectBySearch(String searchstr) {
+        return projectDao.findProjectBySearch(searchstr);
     }
 
     @Override

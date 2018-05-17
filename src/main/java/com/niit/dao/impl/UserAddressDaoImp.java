@@ -23,7 +23,7 @@ public class UserAddressDaoImp implements IUsersAddressDao {
 
     @Override
     public List<UsersAddress> findAllAddress(String Phone) {
-        String hql = "from UsersAddress where usersByUPhone.uPhone=:phone";
+        String hql = "from UsersAddress where usersByAUPhone.uPhone=:phone";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
         query.setParameter("phone", Phone);
 
@@ -33,6 +33,15 @@ public class UserAddressDaoImp implements IUsersAddressDao {
 
     @Override
     public boolean save(UsersAddress addr) {
+
+        int max = 0;
+        try {
+            max = (int) sessionFactory.getCurrentSession().createQuery("select max(a.pcId) from ProjectComment a ").uniqueResult();
+        } catch (Exception e) {
+            System.out.println("pmax=0");
+        }
+        max++;
+        addr.setaId(max);
 
         try {
             Serializable serializable = sessionFactory.getCurrentSession().save(addr);

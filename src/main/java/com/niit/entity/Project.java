@@ -23,55 +23,13 @@ public class Project {
     private String pTeam;
     private Integer pState;
     private String pPlan;
+    private Collection<Orders> ordersByPId;
     private Users usersByUPhone;
     private ProjectType projectTypeByPCategoryId;
     private Collection<ProjectComment> projectCommentsByPId;
     private Collection<ProjectImg> projectImgsByPId;
 
-    public Project(String pName, String pDesc, Timestamp psd, Timestamp ped, BigDecimal pTarget, BigDecimal pnm, Integer pnp, String pMilestone, String pRemark, Integer pmf, Integer pLimit, String pTeam, Integer pState, String pPlan, Users usersByUPhone) {
-        this.pName = pName;
-        this.pDesc = pDesc;
-        this.psd = psd;
-        this.ped = ped;
-        this.pTarget = pTarget;
-        this.pnm = pnm;
-        this.pnp = pnp;
-        this.pMilestone = pMilestone;
-        this.pRemark = pRemark;
-        this.pmf = pmf;
-        this.pLimit = pLimit;
-        this.pTeam = pTeam;
-        this.pState = pState;
-        this.pPlan = pPlan;
-        this.usersByUPhone = usersByUPhone;
-    }
-
     public Project() {
-    }
-
-
-    public String toString() {
-        return "Project{" +
-                "pId=" + pId +
-                ", pName='" + pName + '\'' +
-                ", pDesc='" + pDesc + '\'' +
-                ", psd=" + psd +
-                ", ped=" + ped +
-                ", pTarget=" + pTarget +
-                ", pnm=" + pnm +
-                ", pnp=" + pnp +
-                ", pMilestone='" + pMilestone + '\'' +
-                ", pRemark='" + pRemark + '\'' +
-                ", pmf=" + pmf +
-                ", pLimit=" + pLimit +
-                ", pTeam='" + pTeam + '\'' +
-                ", pState=" + pState +
-                ", pPlan='" + pPlan + '\'' +
-
-                ", projectTypeByPCategoryId=" + projectTypeByPCategoryId +
-
-                ", projectImgsByPId=" + projectImgsByPId +
-                '}';
     }
 
     public Project(String pName, String pDesc, Timestamp psd, Timestamp ped, BigDecimal pTarget, BigDecimal pnm, Integer pnp, String pMilestone, String pRemark, Integer pmf, Integer pLimit, String pTeam, Integer pState, String pPlan, Users usersByUPhone, ProjectType projectTypeByPCategoryId) {
@@ -91,6 +49,86 @@ public class Project {
         this.pPlan = pPlan;
         this.usersByUPhone = usersByUPhone;
         this.projectTypeByPCategoryId = projectTypeByPCategoryId;
+    }
+
+    public Project(String pName, String pDesc, Timestamp psd, Timestamp ped, BigDecimal pTarget, BigDecimal pnm, Integer pnp, String pMilestone, String pRemark, Integer pmf, Integer pLimit, String pTeam, Integer pState, String pPlan, Collection<Orders> ordersByPId, Users usersByUPhone, ProjectType projectTypeByPCategoryId) {
+        this.pName = pName;
+        this.pDesc = pDesc;
+        this.psd = psd;
+        this.ped = ped;
+        this.pTarget = pTarget;
+        this.pnm = pnm;
+        this.pnp = pnp;
+        this.pMilestone = pMilestone;
+        this.pRemark = pRemark;
+        this.pmf = pmf;
+        this.pLimit = pLimit;
+        this.pTeam = pTeam;
+        this.pState = pState;
+        this.pPlan = pPlan;
+        this.ordersByPId = ordersByPId;
+        this.usersByUPhone = usersByUPhone;
+        this.projectTypeByPCategoryId = projectTypeByPCategoryId;
+    }
+
+    public Project(String pName, String pDesc, Timestamp psd, Timestamp ped, BigDecimal pTarget, BigDecimal pnm, Integer pnp, String pMilestone, String pRemark, Integer pmf, Integer pLimit, String pTeam, Integer pState, String pPlan) {
+        this.pName = pName;
+        this.pDesc = pDesc;
+        this.psd = psd;
+        this.ped = ped;
+        this.pTarget = pTarget;
+        this.pnm = pnm;
+        this.pnp = pnp;
+        this.pMilestone = pMilestone;
+        this.pRemark = pRemark;
+        this.pmf = pmf;
+        this.pLimit = pLimit;
+        this.pTeam = pTeam;
+        this.pState = pState;
+        this.pPlan = pPlan;
+    }
+
+    public Project(String pName, String pDesc, Timestamp psd, Timestamp ped, BigDecimal pTarget, BigDecimal pnm, Integer pnp, String pMilestone, String pRemark, Integer pmf, Integer pLimit, String pTeam, Integer pState, String pPlan, Collection<Orders> ordersByPId, Users usersByUPhone, ProjectType projectTypeByPCategoryId, Collection<ProjectComment> projectCommentsByPId, Collection<ProjectImg> projectImgsByPId) {
+        this.pName = pName;
+        this.pDesc = pDesc;
+        this.psd = psd;
+        this.ped = ped;
+        this.pTarget = pTarget;
+        this.pnm = pnm;
+        this.pnp = pnp;
+        this.pMilestone = pMilestone;
+        this.pRemark = pRemark;
+        this.pmf = pmf;
+        this.pLimit = pLimit;
+        this.pTeam = pTeam;
+        this.pState = pState;
+        this.pPlan = pPlan;
+        this.ordersByPId = ordersByPId;
+        this.usersByUPhone = usersByUPhone;
+        this.projectTypeByPCategoryId = projectTypeByPCategoryId;
+        this.projectCommentsByPId = projectCommentsByPId;
+        this.projectImgsByPId = projectImgsByPId;
+    }
+
+    @Override
+    public String toString() {
+        return "Project{" +
+                "pId=" + pId +
+                ", pName='" + pName + '\'' +
+                ", pDesc='" + pDesc + '\'' +
+                ", psd=" + psd +
+                ", ped=" + ped +
+                ", pTarget=" + pTarget +
+                ", pnm=" + pnm +
+                ", pnp=" + pnp +
+                ", pMilestone='" + pMilestone + '\'' +
+                ", pRemark='" + pRemark + '\'' +
+                ", pmf=" + pmf +
+                ", pLimit=" + pLimit +
+                ", pTeam='" + pTeam + '\'' +
+                ", pState=" + pState +
+                ", pPlan='" + pPlan + '\'' +
+                '}';
     }
 
     @Id
@@ -269,6 +307,15 @@ public class Project {
     public int hashCode() {
 
         return Objects.hash(pId, pName, pDesc, psd, ped, pTarget, pnm, pnp, pMilestone, pRemark, pmf, pLimit, pTeam, pState, pPlan);
+    }
+
+    @OneToMany(mappedBy = "projectByPId")
+    public Collection<Orders> getOrdersByPId() {
+        return ordersByPId;
+    }
+
+    public void setOrdersByPId(Collection<Orders> ordersByPId) {
+        this.ordersByPId = ordersByPId;
     }
 
     @ManyToOne

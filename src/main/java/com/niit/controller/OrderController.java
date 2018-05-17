@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
 
 @Controller
 public class OrderController {
@@ -21,15 +23,42 @@ public class OrderController {
     @RequestMapping(value = "AddOrder.mvc", method = RequestMethod.POST)
     public String AddOrder(ModelMap map, HttpSession session,
                            String ordernum, String oexpect, String oexpectType,
-                           String oexpectOther) {
+                           String oexpectOther, String oaid) {
 
         Project p = (Project) session.getAttribute("showproject");
         Users u = (Users) session.getAttribute("user");
         Orders o = new Orders();
         o.setUsersByUPhone(u);
-        o.setpId(p.getpId());
+        o.setProjectByPId(p);
+        o.setOrderDate(new Timestamp(System.currentTimeMillis()));
+        BigDecimal money = BigDecimal.valueOf(Long.parseLong(ordernum));
+        o.setMoney(money);
+        int type = Integer.parseInt(oexpect);
+        o.setExpect(type);
+        boolean isok;
 
+        if (type == 1) {
 
+            o.setaId(Integer.parseInt(oaid));
+            int oexpectTypeint = Integer.parseInt(oexpectType);
+            o.setExpectType(oexpectTypeint);
+            if (oexpectTypeint == 4) {
+                o.setExceptOther(oexpectOther);
+            }
+            isok = projectBiz.saveorder(o);
+        } else {
+            //不需要回报
+            o.setExpectType(-1);
+            isok = projectBiz.saveorder(o);
+        }
+
+        if (isok) {
+            map.addAttribute("msg", "支持成功");
+            map.addAttribute("url", "Manage.mvc");
+        } else {
+            map.addAttribute("msg", "支持失败");
+            map.addAttribute("url", "ShowProject.mvc?pid=" + p.getpId());
+        }
         return "msg.jsp";
     }
 }

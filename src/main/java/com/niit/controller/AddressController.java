@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -23,14 +24,14 @@ public class AddressController {
         Users user = (Users) req.getSession().getAttribute("user");
         List<UsersAddress> list = userBiz.findAllAddress(user.getuPhone());
         System.out.println("list = " + list.size());
-        System.out.println("list = " + list.get(0).toString());
         map.addAttribute("addr", list);
+        map.addAttribute("getaddrok", 1);
         return "address.jsp";
     }
 
 
     @RequestMapping(value = "AddAddress.mvc", method = RequestMethod.POST)
-    public String AddAdress(String address, HttpServletRequest req, ModelMap map) {
+    public String AddAdress(HttpSession session, String address, HttpServletRequest req, ModelMap map) {
         System.out.println("添加地址");
         Users user = (Users) req.getSession().getAttribute("user");
         UsersAddress addr = new UsersAddress();
@@ -44,6 +45,10 @@ public class AddressController {
             map.addAttribute("msg", "添加地址失败");
         }
         map.addAttribute("url", "address.jsp");
+
+        List<UsersAddress> list = userBiz.findAllAddress(user.getuPhone());
+        System.out.println("list = " + list.size());
+        session.setAttribute("addr", list);
         return "msg.jsp";
     }
 

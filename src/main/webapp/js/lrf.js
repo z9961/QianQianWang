@@ -1,25 +1,26 @@
 //添加验证码时间
 
 var countdown = 0;
+var countdown2 = 0;
 
-function invokeSettime(obj) {
+function invokeSettime(obj, tc) {
 
     settime(obj);
 
     console.log("start")
 
     function settime(obj) {
-        if (countdown == 0) {
+        if (tc == 0) {
             $(obj).attr("disabled", false);
             $(obj).val("获取验证码");
-            countdown = 60;
+            tc = 60;
             console.log("geted")
             return;
         } else {
             // console.log("time" + countdown)
             $(obj).attr("disabled", true);
-            $(obj).val("(" + countdown + ") s 后重新发送");
-            countdown--;
+            $(obj).val("(" + tc + ") s 后重新发送");
+            tc--;
         }
         setTimeout(function () {
                 settime(obj);
@@ -29,8 +30,8 @@ function invokeSettime(obj) {
     }
 }
 
-new invokeSettime("#getsms");
-new invokeSettime("#getsms2");
+new invokeSettime("#getsms", countdown);
+new invokeSettime("#getsms2", countdown2);
 
 
 function userRegister() {
@@ -192,10 +193,42 @@ function getSms() {
             //发送后计时60s
             countdown = 60;
             new invokeSettime("#getsms");
-            new invokeSettime("#getsms2");
         } else {
             alert("手机号码不正确!");
         }
     }
 }
 
+
+function getSms2() {
+    var phonenum = document.getElementById("phone2").value;
+    if (phonenum == "") {
+        alert("未输入手机号!");
+    } else {
+        var myreg = /^[1][0-9]{10}$/;
+        if (myreg.test(phonenum)) {
+            $.ajax({
+                method: "POST",
+                async: true,
+                url: "SendSms.mvc",
+                contentType: "application/x-www-form-urlencoded",
+                data: {
+                    "Phonenum": phonenum,
+                    "UName": phonenum,
+                },
+                success: function (data) {
+                    if (data == "success") {
+                        alert("短信验证码已发送");
+                    } else {
+                        alert("短信发送失败");
+                    }
+                }
+            })
+            //发送后计时60s
+            countdown2 = 60;
+            new invokeSettime("#getsms2", countdown2);
+        } else {
+            alert("手机号码不正确!");
+        }
+    }
+}

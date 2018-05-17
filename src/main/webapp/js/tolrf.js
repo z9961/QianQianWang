@@ -1,9 +1,15 @@
-//head中跳转到账户管理页面
-function toLRF() {
-    top.location = "LRF.html";
+function toUser() {
+    top.location = "Manage.mvc";
 }
 
-//用于二级页面跳转
-function toLRF2() {
-    top.location = "../lrf.jsp";
+function toExit() {
+    top.location = "Checkout.mvc";
+}
+
+function tolrfr() {
+    top.location = "lrf.jsp?type=registerh";
+}
+
+function tolrfl() {
+    top.location = "lrf.jsp?type=loginh";
 }

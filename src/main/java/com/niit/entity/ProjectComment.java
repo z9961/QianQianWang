@@ -12,17 +12,6 @@ public class ProjectComment {
     private Project projectByCPid;
     private Users usersByUPhone;
 
-
-    public String toString() {
-        return "ProjectComment{" +
-                "pcId=" + pcId +
-                ", pcTime=" + pcTime +
-                ", pComment='" + pComment + '\'' +
-                ", projectByCPid=" + projectByCPid +
-                ", usersByUPhone=" + usersByUPhone +
-                '}';
-    }
-
     @Id
     @Column(name = "PCId")
     public int getPcId() {

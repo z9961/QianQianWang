@@ -2,7 +2,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ page isELIgnored="false" %>
 
-<c:if test="${hot==null}">
+<c:if test="${ihot==null}">
     <!-- JSP提供的 转发标签 -->
     <jsp:forward page="Index.mvc"/>
 </c:if>
@@ -27,30 +27,15 @@
 <div id="all">
 
     <div>
-        <div id="catalog">
-            <div style="margin-top: 20px;">
-                <a href="ProductsList.xhtml?param=1">手机/数码/运营商</a><br/>
-                <a href="ProductsList.xhtml?param=2">电脑/办公</a><br/>
-                <a href="ProductsList.xhtml?param=3">生活家具/家装/厨具</a><br/>
-                <a href="ProductsList.xhtml?param=4">代步工具</a><br/>
-                <a href="ProductsList.xhtml?param=5">礼品鲜花/农资绿植</a><br/>
-                <a href="ProductsList.xhtml?param=6">男鞋/运动/户外</a><br/>
-                <a href="ProductsList.xhtml?param=7">男装</a><br/>
-                <a href="ProductsList.xhtml?param=8">女鞋/箱包/珠宝/钟表</a><br/>
-                <a href="ProductsList.xhtml?param=9">女装/童装</a><br/>
-                <a href="ProductsList.xhtml?param=10">图书/音像/电子书</a>
-            </div>
-        </div>
+
         <div id="if">
-            <iframe id="Carousel_figure" src="Carousel.jsp"></iframe>
+            <iframe id="Carousel_figure" src="carousel.jsp"></iframe>
         </div>
     </div>
 
-
-    <!--设置轮播图的大小-->
-    <script type="text/javascript" src="js/Carousel_figure.js"/>
     <!--插入页眉-->
     <script type="text/javascript" src="js/head_div.js"></script>
+
 
     <br/>
 
@@ -59,7 +44,7 @@
         <img class="imgtitle" src="images/热门推荐.png"/>
         <div name="projectdiv">
             <ul name="menu">
-                <c:forEach items="${hot}" var="pro">
+                <c:forEach items="${ihot}" var="pro" begin="0" end="3">
                     <li>
                         <div>
                             <p class="picture">
@@ -110,6 +95,7 @@
                                     <td>剩余时间</td>
                                     <td>
                                         <p>
+                                            <input style="display: none" name="pedC" value="${pro.ped}">
                                             <input class="ped" name="ped" value="${pro.ped}" disabled>
                                         </p>
                                     </td>
@@ -126,58 +112,63 @@
         <div name="projectdiv">
             <ul name="menu">
 
-                <c:forEach items="${newp}" var="pro">
+                <c:forEach items="${inewp}" var="pro" begin="0" end="3">
                     <li>
                         <div>
-                            <div>
-                                <p class="picture">
-                                    <a href="ShowProject.mvc/${pro.pId}">
-                                        <img src="images/${pro.pId}/0.jpg"/>
-                                    </a>
-                                </p>
+                            <p class="picture">
+                                <a href="ShowProject.mvc?pid=${pro.pId}">
+                                    <img class="pimg" src="images/${pro.pId}/0.jpg"/>
+                                </a>
+                            </p>
 
-                                <p class="pname">
-                                    <a href="ShowProject.mvc/${pro.pId}">
-                                            ${pro.pName}
-                                    </a>
-                                </p>
-                                <p class="ptype">
-                                    <a href="ShowProject.mvc/${pro.pId}">
-                                            ${pro.projectTypeByPCategoryId.projectTypeName}
-                                    </a>
-                                </p>
-                            </div>
+                            <p class="pname">
+                                <a href="ShowProject.mvc/${pro.pId}">
+                                        ${pro.pName}
+                                </a>
+                            </p>
+                            <p class="ptype" style="width: 40px">
+                                <a class="ptypea" href="ShowProject.mvc/${pro.pId}">
+                                        ${pro.projectTypeByPCategoryId.projectTypeName}
+                                </a>
+                            </p>
+                        </div>
 
-                            <div>
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <p class="ptype">
-                                                    ${pro.pnp}人
+                        <div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <p class="ptype">
+                                                ${pro.pnp}人
 
-                                            </p>
-                                        </td>
+                                        </p>
+                                    </td>
 
-                                        <td>
-                                            <p class="ptype">
-                                                    ${pro.pnm}
+                                    <td>
+                                        <p class="ptype">
+                                                ${pro.pnm}
 
-                                            </p>
-                                        </td>
+                                        </p>
+                                    </td>
 
-                                        <td>
-                                            <p class="ptype">
-                                                <input name="ped" value="${pro.ped}" disabled>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>已达</td>
-                                        <td>已筹</td>
-                                        <td>剩余时间</td>
-                                    </tr>
-                                </table>
-                            </div>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="100px">支持</td>
+                                    <td width="140px">已筹</td>
+
+                                </tr>
+                                <tr>
+                                    <td>剩余时间</td>
+                                    <td>
+                                        <p>
+                                            <input style="display: none" name="pedC" value="${pro.ped}">
+                                            <input class="ped" name="ped" value="${pro.ped}" disabled>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </li>
                 </c:forEach>
@@ -190,58 +181,63 @@
         <div name="projectdiv">
             <ul name="menu">
 
-                <c:forEach items="${p1}" var="pro">
+                <c:forEach items="${ip1}" var="pro" begin="0" end="3">
                     <li>
                         <div>
-                            <div>
-                                <p class="picture">
-                                    <a href="ShowProject.mvc/${pro.pId}">
-                                        <img src="images/${pro.pId}/0.jpg"/>
-                                    </a>
-                                </p>
+                            <p class="picture">
+                                <a href="ShowProject.mvc?pid=${pro.pId}">
+                                    <img class="pimg" src="images/${pro.pId}/0.jpg"/>
+                                </a>
+                            </p>
 
-                                <p class="pname">
-                                    <a href="ShowProject.mvc/${pro.pId}">
-                                            ${pro.pName}
-                                    </a>
-                                </p>
-                                <p class="ptype">
-                                    <a href="ShowProject.mvc/${pro.pId}">
-                                            ${pro.projectTypeByPCategoryId.projectTypeName}
-                                    </a>
-                                </p>
-                            </div>
+                            <p class="pname">
+                                <a href="ShowProject.mvc/${pro.pId}">
+                                        ${pro.pName}
+                                </a>
+                            </p>
+                            <p class="ptype" style="width: 40px">
+                                <a class="ptypea" href="ShowProject.mvc/${pro.pId}">
+                                        ${pro.projectTypeByPCategoryId.projectTypeName}
+                                </a>
+                            </p>
+                        </div>
 
-                            <div>
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <p class="ptype">
-                                                    ${pro.pnp}人
+                        <div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <p class="ptype">
+                                                ${pro.pnp}人
 
-                                            </p>
-                                        </td>
+                                        </p>
+                                    </td>
 
-                                        <td>
-                                            <p class="ptype">
-                                                    ${pro.pnm}
+                                    <td>
+                                        <p class="ptype">
+                                                ${pro.pnm}
 
-                                            </p>
-                                        </td>
+                                        </p>
+                                    </td>
 
-                                        <td>
-                                            <p class="ptype">
-                                                <input name="ped" value="${pro.ped}" disabled>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>已达</td>
-                                        <td>已筹</td>
-                                        <td>剩余时间</td>
-                                    </tr>
-                                </table>
-                            </div>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="100px">支持</td>
+                                    <td width="140px">已筹</td>
+
+                                </tr>
+                                <tr>
+                                    <td>剩余时间</td>
+                                    <td>
+                                        <p>
+                                            <input style="display: none" name="pedC" value="${pro.ped}">
+                                            <input class="ped" name="ped" value="${pro.ped}" disabled>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </li>
                 </c:forEach>
@@ -252,120 +248,131 @@
         <img class="imgtitle" src="images/生活.png"/>
         <div name="projectdiv">
             <ul name="menu">
-                <c:forEach items="${p2}" var="pro">
+                <c:forEach items="${ip2}" var="pro" begin="0" end="3">
                     <li>
                         <div>
-                            <div>
-                                <p class="picture">
-                                    <a href="ShowProject.mvc/${pro.pId}">
-                                        <img src="images/${pro.pId}/0.jpg"/>
-                                    </a>
-                                </p>
+                            <p class="picture">
+                                <a href="ShowProject.mvc?pid=${pro.pId}">
+                                    <img class="pimg" src="images/${pro.pId}/0.jpg"/>
+                                </a>
+                            </p>
 
-                                <p class="pname">
-                                    <a href="ShowProject.mvc/${pro.pId}">
-                                            ${pro.pName}
-                                    </a>
-                                </p>
-                                <p class="ptype">
-                                    <a href="ShowProject.mvc/${pro.pId}">
-                                            ${pro.projectTypeByPCategoryId.projectTypeName}
-                                    </a>
-                                </p>
-                            </div>
+                            <p class="pname">
+                                <a href="ShowProject.mvc/${pro.pId}">
+                                        ${pro.pName}
+                                </a>
+                            </p>
+                            <p class="ptype" style="width: 40px">
+                                <a class="ptypea" href="ShowProject.mvc/${pro.pId}">
+                                        ${pro.projectTypeByPCategoryId.projectTypeName}
+                                </a>
+                            </p>
+                        </div>
 
-                            <div>
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <p class="ptype">
-                                                    ${pro.pnp}人
+                        <div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <p class="ptype">
+                                                ${pro.pnp}人
 
-                                            </p>
-                                        </td>
+                                        </p>
+                                    </td>
 
-                                        <td>
-                                            <p class="ptype">
-                                                    ${pro.pnm}
+                                    <td>
+                                        <p class="ptype">
+                                                ${pro.pnm}
 
-                                            </p>
-                                        </td>
+                                        </p>
+                                    </td>
 
-                                        <td>
-                                            <p class="ptype">
-                                                <input name="ped" value="${pro.ped}" disabled>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>已达</td>
-                                        <td>已筹</td>
-                                        <td>剩余时间</td>
-                                    </tr>
-                                </table>
-                            </div>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="100px">支持</td>
+                                    <td width="140px">已筹</td>
+
+                                </tr>
+                                <tr>
+                                    <td>剩余时间</td>
+                                    <td>
+                                        <p>
+                                            <input style="display: none" name="pedC" value="${pro.ped}">
+                                            <input class="ped" name="ped" value="${pro.ped}" disabled>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </li>
                 </c:forEach>
             </ul>
         </div>
         <br/>
+        <br/>
         <%--商品类型 3 --%>
         <img class="imgtitle" src="images/艺术.png"/>
         <div name="projectdiv">
             <ul name="menu">
-                <c:forEach items="${p3}" var="pro">
+                <c:forEach items="${ip3}" var="pro" begin="0" end="3">
                     <li>
                         <div>
-                            <div>
-                                <p class="picture">
-                                    <a href="ShowProject.mvc/${pro.pId}">
-                                        <img src="images/${pro.pId}/0.jpg"/>
-                                    </a>
-                                </p>
+                            <p class="picture">
+                                <a href="ShowProject.mvc?pid=${pro.pId}">
+                                    <img class="pimg" src="images/${pro.pId}/0.jpg"/>
+                                </a>
+                            </p>
 
-                                <p class="pname">
-                                    <a href="ShowProject.mvc/${pro.pId}">
-                                            ${pro.pName}
-                                    </a>
-                                </p>
-                                <p class="ptype">
-                                    <a href="ShowProject.mvc/${pro.pId}">
-                                            ${pro.projectTypeByPCategoryId.projectTypeName}
-                                    </a>
-                                </p>
-                            </div>
+                            <p class="pname">
+                                <a href="ShowProject.mvc/${pro.pId}">
+                                        ${pro.pName}
+                                </a>
+                            </p>
+                            <p class="ptype" style="width: 40px">
+                                <a class="ptypea" href="ShowProject.mvc/${pro.pId}">
+                                        ${pro.projectTypeByPCategoryId.projectTypeName}
+                                </a>
+                            </p>
+                        </div>
 
-                            <div>
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <p class="ptype">
-                                                    ${pro.pnp}人
+                        <div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <p class="ptype">
+                                                ${pro.pnp}人
 
-                                            </p>
-                                        </td>
+                                        </p>
+                                    </td>
 
-                                        <td>
-                                            <p class="ptype">
-                                                    ${pro.pnm}
+                                    <td>
+                                        <p class="ptype">
+                                                ${pro.pnm}
 
-                                            </p>
-                                        </td>
+                                        </p>
+                                    </td>
 
-                                        <td>
-                                            <p class="ptype">
-                                                <input name="ped" value="${pro.ped}" disabled>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>已达</td>
-                                        <td>已筹</td>
-                                        <td>剩余时间</td>
-                                    </tr>
-                                </table>
-                            </div>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="100px">支持</td>
+                                    <td width="140px">已筹</td>
+
+                                </tr>
+                                <tr>
+                                    <td>剩余时间</td>
+                                    <td>
+                                        <p>
+                                            <input style="display: none" name="pedC" value="${pro.ped}">
+                                            <input class="ped" name="ped" value="${pro.ped}" disabled>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </li>
                 </c:forEach>
@@ -376,7 +383,7 @@
 
 
 <!--撑出页脚-->
-<div id="blank" style="height:1950px"></div>
+<div id="blank" style="height:2000px"></div>
 
 <script type="text/javascript">
     window.onload = cheangetime();

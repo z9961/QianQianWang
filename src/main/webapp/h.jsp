@@ -25,14 +25,14 @@
 </head>
 <body>
 <!--登录注册-->
-<div style="background-color: #f5f5f5;height: 40px;widt 100%">
-    <div id="LRF">
+<div style="background-color: #f5f5f5;height: 40px;widt:100%">
+    <div style="margin-left: 75%;padding-top: 8px">
         <c:if test="${sessionScope.user==null}">
-            <div onclick="toRegister();" class="top_nav">
+            <div onclick="tolrfr();" class="top_nav">
                 <img src="images/register.png">
                 用户注册
             </div>
-            <div onclick="toLogin();" class="top_nav">
+            <div onclick="tolrfl();" class="top_nav">
 
                 <img src="images/login.png">
                 登陆
@@ -61,34 +61,37 @@
                     <img src="images/logo.png" id="logo">
                 </li>
                 <li>
-                    <a href="index.jsp" target="_top">首页</a>
+                    <a href="Index.mvc" target="_top">首页</a>
                 </li>
 
                 <li>
-                    <a href="ProductsList.xhtml?param=new">最新闲置</a>
-
-                </li>
-
-                <li>
-                    <a href="ProductsList.xhtml?param=isbid">闲置拍卖</a>
+                    <a href="Projectlist.mvc?type=1">最新项目</a>
 
                 </li>
 
                 <li>
-                    <a href="ProductsList.xhtml?param=recommend">闲置推荐</a>
+                    <a href="Projectlist.mvc?type=0">最热项目</a>
+
                 </li>
 
                 <li>
-                    <a href="addinfo.xhtml" target="_top">发布闲置</a>
+                    <a href="Projectlist.mvc?type=2">最多支持</a>
                 </li>
 
-                <li>
-                    <a href="manageproduct.xhtml" target="_top">我的闲置</a>
-                </li>
+                <c:if test="${user.uType==2}">
+                    <li>
+                        <a href="addproject.jsp" target="_top">发布项目</a>
+                    </li>
+                    <li>
+                        <a href="Manage.mvc" target="_top">我的项目</a>
+                    </li>
+                </c:if>
+
+
                 <li>
                     <form id="searchform">
                         <img src="images/search.jpg" id="searchimg" onclick="search();"/>
-                        <input type="text" id="inputsearch"/>
+                        <input type="text" id="inputsearch" required/>
                     </form>
                 </li>
             </ul>
@@ -103,7 +106,7 @@
 <script type="text/javascript">
     function search() {
         var param = document.getElementById("inputsearch").value;
-        location.href = "ProductsSearch/" + param;
+        location.href = "Projectlist.mvc?type=6&searchstr=" + param;
     }
 </script>
 </body>

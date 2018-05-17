@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -22,8 +21,9 @@ public class ManageController {
     @Autowired
     private IProjectBiz projectBiz;
 
-    @RequestMapping(value = "manage.mvc", method = RequestMethod.POST)
+    @RequestMapping(value = "/Manage.mvc")
     public String manage(ModelMap map, HttpSession session) {
+        System.out.println("Manage.mvc");
         Users user = (Users) session.getAttribute("user");
 
         Collection<Orders> ordersByUPhone = user.getOrdersByUPhone();
@@ -37,6 +37,7 @@ public class ManageController {
         Collection<Project> projectsByUPhone = user.getProjectsByUPhone();
         for (Iterator<Project> iterator = projectsByUPhone.iterator(); iterator.hasNext(); ) {
             Project next = iterator.next();
+            System.out.println("next = " + next);
             mynewprojects.add(next);
         }
 
@@ -47,9 +48,11 @@ public class ManageController {
             mycomments.add(next);
         }
 
+        System.out.println("mynewprojects = " + mynewprojects.size());
+        System.out.println("mynewprojects = " + mynewprojects.get(0).toString());
         map.addAttribute("myprojects", myprojects);
-        map.addAttribute("mynewprojects", myprojects);
-        map.addAttribute("mycomments", myprojects);
+        map.addAttribute("mynewprojects", mynewprojects);
+        map.addAttribute("mycomments", mycomments);
 
 
         return "manage.jsp";

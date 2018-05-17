@@ -23,9 +23,15 @@
         <many-to-one name="usersByUPhone" class="com.niit.entity.Users">
             <column name="UPhone" not-null="true"/>
         </many-to-one>
-        <many-to-one name="projectTypeByPCategoryId" class="com.niit.entity.ProjectType">
+        <many-to-one name="projectTypeByPCategoryId" class="com.niit.entity.ProjectType" lazy="false">
             <column name="PCategoryId" not-null="true"/>
         </many-to-one>
+        <set name="ordersByPId" inverse="true">
+            <key>
+                <column name="PId" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.niit.entity.Orders"/>
+        </set>
         <set name="projectCommentsByPId" inverse="true">
             <key>
                 <column name="CPid" not-null="true"/>

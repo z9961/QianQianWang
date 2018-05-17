@@ -2,6 +2,7 @@ package com.niit.controller;
 
 import com.niit.biz.IUserBiz;
 import com.niit.entity.Users;
+import com.niit.entity.UsersAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 
 /**
@@ -21,7 +23,7 @@ public class LoginController {
     @Autowired
     private IUserBiz userBiz;
 
-    @RequestMapping(value = "Login.mvc", method = RequestMethod.POST)
+    @RequestMapping(value = "Login.mvc")
     public String Login(String phone, String username, String password, HttpServletRequest req, HttpSession session, ModelMap map) {
         System.out.println("密码登录-----------------------------");
         if (phone == null || password == null) {
@@ -52,13 +54,14 @@ public class LoginController {
         if (password.equals(user.getuPwd())) {
             System.out.println("密码正确");
             session.setAttribute("user", user);
-            map.addAttribute("msg", "登陆成功");
+            List<UsersAddress> list = userBiz.findAllAddress(user.getuPhone());
+            session.setAttribute("addr", list);
             if (user.getuType() == 1) {
-                map.addAttribute("url", "index.jsp");
+                return "Index.mvc";
             } else {
-                map.addAttribute("url", "manage.jsp");
+                return "manage.jsp";
             }
-            return "msg.jsp";
+
         } else {
             map.addAttribute("msg", "密码错误");
             map.addAttribute("msgtype", "login");
@@ -96,13 +99,15 @@ public class LoginController {
         if (sms.equals(req.getSession().getAttribute("code").toString())) {
             System.out.println("验证码正确");
             session.setAttribute("user", user);
-            map.addAttribute("msg", "登陆成功");
+
+            List<UsersAddress> list = userBiz.findAllAddress(user.getuPhone());
+            session.setAttribute("addr", list);
             if (user.getuType() == 1) {
-                map.addAttribute("url", "index.jsp");
+                return "index.jsp";
             } else {
-                map.addAttribute("url", "manage.jsp");
+                return "manage.jsp";
             }
-            return "msg.jsp";
+
         } else {
             map.addAttribute("msg", "验证码错误");
             map.addAttribute("msgtype", "login");

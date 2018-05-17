@@ -47,7 +47,7 @@
         window.location.href = "" + jumpurl + "";
     }
 
-    setTimeout("msgtype()", 5000);
+    setTimeout("msgtype()", 1000);
 </script>
 </body>
 

@@ -6,6 +6,10 @@
     String basePath = request.getScheme() + "://"
             + request.getServerName() + ":" + request.getServerPort()
             + path + "/";
+
+    String typestr = request.getParameter("type");
+    request.setAttribute("msgtype2", typestr);
+
 %>
 
 
@@ -108,9 +112,10 @@
         </tr>
         <tr>
             <td></td>
-            <td class="word" style="width: 400px">
-                <input id="getsms2" name="getsms" type="button" value="获取验证码" onclick="getSms()"/>
+            <td>
+                <input id="getsms2" name="getsms" type="button" value="获取验证码" onclick="getSms2()"/>
             </td>
+
         </tr>
 
         <tr>
@@ -232,6 +237,7 @@
 
     function msgtype() {
         var msgtype = "${msgtype}";
+        var msgtype2 = "${msgtype2}";
         var msg = "${msg}";
         if (msgtype == "register") {
             showregister();
@@ -240,6 +246,12 @@
         if (msgtype == "login") {
             showlogin();
             alert(msg);
+        }
+        if (msgtype2 == "registerh") {
+            showregister();
+        }
+        if (msgtype2 == "loginh") {
+            showlogin();
         }
     }
 

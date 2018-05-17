@@ -8,7 +8,6 @@ import java.util.Objects;
 @Entity
 public class Orders {
     private int orderId;
-    private Integer pId;
     private Integer aId;
     private BigDecimal money;
     private Integer expect;
@@ -16,6 +15,7 @@ public class Orders {
     private String exceptOther;
     private Timestamp orderDate;
     private Users usersByUPhone;
+    private Project projectByPId;
 
     @Id
     @Column(name = "OrderId")
@@ -25,16 +25,6 @@ public class Orders {
 
     public void setOrderId(int orderId) {
         this.orderId = orderId;
-    }
-
-    @Basic
-    @Column(name = "PId")
-    public Integer getpId() {
-        return pId;
-    }
-
-    public void setpId(Integer pId) {
-        this.pId = pId;
     }
 
     @Basic
@@ -103,7 +93,6 @@ public class Orders {
         if (o == null || getClass() != o.getClass()) return false;
         Orders orders = (Orders) o;
         return orderId == orders.orderId &&
-                Objects.equals(pId, orders.pId) &&
                 Objects.equals(aId, orders.aId) &&
                 Objects.equals(money, orders.money) &&
                 Objects.equals(expect, orders.expect) &&
@@ -115,7 +104,7 @@ public class Orders {
     @Override
     public int hashCode() {
 
-        return Objects.hash(orderId, pId, aId, money, expect, expectType, exceptOther, orderDate);
+        return Objects.hash(orderId, aId, money, expect, expectType, exceptOther, orderDate);
     }
 
     @ManyToOne
@@ -126,5 +115,15 @@ public class Orders {
 
     public void setUsersByUPhone(Users usersByUPhone) {
         this.usersByUPhone = usersByUPhone;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "PId", referencedColumnName = "PId")
+    public Project getProjectByPId() {
+        return projectByPId;
+    }
+
+    public void setProjectByPId(Project projectByPId) {
+        this.projectByPId = projectByPId;
     }
 }

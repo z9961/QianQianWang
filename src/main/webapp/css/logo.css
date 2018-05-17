@@ -1,7 +1,7 @@
 #logo {
     /*设置Logo的宽度*/
     height: 100px;
-    width: 200px;
+    width: 380px;
 }
 
 #LRF {
@@ -17,6 +17,7 @@
     /*将背景设为透明*/
     background-color: transparent;
     width: 20px;
+    padding-top: 20px;
 }
 
 .top_nav img {

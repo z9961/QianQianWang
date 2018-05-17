@@ -1,10 +1,8 @@
 function cheangetime() {
-
-
+    var controlsC = document.getElementsByName("pedC");
     var controls = document.getElementsByName("ped");
-    for (var i = 0; i < controls.length; i++)
-    {
-        var ped = controls[i].value;
+    for (var i = 0; i < controlsC.length; i++) {
+        var ped = controlsC[i].value;
 
         ped = ped.substr(0, ped.length - 4);
 
@@ -31,4 +29,7 @@ function cheangetime() {
 
     }
 
+    setTimeout(function () {
+        cheangetime();
+    }, 1000);
 }
