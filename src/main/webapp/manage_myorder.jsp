@@ -46,13 +46,14 @@
         <th>地址</th>
         <th>备注</th>
     </tr>
-    <c:forEach items="${myprojects}" var="pro">
+    <c:forEach items="${myorders}" var="pro">
         <tr>
             <td>${pro.projectByPId.pName}</td>
             <td>
+                <c:if test="${pro.projectByPId.pState == 0}">未开始</c:if>
                 <c:if test="${pro.projectByPId.pState == 1}">进行中</c:if>
                 <c:if test="${pro.projectByPId.pState == 2}">已完成</c:if>
-                <c:if test="${pro.projectByPId.pState == 1}">未成功</c:if>
+                <c:if test="${pro.projectByPId.pState == 3}">未成功</c:if>
             </td>
 
             <td>${pro.money}</td>
@@ -83,8 +84,16 @@
                     其他
                 </c:if>
             </td>
-            <td>${pro.psd}</td>
-            <td><a href="">查看详情</a></td>
+            <td>
+                <c:if test="${pro.expect==1}">
+                    ${pro.usersAddressByAId.address}
+                </c:if>
+            </td>
+            <td>
+                <c:if test="${pro.expectType==4}">
+                    ${pro.usersAddressByAId.exceptOther}
+                </c:if>
+            </td>
 
 
         </tr>

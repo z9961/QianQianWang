@@ -34,10 +34,6 @@ public class LoginController {
 
         Users user = userBiz.findUserByPhone(phone);
 
-        System.out.println("password = " + password);
-        System.out.println("userpwd = " + user.getuPwd());
-
-
         try {
             if (!phone.equals(user.getuPhone())) {
                 map.addAttribute("msg", "该手机号未注册");

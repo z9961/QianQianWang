@@ -6,7 +6,6 @@
 
     <class name="com.niit.entity.Orders" table="Orders" schema="dbo" catalog="Qianqianwang">
         <id name="orderId" column="OrderId"/>
-        <property name="aId" column="AId"/>
         <property name="money" column="Money"/>
         <property name="expect" column="Expect"/>
         <property name="expectType" column="ExpectType"/>
@@ -15,8 +14,11 @@
         <many-to-one name="usersByUPhone" class="com.niit.entity.Users">
             <column name="UPhone" not-null="true"/>
         </many-to-one>
-        <many-to-one name="projectByPId" class="com.niit.entity.Project">
+        <many-to-one name="projectByPId" class="com.niit.entity.Project" lazy="false">
             <column name="PId" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="usersAddressByAId" class="com.niit.entity.UsersAddress">
+            <column name="AId" not-null="true"/>
         </many-to-one>
     </class>
 </hibernate-mapping>

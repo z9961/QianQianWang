@@ -8,7 +8,6 @@ import java.util.Objects;
 @Entity
 public class Orders {
     private int orderId;
-    private Integer aId;
     private BigDecimal money;
     private Integer expect;
     private Integer expectType;
@@ -16,6 +15,33 @@ public class Orders {
     private Timestamp orderDate;
     private Users usersByUPhone;
     private Project projectByPId;
+    private UsersAddress usersAddressByAId;
+
+    public Orders(BigDecimal money, Integer expect, Integer expectType, String exceptOther, Timestamp orderDate, Users usersByUPhone, Project projectByPId, UsersAddress usersAddressByAId) {
+        this.money = money;
+        this.expect = expect;
+        this.expectType = expectType;
+        this.exceptOther = exceptOther;
+        this.orderDate = orderDate;
+        this.usersByUPhone = usersByUPhone;
+        this.projectByPId = projectByPId;
+        this.usersAddressByAId = usersAddressByAId;
+    }
+
+    public Orders() {
+    }
+
+    public Orders(int orderId, BigDecimal money, Integer expect, Integer expectType, String exceptOther, Timestamp orderDate, Users usersByUPhone, Project projectByPId, UsersAddress usersAddressByAId) {
+        this.orderId = orderId;
+        this.money = money;
+        this.expect = expect;
+        this.expectType = expectType;
+        this.exceptOther = exceptOther;
+        this.orderDate = orderDate;
+        this.usersByUPhone = usersByUPhone;
+        this.projectByPId = projectByPId;
+        this.usersAddressByAId = usersAddressByAId;
+    }
 
     @Id
     @Column(name = "OrderId")
@@ -25,16 +51,6 @@ public class Orders {
 
     public void setOrderId(int orderId) {
         this.orderId = orderId;
-    }
-
-    @Basic
-    @Column(name = "AId")
-    public Integer getaId() {
-        return aId;
-    }
-
-    public void setaId(Integer aId) {
-        this.aId = aId;
     }
 
     @Basic
@@ -93,7 +109,6 @@ public class Orders {
         if (o == null || getClass() != o.getClass()) return false;
         Orders orders = (Orders) o;
         return orderId == orders.orderId &&
-                Objects.equals(aId, orders.aId) &&
                 Objects.equals(money, orders.money) &&
                 Objects.equals(expect, orders.expect) &&
                 Objects.equals(expectType, orders.expectType) &&
@@ -104,7 +119,7 @@ public class Orders {
     @Override
     public int hashCode() {
 
-        return Objects.hash(orderId, aId, money, expect, expectType, exceptOther, orderDate);
+        return Objects.hash(orderId, money, expect, expectType, exceptOther, orderDate);
     }
 
     @ManyToOne
@@ -125,5 +140,15 @@ public class Orders {
 
     public void setProjectByPId(Project projectByPId) {
         this.projectByPId = projectByPId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "AId", referencedColumnName = "AId")
+    public UsersAddress getUsersAddressByAId() {
+        return usersAddressByAId;
+    }
+
+    public void setUsersAddressByAId(UsersAddress usersAddressByAId) {
+        this.usersAddressByAId = usersAddressByAId;
     }
 }

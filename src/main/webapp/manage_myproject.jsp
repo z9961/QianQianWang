@@ -1,19 +1,12 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://"
-            + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-%>
+<%@ page isELIgnored="false" %>
 
 <!DOCTYPE HTML>
 <html>
 
 <head>
-    <base href="<%=basePath%>">
 
-    <title>所有内容</title>
     <style type="text/css">
         table {
             width: 100%;
@@ -42,29 +35,56 @@
 <table>
     <tr>
 
-        <th>标题</th>
-        <th>作者</th>
-        <th>类型</th>
-        <th>日期</th>
-        <th>内容</th>
-        <!--<th>编辑</th>
-        <th>删除</th>-->
+        <th>项目编号</th>
+        <th>项目名</th>
+        <th>项目描述</th>
+        <th>项目开始时间</th>
+        <th>项目结束时间</th>
+        <th>目标金额</th>
+        <th>当前金额</th>
+        <th>当前人数</th>
+        <th>投资前景</th>
+        <th>项目类型</th>
+        <th>币种</th>
+        <th>限制最大金额</th>
+        <th>项目状态</th>
+        <th>项目团队介绍</th>
+        <th>开发计划</th>
+        <th>备注</th>
+
+
     </tr>
-    <c:forEach items="${requestScope.list}" var="info">
+    <c:forEach items="${mynewprojects}" var="pro">
         <tr>
-            <td>${info.title}</td>
-            <td>${info.author}</td>
-            <td>${info.type}</td>
-            <td>${info.date}</td>
+
+            <td>${pro.pId}</td>
+            <td>${pro.pName}</td>
+            <td>${pro.pDesc}</td>
+            <td>${pro.psd}</td>
+            <td>${pro.ped}</td>
+            <td>${pro.pTarget}</td>
+            <td>${pro.pnm}</td>
+            <td>${pro.pnp}</td>
+            <td>${pro.pMilestone}</td>
+            <td>${pro.projectTypeByPCategoryId.projectTypeName}</td>
+            <td> ${pro.pmf==0}</td>
             <td>
-                    ${info.content}
-            </td>
-            <!--<td>
-                <a href="#">编辑</a>
+                <c:if test="${pro.pLimit==0}">
+                    否
+                </c:if>
+                <c:if test="${pro.pLimit==1}">
+                    是
+                </c:if>
             </td>
             <td>
-                <a href="#">删除</a>
-            </td>-->
+                <c:if test="${pro.pState == 0}">未开始</c:if>
+                <c:if test="${pro.pState == 1}">进行中</c:if>
+                <c:if test="${pro.pState == 2}">已完成</c:if>
+                <c:if test="${pro.pState == 3}">未成功</c:if>
+            </td>
+            <td>${pro.pTeam}</td>
+            <td>${pro.pPlan}</td>
+            <td>${pro.pRemark}</td>
         </tr>
     </c:forEach>
 </table>

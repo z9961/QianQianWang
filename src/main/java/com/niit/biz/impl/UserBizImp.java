@@ -1,12 +1,8 @@
 package com.niit.biz.impl;
 
 import com.niit.biz.IUserBiz;
-import com.niit.dao.IUsersAddressDao;
-import com.niit.dao.IUsersDao;
-import com.niit.dao.IUsersInfoDao;
-import com.niit.entity.Users;
-import com.niit.entity.UsersAddress;
-import com.niit.entity.UsersInfo;
+import com.niit.dao.*;
+import com.niit.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +17,11 @@ public class UserBizImp implements IUserBiz {
     private IUsersInfoDao usersInfoDao;
     @Autowired
     private IUsersAddressDao usersAddressDao;
+    @Autowired
+    private IOrderDao OrderDao;
+    @Autowired
+    private IProjectDao projectDao;
+
 
     //注册业务
     @Override
@@ -99,6 +100,21 @@ public class UserBizImp implements IUserBiz {
     @Override
     public boolean updateinfo(UsersInfo usersInfo) {
         return usersDao.updateinfo(usersInfo);
+    }
+
+    @Override
+    public List<Orders> findAllOrder(String s) {
+        return OrderDao.findAllOrder(s);
+    }
+
+    @Override
+    public List<Project> findAllUserProject(String s) {
+        return projectDao.findAllUserProject(s);
+    }
+
+    @Override
+    public List<ProjectComment> findAllUserProjectComment(String s) {
+        return projectDao.findAllUserProjectComment(s);
     }
 
     @Override

@@ -9,9 +9,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 @Controller
@@ -23,7 +20,7 @@ public class ManageController {
     private IProjectBiz projectBiz;
 
 
-    @RequestMapping(value = "/Manage.mvc")
+    @RequestMapping(value = "Manage.mvc")
     public String manage(ModelMap map, HttpSession session) {
         System.out.println("Manage.mvc");
         Users user = (Users) session.getAttribute("user");
@@ -32,33 +29,17 @@ public class ManageController {
         System.out.println("uphone = " + uphone);
 
 
-        Collection<Orders> ordersByUPhone = user.getOrdersByUPhone();
-        List<Orders> myorders = new ArrayList<Orders>();
-        for (Iterator<Orders> iterator = ordersByUPhone.iterator(); iterator.hasNext(); ) {
-            Orders next = iterator.next();
-            myorders.add(next);
-        }
+        List<Orders> myorders = userBiz.findAllOrder(user.getuPhone());
+        System.out.println("myorders = " + myorders.size());
+        List<Project> mynewprojects = userBiz.findAllUserProject(user.getuPhone());
+        System.out.println("myorders = " + myorders.size());
+        List<ProjectComment> mycomments = userBiz.findAllUserProjectComment(user.getuPhone());
+        System.out.println("myorders = " + myorders.size());
 
 
-        Collection<Project> projectsByUPhone = user.getProjectsByUPhone();
-        List<Project> mynewprojects = new ArrayList<Project>();
-        for (Iterator<Project> iterator = projectsByUPhone.iterator(); iterator.hasNext(); ) {
-            Project next = iterator.next();
-            System.out.println("next = " + next);
-            mynewprojects.add(next);
-        }
-
-
-        Collection<ProjectComment> projectCommentsByUPhone = user.getProjectCommentsByUPhone();
-        List<ProjectComment> mycomments = new ArrayList<>();
-        for (Iterator<ProjectComment> iterator = projectCommentsByUPhone.iterator(); iterator.hasNext(); ) {
-            ProjectComment next = iterator.next();
-            mycomments.add(next);
-        }
-
-        map.addAttribute("myprojects", myorders);
-        map.addAttribute("mynewprojects", mynewprojects);
-        map.addAttribute("mycomments", mycomments);
+        session.setAttribute("myorders", myorders);
+        session.setAttribute("mynewprojects", mynewprojects);
+        session.setAttribute("mycomments", mycomments);
 
 
         return "manage.jsp";
@@ -104,13 +85,12 @@ public class ManageController {
             isok = userBiz.updateinfo(usersInfo);
         }
 
-
+        map.addAttribute("url", "manage_person.jsp");
         if (isok) {
             map.addAttribute("msg", "修改信息成功");
-            map.addAttribute("url", "Checkout.mvc");
         } else {
             map.addAttribute("msg", "修改信息失败");
-            map.addAttribute("url", "manage_person.jsp");
+
         }
 
         return "msg.jsp";

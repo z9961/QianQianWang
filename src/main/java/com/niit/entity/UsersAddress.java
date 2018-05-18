@@ -1,12 +1,14 @@
 package com.niit.entity;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
 public class UsersAddress {
     private int aId;
     private String address;
+    private Collection<Orders> ordersByAId;
     private Users usersByAUPhone;
 
     @Id
@@ -42,6 +44,15 @@ public class UsersAddress {
     public int hashCode() {
 
         return Objects.hash(aId, address);
+    }
+
+    @OneToMany(mappedBy = "usersAddressByAId")
+    public Collection<Orders> getOrdersByAId() {
+        return ordersByAId;
+    }
+
+    public void setOrdersByAId(Collection<Orders> ordersByAId) {
+        this.ordersByAId = ordersByAId;
     }
 
     @ManyToOne

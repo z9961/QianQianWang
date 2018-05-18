@@ -10,5 +10,11 @@
         <many-to-one name="usersByAUPhone" class="com.niit.entity.Users">
             <column name="aUPhone" not-null="true"/>
         </many-to-one>
+        <set name="ordersByAId" inverse="true">
+            <key>
+                <column name="AId" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.niit.entity.Orders"/>
+        </set>
     </class>
 </hibernate-mapping>

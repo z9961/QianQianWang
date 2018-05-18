@@ -4,6 +4,7 @@ import com.niit.biz.IProjectBiz;
 import com.niit.entity.Orders;
 import com.niit.entity.Project;
 import com.niit.entity.Users;
+import com.niit.entity.UsersAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -38,8 +39,9 @@ public class OrderController {
         boolean isok;
 
         if (type == 1) {
-
-            o.setaId(Integer.parseInt(oaid));
+            UsersAddress ua = new UsersAddress();
+            ua.setaId(Integer.parseInt(oaid));
+            o.setUsersAddressByAId(ua);
             int oexpectTypeint = Integer.parseInt(oexpectType);
             o.setExpectType(oexpectTypeint);
             if (oexpectTypeint == 4) {

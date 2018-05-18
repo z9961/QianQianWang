@@ -1,6 +1,7 @@
 package com.niit.dao;
 
 import com.niit.entity.Project;
+import com.niit.entity.ProjectComment;
 import com.niit.entity.Users;
 
 import java.util.List;
@@ -27,4 +28,8 @@ public interface IProjectDao {
     List<Project> findMostProject();
 
     List<Project> findProjectBySearch(String searchstr);
+
+    List<Project> findAllUserProject(String s);
+
+    List<ProjectComment> findAllUserProjectComment(String s);
 }

@@ -1,17 +1,11 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://"
-            + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-%>
+<%@ page isELIgnored="false" %>
 
 <!DOCTYPE HTML>
 <html>
 
 <head>
-    <base href="<%=basePath%>">
 
     <title>所有内容</title>
     <style type="text/css">
@@ -42,29 +36,16 @@
 <table>
     <tr>
 
-        <th>标题</th>
-        <th>作者</th>
-        <th>类型</th>
-        <th>日期</th>
-        <th>内容</th>
-        <!--<th>编辑</th>
-        <th>删除</th>-->
+        <th>评论项目</th>
+        <th>评论内容</th>
+        <th>评论时间</th>
+
     </tr>
-    <c:forEach items="${requestScope.list}" var="info">
+    <c:forEach items="${mycomments}" var="mc">
         <tr>
-            <td>${info.title}</td>
-            <td>${info.author}</td>
-            <td>${info.type}</td>
-            <td>${info.date}</td>
-            <td>
-                    ${info.content}
-            </td>
-            <!--<td>
-                <a href="#">编辑</a>
-            </td>
-            <td>
-                <a href="#">删除</a>
-            </td>-->
+            <td>${mc.projectByCPid.pName}</td>
+            <td>${mc.pComment}</td>
+            <td>${mc.pcTime}</td>
         </tr>
     </c:forEach>
 </table>

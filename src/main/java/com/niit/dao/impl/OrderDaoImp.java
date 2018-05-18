@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Repository
 public class OrderDaoImp implements IOrderDao {
@@ -45,5 +46,13 @@ public class OrderDaoImp implements IOrderDao {
 
 
         return true;
+    }
+
+    @Override
+    public List<Orders> findAllOrder(String s) {
+        String hql = "from Orders where usersByUPhone.uPhone=:uphone";
+        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+        query.setParameter("uphone", s);
+        return query.list();
     }
 }

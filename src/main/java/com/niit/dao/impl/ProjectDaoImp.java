@@ -78,6 +78,23 @@ public class ProjectDaoImp implements IProjectDao {
     }
 
     @Override
+    public List<Project> findAllUserProject(String s) {
+        String hql = "from Project where usersByUPhone.uPhone =:phone";
+        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+        query.setParameter("phone", s);
+        return query.list();
+
+    }
+
+    @Override
+    public List<ProjectComment> findAllUserProjectComment(String s) {
+        String hql = "from ProjectComment where usersByUPhone.uPhone=:phone";
+        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+        query.setParameter("phone", s);
+        return query.list();
+    }
+
+    @Override
     public List<Project> findProject1() {
         String hql = "from Project where projectTypeByPCategoryId.projectTypeId = 1";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
