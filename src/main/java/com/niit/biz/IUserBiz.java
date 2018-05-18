@@ -9,13 +9,7 @@ import java.util.List;
 public interface IUserBiz {
 
 
-    void save(Users u);
 
-    void update(Users u);
-
-    void delete(Integer id);
-
-    List<Users> findAll();
 
     String RegisterUser(Users user);
 
@@ -28,4 +22,10 @@ public interface IUserBiz {
 
 
     boolean saveAddress(UsersAddress addr);
+
+    boolean changepwd(String s, String newpwd);
+
+    boolean update(Users user);
+
+    boolean updateinfo(UsersInfo usersInfo);
 }

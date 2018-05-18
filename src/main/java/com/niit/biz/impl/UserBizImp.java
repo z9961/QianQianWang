@@ -22,26 +22,6 @@ public class UserBizImp implements IUserBiz {
     @Autowired
     private IUsersAddressDao usersAddressDao;
 
-    @Override
-    public void save(Users u) {
-
-    }
-
-    @Override
-    public void update(Users u) {
-
-    }
-
-    @Override
-    public void delete(Integer id) {
-
-    }
-
-    @Override
-    public List<Users> findAll() {
-        return null;
-    }
-
     //注册业务
     @Override
     public String RegisterUser(Users u) {
@@ -104,6 +84,21 @@ public class UserBizImp implements IUserBiz {
     @Override
     public boolean saveAddress(UsersAddress addr) {
         return usersAddressDao.save(addr);
+    }
+
+    @Override
+    public boolean changepwd(String s, String newpwd) {
+        return usersDao.changepwd(s, newpwd);
+    }
+
+    @Override
+    public boolean update(Users user) {
+        return usersDao.update(user);
+    }
+
+    @Override
+    public boolean updateinfo(UsersInfo usersInfo) {
+        return usersDao.updateinfo(usersInfo);
     }
 
     @Override

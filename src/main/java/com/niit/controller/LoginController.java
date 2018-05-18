@@ -59,7 +59,7 @@ public class LoginController {
             if (user.getuType() == 1) {
                 return "Index.mvc";
             } else {
-                return "manage.jsp";
+                return "redirect:Manage.mvc";
             }
 
         } else {
@@ -103,9 +103,9 @@ public class LoginController {
             List<UsersAddress> list = userBiz.findAllAddress(user.getuPhone());
             session.setAttribute("addr", list);
             if (user.getuType() == 1) {
-                return "index.jsp";
+                return "Index.mvc";
             } else {
-                return "manage.jsp";
+                return "redirect:Manage.mvc";
             }
 
         } else {
