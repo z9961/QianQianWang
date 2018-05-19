@@ -118,6 +118,16 @@ public class UserBizImp implements IUserBiz {
     }
 
     @Override
+    public List<Orders> findOrderByPid(int pid) {
+        return OrderDao.findOrderByPid(pid);
+    }
+
+    @Override
+    public boolean deleteAddress(int aid) {
+        return usersAddressDao.delete(aid);
+    }
+
+    @Override
     public Users findUserByPhone(String phone) {
         Users user = usersDao.findByPhone(phone);
         return user;

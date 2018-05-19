@@ -113,11 +113,9 @@
         <tr>
             <td></td>
             <td>
-                <input id="getsms2" name="getsms" type="button" value="获取验证码" onclick="getSms2()"/>
+                <input id="getsms2" name="getsms" type="button" value="获取验证码" onclick="getSms2()" style="width: 220px"/>
             </td>
-
         </tr>
-
         <tr>
             <td></td>
             <td>

@@ -192,7 +192,7 @@ function getSms() {
             })
             //发送后计时60s
             countdown = 60;
-            new invokeSettime("#getsms");
+            new invokeSettime("#getsms", countdown);
         } else {
             alert("手机号码不正确!");
         }

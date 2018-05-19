@@ -9,4 +9,6 @@ public interface IOrderDao {
     boolean saveorder(Orders o);
 
     List<Orders> findAllOrder(String s);
+
+    List<Orders> findOrderByPid(int pid);
 }

@@ -9,15 +9,7 @@
     <script src="js/footer.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="css/lrf.css"/>
     <link rel="stylesheet" type="text/css" href="css/footer.css"/>
-    <script type="text/javascript">
-        window.onload = cheangetime();
 
-        var existaddprojectmsg = ${existaddprojectmsg};
-        if (existaddprojectmsg) {
-            var msg = '${addprojectmsg}';
-            alert(msg);
-        }
-    </script>
 </head>
 <body>
 
@@ -38,12 +30,6 @@
             <td><input id="PDesc" name="PDesc" type="text" value="212334" required maxlength="200"/></td>
 
         </tr>
-        <tr>
-            <td class="word">开始时间</td>
-            <td><input id="PSD" name="PSD" type="text" value="2018-5-20 10:02:35" required/></td>
-
-        </tr>
-
         <tr>
             <td class="word">结束时间</td>
             <td><input id="PED" name="PED" type="text" value="2018-7-5 10:02:35" required/></td>

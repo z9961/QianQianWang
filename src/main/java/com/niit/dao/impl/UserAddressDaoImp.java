@@ -36,7 +36,7 @@ public class UserAddressDaoImp implements IUsersAddressDao {
 
         int max = 0;
         try {
-            max = (int) sessionFactory.getCurrentSession().createQuery("select max(a.pcId) from ProjectComment a ").uniqueResult();
+            max = (int) sessionFactory.getCurrentSession().createQuery("select max(a.aId) from UsersAddress a ").uniqueResult();
         } catch (Exception e) {
             System.out.println("pmax=0");
         }
@@ -54,5 +54,18 @@ public class UserAddressDaoImp implements IUsersAddressDao {
             return false;
         }
 
+    }
+
+    @Override
+    public boolean delete(int aid) {
+
+        try {
+            UsersAddress ad = new UsersAddress();
+            ad.setaId(aid);
+            sessionFactory.getCurrentSession().delete(ad);
+            return true;
+        } catch (HibernateException e) {
+            return false;
+        }
     }
 }

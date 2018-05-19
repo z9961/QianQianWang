@@ -37,8 +37,6 @@
     <script type="text/javascript" src="js/head_div.js"></script>
 
 
-    <br/>
-
     <div id="b2">
         <%--热门推荐 --%>
         <img class="imgtitle" src="images/热门推荐.png"/>
@@ -54,12 +52,12 @@
                             </p>
 
                             <p class="pname">
-                                <a href="ShowProject.mvc/${pro.pId}">
+                                <a href="ShowProject.mvc?pid=${pro.pId}">
                                         ${pro.pName}
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                <a class="ptypea" href="ShowProject.mvc/${pro.pId}">
+                                <a class="ptypea" href="ShowProject.mvc?pid=${pro.pId}">
                                         ${pro.projectTypeByPCategoryId.projectTypeName}
                                 </a>
                             </p>
@@ -107,6 +105,8 @@
             </ul>
         </div>
         <br/>
+            <br/>
+            <br/>
         <%--最新上架 --%>
         <img class="imgtitle" src="images/最新.png"/>
         <div name="projectdiv">
@@ -122,12 +122,13 @@
                             </p>
 
                             <p class="pname">
-                                <a href="ShowProject.mvc/${pro.pId}">
+                                <a href="ShowProject.mvc?pid=${pro.pId}">
                                         ${pro.pName}
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                <a class="ptypea" href="ShowProject.mvc/${pro.pId}">
+                                <a class="ptypea"
+                                   href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">
                                         ${pro.projectTypeByPCategoryId.projectTypeName}
                                 </a>
                             </p>
@@ -175,6 +176,8 @@
             </ul>
         </div>
         <br/>
+            <br/>
+            <br/>
 
         <%--商品类型 1 --%>
         <img class="imgtitle" src="images/数码.png"/>
@@ -191,12 +194,13 @@
                             </p>
 
                             <p class="pname">
-                                <a href="ShowProject.mvc/${pro.pId}">
+                                <a href="ShowProject.mvc?pid=${pro.pId}">
                                         ${pro.pName}
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                <a class="ptypea" href="ShowProject.mvc/${pro.pId}">
+                                <a class="ptypea"
+                                   href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">
                                         ${pro.projectTypeByPCategoryId.projectTypeName}
                                 </a>
                             </p>
@@ -244,6 +248,8 @@
             </ul>
         </div>
         <br/>
+            <br/>
+            <br/>
         <%--商品类型 2 --%>
         <img class="imgtitle" src="images/生活.png"/>
         <div name="projectdiv">
@@ -258,12 +264,13 @@
                             </p>
 
                             <p class="pname">
-                                <a href="ShowProject.mvc/${pro.pId}">
+                                <a href="ShowProject.mvc?pid=${pro.pId}">
                                         ${pro.pName}
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                <a class="ptypea" href="ShowProject.mvc/${pro.pId}">
+                                <a class="ptypea"
+                                   href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">
                                         ${pro.projectTypeByPCategoryId.projectTypeName}
                                 </a>
                             </p>
@@ -311,6 +318,7 @@
             </ul>
         </div>
         <br/>
+            <br/>
         <br/>
         <%--商品类型 3 --%>
         <img class="imgtitle" src="images/艺术.png"/>
@@ -326,12 +334,13 @@
                             </p>
 
                             <p class="pname">
-                                <a href="ShowProject.mvc/${pro.pId}">
+                                <a href="ShowProject.mvc?pid=${pro.pId}">
                                         ${pro.pName}
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                <a class="ptypea" href="ShowProject.mvc/${pro.pId}">
+                                <a class="ptypea"
+                                   href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">
                                         ${pro.projectTypeByPCategoryId.projectTypeName}
                                 </a>
                             </p>
@@ -383,7 +392,7 @@
 
 
 <!--撑出页脚-->
-<div id="blank" style="height:2000px"></div>
+<div id="blank" style="height:2150px"></div>
 
 <script type="text/javascript">
     window.onload = cheangetime();

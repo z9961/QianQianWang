@@ -27,6 +27,7 @@ public class OrderController {
                            String oexpectOther, String oaid) {
 
         Project p = (Project) session.getAttribute("showproject");
+
         Users u = (Users) session.getAttribute("user");
         Orders o = new Orders();
         o.setUsersByUPhone(u);
@@ -37,6 +38,18 @@ public class OrderController {
         int type = Integer.parseInt(oexpect);
         o.setExpect(type);
         boolean isok;
+
+        //判断是否限额
+        if (p.getpLimit() == 1) {
+            BigDecimal now = p.getPnm();
+            BigDecimal target = p.getpTarget();
+            if ((now.add(money)).compareTo(target) > 0) {
+                map.addAttribute("msg", "支持的金额大于剩余金额");
+                map.addAttribute("url", "ShowProject.mvc?pid=" + p.getpId());
+                return "msg.jsp";
+            }
+        }
+
 
         if (type == 1) {
             UsersAddress ua = new UsersAddress();

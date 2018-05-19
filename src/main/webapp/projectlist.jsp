@@ -41,43 +41,7 @@
     <!--插入页眉-->
 
     <br/>
-    <div style="text-align: right">
-        <%--分页--%>
 
-        共${countlist}条记录，当前显示第${nowpage}页 / 共${pages}页
-
-
-        <form action="Projectlistpage.mvc" method="post">
-            跳转
-            <input type="text" name="page" style="width: 40px;height: 20px"/> 页
-            <input type="submit" value="确认跳转">
-        </form>
-
-
-        <p>
-
-            <input type="button" value="首页"
-                    <c:if test="${nowpage > 1 }">
-                        onclick="topage(1)"
-                    </c:if>
-            />
-            &nbsp;
-            <c:if test="${nowpage > 1 }">
-                <input type="button" onclick="topage(${nowpage-1})" value="上一页"/>
-            </c:if>
-            &nbsp;
-            <c:if test="${nowpage < pages}">
-                <input type="button" onclick="topage(${nowpage+1})" value="下一页"/>
-            </c:if>
-            &nbsp;
-            <input type="button" value="末页"
-                    <c:if test="${nowpage < pages}">
-                        onclick="topage(${pages})"
-                    </c:if>
-            />
-
-        </p>
-    </div>
     <br>
     <br>
 
@@ -90,7 +54,7 @@
 
     %>
     <div id="b2" style="margin-top: -10px">
-        ${typestr}
+        <img class="imgtitle2" src="${typestr}"/>
         <div name="projectdiv">
             <ul name="menu">
                 <c:forEach items="${projectlist}" var="pro">
@@ -159,12 +123,51 @@
 
     </div>
 
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div style="text-align: right;">
+        <%--分页--%>
+
+        共${countlist}条记录，当前显示第${nowpage}页 / 共${pages}页
+
+
+        <form action="Projectlistpage.mvc" method="post">
+            跳转
+            <input type="text" name="page" style="width: 40px;height: 20px"/> 页
+            <input type="submit" value="确认跳转">
+        </form>
+
+
+        <p>
+
+            <input type="button" value="首页"
+                    <c:if test="${nowpage > 1 }">
+                        onclick="topage(1)"
+                    </c:if>
+            />
+            &nbsp;
+            <c:if test="${nowpage > 1 }">
+                <input type="button" onclick="topage(${nowpage-1})" value="上一页"/>
+            </c:if>
+            &nbsp;
+            <c:if test="${nowpage < pages}">
+                <input type="button" onclick="topage(${nowpage+1})" value="下一页"/>
+            </c:if>
+            &nbsp;
+            <input type="button" value="末页"
+                    <c:if test="${nowpage < pages}">
+                        onclick="topage(${pages})"
+                    </c:if>
+            />
+
+        </p>
+    </div>
 
 </div>
 
 
 <!--撑出页脚-->
-<div id="blank" style="height:330px"></div>
+<div id="blank" style="height:3px"></div>
 
 </body>
 

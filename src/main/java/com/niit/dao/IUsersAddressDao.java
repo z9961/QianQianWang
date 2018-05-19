@@ -10,4 +10,6 @@ public interface IUsersAddressDao {
     List<UsersAddress> findAllAddress(String Phone);
 
     boolean save(UsersAddress addr);
+
+    boolean delete(int aid);
 }

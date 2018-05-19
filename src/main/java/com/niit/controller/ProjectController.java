@@ -15,7 +15,10 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.text.ParseException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
 @Controller
 public class ProjectController {
@@ -23,25 +26,30 @@ public class ProjectController {
     private IProjectBiz projectBiz;
 
     @RequestMapping(value = "AddProject.mvc", method = RequestMethod.POST)
-    public String AddProject(ModelMap map, HttpSession session, String PName, String PDesc, String PED, String PTarget, String
+    public String AddProject(ModelMap map, HttpSession session, String PName, String PDesc, String PSD, String PED, String PTarget, String
             PMilestone, String PCategoryId, String PRemark, String PMF, String PLimit, String PTeam, String PPlan) throws ParseException {
-        Timestamp tss = new Timestamp(new Date().getTime());
-        Timestamp tse = Timestamp.valueOf(PED);
-        int plimit = Integer.parseInt(PLimit);
-        int ppid = Integer.parseInt(PCategoryId);
-        int pmf = Integer.parseInt(PMF);
-        BigDecimal pt = BigDecimal.valueOf(Long.parseLong(PTarget));
-        BigDecimal pnm = BigDecimal.valueOf(0);
-        ProjectType projectType = new ProjectType();
-        projectType.setProjectTypeId(ppid);
-        Users u = (Users) session.getAttribute("user");
-        String phone = u.getuPhone();
+        Project project = new Project();
+        try {
+            Timestamp tss = Timestamp.valueOf(PSD);
+            Timestamp tse = Timestamp.valueOf(PED);
+            int plimit = Integer.parseInt(PLimit);
+            int ppid = Integer.parseInt(PCategoryId);
+            int pmf = Integer.parseInt(PMF);
+            BigDecimal pt = BigDecimal.valueOf(Long.parseLong(PTarget));
+            BigDecimal pnm = BigDecimal.valueOf(0);
+            ProjectType projectType = new ProjectType();
+            projectType.setProjectTypeId(ppid);
+            Users u = (Users) session.getAttribute("user");
+            String phone = u.getuPhone();
 
-
-        Project project = new Project(PName, PDesc, tss, tse, pt,
-                pnm, 0, PMilestone, PRemark, pmf, plimit, PTeam, 0, PPlan, u, projectType);
-
-        System.out.println("project = " + project.toString());
+            project = new Project(PName, PDesc, tss, tse, pt,
+                    pnm, 0, PMilestone, PRemark, pmf, plimit, PTeam, 0, PPlan, u, projectType);
+            project.setPsd(tss);
+        } catch (Exception e) {
+            map.addAttribute("existaddprojectmsg", "true");
+            map.addAttribute("addprojectmsg", "输入内容有误");
+            return "addproject.jsp";
+        }
 
 
         int isok = projectBiz.save(project);
@@ -49,6 +57,7 @@ public class ProjectController {
             session.setAttribute("addprojectid", isok);
             map.addAttribute("msg", "添加项目成功,请上传图片");
             map.addAttribute("url", "upload.jsp");
+            map.addAttribute("existaddprojectmsg", "false");
         } else {
             map.addAttribute("msg", "添加项目失败");
             map.addAttribute("url", "addproject.jsp");
@@ -56,6 +65,7 @@ public class ProjectController {
 
         return "msg.jsp";
     }
+
 
     @RequestMapping(value = "Upload.mvc", method = RequestMethod.POST)
     private String fildUpload(@RequestParam(value = "file", required = false) MultipartFile[] file,
@@ -123,6 +133,69 @@ public class ProjectController {
 
         return "msg.jsp";
     }
+
+    @RequestMapping(value = "PreUpdateProject.mvc")
+    public String PreUpdateProject(String pid, ModelMap map, HttpSession session) {
+
+        Project project = projectBiz.findProjectById(Integer.parseInt(pid));
+
+        map.addAttribute("updateproject", project);
+
+        return "addproject.jsp";
+    }
+
+    @RequestMapping(value = "UpdateProject.mvc")
+    public String UpdateProject(ModelMap map, HttpSession session, String PName, String PDesc, String PSD, String PED, String PTarget, String
+            PMilestone, String PCategoryId, String PRemark, String PMF, String PLimit, String PTeam, String PPlan) throws ParseException {
+
+        Project project = null;
+        try {
+            Timestamp tss = Timestamp.valueOf(PSD);
+            Timestamp tse = Timestamp.valueOf(PED);
+            int plimit = Integer.parseInt(PLimit);
+            int ppid = Integer.parseInt(PCategoryId);
+            int pmf = Integer.parseInt(PMF);
+            BigDecimal pt = BigDecimal.valueOf(Long.parseLong(PTarget));
+            BigDecimal pnm = BigDecimal.valueOf(0);
+            ProjectType projectType = new ProjectType();
+            projectType.setProjectTypeId(ppid);
+            Users u = (Users) session.getAttribute("user");
+            String phone = u.getuPhone();
+
+            project = (Project) session.getAttribute("updateproject");
+
+            project.setpName(PName);
+            project.setpDesc(PDesc);
+            project.setPsd(tss);
+            project.setPed(tse);
+            project.setpTarget(pt);
+            project.setpMilestone(PMilestone);
+            project.setProjectTypeByPCategoryId(projectType);
+            project.setpRemark(PRemark);
+            project.setPmf(pmf);
+            project.setpLimit(plimit);
+            project.setpTeam(PTeam);
+            project.setpPlan(PPlan);
+        } catch (NumberFormatException e) {
+            map.addAttribute("existaddprojectmsg", "true");
+            map.addAttribute("addprojectmsg", "输入内容有误");
+            return "addproject.jsp";
+        }
+
+
+        boolean isok = projectBiz.update(project);
+        if (isok) {
+            map.addAttribute("msg", "添加项目成功,请上传图片");
+            map.addAttribute("url", "upload.jsp");
+            map.addAttribute("existaddprojectmsg", "false");
+        } else {
+            map.addAttribute("msg", "添加项目失败");
+            map.addAttribute("url", "addproject.jsp");
+        }
+
+        return "msg.jsp";
+    }
+
 
     //project.jsp
     @RequestMapping(value = "ShowProject.mvc", method = RequestMethod.GET)
@@ -232,15 +305,16 @@ public class ProjectController {
         switch (typeint) {
             case 0:
                 projectlist = projectBiz.findHotProject();
-                typestr = "最热的项目";
+                typestr = "images/热门推荐.png";
+                ;
                 break;
             case 1:
                 projectlist = projectBiz.findNewProject();
-                typestr = "最新的项目";
+                typestr = "images/最新.png";
                 break;
             case 2:
                 projectlist = projectBiz.findMostProject();
-                typestr = "最多支持的项目";
+                typestr = "images/最多.png";
                 break;
             case 3:
                 projectlist = projectBiz.findProject1();

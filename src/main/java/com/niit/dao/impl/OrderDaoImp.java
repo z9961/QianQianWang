@@ -55,4 +55,12 @@ public class OrderDaoImp implements IOrderDao {
         query.setParameter("uphone", s);
         return query.list();
     }
+
+    @Override
+    public List<Orders> findOrderByPid(int pid) {
+        String hql = "from Orders where projectByPId.pId=:pid";
+        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+        query.setParameter("pid", pid);
+        return query.list();
+    }
 }

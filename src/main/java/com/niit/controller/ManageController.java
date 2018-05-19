@@ -95,4 +95,18 @@ public class ManageController {
 
         return "msg.jsp";
     }
+
+    @RequestMapping(value = "ProjectDetails.mvc")
+    public String ProjectDetails(ModelMap map, HttpSession session, String pid) {
+
+        Project p = projectBiz.findProjectById(Integer.parseInt(pid));
+        List<Orders> ordersList = userBiz.findOrderByPid(Integer.parseInt(pid));
+
+        session.setAttribute("ProjectDetails", p);
+        session.setAttribute("ProjectDetailsOrders", ordersList);
+
+
+        return "manage_myprojectdetails.jsp";
+    }
+
 }

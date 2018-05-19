@@ -120,16 +120,11 @@
                         </td>
                     </tr>
 
-                    <%--输出地址--%>
-                    <%--<tr name="cdiv">--%>
-                    <%--<td>--%>
-                    <%--地址--%>
-                    <%--</td>--%>
-                    <%--<td>--%>
-                    <%--</td>--%>
-                    <%--</tr>--%>
-
-                    <%--<c:if test="${addr!=null}">--%>
+                    <c:if test="${addr==null}">
+                        <script type="text/javascript">
+                            window.location.href = "manage_address.jsp";
+                        </script>
+                    </c:if>
                     <c:forEach items="${addr}" var="uad">
                         <tr name="cdiv">
                             <td>
@@ -143,7 +138,6 @@
 
                     </c:forEach>
 
-                    <%--</c:if>--%>
 
                     <%--结束地址--%>
                 </table>
@@ -305,7 +299,7 @@
 </div>
 
 <!--撑出页脚-->
-<div id="blank" style="height:1100px"></div>
+<div id="blank" style="height:2030px"></div>
 
 <script type="text/javascript">
     window.onload = cheangetime();

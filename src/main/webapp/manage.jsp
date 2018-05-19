@@ -58,7 +58,12 @@
                         个人资料编辑
                     </a>
                 </div>
-
+                <div class="left02down01">
+                    <a onclick="manageaddr()">
+                        <div id="Bf083" class="left02down01_img"></div>
+                        地址管理
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -100,7 +105,7 @@
 
 </div>
 
-<!--撑出页脚-->
-<div id="blank" style="height:1100px"></div>
+<%--<!--撑出页脚-->--%>
+<%--<div id="blank" style="height:0px"></div>--%>
 
 </body>

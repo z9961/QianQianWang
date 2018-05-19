@@ -32,4 +32,6 @@ public interface IProjectDao {
     List<Project> findAllUserProject(String s);
 
     List<ProjectComment> findAllUserProjectComment(String s);
+
+    boolean update(Project project);
 }

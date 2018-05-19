@@ -95,6 +95,17 @@ public class ProjectDaoImp implements IProjectDao {
     }
 
     @Override
+    public boolean update(Project project) {
+        try {
+            sessionFactory.getCurrentSession().update(project);
+            return true;
+        } catch (Exception e) {
+            System.out.println("更新用户信息失败!");
+            return false;
+        }
+    }
+
+    @Override
     public List<Project> findProject1() {
         String hql = "from Project where projectTypeByPCategoryId.projectTypeId = 1";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);

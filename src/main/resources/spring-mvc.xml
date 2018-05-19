@@ -13,8 +13,25 @@
     <!-- 2.扫描创建类 -->
     <context:component-scan base-package="com.niit.controller"/>
 
-    <!-- 3.返回的视图的解释 -->
-    <!-- 因为SpringMVC默认已经配置jsp视图解释器,所以如果页面是jsp就不用配置了 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- 先匹配所有路径，然后排除不需要检查的路径 -->
+            <mvc:mapping path="/**"/>
+            <!-- 与登录相关的请求 -->
+            <mvc:exclude-mapping path="/lrf.jsp"/>
+            <!-- 以下是静态资源 -->
+            <mvc:exclude-mapping path="/images/**"/>
+            <mvc:exclude-mapping path="/css/**"/>
+            <mvc:exclude-mapping path="/js/**"/>
+            <mvc:exclude-mapping path="/Login.mvc"/>
+            <mvc:exclude-mapping path="/LoginBySms.mvc"/>
+            <mvc:exclude-mapping path="/Register.mvc"/>
+            <mvc:exclude-mapping path="/RegisterType2.mvc"/>
+
+            <!-- 用户是否已经登录的检查 -->
+            <bean id="loginInterceptor" class="com.niit.interceptor.LoginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
     <!-- 上传文件 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

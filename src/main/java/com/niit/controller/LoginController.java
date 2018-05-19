@@ -116,7 +116,7 @@ public class LoginController {
     public String Checkout(HttpServletRequest req, ModelMap map) {
         req.getSession().invalidate();
         map.addAttribute("msg", "已注销");
-        map.addAttribute("url", "lrf.jsp");
+        map.addAttribute("url", "Index.mvc");
         return "msg.jsp";
     }
 }

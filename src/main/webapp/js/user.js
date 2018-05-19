@@ -14,6 +14,10 @@ function changeinfo() {
     document.getElementById("iframe").src = "manage_changeinfo.jsp";
 }
 
+function manageaddr() {
+    document.getElementById("iframe").src = "manage_address.jsp";
+}
+
 function myorder() {
     document.getElementById("iframe").src = "manage_myorder.jsp";
 }

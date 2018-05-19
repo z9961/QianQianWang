@@ -12,17 +12,23 @@
     <title>添加地址</title>
 
     <script src="js/jquery.js" type="text/javascript"></script>
-    <script src="js/footer.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="css/footer.css"/>
     <link rel="stylesheet" type="text/css" href="css/address.css"/>
+    <link rel="stylesheet" type="text/css" href="css/header.css"/>
+    <script type="text/javascript">
+        window.onload = cheangetime();
 
+        var existaddrmsg = ${existaddrmsg};
+        if (existaddrmsg) {
+            var msg = '${addrmsg}';
+            alert(msg);
+        }
+
+    </script>
 </head>
 
 <body>
 
-<img id="logo" src="images/logo.png"/>
-
-<div id="addaddr">
+<div id="addaddr" style="padding-top: 180px">
     <form id="addrform" action="AddAddress.mvc" method="post">
         你好,${sessionScope.user.uPhone}
         <br/>
@@ -43,11 +49,16 @@
         <tr>
             <td style="width: 10%;">地址编号</td>
             <td style="width: 40%;">地址</td>
+            <td style="width: 10%;">删除</td>
+
         </tr>
         <c:forEach items="${addr}" var="addr">
             <tr>
                 <td>${addr.aId}</td>
                 <td>${addr.address}</td>
+                <td>
+                    <a onclick="">删除</a>
+                </td>
             </tr>
         </c:forEach>
     </table>

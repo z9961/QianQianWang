@@ -48,6 +48,11 @@ public class IProjectBizImp implements IProjectBiz {
     }
 
     @Override
+    public boolean update(Project project) {
+        return projectDao.update(project);
+    }
+
+    @Override
     public List<Project> findProject1() {
         return projectDao.findProject1();
     }
