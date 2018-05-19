@@ -17,9 +17,14 @@
         <mvc:interceptor>
             <!-- 先匹配所有路径，然后排除不需要检查的路径 -->
             <mvc:mapping path="/**"/>
-            <!-- 与登录相关的请求 -->
-            <mvc:exclude-mapping path="/lrf.jsp"/>
-            <!-- 以下是静态资源 -->
+            <mvc:mapping path="/manage**"/>
+
+            <mvc:exclude-mapping path="/index.jsp"/>
+            <mvc:exclude-mapping path="/Index.mvc"/>
+            <mvc:exclude-mapping path="/projectlist.jsp"/>
+            <mvc:exclude-mapping path="/Projectlist.mvc"/>
+            <mvc:exclude-mapping path="/Projectlistpage.mvc"/>
+            <mvc:exclude-mapping path="/RegisterType2.mvc"/>
             <mvc:exclude-mapping path="/images/**"/>
             <mvc:exclude-mapping path="/css/**"/>
             <mvc:exclude-mapping path="/js/**"/>

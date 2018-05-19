@@ -3,6 +3,7 @@ package com.niit.controller;
 import com.niit.biz.IUserBiz;
 import com.niit.entity.Users;
 import com.niit.entity.UsersAddress;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -47,7 +48,7 @@ public class LoginController {
         }
 
         System.out.println("检查密码");
-        if (password.equals(user.getuPwd())) {
+        if (password.equals(DigestUtils.md5Hex(user.getuPwd()))) {
             System.out.println("密码正确");
             session.setAttribute("user", user);
             List<UsersAddress> list = userBiz.findAllAddress(user.getuPhone());

@@ -1,5 +1,3 @@
-<%@ page import="com.niit.entity.Project" %>
-<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ page isELIgnored="false" %>
@@ -45,16 +43,15 @@
     <br>
     <br>
 
-    <%
-        List<Project> projectlist = (List<Project>) request.getSession().getAttribute("projectlist");
-        for (int i = 0; i < projectlist.size(); i++) {
-            Project project = projectlist.get(i);
-            System.out.println("project = " + project.getpId());
-        }
-
-    %>
     <div id="b2" style="margin-top: -10px">
-        <img class="imgtitle2" src="${typestr}"/>
+        <c:if test="${typestrtype==0}">
+            <img class="imgtitle2" src="${typestr}"/>
+        </c:if>
+        <c:if test="${typestrtype==1}">
+            ${typestr}
+        </c:if>
+
+
         <div name="projectdiv">
             <ul name="menu">
                 <c:forEach items="${projectlist}" var="pro">

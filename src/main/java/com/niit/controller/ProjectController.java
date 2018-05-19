@@ -289,6 +289,7 @@ public class ProjectController {
         List<Project> projectlist = null;
 
         String typestr = "";
+        int typestrtype = 0;
 
         if (typeint == 6) {
             if (searchstr == null || searchstr.isEmpty()) {
@@ -319,22 +320,27 @@ public class ProjectController {
             case 3:
                 projectlist = projectBiz.findProject1();
                 typestr = "新奇酷玩";
+                typestrtype = 1;
                 break;
             case 4:
                 projectlist = projectBiz.findProject2();
                 typestr = "生活美学";
+                typestrtype = 1;
                 break;
             case 5:
                 projectlist = projectBiz.findProject3();
                 typestr = "文化艺术";
+                typestrtype = 1;
                 break;
             case 6:
                 projectlist = projectBiz.findProjectBySearch(searchstr);
-                typestr = "searchstr";
+                typestr = searchstr;
+                typestrtype = 1;
                 break;
         }
         session.setAttribute("projectlist", projectlist);
         session.setAttribute("projectlistAll", projectlist);
+        session.setAttribute("typestrtype", typestrtype);
         session.setAttribute("typestr", typestr);
         session.setAttribute("countlist", projectlist.size());
 

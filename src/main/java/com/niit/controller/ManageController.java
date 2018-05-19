@@ -3,6 +3,7 @@ package com.niit.controller;
 import com.niit.biz.IProjectBiz;
 import com.niit.biz.IUserBiz;
 import com.niit.entity.*;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -54,8 +55,8 @@ public class ManageController {
         }
         Users user = (Users) session.getAttribute("user");
         String pwd = user.getuPwd();
-        if (newpwd.equals(newpwd2) && pwd.equals(nowpwd)) {
-            boolean isok = userBiz.changepwd(user.getuPhone(), newpwd);
+        if (newpwd.equals(newpwd2) && pwd.equals(DigestUtils.md5Hex(nowpwd))) {
+            boolean isok = userBiz.changepwd(user.getuPhone(), DigestUtils.md5Hex(newpwd));
             if (isok) {
                 map.addAttribute("msg", "修改密码成功");
                 map.addAttribute("url", "Checkout.mvc");

@@ -25,7 +25,7 @@ public class AddressController {
         System.out.println("list = " + list.size());
         map.addAttribute("addr", list);
         map.addAttribute("getaddrok", 1);
-        return "address.jsp";
+        return "manage_address.jsp";
     }
 
 
@@ -43,7 +43,7 @@ public class AddressController {
         } else {
             map.addAttribute("msg", "添加地址失败");
         }
-        map.addAttribute("url", "address.jsp");
+        map.addAttribute("url", "manage_address.jsp");
 
         List<UsersAddress> list = userBiz.findAllAddress(user.getuPhone());
         System.out.println("list = " + list.size());

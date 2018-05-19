@@ -3,6 +3,7 @@ package com.niit.controller;
 import com.niit.biz.IUserBiz;
 import com.niit.entity.Users;
 import com.niit.entity.UsersInfo;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -37,7 +38,7 @@ public class RegisterController {
         user.setuPhone(phone + "");
         user.setuName(UName);
         user.setuType(Integer.parseInt(UType));
-        user.setuPwd(newpassword);
+        user.setuPwd(DigestUtils.md5Hex(newpassword));
 
         //临时保存用户信息
         req.getSession().setAttribute("registeruser", user);
