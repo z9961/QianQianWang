@@ -48,7 +48,7 @@ public class LoginController {
         }
 
         System.out.println("检查密码");
-        if (password.equals(DigestUtils.md5Hex(user.getuPwd()))) {
+        if (user.getuPwd().equals(DigestUtils.md5Hex(password))) {
             System.out.println("密码正确");
             session.setAttribute("user", user);
             List<UsersAddress> list = userBiz.findAllAddress(user.getuPhone());

@@ -65,7 +65,11 @@
 
         <tr>
             <td class="word">项目类型</td>
-            <td><input id="PCategoryId" name="PCategoryId" type="text" value="1" required/></td>
+            <td>
+                <input name="PCategoryId" type="radio" checked="checked" value="1">数码
+                <input name="PCategoryId" type="radio" value="2">生活
+                <input name="PCategoryId" type="radio" value="3">艺术
+            </td>
 
         </tr>
         <tr>

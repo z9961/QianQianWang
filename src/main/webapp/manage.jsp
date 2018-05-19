@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/header.css"/>
     <link rel="stylesheet" type="text/css" href="css/user.css"/>
 
+
 </head>
 
 <body>
@@ -105,7 +106,14 @@
 
 </div>
 
-<%--<!--撑出页脚-->--%>
-<%--<div id="blank" style="height:0px"></div>--%>
+<%
+    String mangetype = request.getParameter("mangetype");
+    session.setAttribute("mangetype", mangetype + "()");
+    System.out.println("mangetype = " + mangetype);
+%>
+
+<script type="text/javascript">
+    ${sessionScope.mangetype};
+</script>
 
 </body>

@@ -76,8 +76,6 @@ li {
 }
 
 #nav_all li a:hover {
-    /*反转箭头图标*/
-    background: url(../resources/images/bird.png) center 30px no-repeat;
     height: 39px;
     line-height: 39px;
     border-top: 2px solid rgba(119, 136, 153, 0.8);

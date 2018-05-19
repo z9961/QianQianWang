@@ -65,14 +65,13 @@ public class OrderController {
             //不需要回报
             o.setExpectType(-1);
             isok = projectBiz.saveorder(o);
+            System.out.println("生成订单isok = " + isok);
         }
-
+        map.addAttribute("url", "ShowProject.mvc?pid=" + p.getpId());
         if (isok) {
             map.addAttribute("msg", "支持成功");
-            map.addAttribute("url", "Manage.mvc");
         } else {
             map.addAttribute("msg", "支持失败");
-            map.addAttribute("url", "ShowProject.mvc?pid=" + p.getpId());
         }
         return "msg.jsp";
     }

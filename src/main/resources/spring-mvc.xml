@@ -8,11 +8,6 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
 
-    <!-- 1:启动SpringMVC基于注解的默认配置,因为默认是基于xml的 -->
-    <mvc:annotation-driven/>
-    <!-- 2.扫描创建类 -->
-    <context:component-scan base-package="com.niit.controller"/>
-
     <mvc:interceptors>
         <mvc:interceptor>
             <!-- 先匹配所有路径，然后排除不需要检查的路径 -->
@@ -32,12 +27,17 @@
             <mvc:exclude-mapping path="/LoginBySms.mvc"/>
             <mvc:exclude-mapping path="/Register.mvc"/>
             <mvc:exclude-mapping path="/RegisterType2.mvc"/>
+            <mvc:exclude-mapping path="/SendSms.mvc"/>
 
             <!-- 用户是否已经登录的检查 -->
             <bean id="loginInterceptor" class="com.niit.interceptor.LoginInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
 
+    <!-- 1:启动SpringMVC基于注解的默认配置,因为默认是基于xml的 -->
+    <mvc:annotation-driven/>
+    <!-- 2.扫描创建类 -->
+    <context:component-scan base-package="com.niit.controller"/>
     <!-- 上传文件 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="utf-8"/>

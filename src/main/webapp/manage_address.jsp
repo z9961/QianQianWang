@@ -15,8 +15,6 @@
     <link rel="stylesheet" type="text/css" href="css/address.css"/>
     <link rel="stylesheet" type="text/css" href="css/header.css"/>
     <script type="text/javascript">
-        window.onload = cheangetime();
-
         var existaddrmsg = ${existaddrmsg};
         if (existaddrmsg) {
             var msg = '${addrmsg}';
@@ -57,7 +55,7 @@
                 <td>${addr.aId}</td>
                 <td>${addr.address}</td>
                 <td>
-                    <a onclick="">删除</a>
+                    <a href="DeleteAddress.mvc?aid=${addr.aId}">删除</a>
                 </td>
             </tr>
         </c:forEach>

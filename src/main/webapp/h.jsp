@@ -83,7 +83,7 @@
                         <a href="addproject.jsp" target="_top">发布项目</a>
                     </li>
                     <li>
-                        <a href="Manage.mvc" target="_top">我的项目</a>
+                        <a href="manage.jsp?mangetype=myproject" target="_top">我的项目</a>
                     </li>
                 </c:if>
 

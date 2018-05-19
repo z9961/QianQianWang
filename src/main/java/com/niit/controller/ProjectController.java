@@ -15,10 +15,7 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class ProjectController {
@@ -31,6 +28,7 @@ public class ProjectController {
         Project project = new Project();
         try {
             Timestamp tss = Timestamp.valueOf(PSD);
+            Timestamp tnow = new Timestamp(new Date().getTime());
             Timestamp tse = Timestamp.valueOf(PED);
             int plimit = Integer.parseInt(PLimit);
             int ppid = Integer.parseInt(PCategoryId);
@@ -45,6 +43,19 @@ public class ProjectController {
             project = new Project(PName, PDesc, tss, tse, pt,
                     pnm, 0, PMilestone, PRemark, pmf, plimit, PTeam, 0, PPlan, u, projectType);
             project.setPsd(tss);
+            if (tss.after(tnow)) {
+                project.setpState(0);
+            } else {
+                project.setpState(1);
+            }
+            if (tnow.after(tse)) {
+                if (pnm == pt)
+                    project.setpState(2);
+                else
+                    project.setpState(3);
+            }
+
+
         } catch (Exception e) {
             map.addAttribute("existaddprojectmsg", "true");
             map.addAttribute("addprojectmsg", "输入内容有误");
@@ -71,7 +82,20 @@ public class ProjectController {
     private String fildUpload(@RequestParam(value = "file", required = false) MultipartFile[] file,
                               HttpSession session, ModelMap map) throws Exception {
 
-        int pid = (int) session.getAttribute("addprojectid");
+        //新增项目1,更新项目2,更新图片3
+        int flag = 1;
+
+        int pid = 0;
+        try {
+            pid = (int) session.getAttribute("addprojectid");
+        } catch (Exception e) {
+            Project up = (Project) session.getAttribute("updateproject");
+            pid = up.getpId();
+            if (file.length == 0)
+                flag = 2;
+            else
+                flag = 3;
+        }
         String pathRoot = session.getServletContext().getRealPath("");
         String path = "";
         String imgpath = "";
@@ -95,43 +119,47 @@ public class ProjectController {
             System.out.println("创建文件夹失败!");
         }
 
-        //保存图片
-        List<String> listImagePath = new ArrayList<String>();
-        boolean upload = true;
-        for (MultipartFile mf : file) {
-            if (!mf.isEmpty()) {
+        if (flag != 3) {
+            //保存图片
+            List<String> listImagePath = new ArrayList<String>();
+            boolean upload = true;
+            for (MultipartFile mf : file) {
+                if (!mf.isEmpty()) {
 
-                //得到文件名
-                File countfile = new File(savePath);
-                String[] files = countfile.list();
-                int i = files.length;
+                    //得到文件名
+                    File countfile = new File(savePath);
+                    String[] files = countfile.list();
+                    int i = files.length;
 
-                //获得文件类型
-                String contentType = mf.getContentType();
-                System.out.println("contentType = " + contentType);
-                if (contentType.equals("image/jpeg")) {
-                    path = "/images/" + pid + "/" + i + ".jpg";
-                    imgpath = "images/" + pid + "/" + i + ".jpg";
-                    mf.transferTo(new File(pathRoot + path));
-                    listImagePath.add(imgpath);
-                    System.out.println(imgpath);
-                } else {
-                    map.addAttribute("msg", "图片类型不正确");
-                    map.addAttribute("url", "upload.jsp");
-                    //失败清空list
-                    upload = false;
-                    listImagePath = new ArrayList<String>();
+                    //获得文件类型
+                    String contentType = mf.getContentType();
+                    System.out.println("contentType = " + contentType);
+                    if (contentType.equals("image/jpeg")) {
+                        path = "/images/" + pid + "/" + i + ".jpg";
+                        imgpath = "images/" + pid + "/" + i + ".jpg";
+                        mf.transferTo(new File(pathRoot + path));
+                        listImagePath.add(imgpath);
+                        System.out.println(imgpath);
+                    } else {
+                        map.addAttribute("msg", "图片类型不正确");
+                        map.addAttribute("url", "upload.jsp");
+                        //失败清空list
+                        upload = false;
+                        listImagePath = new ArrayList<String>();
+                    }
                 }
             }
-        }
-        boolean isok = projectBiz.saveimg(pid, listImagePath);
-        if (upload && isok) {
-            map.addAttribute("msg", "添加图片成功");
-            map.addAttribute("url", "Manage.mvc");
+            boolean isok = projectBiz.saveimg(pid, listImagePath);
+            if (upload && isok) {
+                map.addAttribute("msg", "添加图片成功");
+                map.addAttribute("url", "ShowProject.mvc?pid=" + pid);
+            }
+            return "msg.jsp";
+        } else {
+            return "manage_myproject.jsp";
         }
 
 
-        return "msg.jsp";
     }
 
     @RequestMapping(value = "PreUpdateProject.mvc")
@@ -139,9 +167,9 @@ public class ProjectController {
 
         Project project = projectBiz.findProjectById(Integer.parseInt(pid));
 
-        map.addAttribute("updateproject", project);
+        session.setAttribute("updateproject", project);
 
-        return "addproject.jsp";
+        return "updateproject.jsp";
     }
 
     @RequestMapping(value = "UpdateProject.mvc")
@@ -150,20 +178,23 @@ public class ProjectController {
 
         Project project = null;
         try {
+            System.out.println("updateProject===============================");
             Timestamp tss = Timestamp.valueOf(PSD);
             Timestamp tse = Timestamp.valueOf(PED);
             int plimit = Integer.parseInt(PLimit);
             int ppid = Integer.parseInt(PCategoryId);
             int pmf = Integer.parseInt(PMF);
-            BigDecimal pt = BigDecimal.valueOf(Long.parseLong(PTarget));
-            BigDecimal pnm = BigDecimal.valueOf(0);
+            System.out.println("PTarget = " + PTarget);
+            BigDecimal pt = new BigDecimal(PTarget);
+
+            System.out.println("pt = " + pt);
             ProjectType projectType = new ProjectType();
             projectType.setProjectTypeId(ppid);
             Users u = (Users) session.getAttribute("user");
             String phone = u.getuPhone();
-
+            System.out.println("phone = " + phone);
             project = (Project) session.getAttribute("updateproject");
-
+            System.out.println("project = " + project);
             project.setpName(PName);
             project.setpDesc(PDesc);
             project.setPsd(tss);
@@ -176,21 +207,37 @@ public class ProjectController {
             project.setpLimit(plimit);
             project.setpTeam(PTeam);
             project.setpPlan(PPlan);
+
+            Timestamp tnow = new Timestamp(new Date().getTime());
+            System.out.println("tnow = " + tnow);
+            if (tss.after(tnow)) {
+                project.setpState(0);
+            } else {
+                project.setpState(1);
+            }
+            if (tnow.after(tse)) {
+                if (project.getPnm() == pt)
+                    project.setpState(2);
+                else
+                    project.setpState(3);
+            }
+            System.out.println("projectState = " + project.getpState());
         } catch (NumberFormatException e) {
+            System.out.println("输入内容有误");
             map.addAttribute("existaddprojectmsg", "true");
             map.addAttribute("addprojectmsg", "输入内容有误");
-            return "addproject.jsp";
+            return "updateproject.jsp";
         }
 
 
         boolean isok = projectBiz.update(project);
         if (isok) {
-            map.addAttribute("msg", "添加项目成功,请上传图片");
+            map.addAttribute("msg", "修改项目成功,请上传图片");
             map.addAttribute("url", "upload.jsp");
             map.addAttribute("existaddprojectmsg", "false");
         } else {
-            map.addAttribute("msg", "添加项目失败");
-            map.addAttribute("url", "addproject.jsp");
+            map.addAttribute("msg", "修改项目失败");
+            map.addAttribute("url", "updateproject.jsp");
         }
 
         return "msg.jsp";
@@ -198,7 +245,7 @@ public class ProjectController {
 
 
     //project.jsp
-    @RequestMapping(value = "ShowProject.mvc", method = RequestMethod.GET)
+    @RequestMapping(value = "ShowProject.mvc")
     public String project(HttpSession session, ModelMap map, String pid) {
         Project project = projectBiz.findProjectById(Integer.parseInt(pid));
         String pname = project.getpName();

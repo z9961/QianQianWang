@@ -26,7 +26,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             throws Exception {
         request.setCharacterEncoding("UTF-8");
         Users loginUser = (Users) request.getSession().getAttribute("user");
-        if (loginUser == null) {
+        if (loginUser == null || loginUser.getuPhone() == null || loginUser.getuPhone() == "") {
             response.sendRedirect("lrf.jsp");
             return false;
         }

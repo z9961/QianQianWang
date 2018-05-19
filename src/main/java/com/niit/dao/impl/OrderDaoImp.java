@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -35,17 +37,31 @@ public class OrderDaoImp implements IOrderDao {
         sessionFactory.getCurrentSession().save(o);
 
         Project p = o.getProjectByPId();
-        String hql = "update Project p set p.pnp=p.pnp+1,p.pnm =:pnm where pId=:pid";
 
-        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+
         BigDecimal pnm = p.getPnm().add(o.getMoney());
-        query.setParameter("pnm", pnm);
-        query.setParameter("pid", p.getpId());
+        p.setPnm(pnm);
+        p.setPnp(p.getPnp() + 1);
+        Timestamp tnow = new Timestamp(new Date().getTime());
 
-        query.executeUpdate();
+        if (p.getPed().after(tnow)) {
+            p.setpState(0);
+        } else {
+            p.setpState(1);
+        }
+        if (tnow.after(p.getPed())) {
+            if (pnm == p.getpTarget())
+                p.setpState(2);
+            else
+                p.setpState(3);
+        }
 
-
-        return true;
+        try {
+            sessionFactory.getCurrentSession().update(p);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override

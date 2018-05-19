@@ -170,7 +170,10 @@ function getSms() {
     var UName = document.getElementById("UName").value;
     if (UName == "") {
         alert("未输入账号!");
-    } else {
+    } else if (phonenum == "") {
+        alert("未输入手机号!");
+    }
+    else {
         var myreg = /^[1][0-9]{10}$/;
         if (myreg.test(phonenum)) {
             $.ajax({
