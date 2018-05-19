@@ -12,7 +12,6 @@
         <mvc:interceptor>
             <!-- 先匹配所有路径，然后排除不需要检查的路径 -->
             <mvc:mapping path="/**"/>
-            <mvc:mapping path="/manage**"/>
 
             <mvc:exclude-mapping path="/index.jsp"/>
             <mvc:exclude-mapping path="/Index.mvc"/>

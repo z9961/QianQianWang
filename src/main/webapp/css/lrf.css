@@ -26,7 +26,7 @@ img {
 #bg {
     /*margin-top: 30px;*/
     position: absolute;
-    height: 770px;
+    height: 780px;
     background-image: url(../images/LRFbg.jpg);
     width: 100%;
     background-size: cover;
@@ -35,9 +35,8 @@ img {
 
 /*注册框*/
 #register {
-    position: absolute;
+    margin-left: 60%;
     display: none;
-    margin-left: 33%;
     z-index: 3;
 }
 
@@ -59,13 +58,6 @@ img {
     z-index: 3;
 }
 
-#registerinfo {
-    margin-top: 10%;
-    position: absolute;
-    margin-left: 33%;
-    z-index: 5;
-}
-
 form {
     width: 560px;
     margin: 50px auto;
@@ -75,9 +67,11 @@ form {
 /*框内样式*/
 table {
     width: 100%;
-    background-color: rgba(112, 128, 144, 0.5);
+    background-color: rgba(112, 128, 144, 0.7);
     border: 0;
     border-spacing: 20px;
+    color: white;
+    font-weight: bold;
     /*单元格间距*/
 }
 

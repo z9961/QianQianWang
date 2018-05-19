@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body style="font-family: '微软雅黑 Light'">
 
 <!--引入头部-->
 <div id="head_div"></div>

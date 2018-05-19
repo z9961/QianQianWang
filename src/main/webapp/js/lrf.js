@@ -159,6 +159,8 @@ function showloginbysms() {
 function showregister() {
     var login = document.getElementById("loginpart");
     login.style.display = "none";
+    var login2 = document.getElementById("loginpartbysms");
+    login2.style.display = "none";
     var re = document.getElementById("register");
     re.style.display = "block";
     var lrf = document.getElementById("LRF");

@@ -29,12 +29,12 @@
 
 </head>
 
-<body>
+<body style="font-family: '微软雅黑 Light';font-weight: bold">
 <img id="logo" src="images/logo.png"/>
 
 <div id="bg"></div>
 
-<div style="color:red;margin: 20% 40%;position: absolute;z-index: 4;font-size: 30px;background-color: powderblue">
+<div style="border-radius: 20px;color:indianred;margin: 20% 40%;position: absolute;z-index: 4;font-size: 30px;background-color:whitesmoke;">
     <p>${msg}</p>
 </div>
 
