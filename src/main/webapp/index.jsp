@@ -26,11 +26,36 @@
 <!--总体div-->
 <div id="all">
 
+    <%--轮播图--%>
     <div>
 
         <div id="if">
             <iframe id="Carousel_figure" src="carousel.jsp"></iframe>
         </div>
+    </div>
+
+    <%--统计信息--%>
+    <div class="show-number">
+        <ul class="show-list">
+            <li>
+                <div class="number">${counproject}</div>
+                <div class="tag">
+                    项目总数
+                </div>
+            </li>
+            <li>
+                <div class="number">${supportnum}</div>
+                <div class="tag">
+                    总支持人数
+                </div>
+            </li>
+            <li class="bg-none">
+                <div class="number">${countokpro}</div>
+                <div class="tag">
+                    成功的项目数
+                </div>
+            </li>
+        </ul>
     </div>
 
     <!--插入页眉-->
@@ -68,7 +93,7 @@
                                 <tr>
                                     <td>
                                         <p class="ptype">
-                                                ${pro.pnp}人
+                                                ${pro.pnp}人次
 
                                         </p>
                                     </td>
@@ -105,8 +130,8 @@
             </ul>
         </div>
         <br/>
-            <br/>
-            <br/>
+        <br/>
+        <br/>
         <%--最新上架 --%>
         <img class="imgtitle" src="images/最新.png"/>
         <div name="projectdiv">
@@ -176,8 +201,8 @@
             </ul>
         </div>
         <br/>
-            <br/>
-            <br/>
+        <br/>
+        <br/>
 
         <%--商品类型 1 --%>
         <img class="imgtitle" src="images/数码.png"/>
@@ -248,8 +273,8 @@
             </ul>
         </div>
         <br/>
-            <br/>
-            <br/>
+        <br/>
+        <br/>
         <%--商品类型 2 --%>
         <img class="imgtitle" src="images/生活.png"/>
         <div name="projectdiv">
@@ -318,7 +343,7 @@
             </ul>
         </div>
         <br/>
-            <br/>
+        <br/>
         <br/>
         <%--商品类型 3 --%>
         <img class="imgtitle" src="images/艺术.png"/>

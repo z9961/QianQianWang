@@ -106,6 +106,64 @@ public class ProjectDaoImp implements IProjectDao {
     }
 
     @Override
+    public int countproject() {
+        String hql = "select count(*) from Project";
+        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+        int numint = 0;
+        try {
+            long num = (long) query.uniqueResult();
+            numint = Integer.parseInt(Long.toString(num));
+        } catch (Exception e) {
+            numint = 0;
+        }
+        return numint;
+    }
+
+    @Override
+    public int supportnum() {
+        int numint = 0;
+        try {
+            String hql = "select count(*) from Orders group by usersByUPhone.uPhone";
+            Query query = sessionFactory.getCurrentSession().createQuery(hql);
+            long num = (long) query.uniqueResult();
+            numint = Integer.parseInt(Long.toString(num));
+        } catch (Exception e) {
+            numint = 0;
+        }
+
+        return numint;
+    }
+
+    @Override
+    public int countokpro() {
+        String hql = "select count(*) from Project where pState=3";
+        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+        int numint = 0;
+        try {
+            long num = (long) query.uniqueResult();
+            numint = Integer.parseInt(Long.toString(num));
+        } catch (Exception e) {
+            numint = 0;
+        }
+        return numint;
+    }
+
+    @Override
+    public List<ProjectImg> findimg(int pid) {
+        String hql = "from ProjectImg where projectByPid.pId=:pid order by imgId";
+        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+        query.setParameter("pid", pid);
+        return query.list();
+    }
+
+    @Override
+    public List<ProjectImg> findhotimg() {
+        String hql = "from ProjectImg a where a.imgPath = (select min(imgPath) from ProjectImg where projectByPid.pId = a.projectByPid.pId) order by a.projectByPid.pId";
+        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+        return query.list();
+    }
+
+    @Override
     public List<Project> findProject1() {
         String hql = "from Project where projectTypeByPCategoryId.projectTypeId = 1";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);

@@ -2,6 +2,16 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ page isELIgnored="false" %>
 
+<%
+    String pid = request.getParameter("pid");
+    session.setAttribute("projectpagepid", pid);
+%>
+
+<c:if test="${empty imglist}">
+    <!-- JSP提供的 转发标签 -->
+    <jsp:forward page="ShowProject.mvc?pid=${projectpagepid}"/>
+</c:if>
+
 <html>
 <head>
     <title>钱钱网</title>
@@ -29,7 +39,10 @@
     <!--模块1-->
     <div id="m1">
         <div id="left">
-            <img id="product" src="${imglist[0].imgPath}"/>
+            <c:forEach items="${imglist}" var="il" begin="0" end="0">
+                <img id="product" src="${il.imgPath}">
+            </c:forEach>
+            <%--<img id="product" src="${imglist[0].imgPath}"/>--%>
         </div>
         <div id="right">
             <div id="rightTop">
@@ -120,11 +133,12 @@
                         </td>
                     </tr>
 
-                    <c:if test="${addr==null}">
+                    <c:if test="${empty addr}">
                         <script type="text/javascript">
-                            window.location.href = "manage_address.jsp";
+                            window.location.href = "manage.jsp?mangetype=manageaddr";
                         </script>
                     </c:if>
+
                     <c:forEach items="${addr}" var="uad">
                         <tr name="cdiv">
                             <td>

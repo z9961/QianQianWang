@@ -13,6 +13,11 @@
     <link rel="stylesheet" type="text/css" href="css/header.css"/>
     <link rel="stylesheet" type="text/css" href="css/user.css"/>
 
+    <c:if test="${empty user}">
+        <script>
+            top.location.href = "lrf.jsp";
+        </script>
+    </c:if>
 
 </head>
 

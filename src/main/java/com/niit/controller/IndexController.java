@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 
@@ -32,6 +30,14 @@ public class IndexController {
         List<Project> p2 = projectBiz.findProject2();
         List<Project> p3 = projectBiz.findProject3();
 
+        int counproject = projectBiz.countproject();
+        int supportnum = projectBiz.supportnum();
+        int countokpro = projectBiz.countokpro();
+
+        map.addAttribute("counproject", counproject);
+        map.addAttribute("supportnum", supportnum);
+        map.addAttribute("countokpro", countokpro);
+
         map.addAttribute("ihot", hot);
         map.addAttribute("inewp", newp);
         map.addAttribute("ip1", p1);
@@ -39,18 +45,19 @@ public class IndexController {
         map.addAttribute("ip3", p3);
 
         List<ProjectImg> hotimglist = new ArrayList<>();
-        List<ProjectImg> hotimglisttemp = null;
-        for (int i = 0; i < hot.size(); i++) {
-            Project project = hot.get(i);
-            Collection<ProjectImg> projectImgsByPId = project.getProjectImgsByPId();
-            for (Iterator<ProjectImg> iterator = projectImgsByPId.iterator(); iterator.hasNext(); ) {
-                ProjectImg next = iterator.next();
-                hotimglisttemp = new ArrayList<>();
-                hotimglisttemp.add(next);
-            }
-            hotimglist.add(hotimglisttemp.get(0));
-
-        }
+        hotimglist = projectBiz.findhotimg();
+//        List<ProjectImg> hotimglisttemp = null;
+//        for (int i = 0; i < hot.size(); i++) {
+//            Project project = hot.get(i);
+//            Collection<ProjectImg> projectImgsByPId = project.getProjectImgsByPId();
+//            for (Iterator<ProjectImg> iterator = projectImgsByPId.iterator(); iterator.hasNext(); ) {
+//                ProjectImg next = iterator.next();
+//                hotimglisttemp = new ArrayList<>();
+//                hotimglisttemp.add(next);
+//            }
+//            hotimglist.add(hotimglisttemp.get(0));
+//
+//        }
         session.setAttribute("hotimglist", hotimglist);
         for (int i = 0; i < hotimglist.size(); i++) {
             ProjectImg projectImg = hotimglist.get(i);

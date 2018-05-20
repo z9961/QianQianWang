@@ -280,12 +280,13 @@ public class ProjectController {
         map.addAttribute("timestr", timestr);
 
         //将所有图片转为list
-        List imglist = new ArrayList();
-        Collection<ProjectImg> c = project.getProjectImgsByPId();
-        for (Iterator<ProjectImg> iterator = c.iterator(); iterator.hasNext(); ) {
-            ProjectImg next = iterator.next();
-            imglist.add(next);
-        }
+//        List imglist = new ArrayList();
+        List<ProjectImg> imglist = projectBiz.findimg(project.getpId());
+//        Collection<ProjectImg> c = project.getProjectImgsByPId();
+//        for (Iterator<ProjectImg> iterator = c.iterator(); iterator.hasNext(); ) {
+//            ProjectImg next = iterator.next();
+//            imglist.add(next);
+//        }
         map.addAttribute("imglist", imglist);
         System.out.println("imglist = " + imglist.size());
 

@@ -64,12 +64,12 @@
                             </p>
 
                             <p class="pname">
-                                <a href="ShowProject.mvc/${pro.pId}">
+                                <a href="ShowProject.mvc?pid=${pro.pId}"">
                                         ${pro.pName}
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                <a class="ptypea" href="ShowProject.mvc/${pro.pId}">
+                                <a class="ptypea" href="ShowProject.mvc?pid=${pro.pId}"">
                                         ${pro.projectTypeByPCategoryId.projectTypeName}
                                 </a>
                             </p>
@@ -80,7 +80,7 @@
                                 <tr>
                                     <td>
                                         <p class="ptype">
-                                                ${pro.pnp}人
+                                                ${pro.pnp}人次
 
                                         </p>
                                     </td>

@@ -68,7 +68,7 @@ input {
 
 #b2 {
     clear: both;
-    margin-top: 450px;
+    margin-top: 50px;
     height: 600px;
 }
 
@@ -166,4 +166,30 @@ h2 {
     padding-left: 7px;
     width: 280px;
     height: 220px;
+}
+
+.show-number {
+    width: 1000px;
+    /*padding-left: 20px;*/
+    height: 120px;
+    background: #fff;
+    border: 1px solid #f2f2f2;
+    box-shadow: 0 0 40px rgba(216, 216, 216, .5);
+    padding-top: 500px;
+    margin-top: -60px;
+    z-index: -1;
+    font-size: 36px;
+}
+
+.show-number .show-list {
+    margin-top: 12px;
+    float: left;
+}
+
+.show-number .show-list li {
+    width: 285px;
+    /*padding-right: 85px;*/
+    height: 58px;
+    float: left;
+    text-align: center;
 }

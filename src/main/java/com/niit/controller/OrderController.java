@@ -52,6 +52,12 @@ public class OrderController {
 
 
         if (type == 1) {
+            if (oaid == null || oaid == "") {
+                map.addAttribute("msg", "请选择地址");
+                map.addAttribute("url", "ShowProject.mvc?pid=" + p.getpId());
+                return "msg.jsp";
+            }
+
             UsersAddress ua = new UsersAddress();
             ua.setaId(Integer.parseInt(oaid));
             o.setUsersAddressByAId(ua);

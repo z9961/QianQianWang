@@ -5,6 +5,7 @@ import com.niit.dao.IOrderDao;
 import com.niit.dao.IProjectDao;
 import com.niit.entity.Orders;
 import com.niit.entity.Project;
+import com.niit.entity.ProjectImg;
 import com.niit.entity.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,6 +51,31 @@ public class IProjectBizImp implements IProjectBiz {
     @Override
     public boolean update(Project project) {
         return projectDao.update(project);
+    }
+
+    @Override
+    public int countproject() {
+        return projectDao.countproject();
+    }
+
+    @Override
+    public int supportnum() {
+        return projectDao.supportnum();
+    }
+
+    @Override
+    public int countokpro() {
+        return projectDao.countokpro();
+    }
+
+    @Override
+    public List<ProjectImg> findimg(int pid) {
+        return projectDao.findimg(pid);
+    }
+
+    @Override
+    public List<ProjectImg> findhotimg() {
+        return projectDao.findhotimg();
     }
 
     @Override

@@ -9,7 +9,11 @@
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <link type="text/css" rel="stylesheet" href="css/carousel.css"/>
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
-
+    <script type="text/javascript">
+        function topro(pid) {
+            top.location.href = "ShowProject.mvc?pid=" + pid;
+        }
+    </script>
 </head>
 <body>
 
@@ -30,12 +34,12 @@
 
         <c:forEach items="${hotimglist}" var="ad" varStatus="vs" begin="0" end="0">
             <div class="item active">
-                <img class="cimg" src="${ad.imgPath}" alt="${vs.count}">
+                <img class="cimg" src="${ad.imgPath}" alt="${vs.count}" onclick="topro(${ad.projectByPid.pId})">
             </div>
         </c:forEach>
         <c:forEach items="${hotimglist}" var="ad" varStatus="vs" begin="1">
             <div class="item">
-                <img class="cimg" src="${ad.imgPath}" alt="${vs.count}">
+                <img class="cimg" src="${ad.imgPath}" alt="${vs.count}" onclick="topro(${ad.projectByPid.pId}">
             </div>
         </c:forEach>
     </div>

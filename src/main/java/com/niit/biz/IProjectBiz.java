@@ -2,6 +2,7 @@ package com.niit.biz;
 
 import com.niit.entity.Orders;
 import com.niit.entity.Project;
+import com.niit.entity.ProjectImg;
 import com.niit.entity.Users;
 
 import java.util.List;
@@ -44,5 +45,19 @@ public interface IProjectBiz {
     //自定义搜索
     List<Project> findProjectBySearch(String searchstr);
 
+    //更新项目
     boolean update(Project project);
+
+    //项目总数
+    int countproject();
+
+    //总支持人数
+    int supportnum();
+
+    //完成的项目数
+    int countokpro();
+
+    List<ProjectImg> findimg(int pid);
+
+    List<ProjectImg> findhotimg();
 }

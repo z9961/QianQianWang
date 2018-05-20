@@ -53,6 +53,8 @@ public class LoginController {
             session.setAttribute("user", user);
             List<UsersAddress> list = userBiz.findAllAddress(user.getuPhone());
             session.setAttribute("addr", list);
+            if (list.size() == 0)
+                return "redirect:manage.jsp?mangetype=manageaddr";
             if (user.getuType() == 1) {
                 return "Index.mvc";
             } else {

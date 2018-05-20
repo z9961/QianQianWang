@@ -2,6 +2,7 @@ package com.niit.dao;
 
 import com.niit.entity.Project;
 import com.niit.entity.ProjectComment;
+import com.niit.entity.ProjectImg;
 import com.niit.entity.Users;
 
 import java.util.List;
@@ -34,4 +35,14 @@ public interface IProjectDao {
     List<ProjectComment> findAllUserProjectComment(String s);
 
     boolean update(Project project);
+
+    int countproject();
+
+    int supportnum();
+
+    int countokpro();
+
+    List<ProjectImg> findimg(int pid);
+
+    List<ProjectImg> findhotimg();
 }
