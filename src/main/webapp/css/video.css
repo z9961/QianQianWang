@@ -1,9 +1,0 @@
-/*视频样式*/
-
-#video {
-    width: 400px;
-    height: 300px;
-    float: right;
-    /*减小留白*/
-    margin-top: -120px;
-}

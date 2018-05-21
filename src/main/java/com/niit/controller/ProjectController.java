@@ -1,6 +1,7 @@
 package com.niit.controller;
 
 import com.niit.biz.IProjectBiz;
+import com.niit.biz.IUserBiz;
 import com.niit.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,15 +22,23 @@ import java.util.*;
 public class ProjectController {
     @Autowired
     private IProjectBiz projectBiz;
+    @Autowired
+    private IUserBiz userBiz;
 
     @RequestMapping(value = "AddProject.mvc", method = RequestMethod.POST)
     public String AddProject(ModelMap map, HttpSession session, String PName, String PDesc, String PSD, String PED, String PTarget, String
             PMilestone, String PCategoryId, String PRemark, String PMF, String PLimit, String PTeam, String PPlan) throws ParseException {
         Project project = new Project();
         try {
+            PSD = PSD.replace("T", " ") + ":00.000";
+            PED = PED.replace("T", " ") + ":00.000";
+            System.out.println("PSD = " + PSD);
+            System.out.println("PED = " + PED);
+
             Timestamp tss = Timestamp.valueOf(PSD);
             Timestamp tnow = new Timestamp(new Date().getTime());
             Timestamp tse = Timestamp.valueOf(PED);
+            System.out.println("tnow = " + tnow);
             int plimit = Integer.parseInt(PLimit);
             int ppid = Integer.parseInt(PCategoryId);
             int pmf = Integer.parseInt(PMF);
@@ -39,6 +48,7 @@ public class ProjectController {
             projectType.setProjectTypeId(ppid);
             Users u = (Users) session.getAttribute("user");
             String phone = u.getuPhone();
+            System.out.println("checkForm");
 
             project = new Project(PName, PDesc, tss, tse, pt,
                     pnm, 0, PMilestone, PRemark, pmf, plimit, PTeam, 0, PPlan, u, projectType);
@@ -123,6 +133,10 @@ public class ProjectController {
             //保存图片
             List<String> listImagePath = new ArrayList<String>();
             boolean upload = true;
+            if (file.length == 0 && flag == 1) {
+                map.addAttribute("msg", "请上传图片");
+                map.addAttribute("url", "upload.jsp");
+            }
             for (MultipartFile mf : file) {
                 if (!mf.isEmpty()) {
 
@@ -153,6 +167,7 @@ public class ProjectController {
             if (upload && isok) {
                 map.addAttribute("msg", "添加图片成功");
                 map.addAttribute("url", "ShowProject.mvc?pid=" + pid);
+                session.setAttribute("addprojectid", null);
             }
             return "msg.jsp";
         } else {
@@ -178,6 +193,8 @@ public class ProjectController {
 
         Project project = null;
         try {
+            PSD = PSD.replace("T", " ");
+            PED = PED.replace("T", " ");
             System.out.println("updateProject===============================");
             Timestamp tss = Timestamp.valueOf(PSD);
             Timestamp tse = Timestamp.valueOf(PED);
@@ -247,13 +264,25 @@ public class ProjectController {
     //project.jsp
     @RequestMapping(value = "ShowProject.mvc")
     public String project(HttpSession session, ModelMap map, String pid) {
+
+
+        try {
+            Users user = (Users) session.getAttribute("user");
+            List<UsersAddress> addrlist = userBiz.findAllAddress(user.getuPhone());
+            if (addrlist.size() == 0) {
+                return "redirect:manage.jsp?mangetype=manageaddr";
+            }
+        } catch (Exception e) {
+            return "redirect:manage.jsp?mangetype=manageaddr";
+        }
+
+
         Project project = projectBiz.findProjectById(Integer.parseInt(pid));
         String pname = project.getpName();
         BigDecimal pnm = project.getPnm();
         int pnp = project.getPnp();
         Timestamp deadline = project.getPed();
         BigDecimal ptarget = project.getpTarget();
-//        String percentage = ((pnm.intValue() / ptarget.intValue()) * 100) + "";
         String percentage = (pnm.divide(ptarget).multiply(BigDecimal.valueOf(Long.parseLong(100 + "")))).toString();
         map.addAttribute("showproject", project);
 
@@ -280,13 +309,7 @@ public class ProjectController {
         map.addAttribute("timestr", timestr);
 
         //将所有图片转为list
-//        List imglist = new ArrayList();
         List<ProjectImg> imglist = projectBiz.findimg(project.getpId());
-//        Collection<ProjectImg> c = project.getProjectImgsByPId();
-//        for (Iterator<ProjectImg> iterator = c.iterator(); iterator.hasNext(); ) {
-//            ProjectImg next = iterator.next();
-//            imglist.add(next);
-//        }
         map.addAttribute("imglist", imglist);
         System.out.println("imglist = " + imglist.size());
 
@@ -355,7 +378,6 @@ public class ProjectController {
             case 0:
                 projectlist = projectBiz.findHotProject();
                 typestr = "images/热门推荐.png";
-                ;
                 break;
             case 1:
                 projectlist = projectBiz.findNewProject();
@@ -367,18 +389,15 @@ public class ProjectController {
                 break;
             case 3:
                 projectlist = projectBiz.findProject1();
-                typestr = "新奇酷玩";
-                typestrtype = 1;
+                typestr = "images/数码.png";
                 break;
             case 4:
                 projectlist = projectBiz.findProject2();
-                typestr = "生活美学";
-                typestrtype = 1;
+                typestr = "images/生活.png";
                 break;
             case 5:
                 projectlist = projectBiz.findProject3();
-                typestr = "文化艺术";
-                typestrtype = 1;
+                typestr = "images/艺术.png";
                 break;
             case 6:
                 projectlist = projectBiz.findProjectBySearch(searchstr);

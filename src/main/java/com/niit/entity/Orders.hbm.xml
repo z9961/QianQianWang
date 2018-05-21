@@ -17,7 +17,7 @@
         <many-to-one name="projectByPId" class="com.niit.entity.Project" lazy="false">
             <column name="PId" not-null="true"/>
         </many-to-one>
-        <many-to-one name="usersAddressByAId" class="com.niit.entity.UsersAddress">
+        <many-to-one name="usersAddressByAId" class="com.niit.entity.UsersAddress" lazy="false">
             <column name="AId" not-null="true"/>
         </many-to-one>
     </class>

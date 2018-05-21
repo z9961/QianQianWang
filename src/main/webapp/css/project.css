@@ -161,3 +161,16 @@
     /*文本居中显示*/
     text-align: center;
 }
+
+#qbtn {
+    height: 38px;
+    line-height: 33px;
+    padding: 0 11px;
+    border: 1px #26bbdb solid;
+    border-radius: 3px;
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    font-size: 36px;
+    text-align: center;
+}

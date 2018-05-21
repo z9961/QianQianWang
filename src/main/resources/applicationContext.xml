@@ -28,6 +28,7 @@
 
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+        <!--<property name="jdbcUrl" value="jdbc:sqlserver://localhost;database=QianQianWang"/>-->
         <property name="jdbcUrl" value="jdbc:sqlserver://aloli.cn;database=QianQianWang"/>
         <property name="user" value="webproject"/>
         <property name="password" value="webproject"/>

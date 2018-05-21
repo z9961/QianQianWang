@@ -65,6 +65,16 @@
                 <input type="button" value="验证码登录" onclick="showloginbysms();"/>
             </td>
         </tr>
+
+
+        <tr>
+            <td></td>
+            <td>
+                <br>
+                <input id="savepwd" name="savepwd" value="savepwd" checked type="checkbox"/> 记住登陆状态
+            </td>
+        </tr>
+
         <tr>
             <td>
 
@@ -189,7 +199,6 @@
             <td>
                 <input name="UType" type="radio" checked="checked" value="1">我是买家
                 <input name="UType" type="radio" value="2">我是卖家
-
             </td>
 
         </tr>
@@ -200,6 +209,8 @@
                 <input id="cb" name="cb" value="" checked type="checkbox"/> 我已阅读并同意相关服务条款
             </td>
         </tr>
+
+
         <tr>
             <td></td>
             <td>

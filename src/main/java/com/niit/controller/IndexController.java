@@ -1,13 +1,17 @@
 package com.niit.controller;
 
 import com.niit.biz.IProjectBiz;
+import com.niit.biz.IUserBiz;
 import com.niit.entity.Project;
 import com.niit.entity.ProjectImg;
+import com.niit.entity.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +25,33 @@ import java.util.List;
 public class IndexController {
     @Autowired
     private IProjectBiz projectBiz;
+    @Autowired
+    private IUserBiz userBiz;
 
     @RequestMapping(value = "Index.mvc")
-    public String findproject(ModelMap map, HttpSession session) {
+    public String findproject(HttpServletRequest request, ModelMap map, HttpSession session) {
+
+        //检查用户是否记住登录状态
+        String loginCookieUserName = "";
+        String loginCookiePassword = "";
+
+        Cookie[] cookies = request.getCookies();
+        if (null != cookies) {
+            for (Cookie cookie : cookies) {
+                if ("loginUserName".equals(cookie.getName())) {
+                    loginCookieUserName = cookie.getValue();
+                } else if ("loginPassword".equals(cookie.getName())) {
+                    loginCookiePassword = cookie.getValue();
+                }
+            }
+            if (!"".equals(loginCookieUserName) && !"".equals(loginCookiePassword)) {
+                Users user = userBiz.findUserByPhone(loginCookieUserName);
+                if (loginCookiePassword.equals(user.getuPwd())) {
+                    request.getSession().setAttribute("user", user);
+                }
+            }
+        }
+
         List<Project> hot = projectBiz.findHotProject();
         List<Project> newp = projectBiz.findNewProject();
         List<Project> p1 = projectBiz.findProject1();

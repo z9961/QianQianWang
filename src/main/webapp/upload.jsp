@@ -27,13 +27,14 @@
 <div id="bg"></div>
 
 <!--注册部分-->
-<form id="registerinfo" action="Upload.mvc" method="POST" style="margin-top: 0;" enctype="multipart/form-data">
+<form id="upform" action="Upload.mvc" method="POST" style="margin-top: 0;" enctype="multipart/form-data">
     <table id="table">
-        <caption style="color: white">上传项目图片</caption>
+        <caption style="color: black">上传项目图片</caption>
 
         <tr id="firstfile">
             <td>
                 <input type="file" name="file"/>
+                <p id="selectimg">选择图片</p>
             </td>
         </tr>
         <tr>

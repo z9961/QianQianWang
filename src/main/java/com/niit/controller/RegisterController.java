@@ -24,7 +24,8 @@ public class RegisterController {
     private IUserBiz userBiz;
 
     @RequestMapping(value = "Register.mvc", method = RequestMethod.POST)
-    public String Register(HttpServletRequest req, ModelMap map, String UName, String newpassword, String phone, String sms, String UType) {
+    public String Register(HttpServletRequest req, ModelMap map, String UName,
+                           String newpassword, String phone, String sms, String UType) {
         System.out.println("++++++++++++++++++++++++++");
         System.out.println("Register");
         System.out.println("UName = " + UName);

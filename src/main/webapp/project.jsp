@@ -133,11 +133,11 @@
                         </td>
                     </tr>
 
-                    <c:if test="${empty addr}">
-                        <script type="text/javascript">
-                            window.location.href = "manage.jsp?mangetype=manageaddr";
-                        </script>
-                    </c:if>
+                    <%--<c:if test="${empty addr}">--%>
+                    <%--<script type="text/javascript">--%>
+                    <%--window.location.href = "manage.jsp?mangetype=manageaddr";--%>
+                    <%--</script>--%>
+                    <%--</c:if>--%>
 
                     <c:forEach items="${addr}" var="uad">
                         <tr name="cdiv">
@@ -231,6 +231,9 @@
 
     <div id="right2">
         <div id="desc">
+
+            <a href="tencent://message/?uin=1043720879&Site=&Menu=yes" id="qbtn">咨询客服</a>
+            <br>
             项目介绍:${showproject.pDesc}
             <br/>
             投资前景:${showproject.pMilestone}
@@ -254,12 +257,13 @@
                                 </p>
 
                                 <p class="pname">
-                                    <a href="ShowProject.mvc/${pro.pId}">
+                                    <a href="ShowProject.mvc?pid=${pro.pId}">
                                             ${pro.pName}
                                     </a>
                                 </p>
                                 <p class="ptype" style="width: 40px">
-                                    <a class="ptypea" href="ShowProject.mvc/${pro.pId}">
+                                    <a class="ptypea"
+                                       href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">
                                             ${pro.projectTypeByPCategoryId.projectTypeName}
                                     </a>
                                 </p>

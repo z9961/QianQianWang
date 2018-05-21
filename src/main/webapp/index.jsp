@@ -36,26 +36,30 @@
 
     <%--统计信息--%>
     <div class="show-number">
-        <ul class="show-list">
-            <li>
-                <div class="number">${counproject}</div>
-                <div class="tag">
-                    项目总数
-                </div>
-            </li>
-            <li>
-                <div class="number">${supportnum}</div>
-                <div class="tag">
-                    总支持人数
-                </div>
-            </li>
-            <li class="bg-none">
-                <div class="number">${countokpro}</div>
-                <div class="tag">
-                    成功的项目数
-                </div>
-            </li>
-        </ul>
+        <div id="left3"><img src="images/index1.png"></div>
+        <div id="right3">
+            <ul class="show-list">
+                <li>
+                    <div class="number">${counproject}</div>
+                    <div class="tag">
+                        项目总数
+                    </div>
+                </li>
+                <li>
+                    <div class="number">${supportnum}</div>
+                    <div class="tag">
+                        总支持人数
+                    </div>
+                </li>
+                <li class="bg-none">
+                    <div class="number">${countokpro}</div>
+                    <div class="tag">
+                        成功的项目数
+                    </div>
+                </li>
+            </ul>
+        </div>
+
     </div>
 
     <!--插入页眉-->
@@ -64,7 +68,7 @@
 
     <div id="b2">
         <%--热门推荐 --%>
-        <img class="imgtitle" src="images/热门推荐.png"/>
+        <a href="Projectlist.mvc?type=0"><img class="imgtitle" src="images/热门推荐.png"/></a>
         <div name="projectdiv">
             <ul name="menu">
                 <c:forEach items="${ihot}" var="pro" begin="0" end="3">
@@ -82,7 +86,8 @@
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                <a class="ptypea" href="ShowProject.mvc?pid=${pro.pId}">
+                                <a class="ptypea"
+                                   href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">
                                         ${pro.projectTypeByPCategoryId.projectTypeName}
                                 </a>
                             </p>
@@ -133,7 +138,7 @@
         <br/>
         <br/>
         <%--最新上架 --%>
-        <img class="imgtitle" src="images/最新.png"/>
+        <a href="Projectlist.mvc?type=1"><img class="imgtitle" src="images/最新.png"/></a>
         <div name="projectdiv">
             <ul name="menu">
 
@@ -205,7 +210,7 @@
         <br/>
 
         <%--商品类型 1 --%>
-        <img class="imgtitle" src="images/数码.png"/>
+        <a href="Projectlist.mvc?type=3"><img class="imgtitle" src="images/数码.png"/></a>
         <div name="projectdiv">
             <ul name="menu">
 
@@ -276,7 +281,7 @@
         <br/>
         <br/>
         <%--商品类型 2 --%>
-        <img class="imgtitle" src="images/生活.png"/>
+        <a href="Projectlist.mvc?type=4"><img class="imgtitle" src="images/生活.png"/></a>
         <div name="projectdiv">
             <ul name="menu">
                 <c:forEach items="${ip2}" var="pro" begin="0" end="3">
@@ -346,7 +351,7 @@
         <br/>
         <br/>
         <%--商品类型 3 --%>
-        <img class="imgtitle" src="images/艺术.png"/>
+        <a href="Projectlist.mvc?type=5"><img class="imgtitle" src="images/艺术.png"/></a>
         <div name="projectdiv">
             <ul name="menu">
                 <c:forEach items="${ip3}" var="pro" begin="0" end="3">

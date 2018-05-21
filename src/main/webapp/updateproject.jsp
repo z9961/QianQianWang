@@ -28,11 +28,11 @@
         </tr>
         <tr>
             <td class="word">开始时间</td>
-            <td><input id="PSD" name="PSD" type="text" value="${updateproject.psd}" required/></td>
+            <td><input id="PSD" name="PSD" type="datetime-local" value="${updateproject.psd}" required/></td>
         </tr>
         <tr>
             <td class="word">结束时间</td>
-            <td><input id="PED" name="PED" type="text" value="${updateproject.ped}" required/></td>
+            <td><input id="PED" name="PED" type="datetime-local" value="${updateproject.ped}" required/></td>
         </tr>
 
         <tr>

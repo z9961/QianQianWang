@@ -3,6 +3,7 @@
 var countdown = 0;
 var countdown2 = 0;
 
+//验证码倒计时
 function invokeSettime(obj, tc) {
 
     settime(obj);
@@ -30,6 +31,7 @@ function invokeSettime(obj, tc) {
     }
 }
 
+
 new invokeSettime("#getsms", countdown);
 new invokeSettime("#getsms2", countdown2);
 
@@ -40,13 +42,25 @@ function userRegister() {
     var inpassword2 = document.getElementById("newpassword2").value;
     var phone = document.getElementById("REphone").value;
 
+    //去除空格
+    inusername = inusername.replace(/\s+/g, "");
+
+
     //验证模块
     if (inusername == "") {
         alert("昵称不能为空");
         return false;
     }
+    if (inusername.lenth > 20 || inusername.lenth < 8) {
+        alert("昵称长度应在8-20之间");
+        return false;
+    }
     if (inpassword == "") {
         alert("密码不能为空");
+        return false;
+    }
+    if (inpassword.length < 8 || inpassword.length > 20) {
+        alert("密码长度应在8-20之间");
         return false;
     }
     if (inpassword != inpassword2) {
@@ -81,6 +95,7 @@ function userRegister() {
 
 }
 
+//融资者信息
 function userRegisterType2() {
     var UZipCode = document.getElementById("UZipCode").value;
     var UName = document.getElementById("UName").value;
@@ -93,11 +108,11 @@ function userRegisterType2() {
         return false;
     }
     if (UCardNumber == "") {
-        alert("密码不能为空");
+        alert("证件号不能为空");
         return false;
     }
     if (UZipCode.length != 6) {
-        alert('邮编长度错误！');
+        alert('邮编长度错误(6位)！');
         return false;
     }
     if (UEmail == "") {
@@ -167,6 +182,7 @@ function showregister() {
     lrf.style.display = "none";
 }
 
+//获取验证码 注册
 function getSms() {
     var phonenum = document.getElementById("REphone").value;
     var UName = document.getElementById("UName").value;
@@ -204,7 +220,7 @@ function getSms() {
     }
 }
 
-
+//获取验证码 登陆
 function getSms2() {
     var phonenum = document.getElementById("phone2").value;
     if (phonenum == "") {
