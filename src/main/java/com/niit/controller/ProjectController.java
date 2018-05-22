@@ -1,5 +1,6 @@
 package com.niit.controller;
 
+import com.niit.Utils.Exchange;
 import com.niit.biz.IProjectBiz;
 import com.niit.biz.IUserBiz;
 import com.niit.entity.*;
@@ -24,6 +25,8 @@ public class ProjectController {
     private IProjectBiz projectBiz;
     @Autowired
     private IUserBiz userBiz;
+    @Autowired
+    private Exchange exchange;
 
     @RequestMapping(value = "AddProject.mvc", method = RequestMethod.POST)
     public String AddProject(ModelMap map, HttpSession session, String PName, String PDesc, String PSD, String PED, String PTarget, String
@@ -265,7 +268,7 @@ public class ProjectController {
     @RequestMapping(value = "ShowProject.mvc")
     public String project(HttpSession session, ModelMap map, String pid) {
 
-
+        //检查用户是否有地址
         try {
             Users user = (Users) session.getAttribute("user");
             List<UsersAddress> addrlist = userBiz.findAllAddress(user.getuPhone());
@@ -284,6 +287,37 @@ public class ProjectController {
         Timestamp deadline = project.getPed();
         BigDecimal ptarget = project.getpTarget();
         String percentage = (pnm.divide(ptarget).multiply(BigDecimal.valueOf(Long.parseLong(100 + "")))).toString();
+
+
+        //货币转换
+        BigDecimal cpnm, cpt;
+        cpnm = exchange.getValue(project.getPnm(), project.getPmf());
+        cpt = exchange.getValue(project.getpTarget(), project.getPmf());
+
+        String typestr = "CNY";
+        switch (project.getPmf()) {
+            case 1:
+                typestr = "CNY";
+                break;
+            case 2:
+                typestr = "USD";
+                break;
+            case 3:
+                typestr = "EUR";
+                break;
+            case 4:
+                typestr = "JPY";
+                break;
+            case 5:
+                typestr = "GBP";
+                break;
+        }
+
+
+        map.addAttribute("cpnm", cpnm);
+        map.addAttribute("cpt", cpt);
+        map.addAttribute("typestr", typestr);
+
         map.addAttribute("showproject", project);
 
         map.addAttribute("percentage", percentage);

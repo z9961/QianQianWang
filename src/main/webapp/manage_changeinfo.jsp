@@ -49,7 +49,7 @@
 <form action="Changeinfo.mvc" method="post">
     <table id="table">
         <tr>
-            <td>用户名</td>
+            <td style="width: 300px">用户名</td>
             <td><input type="text" name="uName" value="${user.uName}" required/></td>
         </tr>
         <c:if test="${user.uType==2}">

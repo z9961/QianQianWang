@@ -79,7 +79,16 @@
         </tr>
         <tr>
             <td class="word">货币币种标识</td>
-            <td><input id="PMF" name="PMF" type="number" value="1" required/></td>
+            <td>
+
+                <input name="PMF" type="radio" checked="checked" value="1">人民币
+                <input name="PMF" type="radio" value="2">美元
+                <input name="PMF" type="radio" value="3">欧元
+                <input name="PMF" type="radio" value="4">日元
+                <input name="PMF" type="radio" value="5">英镑
+
+                <%--<input id="PMF" name="PMF" type="number" value="1" required/>--%>
+            </td>
         </tr>
 
         <tr>

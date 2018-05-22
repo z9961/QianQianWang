@@ -51,7 +51,7 @@
 <table id="table">
 
     <tr>
-        <td style="min-width: 200px">用户名</td>
+        <td style="min-width: 300px">用户名</td>
         <td style="min-width: 300px">
             ${user.uName}
         </td>

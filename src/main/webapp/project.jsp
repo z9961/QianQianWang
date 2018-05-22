@@ -48,7 +48,14 @@
             <div id="rightTop">
                 <p id="title">${showproject.pName}</p>
                 <p>已筹到</p>
-                <p id="got">${showproject.pnm}</p>
+                <p id="got">
+                    ${showproject.pnm}
+                    <c:if test="${typestr!='USD'}">
+                        ${typestr}
+                        (${cpnm} $)
+                    </c:if>
+
+                </p>
                 <div>
                     <div>
 
@@ -68,6 +75,11 @@
                     &nbsp;
                     <span class="time">
                         ${showproject.pTarget}
+                            <c:if test="${typestr!='USD'}">
+                                ${typestr}
+                                (${cpt} $)
+                            </c:if>
+
                     </span>
                     &nbsp;的支持才可成功！
                 <p><input class="ped" name="ped" value="${showproject.ped}" disabled></p>
@@ -220,9 +232,9 @@
                     <br/>
                     <p>请说出您对该商品的看法：</p>
                     <br/>
-                    <input type="text" id="newcom" name="newcom" style="row-span: 3;column-span: 100" required>
+                    <input type="text" id="newcom" name="newcom" required>
                     <br/>
-                    <input value="提交" type="submit"/>
+                    <input id="subbtn" value="提交" type="submit"/>
                 </form>
             </div>
             </form>

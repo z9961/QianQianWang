@@ -174,3 +174,13 @@
     font-size: 36px;
     text-align: center;
 }
+
+#subbtn {
+    width: 150px;
+    height: 40px;
+    background-color: tomato;
+    color: white;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: youyuan;
+}

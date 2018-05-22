@@ -49,7 +49,7 @@
 <form action="Changepwd.mvc" method="post" id="form">
     <table id="table">
         <tr>
-            <td>请输入当前密码</td>
+            <td style="width: 400px">请输入当前密码</td>
             <td><input type="password" name="nowpwd" id="nowpwd"/></td>
         </tr>
         <tr>
