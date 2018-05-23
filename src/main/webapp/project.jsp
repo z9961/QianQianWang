@@ -95,7 +95,7 @@
                             支持额：
                         </td>
                         <td>
-                            <input class="input" type="number" name="ordernum"/>
+                            <input class="input" type="number" name="ordernum" required/>
                         </td>
                     </tr>
                     <tr>
@@ -151,18 +151,18 @@
                     <%--</script>--%>
                     <%--</c:if>--%>
 
-                    <c:forEach items="${addr}" var="uad">
-                        <tr name="cdiv">
-                            <td>
-                                地址:
-                            </td>
-                            <td>
-                                <input name="oaid" type="radio" value="${uad.aId}">
-                                    ${uad.address}
-                            </td>
-                        </tr>
 
-                    </c:forEach>
+                    <tr name="cdiv">
+                        <td>
+                            地址:
+                        </td>
+                        <td>
+                            <c:forEach items="${addr}" var="uad">
+                                <input name="oaid" type="radio" value="${uad.aId}">
+                                ${uad.address}
+                            </c:forEach>
+                        </td>
+                    </tr>
 
 
                     <%--结束地址--%>

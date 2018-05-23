@@ -111,7 +111,8 @@ input {
 #b2 li a {
     display: block; /* 将链接设为块级元素 */
     /*padding:8px 10px;  设置内边距*/
-    padding-top: 8px;
+    padding-top: 1px;
+    padding-bottom: 1px;
     padding-left: 0px;
     padding-right: 3px;
     text-decoration: none; /* 去掉下划线 */
@@ -193,11 +194,12 @@ h2 {
 }
 
 #left3 {
+    margin-left: 70px;
     float: left;
 }
 
 #right3 {
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 50px;
     float: left;
 }

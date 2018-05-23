@@ -33,6 +33,13 @@ public class OrderController {
         o.setUsersByUPhone(u);
         o.setProjectByPId(p);
         o.setOrderDate(new Timestamp(System.currentTimeMillis()));
+
+        if (ordernum == null || Long.parseLong(ordernum) == 0) {
+            map.addAttribute("msg", "支持的金额不正确");
+            map.addAttribute("url", "ShowProject.mvc?pid=" + p.getpId());
+            return "msg.jsp";
+        }
+
         BigDecimal money = BigDecimal.valueOf(Long.parseLong(ordernum));
         o.setMoney(money);
         int type = Integer.parseInt(oexpect);

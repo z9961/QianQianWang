@@ -31,7 +31,7 @@
         你好,${sessionScope.user.uPhone}
         <br/>
         <div style="right: 10%">
-            <input id="address" name="address">
+            <input id="address" name="address" required>
             &nbsp;
             <input type="submit" value="添加地址">
         </div>

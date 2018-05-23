@@ -26,6 +26,10 @@ public class Exchange {
         JSONArray data = jsonObject.getJSONArray("result");
         JSONObject job = data.getJSONObject(0);
 
+        System.out.println("jsonObject = " + jsonObject);
+        System.out.println("data = " + data);
+        System.out.println("job = " + job);
+        
         String key;
         JSONObject value;
 

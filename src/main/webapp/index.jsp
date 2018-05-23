@@ -40,19 +40,19 @@
         <div id="right3">
             <ul class="show-list">
                 <li>
-                    <div class="number">${counproject}</div>
+                    <div class="number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${counproject}</div>
                     <div class="tag">
                         项目总数
                     </div>
                 </li>
                 <li>
-                    <div class="number">${supportnum}</div>
+                    <div class="number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${supportnum}</div>
                     <div class="tag">
                         总支持人数
                     </div>
                 </li>
                 <li class="bg-none">
-                    <div class="number">${countokpro}</div>
+                    <div class="number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${countokpro}</div>
                     <div class="tag">
                         成功的项目数
                     </div>
@@ -169,7 +169,7 @@
                                 <tr>
                                     <td>
                                         <p class="ptype">
-                                                ${pro.pnp}人
+                                                ${pro.pnp}人次
 
                                         </p>
                                     </td>
@@ -241,7 +241,7 @@
                                 <tr>
                                     <td>
                                         <p class="ptype">
-                                                ${pro.pnp}人
+                                                ${pro.pnp}人次
 
                                         </p>
                                     </td>
@@ -311,7 +311,7 @@
                                 <tr>
                                     <td>
                                         <p class="ptype">
-                                                ${pro.pnp}人
+                                                ${pro.pnp}人次
 
                                         </p>
                                     </td>
@@ -381,7 +381,7 @@
                                 <tr>
                                     <td>
                                         <p class="ptype">
-                                                ${pro.pnp}人
+                                                ${pro.pnp}人次
 
                                         </p>
                                     </td>
