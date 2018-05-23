@@ -40,13 +40,13 @@
         </tr>
         <tr>
             <td class="word">开始时间</td>
-            <td><input id="PSD" name="PSD" type="datetime-local" value="2018-5-20 10:02:35" required/></td>
+            <td><input id="PSD" name="PSD" type="datetime-local" value="2018-05-20T07:22" required/></td>
 
         </tr>
 
         <tr>
             <td class="word">结束时间</td>
-            <td><input id="PED" name="PED" type="datetime-local" value="2018-7-5 10:02:35" required/></td>
+            <td><input id="PED" name="PED" type="datetime-local" value="2018-07-05T15:53" required/></td>
 
         </tr>
 
