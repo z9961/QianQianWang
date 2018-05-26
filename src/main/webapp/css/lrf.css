@@ -201,7 +201,7 @@ input[type="file"] {
     position: absolute;
 }
 
-#selectimg {
+.selectimg {
     font-size: 36px;
     color: #000;
     border: #e5e5e5 1px solid;

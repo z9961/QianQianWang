@@ -15,6 +15,7 @@
                 "        <tr>\n" +
                 "            <td>\n" +
                 "                <input  type=\"file\" name=\"file\"/>\n" +
+                "            <p class=\"selectimg\">选择图片</p>" +
                 "            </td>\n" +
                 "        </tr>");
         }
@@ -34,7 +35,7 @@
         <tr id="firstfile">
             <td>
                 <input type="file" name="file"/>
-                <p id="selectimg">选择图片</p>
+                <p class="selectimg">选择图片</p>
             </td>
         </tr>
         <tr>
