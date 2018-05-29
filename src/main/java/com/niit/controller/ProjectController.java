@@ -1,9 +1,9 @@
 package com.niit.controller;
 
-import com.niit.Utils.Exchange;
 import com.niit.biz.IProjectBiz;
 import com.niit.biz.IUserBiz;
 import com.niit.entity.*;
+import com.niit.utils.Exchange;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

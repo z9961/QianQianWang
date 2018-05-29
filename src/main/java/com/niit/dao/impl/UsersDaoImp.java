@@ -35,9 +35,9 @@ public class UsersDaoImp implements IUsersDao {
         System.out.println("Dao");
         System.out.println("phone = " + phone);
 
-        String hql = "from Users where uPhone=?";
+        String hql = "from Users where uPhone=:uphone";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
-        query.setParameter(0, phone);
+        query.setParameter("uphone", phone);
 
         //这里的user在没有对应的数据时为NULL
         Users user = (Users) query.uniqueResult();

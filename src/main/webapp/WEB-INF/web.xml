@@ -14,7 +14,7 @@
         </param-value>
     </context-param>
 
-
+    <!--session-->
     <filter>
         <filter-name>SpringOpenSessionInViewFilter</filter-name>
         <filter-class>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter</filter-class>

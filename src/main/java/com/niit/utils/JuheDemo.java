@@ -1,4 +1,4 @@
-package com.niit.Utils;
+package com.niit.utils;
 
 
 import net.sf.json.JSONObject;

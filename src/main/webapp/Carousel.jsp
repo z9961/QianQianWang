@@ -6,9 +6,8 @@
     <title>Facelet Title</title>
 
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/carousel.js"></script>
     <link type="text/css" rel="stylesheet" href="css/carousel.css"/>
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
     <script type="text/javascript">
         function topro(pid) {
             top.location.href = "ShowProject.mvc?pid=" + pid;
@@ -53,22 +52,5 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-
-
-<%--
-<div id="container">
-    <div id="imglist" style="left: -1000px;">
-        <c:forEach items="${hotimglist}" var="ad" varStatus="vs">
-            <img src="${ad.imgPath}" alt=""/>
-        </c:forEach>
-    </div>
-    <div id="buttons">
-        <c:forEach items="${hot}" var="ad" varStatus="vs">
-            <span name="bsp" index="${vs.count}" class="on"></span>
-        </c:forEach>
-    </div>
-    <a href="javascript:;" id="prev" class="arrow">&lt;</a>
-    <a href="javascript:;" id="next" class="arrow">&gt;</a>
-</div>--%>
 
 </body>
