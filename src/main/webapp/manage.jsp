@@ -24,10 +24,12 @@
 <body style="font-family: '微软雅黑 Light'">
 
 <!--引入头部-->
-<div id="head_div"></div>
+<div id="head_div">
+    <jsp:include page="h.jsp"></jsp:include>
+</div>
 <!--总体div-->
 
-<script type="text/javascript" src="js/head_div.js"></script>
+<%--<script type="text/javascript" src="js/head_div.js"></script>--%>
 <!--插入页眉-->
 
 <div style="margin: 0 auto; padding-top: 145px;">
@@ -105,7 +107,8 @@
         </div>
     </div>
     <div class="rrcc" id="RightBox">
-        <iframe src="manage_welcom.jsp" id="iframe" style="width: 100%;background-color: white;height: 100%;"></iframe>
+        <iframe src="manage_welcom.jsp" id="iframe" style="width: 100%;background-color: white;height: 100%;"
+                frameborder="0"></iframe>
     </div>
 
 

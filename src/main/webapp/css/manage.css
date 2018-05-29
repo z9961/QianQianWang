@@ -1,0 +1,38 @@
+body {
+    font-family: 幼圆
+}
+
+#table {
+    text-align: center;
+    font-size: 200%;
+    margin: 0 auto;
+    margin-top: 10%;
+    background-color: rgb(251, 251, 251);
+    border: 1px solid #46b8da;
+}
+
+#table td {
+    border-bottom: 1px dotted #dcdcdc;
+    border-left: 1px dotted #dcdcdc;
+    color: #666;
+}
+
+#table input {
+    height: 40px;
+    width: 300px;
+    font-size: 30px;
+    border: 0px;
+    outline: none;
+}
+
+input[type="submit"] {
+    width: 150px;
+    height: 40px;
+    background-color: tomato;
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-left: 40%;
+
+}

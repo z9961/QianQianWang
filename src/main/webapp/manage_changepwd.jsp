@@ -7,41 +7,8 @@
 <head>
 
     <title>修改密码</title>
+    <link href="css/manage.css" type="text/css" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: 幼圆
-        }
-
-        #table {
-            text-align: center;
-            font-size: 200%;
-            margin: 0 auto;
-            margin-top: 10%;
-        }
-
-        #table td {
-            border: 2px solid #000;
-        }
-
-        #table input {
-            height: 40px;
-            width: 300px;
-            font-size: 30px;
-        }
-
-        input[type="submit"] {
-            width: 150px;
-            height: 40px;
-            background-color: tomato;
-            color: white;
-            border-radius: 5px;
-            font-size: 20px;
-            font-family: youyuan;
-            margin-top: 50px;
-            margin-left: 40%;
-        }
-    </style>
 
 </head>
 

@@ -7,43 +7,8 @@
 
 <head>
     <title>个人信息</title>
-    <%--<script src="js/jquery.js" type="text/javascript"></script>--%>
-    <%--<script src="js/user.js" type="text/javascript"></script>--%>
-    <%--<script type="text/javascript">--%>
-    <%--var existmanagemsg = ${existmanagemsg};--%>
-    <%--if (existmanagemsg) {--%>
-    <%--var managemsg = '${managemsg}';--%>
-    <%--${managepage}--%>
-    <%--alert(managemsg);--%>
-    <%--}--%>
 
-    <%--</script>--%>
-    <style>
-        body {
-            font-family: 幼圆
-        }
-
-        #table {
-            text-align: center;
-            font-size: 200%;
-            margin: 0 auto;
-            margin-top: 10%;
-        }
-
-        #table td {
-            border: 2px solid #000;
-        }
-
-        #table input {
-            height: 40px;
-            width: 300px;
-            font-size: 30px;
-        }
-
-        #table tr td {
-            border: 2px solid #000;
-        }
-    </style>
+    <link href="css/manage.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>

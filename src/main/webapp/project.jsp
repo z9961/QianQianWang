@@ -31,11 +31,13 @@
 <body>
 
 <!--引入头部-->
-<div id="head_div"></div>
+<div id="head_div">
+    <jsp:include page="h.jsp"></jsp:include>
+</div>
 <!--总体div-->
 <div id="all">
     <!--插入页眉-->
-    <script type="text/javascript" src="js/head_div.js"></script>
+    <%--<script type="text/javascript" src="js/head_div.js"></script>--%>
     <!--模块1-->
     <div id="m1">
         <div id="left">
