@@ -18,7 +18,6 @@
 
         table tr {
             font-size: 18px;
-            font-family: "微软雅黑";
             height: 40px;
         }
 
@@ -29,11 +28,31 @@
         table tr:nth-child(2n) {
             background-color: #E7E7E7;
         }
+
+        button {
+            width: 150px;
+            height: 40px;
+            background-color: tomato;
+            color: white;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+
+        #savebtn {
+            color: white;
+            text-decoration: none;
+        }
     </style>
 
 </head>
 
 <body>
+
+<div style="float: right;font-size: 40px">
+    <button>
+        <a id="savebtn" href="SaveToWord.mvc">导出Word</a>
+    </button>
+</div>
 <table>
     <tr>
 

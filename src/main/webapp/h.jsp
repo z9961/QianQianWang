@@ -8,12 +8,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ page isELIgnored="false" %>
-<html>
-<head>
-    <title>Facelet Title</title>
+<%--<html>--%>
+<%--<head>--%>
+<%--<title>Facelet Title</title>--%>
 
 
-    <script type="text/javascript" src="js/jquery.js"></script>
+<%--<script type="text/javascript" src="js/jquery.js"></script>--%>
 
     <script type="text/javascript" src="js/lrf.js"></script>
     <script type="text/javascript" src="js/tolrf.js"></script>
@@ -22,8 +22,8 @@
     <link rel="stylesheet" type="text/css" href="css/menu.css"/>
     <link rel="stylesheet" type="text/css" href="css/logo.css"/>
 
-</head>
-<body>
+<%--</head>--%>
+<%--<body>--%>
 <!--登录注册-->
 <div style="background-color: #f5f5f5;height: 40px;widt:100%">
     <div style="margin-left: 75%;padding-top: 8px">
@@ -109,5 +109,5 @@
         location.href = "Projectlist.mvc?type=6&searchstr=" + param;
     }
 </script>
-</body>
-</html>
+<%--</body>--%>
+<%--</html>--%>

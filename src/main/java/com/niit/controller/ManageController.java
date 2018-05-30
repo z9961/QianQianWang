@@ -3,6 +3,7 @@ package com.niit.controller;
 import com.niit.biz.IProjectBiz;
 import com.niit.biz.IUserBiz;
 import com.niit.entity.*;
+import com.niit.utils.SaveToWord;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -19,6 +21,9 @@ public class ManageController {
 
     @Autowired
     private IProjectBiz projectBiz;
+
+    @Autowired
+    private SaveToWord saveToWord;
 
 
     @RequestMapping(value = "Manage.mvc")
@@ -110,4 +115,16 @@ public class ManageController {
         return "manage_myprojectdetails.jsp";
     }
 
+    @RequestMapping(value = "SaveToWord.mvc")
+    public String SaveToWord(ModelMap map, HttpSession session) throws IOException {
+
+        Users user = (Users) session.getAttribute("user");
+        List<Orders> myorders = userBiz.findAllOrder(user.getuPhone());
+
+        String uuid = saveToWord.createWord(myorders);
+
+        uuid = "redirect:/file/" + uuid;
+        System.out.println("uuid = " + uuid);
+        return uuid;
+    }
 }

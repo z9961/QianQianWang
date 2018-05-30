@@ -71,7 +71,7 @@
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                <a class="ptypea" href="ShowProject.mvc?pid=${pro.pId}"">
+                                <a class="ptypea" href="ShowProject.mvc?pid=${pro.pId}">
                                         ${pro.projectTypeByPCategoryId.projectTypeName}
                                 </a>
                             </p>

@@ -63,6 +63,14 @@
 
                         <div id="progressbar"></div>
 
+                        <script>
+                            $("#progressbar").progressbar({
+                                value: ${percentage}
+                            });
+                            progressbar = $("#progressbar");
+                            progressbarValue = progressbar.find(".ui-progressbar-value");
+                            progressbarValue.css("background", "green");
+                        </script>
                     </div>
                     <div>
                         <p id="now">当前进度${percentage}%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${showproject.pnp}名支持者</p>
@@ -355,13 +363,6 @@
 
     //进度条
 
-
-    $("#progressbar").progressbar({
-        value: ${percentage}
-    });
-    progressbar = $("#progressbar");
-    progressbarValue = progressbar.find(".ui-progressbar-value");
-    progressbarValue.css("background", "green");
 
 </script>
 
