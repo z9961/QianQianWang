@@ -272,8 +272,10 @@ public class ProjectController {
         try {
             Users user = (Users) session.getAttribute("user");
             List<UsersAddress> addrlist = userBiz.findAllAddress(user.getuPhone());
-            if (addrlist.size() == 0) {
+            if (addrlist == null || addrlist.size() == 0 || addrlist.get(0).getAddress() == null || addrlist.get(0).getAddress() == "") {
                 return "redirect:manage.jsp?mangetype=manageaddr";
+            } else {
+                session.setAttribute("addr", addrlist);
             }
         } catch (Exception e) {
             return "redirect:manage.jsp?mangetype=manageaddr";
