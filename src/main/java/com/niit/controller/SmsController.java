@@ -3,7 +3,10 @@ package com.niit.controller;
 
 import com.github.qcloudsms.SmsSingleSender;
 import com.github.qcloudsms.SmsSingleSenderResult;
+import com.niit.biz.IUserBiz;
+import com.niit.entity.Users;
 import org.json.JSONException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,6 +21,9 @@ import java.io.IOException;
 @Controller
 public class SmsController {
 
+    @Autowired
+    private IUserBiz userBiz;
+
     @RequestMapping(value = "SendSms.mvc", method = RequestMethod.POST)
     @ResponseBody
     protected String SmsServlet(String Phonenum, String UName, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, com.github.qcloudsms.httpclient.HTTPException {
@@ -27,6 +33,16 @@ public class SmsController {
         if (null == UName || UName == "" || null == Phonenum || (Phonenum == "")) {
             return "false";
         }
+
+        try {
+            Users user = userBiz.findUserByPhone(Phonenum);
+            if (user != null) {
+                return "Existed";
+            }
+        } catch (Exception e) {
+            return "Existed";
+        }
+
 
         System.out.println("Phonenum = " + Phonenum);
         System.out.println("UName = " + UName);

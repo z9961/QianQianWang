@@ -205,15 +205,22 @@ function getSms() {
                 },
                 success: function (data) {
                     if (data == "success") {
+                        //发送后计时60s
+                        countdown = 60;
+                        new invokeSettime("#getsms", countdown);
                         alert("短信验证码已发送");
+                    } else if (data == "Existed") {
+                        countdown = 0;
+                        new invokeSettime("#getsms", countdown);
+                        alert("手机号已存在");
                     } else {
+                        countdown = 0;
+                        new invokeSettime("#getsms", countdown);
                         alert("短信发送失败");
                     }
                 }
             })
-            //发送后计时60s
-            countdown = 60;
-            new invokeSettime("#getsms", countdown);
+
         } else {
             alert("手机号码不正确!");
         }
@@ -251,5 +258,41 @@ function getSms2() {
         } else {
             alert("手机号码不正确!");
         }
+    }
+}
+
+
+function checkUName() {
+    var inusername = document.getElementById("UName").value;
+    if (inusername.length < 6 || inusername.length > 12) {
+        alert("昵称长度应在6-12之间");
+    }
+}
+
+function checkPwd() {
+    var inpassword = document.getElementById("newpassword").value;
+
+    if (inpassword.length < 8 || inpassword.length > 20) {
+        alert("密码长度应在8-20之间");
+    }
+}
+
+function checkPwd2() {
+    var inpassword = document.getElementById("newpassword").value;
+    var inpassword2 = document.getElementById("newpassword2").value;
+
+
+    if (inpassword != inpassword2) {
+        alert('两次密码不一致！');
+    }
+}
+
+function checkPhone() {
+    var phone = document.getElementById("REphone").value;
+    var re = /^1\d{10}$/;
+    if (re.test(phone)) {
+        //格式正确
+    } else {
+        alert("手机号格式错误！");
     }
 }
