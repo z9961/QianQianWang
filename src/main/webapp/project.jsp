@@ -2,15 +2,15 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ page isELIgnored="false" %>
 
-<%
-    String pid = request.getParameter("pid");
-    session.setAttribute("projectpagepid", pid);
-%>
+<%--<%--%>
+<%--String pid = request.getParameter("pid");--%>
+<%--session.setAttribute("projectpagepid", pid);--%>
+<%--%>--%>
 
-<c:if test="${empty imglist}">
-    <!-- JSP提供的 转发标签 -->
-    <jsp:forward page="ShowProject.mvc?pid=${projectpagepid}"/>
-</c:if>
+<%--<c:if test="${empty imglist}">--%>
+<%--<!-- JSP提供的 转发标签 -->--%>
+<%--<jsp:forward page="ShowProject.mvc?pid=${projectpagepid}"/>--%>
+<%--</c:if>--%>
 
 <html>
 <head>
@@ -56,7 +56,6 @@
                         ${typestr}
                         (${cpnm} $)
                     </c:if>
-
                 </p>
                 <div>
                     <div>
@@ -369,7 +368,6 @@
     var dateBegin = new Date(npedfor);
     var dateEnd = new Date();
     var dateDiff = dateBegin.getTime() - dateEnd.getTime();//时间差的毫秒数
-    console.log(dateDiff)
     if (dateDiff <= 0) {
         document.getElementById("orderform").style.display = "none";
     }

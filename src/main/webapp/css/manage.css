@@ -1,14 +1,20 @@
 body {
-    font-family: 幼圆
+    font-family: 幼圆;
+    background: #f9f9f9;
 }
 
 #table {
     text-align: center;
     font-size: 200%;
+    /*width: 100%;*/
     margin: 0 auto;
     margin-top: 10%;
-    background-color: rgb(251, 251, 251);
+    /*background-color: rgba(251, 251, 251, 0.1);*/
     border: 1px solid #46b8da;
+}
+
+#table tr {
+    height: 80px;
 }
 
 #table td {
@@ -23,6 +29,7 @@ body {
     font-size: 30px;
     border: 0px;
     outline: none;
+    background-color: #f9f9f9;
 }
 
 input[type="submit"] {

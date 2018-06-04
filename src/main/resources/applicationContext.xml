@@ -40,8 +40,8 @@
         <!--<property name="hibernateProperties">-->
         <!--<props>-->
         <!--<prop key="hibernate.dialect">org.hibernate.dialect.SQLServer2012Dialect</prop>-->
-                <!--<prop key="hibernate.show_sql">true</prop>-->
-                <!--<prop key="hibernate.format_sql">true</prop>-->
+        <!--<prop key="hibernate.show_sql">true</prop>-->
+        <!--<prop key="hibernate.format_sql">true</prop>-->
                 <!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
         <!--<prop key="hibernate.connection.url">jdbc:sqlserver://aloli.cn;database=Qianqianwang</prop>-->
         <!--<prop key="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</prop>-->

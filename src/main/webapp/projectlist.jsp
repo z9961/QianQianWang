@@ -67,7 +67,7 @@
 
                             <p class="pname">
                                 <a href="ShowProject.mvc?pid=${pro.pId}"">
-                                        ${pro.pName}
+                                    ${pro.pName}
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
@@ -107,6 +107,7 @@
                                     <td>剩余时间</td>
                                     <td>
                                         <p>
+                                            <input style="display: none" name="pedC" value="${pro.ped}">
                                             <input class="ped" name="ped" value="${pro.ped}" disabled>
                                         </p>
                                     </td>
@@ -163,7 +164,6 @@
     </div>
 
 </div>
-
 
 <!--撑出页脚-->
 <div id="blank" style="height:3px"></div>

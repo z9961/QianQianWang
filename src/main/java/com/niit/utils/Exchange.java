@@ -20,54 +20,64 @@ public class Exchange {
 
     public BigDecimal getValue(BigDecimal coin, int type) {
 
-        //json
+        BigDecimal coinvalue;
+        BigDecimal coinDvalue;
 
-        JSONObject jsonObject = juhe.getRequest1();
-        JSONArray data = jsonObject.getJSONArray("result");
-        JSONObject job = data.getJSONObject(0);
 
-        System.out.println("jsonObject = " + jsonObject);
-        System.out.println("data = " + data);
-        System.out.println("job = " + job);
-        
-        String key;
-        JSONObject value;
+        try {
+            JSONObject jsonObject = juhe.getRequest1();
+            JSONArray data = jsonObject.getJSONArray("result");
+            JSONObject job = data.getJSONObject(0);
 
-        Map<String, BigDecimal> map = new HashMap<String, BigDecimal>();
+            System.out.println("jsonObject = " + jsonObject);
+            System.out.println("data = " + data);
+            System.out.println("job = " + job);
 
-        //map存放数据map = {英镑=856.64, 欧元=752.02,日元=5.7459, 美元=637.99}
-        Iterator iterator = job.keys();
-        while (iterator.hasNext()) {
-            key = (String) iterator.next();
-            value = job.getJSONObject(key);
-            String name = value.getString("name");
-            double bcp = value.getDouble("bankConversionPri");
-            map.put(name, BigDecimal.valueOf(bcp));
+            String key;
+            JSONObject value;
+
+            Map<String, BigDecimal> map = new HashMap<String, BigDecimal>();
+
+            //map存放数据map = {英镑=856.64, 欧元=752.02,日元=5.7459, 美元=637.99}
+            Iterator iterator = job.keys();
+            while (iterator.hasNext()) {
+                key = (String) iterator.next();
+                value = job.getJSONObject(key);
+                String name = value.getString("name");
+                double bcp = value.getDouble("bankConversionPri");
+                map.put(name, BigDecimal.valueOf(bcp));
+            }
+
+            String typestr = "美元";
+            switch (type) {
+                case 1:
+                    typestr = "人民币";
+                    break;
+                case 3:
+                    typestr = "欧元";
+                    break;
+                case 4:
+                    typestr = "日元";
+                    break;
+                case 5:
+                    typestr = "英镑";
+                    break;
+            }
+            coinvalue = map.get(typestr);
+            coinDvalue = map.get("美元");
+
+            System.out.println("coinvalue = " + coinvalue);
+            System.out.println("coinDvalue = " + coinDvalue);
+            System.out.println("coin = " + coin);
+            System.out.println("type = " + type);
+            System.out.println("typestr = " + typestr);
+
+        } catch (Exception e) {
+            System.out.println("获取汇率失败");
+            coinvalue = BigDecimal.valueOf(Float.valueOf(642));
+            coinDvalue = BigDecimal.valueOf(Float.valueOf(642));
         }
 
-        String typestr = "美元";
-        switch (type) {
-            case 1:
-                typestr = "人民币";
-                break;
-            case 3:
-                typestr = "欧元";
-                break;
-            case 4:
-                typestr = "日元";
-                break;
-            case 5:
-                typestr = "英镑";
-                break;
-        }
-        BigDecimal coinvalue = map.get(typestr);
-        BigDecimal coinDvalue = map.get("美元");
-
-        System.out.println("coinvalue = " + coinvalue);
-        System.out.println("coinDvalue = " + coinDvalue);
-        System.out.println("coin = " + coin);
-        System.out.println("type = " + type);
-        System.out.println("typestr = " + typestr);
 
         if (type == 2)
             return coin;

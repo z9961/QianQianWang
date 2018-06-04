@@ -32,18 +32,21 @@
 </head>
 
 <body>
+<div style="margin-top:20px;height: 50px;font-size: 40px;border-bottom: 1px solid #ddd;">
+    <span style="margin-left: 10%"><img src="images/m2.png">我发布的项目</span>
+</div>
 <table>
     <tr>
 
         <th>项目编号</th>
         <th>项目名</th>
-        <th>项目描述</th>
+        <th style="width: 300px">项目描述</th>
         <%--<th>项目开始时间</th>--%>
         <%--<th>项目结束时间</th>--%>
         <th>目标金额</th>
         <th>当前金额</th>
         <th>当前人数</th>
-        <th>投资前景</th>
+        <%--<th>投资前景</th>--%>
         <th>项目类型</th>
         <th>币种</th>
         <th>限制最大金额</th>
@@ -67,7 +70,7 @@
             <td>${pro.pTarget}</td>
             <td>${pro.pnm}</td>
             <td>${pro.pnp}</td>
-            <td>${pro.pMilestone}</td>
+                <%--<td>${pro.pMilestone}</td>--%>
             <td>${pro.projectTypeByPCategoryId.projectTypeName}</td>
             <td>${pro.pmf}</td>
             <td>

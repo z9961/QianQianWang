@@ -136,41 +136,45 @@ public class ProjectController {
             //保存图片
             List<String> listImagePath = new ArrayList<String>();
             boolean upload = true;
-            if (file.length == 0 && flag == 1) {
+            System.out.println("file = " + file[0].isEmpty());
+            System.out.println("flag = " + flag);
+            //判断用户是否上传了图片
+            if (file[0].isEmpty() && flag == 1) {
                 map.addAttribute("msg", "请上传图片");
                 map.addAttribute("url", "upload.jsp");
-            }
-            for (MultipartFile mf : file) {
-                if (!mf.isEmpty()) {
+            } else {
+                for (MultipartFile mf : file) {
+                    if (!mf.isEmpty()) {
 
-                    //得到文件名
-                    File countfile = new File(savePath);
-                    String[] files = countfile.list();
-                    int i = files.length;
+                        //得到文件名
+                        File countfile = new File(savePath);
+                        String[] files = countfile.list();
+                        int i = files.length;
 
-                    //获得文件类型
-                    String contentType = mf.getContentType();
-                    System.out.println("contentType = " + contentType);
-                    if (contentType.equals("image/jpeg")) {
-                        path = "/images/" + pid + "/" + i + ".jpg";
-                        imgpath = "images/" + pid + "/" + i + ".jpg";
-                        mf.transferTo(new File(pathRoot + path));
-                        listImagePath.add(imgpath);
-                        System.out.println(imgpath);
-                    } else {
-                        map.addAttribute("msg", "图片类型不正确");
-                        map.addAttribute("url", "upload.jsp");
-                        //失败清空list
-                        upload = false;
-                        listImagePath = new ArrayList<String>();
+                        //获得文件类型
+                        String contentType = mf.getContentType();
+                        System.out.println("contentType = " + contentType);
+                        if (contentType.equals("image/jpeg")) {
+                            path = "/images/" + pid + "/" + i + ".jpg";
+                            imgpath = "images/" + pid + "/" + i + ".jpg";
+                            mf.transferTo(new File(pathRoot + path));
+                            listImagePath.add(imgpath);
+                            System.out.println(imgpath);
+                        } else {
+                            map.addAttribute("msg", "图片类型不正确");
+                            map.addAttribute("url", "upload.jsp");
+                            //失败清空list
+                            upload = false;
+                            listImagePath = new ArrayList<String>();
+                        }
                     }
                 }
-            }
-            boolean isok = projectBiz.saveimg(pid, listImagePath);
-            if (upload && isok) {
-                map.addAttribute("msg", "添加图片成功");
-                map.addAttribute("url", "ShowProject.mvc?pid=" + pid);
-                session.setAttribute("addprojectid", null);
+                boolean isok = projectBiz.saveimg(pid, listImagePath);
+                if (upload && isok) {
+                    map.addAttribute("msg", "添加图片成功");
+                    map.addAttribute("url", "ShowProject.mvc?pid=" + pid);
+                    session.setAttribute("addprojectid", null);
+                }
             }
             return "msg.jsp";
         } else {

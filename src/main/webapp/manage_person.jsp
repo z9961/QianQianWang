@@ -13,7 +13,11 @@
 
 <body>
 
-<table id="table">
+<div style="margin-top:20px;height: 50px;font-size: 40px;border-bottom: 1px solid #ddd;">
+    <span style="margin-left: 10%"><img src="images/login.png">当前用户信息</span>
+</div>
+
+<table id="table" style="width: 60%">
 
     <tr>
         <td style="min-width: 300px">用户名</td>

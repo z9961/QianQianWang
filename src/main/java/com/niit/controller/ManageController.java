@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -78,11 +79,12 @@ public class ManageController {
 
     @RequestMapping(value = "Changeinfo.mvc")
     public String Changeinfo(ModelMap map, HttpSession session, String uName,
-                             String uZipCode, String uEmail) {
+                             String uZipCode, String uEmail, String uPhone) {
 
         Users user = (Users) session.getAttribute("user");
         int type = user.getuType();
         user.setuName(uName);
+        user.setuPhone(uPhone);
         boolean isok = userBiz.update(user);
         if (isok && (type == 2)) {
             UsersInfo usersInfo = user.getUsersInfoByUPhone();
@@ -116,15 +118,18 @@ public class ManageController {
     }
 
     @RequestMapping(value = "SaveToWord.mvc")
-    public String SaveToWord(ModelMap map, HttpSession session) throws IOException {
+    public ModelAndView SaveToWord(ModelMap map, HttpSession session) throws IOException {
 
         Users user = (Users) session.getAttribute("user");
         List<Orders> myorders = userBiz.findAllOrder(user.getuPhone());
 
         String uuid = saveToWord.createWord(myorders);
 
-        uuid = "redirect:/file/" + uuid;
+//        uuid = "redirect:file/" + uuid;
+        uuid = "redirect:file/" + uuid;
         System.out.println("uuid = " + uuid);
-        return uuid;
+        //不能直接return uuid,第一次跳转会失败
+        return new ModelAndView(uuid);
+
     }
 }

@@ -60,6 +60,7 @@ public class IndexController {
 
         int counproject = projectBiz.countproject();
         int supportnum = projectBiz.supportnum();
+        System.out.println("supportnum = " + supportnum);
         int countokpro = projectBiz.countokpro();
 
         map.addAttribute("counproject", counproject);

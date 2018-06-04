@@ -123,7 +123,8 @@ public class ProjectDaoImp implements IProjectDao {
     public int supportnum() {
         int numint = 0;
         try {
-            String hql = "select count(*) from Orders group by usersByUPhone.uPhone";
+//            String hql = "select count(*) from Orders group by usersByUPhone.uPhone";
+            String hql = "select count(DISTINCT usersByUPhone.uPhone) from Orders";
             Query query = sessionFactory.getCurrentSession().createQuery(hql);
             long num = (long) query.uniqueResult();
             numint = Integer.parseInt(Long.toString(num));

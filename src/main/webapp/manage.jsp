@@ -32,7 +32,7 @@
 <%--<script type="text/javascript" src="js/head_div.js"></script>--%>
 <!--插入页眉-->
 
-<div style="margin: 0 auto; padding-top: 145px;">
+<div style="margin-left: 5%; padding-top: 145px;">
 
     <div class="left" id="LeftBox">
         <div class="left01">
@@ -48,26 +48,26 @@
             </div>
             <div class="left02down">
                 <div class="left02down01">
-                    <a onclick="showperson()">
+                    <a onclick="showperson(this)" id="lf1">
                         <div id="Bf080" class="left02down01_img"></div>
                         当前用户信息查询
                     </a>
                 </div>
 
                 <div class="left02down01">
-                    <a onclick="showchangepwd()">
+                    <a onclick="showchangepwd(this)" id="lf2">
                         <div id="Bf081" class="left02down01_img"></div>
                         用户密码管理
                     </a>
                 </div>
                 <div class="left02down01">
-                    <a onclick="changeinfo()">
+                    <a onclick="changeinfo(this)" id="lf3">
                         <div id="Bf082" class="left02down01_img"></div>
                         个人资料编辑
                     </a>
                 </div>
                 <div class="left02down01">
-                    <a onclick="manageaddr()">
+                    <a onclick="manageaddr(this)" id="lf4">
                         <div id="Bf083" class="left02down01_img"></div>
                         地址管理
                     </a>
@@ -84,20 +84,20 @@
             <div class="left02down">
 
                 <div class="left02down01">
-                    <a onclick="myorder()">
+                    <a onclick="myorder(this)" id="lf5">
                         <div class="left02down01_img"></div>
                         我参与的项目
                     </a>
                 </div>
                 <div class="left02down01">
-                    <a onclick="mycomment()">
+                    <a onclick="mycomment(this)" id="lf6">
                         <div class="left02down01_img"></div>
                         我的评论
                     </a>
                 </div>
                 <c:if test="${user.uType==2}">
                     <div class="left02down01">
-                        <a onclick="myproject()">
+                        <a onclick="myproject(this)" id="lf7">
                             <div class="left02down01_img"></div>
                             我发布的项目
                         </a>

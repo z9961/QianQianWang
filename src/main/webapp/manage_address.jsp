@@ -25,8 +25,10 @@
 </head>
 
 <body>
-
-<div id="addaddr" style="padding-top: 180px">
+<div style="margin-top:20px;height: 50px;font-size: 40px;border-bottom: 1px solid #ddd;">
+    <span style="margin-left: 10%"><img src="images/login.png">地址管理</span>
+</div>
+<div id="addaddr" style="padding-top: 100px">
     <form id="addrform" action="AddAddress.mvc" method="post">
         你好,${sessionScope.user.uPhone}
         <br/>
