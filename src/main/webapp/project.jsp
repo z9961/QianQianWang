@@ -78,7 +78,7 @@
                 </div>
                 <p>此项目必须在
                     <span class="time">&nbsp;
-                        <input name="pedC" value="${showproject.ped}" disabled>
+                        <input id="pedt" name="pedC" value="${showproject.ped}" disabled>
                     </span>
                     &nbsp;
                     前得到
@@ -97,7 +97,7 @@
 
             </div>
 
-            <form action="AddOrder.mvc" method="post">
+            <form action="AddOrder.mvc" method="post" id="orderform">
                 <table>
                     <tr>
                         <td>
@@ -177,7 +177,7 @@
 
                     <%--结束地址--%>
                 </table>
-                <input class="but" type="submit" value="确认支持"/>
+                <input id="sbtn" class="but" type="submit" value="确认支持"/>
             </form>
 
         </div>
@@ -342,8 +342,10 @@
 <div id="blank" style="height:2030px"></div>
 
 <script type="text/javascript">
+    //倒计时
     window.onload = cheangetime();
 
+    //是否需要回报
     function showdiv() {
         var controls = document.getElementsByName("cdiv");
         for (var i = 0; i < controls.length; i++) {
@@ -360,9 +362,17 @@
         }
     }
 
-
-    //进度条
-
+    //判断项目是否已经超时
+    var pcontrols = document.getElementById("pedt").value;
+    nped = pcontrols.substr(0, pcontrols.length - 4);
+    var npedfor = new Date(nped.replace(/-/g, "/"));
+    var dateBegin = new Date(npedfor);
+    var dateEnd = new Date();
+    var dateDiff = dateBegin.getTime() - dateEnd.getTime();//时间差的毫秒数
+    console.log(dateDiff)
+    if (dateDiff <= 0) {
+        document.getElementById("orderform").style.display = "none";
+    }
 
 </script>
 
