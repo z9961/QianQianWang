@@ -255,6 +255,7 @@
 
             <a href="tencent://message/?uin=1043720879&Site=&Menu=yes" id="qbtn">咨询客服</a>
             <br>
+            <br>
             项目介绍:${showproject.pDesc}
             <br/>
             投资前景:${showproject.pMilestone}

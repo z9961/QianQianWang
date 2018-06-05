@@ -16,6 +16,7 @@ body {
     margin-left: 15%;
     /*border: 1px solid #0f79be;*/
     width: 70%;
+    border: 1px solid #d7d5d0;
 
 }
 
@@ -24,6 +25,9 @@ body {
 }
 
 #addrtable td {
-    border: 1px solid #0f79be;
+    border-bottom: 1px dotted #dcdcdc;
+    border-left: 1px dotted #dcdcdc;
+    color: #666;
 
 }
+

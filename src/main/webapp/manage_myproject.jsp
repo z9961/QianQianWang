@@ -31,8 +31,8 @@
 
 </head>
 
-<body>
-<div style="margin-top:20px;height: 50px;font-size: 40px;border-bottom: 1px solid #ddd;">
+<body style="font-family: '微软雅黑 Light';background: #f9f9f9 !important;">
+<div style="margin-top:8px;height: 60px;font-size: 40px;border-bottom: 1px solid #ddd;">
     <span style="margin-left: 10%"><img src="images/m2.png">我发布的项目</span>
 </div>
 <table>

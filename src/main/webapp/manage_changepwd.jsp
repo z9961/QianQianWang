@@ -14,7 +14,7 @@
 
 <body>
 
-<div style="margin-top:20px;height: 50px;font-size: 40px;border-bottom: 1px solid #ddd;">
+<div style="margin-top:8px;height: 60px;font-size: 40px;border-bottom: 1px solid #ddd;">
     <span style="margin-left: 10%"><img src="images/login.png">用户密码管理</span>
 </div>
 

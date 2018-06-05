@@ -1,16 +1,16 @@
 body {
-    font-family: 幼圆;
+    font-family: "微软雅黑 Light";
     background: #f9f9f9;
 }
 
 #table {
     text-align: center;
-    font-size: 200%;
+    font-size: 150%;
     /*width: 100%;*/
     margin: 0 auto;
-    margin-top: 10%;
+    margin-top: 50px;
     /*background-color: rgba(251, 251, 251, 0.1);*/
-    border: 1px solid #46b8da;
+    border: 1px solid #d7d5d0;
 }
 
 #table tr {

@@ -92,7 +92,7 @@ public class ProjectController {
 
 
     @RequestMapping(value = "Upload.mvc", method = RequestMethod.POST)
-    private String fildUpload(@RequestParam(value = "file", required = false) MultipartFile[] file,
+    private String fildUpload(@RequestParam(value = "itemImagers", required = false) MultipartFile[] file,
                               HttpSession session, ModelMap map) throws Exception {
 
         //新增项目1,更新项目2,更新图片3
@@ -136,7 +136,7 @@ public class ProjectController {
             //保存图片
             List<String> listImagePath = new ArrayList<String>();
             boolean upload = true;
-            System.out.println("file = " + file[0].isEmpty());
+            System.out.println("file = " + file.length);
             System.out.println("flag = " + flag);
             //判断用户是否上传了图片
             if (file[0].isEmpty() && flag == 1) {

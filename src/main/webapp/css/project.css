@@ -94,6 +94,7 @@
     display: none;
     font-size: 32px;
     box-shadow: 0 0 100px rgba(200, 200, 200, .9);
+    background-color: #f9f9f9;
 }
 
 #introducation img {
@@ -163,7 +164,7 @@
 }
 
 #qbtn {
-    height: 38px;
+    height: 40px;
     line-height: 33px;
     padding: 0 11px;
     border: 1px #26bbdb solid;
@@ -171,8 +172,10 @@
     display: inline-block;
     text-decoration: none;
     outline: none;
-    font-size: 36px;
+    font-size: 33px;
     text-align: center;
+    background-color: #26bbdb;
+    color: white;
 }
 
 #subbtn {
