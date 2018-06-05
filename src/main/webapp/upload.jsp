@@ -12,12 +12,16 @@
     <script type="text/javascript">
         function adnum() {
             $("#addfilenum").before(
-                "        <tr>\n" +
-                "            <td>\n" +
-                "                <input  type=\"file\" name=\"file\"/>\n" +
-                "            <p class=\"selectimg\">选择图片</p>" +
-                "            </td>\n" +
-                "        </tr>");
+                "           <tr> <td>\n" +
+                "                <input type=\"file\" name=\"file\" onchange=\"selectimg(this)\"/>\n" +
+                "                <p class=\"selectimg\">\n" +
+                "                    <input type=\"button\" value=\"选择图片\"></input>\n" +
+                "                </p>\n" +
+                "            </td></tr>")
+        }
+
+        function selectimg(e) {
+            var p = $(e).parent().find('p').find('input').val('已选择');
         }
     </script>
 </head>
@@ -34,8 +38,10 @@
 
         <tr id="firstfile">
             <td>
-                <input type="file" name="file"/>
-                <p class="selectimg">选择图片</p>
+                <input type="file" name="file" onchange="selectimg(this)"/>
+                <p class="selectimg">
+                    <input type="button" value="选择图片"></input>
+                </p>
             </td>
         </tr>
         <tr>
