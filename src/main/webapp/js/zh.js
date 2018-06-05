@@ -14,7 +14,7 @@
 
     $.fn.fileinputLocales['zh'] = {
         fileSingle: '文件',
-        filePlural: '个文件',
+        filePlural: '',
         browseLabel: '选择 &hellip;',
         removeLabel: '移除',
         removeTitle: '清除选中文件',
@@ -25,7 +25,7 @@
         msgNo: '没有',
         msgNoFilesSelected: '未选择文件',
         msgCancelled: '取消',
-        msgPlaceholder: '选择 {files}...',
+        msgPlaceholder: '选择你要上传的图片',
         msgZoomModalHeading: '详细预览',
         msgFileRequired: '必须选择一个文件上传.',
         msgSizeTooSmall: '文件 "{name}" (<b>{size} KB</b>) 必须大于限定大小 <b>{minSize} KB</b>.',
