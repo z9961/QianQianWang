@@ -35,7 +35,7 @@
 <div id="bg"></div>
 
 <!--注册部分-->
-<form id="registerinfo" action="RegisterType2.mvc" method="POST">
+<form id="registerinfo" action="RegisterType2.mvc" method="POST" style="clear: both;margin-left: 55%">
     <table id="table">
         <caption>融资者信息</caption>
         <tr>
