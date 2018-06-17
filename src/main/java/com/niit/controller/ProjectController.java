@@ -300,22 +300,22 @@ public class ProjectController {
         cpnm = exchange.getValue(project.getPnm(), project.getPmf());
         cpt = exchange.getValue(project.getpTarget(), project.getPmf());
 
-        String typestr = "CNY";
+        String typestr = "人民币";
         switch (project.getPmf()) {
             case 1:
-                typestr = "CNY";
+                typestr = "人民币";
                 break;
             case 2:
-                typestr = "USD";
+                typestr = "美元";
                 break;
             case 3:
-                typestr = "EUR";
+                typestr = "欧元";
                 break;
             case 4:
-                typestr = "JPY";
+                typestr = "日元";
                 break;
             case 5:
-                typestr = "GBP";
+                typestr = "英镑";
                 break;
         }
 

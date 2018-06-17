@@ -52,5 +52,11 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
+<script>
 
+    $("#myCarousel").carousel('cycle');
+    $("#myCarousel").carousel({
+        interval: 500
+    });
+</script>
 </body>
