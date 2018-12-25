@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--开启包扫描 -->
+    <context:component-scan base-package="com.niit">
+        <!-- 扫描时跳过 @Controller 注解的JAVA类（控制器） -->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!--开启mvc -->
+    <mvc:annotation-driven/>
+
+    <!--<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">-->
+        <!--<property name="driverClass" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>-->
+        <!--&lt;!&ndash;<property name="jdbcUrl" value="jdbc:sqlserver://localhost;database=QianQianWang"/>&ndash;&gt;-->
+        <!--<property name="jdbcUrl" value="jdbc:sqlserver://aloli.cn;database=QianQianWang"/>-->
+        <!--<property name="user" value="webproject"/>-->
+        <!--<property name="password" value="webproject"/>-->
+    <!--</bean>-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <!--<property name="jdbcUrl" value="jdbc:sqlserver://localhost;database=QianQianWang"/>-->
+        <property name="jdbcUrl" value="jdbc:mysql://aloli.cn:3306/Ecommerce?useUnicode=true&amp;characterEncoding=utf-8"/>
+        <property name="user" value="root"/>
+        <property name="password" value="webproject"/>
+    </bean>
+
+
+    <!-- hibernate 配置 -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!--<property name="hibernateProperties">-->
+        <!--<props>-->
+        <!--<prop key="hibernate.dialect">org.hibernate.dialect.SQLServer2012Dialect</prop>-->
+        <!--<prop key="hibernate.show_sql">true</prop>-->
+        <!--<prop key="hibernate.format_sql">true</prop>-->
+                <!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
+        <!--<prop key="hibernate.connection.url">jdbc:sqlserver://aloli.cn;database=Qianqianwang</prop>-->
+        <!--<prop key="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</prop>-->
+        <!--</props>-->
+        <!--</property>-->
+        <!-- 扫描实体类的位置 -->
+        <!--<property name="packagesToScan" value="com.niit.entity"/>-->
+        <property name="mappingLocations">
+            <list>
+                <value>classpath:com/niit/entity/Orders.hbm.xml</value>
+                <value>classpath:com/niit/entity/Project.hbm.xml</value>
+                <value>classpath:com/niit/entity/ProjectComment.hbm.xml</value>
+                <value>classpath:com/niit/entity/ProjectImg.hbm.xml</value>
+                <value>classpath:com/niit/entity/ProjectType.hbm.xml</value>
+                <value>classpath:com/niit/entity/Users.hbm.xml</value>
+                <value>classpath:com/niit/entity/UsersAddress.hbm.xml</value>
+                <value>classpath:com/niit/entity/UsersInfo.hbm.xml</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- HibernateTemplate对象 -->
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- 添加事务管理配置 -->
+    <!-- 创建平台事务管理器 -->
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <!-- 注入连接池 -->
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- 创建事务通知 -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="save*" isolation="DEFAULT" propagation="REQUIRED"/>
+            <tx:method name="update*" isolation="DEFAULT" propagation="REQUIRED"/>
+            <tx:method name="delete*" isolation="DEFAULT" propagation="REQUIRED"/>
+            <tx:method name="find*" isolation="DEFAULT" propagation="REQUIRED"
+                       read-only="true"/>
+            <tx:method name="*" isolation="DEFAULT" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- 创建事务切面 -->
+    <aop:config>
+        <aop:pointcut expression="execution(* com.niit.biz.impl.*.*(..))"
+                      id="myPt"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="myPt"/>
+    </aop:config>
+
+</beans>
+

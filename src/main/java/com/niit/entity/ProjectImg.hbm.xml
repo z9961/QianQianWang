@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.niit.entity.ProjectImg" table="ProjectImg" schema="dbo" catalog="Qianqianwang">
+        <id name="imgId" column="ImgId"/>
+        <property name="imgPath" column="ImgPath"/>
+        <many-to-one name="projectByPid" class="com.niit.entity.Project">
+            <column name="Pid" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

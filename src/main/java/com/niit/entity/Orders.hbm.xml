@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.niit.entity.Orders" table="Orders" schema="dbo" catalog="Qianqianwang">
+        <id name="orderId" column="OrderId"/>
+        <property name="money" column="Money"/>
+        <property name="expect" column="Expect"/>
+        <property name="expectType" column="ExpectType"/>
+        <property name="exceptOther" column="ExceptOther"/>
+        <property name="orderDate" column="OrderDate"/>
+        <many-to-one name="usersByUPhone" class="com.niit.entity.Users">
+            <column name="UPhone" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="projectByPId" class="com.niit.entity.Project" lazy="false">
+            <column name="PId" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="usersAddressByAId" class="com.niit.entity.UsersAddress" lazy="false">
+            <column name="AId" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

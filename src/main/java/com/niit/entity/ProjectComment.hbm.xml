@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.niit.entity.ProjectComment" table="ProjectComment" schema="dbo" catalog="Qianqianwang">
+        <id name="pcId" column="PCId"/>
+        <property name="pcTime" column="PCTime"/>
+        <property name="pComment" column="PComment"/>
+        <many-to-one name="projectByCPid" class="com.niit.entity.Project">
+            <column name="CPid" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="usersByUPhone" class="com.niit.entity.Users">
+            <column name="UPhone" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

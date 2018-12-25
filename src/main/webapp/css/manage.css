@@ -1,0 +1,45 @@
+body {
+    font-family: "微软雅黑 Light";
+    background: #f9f9f9;
+}
+
+#table {
+    text-align: center;
+    font-size: 150%;
+    /*width: 100%;*/
+    margin: 0 auto;
+    margin-top: 50px;
+    /*background-color: rgba(251, 251, 251, 0.1);*/
+    border: 1px solid #d7d5d0;
+}
+
+#table tr {
+    height: 80px;
+}
+
+#table td {
+    border-bottom: 1px dotted #dcdcdc;
+    border-left: 1px dotted #dcdcdc;
+    color: #666;
+}
+
+#table input {
+    height: 40px;
+    width: 300px;
+    font-size: 30px;
+    border: 0px;
+    outline: none;
+    background-color: #f9f9f9;
+}
+
+input[type="submit"] {
+    width: 150px;
+    height: 40px;
+    background-color: tomato;
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-left: 40%;
+
+}

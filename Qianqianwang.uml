@@ -1,0 +1,1142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.niit.dao.IUsersInfoDao</OriginalElement>
+  <nodes>
+    <node x="2321.4606930268833" y="3441.5">com.niit.dao.IUsersAddressDao</node>
+    <node x="7270.725961538461" y="147.0">com.niit.entity.ProjectImg</node>
+    <node x="0.0" y="4269.5">com.niit.controller.RegisterController</node>
+    <node x="3652.8093412558683" y="4258.0">com.niit.controller.LoginController</node>
+    <node x="4883.809341255868" y="4212.0">com.niit.controller.ManageController</node>
+    <node x="8526.91671305074" y="4074.0">com.niit.dao.impl.ProjectDaoImp</node>
+    <node x="6413.780123552133" y="147.0">com.niit.entity.ProjectType</node>
+    <node x="5589.0126496071" y="4281.0">com.niit.controller.OrderController</node>
+    <node x="5119.121841255868" y="3429.0">com.niit.utils.SaveToWord</node>
+    <node x="4069.993589743589" y="2105.0">com.niit.entity.UsersAddress</node>
+    <node x="7224.916713050739" y="4269.5">com.niit.controller.IndexController</node>
+    <node x="4755.371841255868" y="3464.5">org.springframework.stereotype.Controller</node>
+    <node x="3117.1218412558683" y="4258.0">com.niit.controller.AddressController</node>
+    <node x="351.8333333333321" y="3418.0">org.springframework.web.servlet.handler.HandlerInterceptorAdapter</node>
+    <node x="8010.916713050739" y="2733.5">com.niit.utils.JuheDemo</node>
+    <node x="1672.3356930268833" y="2117.0">com.niit.dao.IUsersDao</node>
+    <node x="8087.916713050739" y="3452.5">com.niit.utils.Exchange</node>
+    <node x="5302.8258663487895" y="2814.5">org.springframework.stereotype.Service</node>
+    <node x="2715.4737607182105" y="1278.0">com.niit.entity.Users</node>
+    <node x="6102.530123552133" y="124.0">com.niit.entity.ProjectComment</node>
+    <node x="363.33333333333394" y="2140.0">org.springframework.web.servlet.HandlerInterceptor</node>
+    <node x="7041.583379717406" y="1956.0">com.niit.dao.IProjectDao</node>
+    <node x="3712.7956289243193" y="3464.5">org.springframework.stereotype.Repository</node>
+    <node x="5985.22313960808" y="497.0">com.niit.entity.Project</node>
+    <node x="6014.78766025641" y="0.0">javax.persistence.Entity</node>
+    <node x="2783.1218412558683" y="4258.0">com.niit.dao.impl.UserAddressDaoImp</node>
+    <node x="6524.440522574549" y="3269.0">com.niit.biz.IProjectBiz</node>
+    <node x="3288.7956289243198" y="3326.5">com.niit.biz.IUserBiz</node>
+    <node x="1961.3356930268833" y="2163.0">com.niit.dao.IUsersInfoDao</node>
+    <node x="1617.8333333333326" y="4281.0">com.niit.dao.impl.UsersInfoDaoImp</node>
+    <node x="5713.121841255868" y="2664.0">com.niit.entity.Orders</node>
+    <node x="1818.6025641025635" y="704.5">com.niit.entity.UsersInfo</node>
+    <node x="1172.0833333333326" y="4235.0">com.niit.dao.impl.UsersDaoImp</node>
+    <node x="2150.323348630299" y="4097.0">com.niit.biz.impl.UserBizImp</node>
+    <node x="603.0833333333321" y="4258.0">com.niit.interceptor.LoginInterceptor</node>
+    <node x="5302.358173076922" y="2163.0">org.springframework.stereotype.Component</node>
+    <node x="6634.4188996071" y="4074.0">com.niit.biz.impl.IProjectBizImp</node>
+    <node x="7678.916713050739" y="4177.5">com.niit.controller.ProjectController</node>
+    <node x="351.83333333333303" y="2814.5">org.springframework.web.servlet.AsyncHandlerInterceptor</node>
+    <node x="6126.0126496071" y="4258.0">com.niit.dao.impl.OrderDaoImp</node>
+    <node x="6050.0126496071" y="3441.5">com.niit.dao.IOrderDao</node>
+    <node x="4367.809341255868" y="4281.0">com.niit.controller.SmsController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.niit.dao.impl.OrderDaoImp" target="org.springframework.stereotype.Repository">
+      <point x="-97.875" y="-62.0" />
+      <point x="6158.6376496071" y="3824.0" />
+      <point x="3812.1956289243194" y="3824.0" />
+      <point x="28.40000000000009" y="27.0" />
+    </edge>
+    <edge source="com.niit.utils.SaveToWord" target="org.springframework.stereotype.Component">
+      <point x="-89.5" y="-62.5" />
+      <point x="5208.621841255868" y="3169.0" />
+      <point x="5466.3258663487895" y="3169.0" />
+      <point x="5466.3258663487895" y="2624.0" />
+      <point x="5404.9137286324785" y="2624.0" />
+      <point x="31.555555555555657" y="27.0" />
+    </edge>
+    <edge source="com.niit.entity.Users" target="javax.persistence.Entity">
+      <point x="-59.53846153846189" y="-154.0" />
+      <point x="2849.4352991797487" y="1178.0" />
+      <point x="2875.554071476994" y="1178.0" />
+      <point x="2875.554071476994" y="94.0" />
+      <point x="6059.78766025641" y="94.0" />
+      <point x="-27.0" y="27.0" />
+    </edge>
+    <edge source="com.niit.controller.ProjectController" target="com.niit.biz.IUserBiz">
+      <point x="-379.5" y="-142.5" />
+      <point x="7713.416713050739" y="3784.0" />
+      <point x="3670.3511844798754" y="3784.0" />
+      <point x="179.55555555555566" y="165.0" />
+    </edge>
+    <edge source="com.niit.controller.ManageController" target="com.niit.entity.ProjectComment">
+      <point x="0.0" y="-108.0" />
+      <point x="5125.309341255868" y="4004.0" />
+      <point x="5092.121841255868" y="4004.0" />
+      <point x="5092.121841255868" y="3159.0" />
+      <point x="5455.3258663487895" y="3159.0" />
+      <point x="5455.3258663487895" y="2634.0" />
+      <point x="5517.858173076922" y="2634.0" />
+      <point x="5517.858173076922" y="447.0" />
+      <point x="6190.063456885467" y="447.0" />
+      <point x="-13.466666666666242" y="96.5" />
+    </edge>
+    <edge source="com.niit.controller.LoginController" target="com.niit.biz.IUserBiz">
+      <point x="-260.625" y="-62.0" />
+      <point x="3739.6843412558683" y="3924.0" />
+      <point x="3490.7956289243198" y="3924.0" />
+      <point x="0.0" y="165.0" />
+    </edge>
+    <edge source="com.niit.biz.IUserBiz" target="com.niit.entity.UsersInfo">
+      <point x="-168.33333333333348" y="-165.0" />
+      <point x="3322.4622955909863" y="3139.0" />
+      <point x="3154.981526360217" y="3139.0" />
+      <point x="3154.981526360217" y="1826.0" />
+      <point x="2588.304071476994" y="1826.0" />
+      <point x="2588.304071476994" y="1248.0" />
+      <point x="1935.141025641025" y="1248.0" />
+      <point x="15.538461538461434" y="108.0" />
+    </edge>
+    <edge source="com.niit.controller.AddressController" target="com.niit.biz.IUserBiz">
+      <point x="95.19999999999982" y="-62.0" />
+      <point x="3450.321841255868" y="3924.0" />
+      <point x="3445.906740035431" y="3924.0" />
+      <point x="-44.88888888888869" y="165.0" />
+    </edge>
+    <edge source="com.niit.biz.IUserBiz" target="com.niit.entity.Users">
+      <point x="-33.666666666666515" y="-165.0" />
+      <point x="3457.1289622576533" y="3119.0" />
+      <point x="3306.8640813052716" y="3119.0" />
+      <point x="3306.8640813052716" y="1806.0" />
+      <point x="2846.777332146782" y="1806.0" />
+      <point x="-62.19642857142844" y="154.0" />
+    </edge>
+    <edge source="com.niit.controller.AddressController" target="com.niit.entity.UsersAddress">
+      <point x="0.0" y="-62.0" />
+      <point x="3355.1218412558683" y="3844.0" />
+      <point x="2999.010693026883" y="3844.0" />
+      <point x="2999.010693026883" y="2624.0" />
+      <point x="4159.093589743588" y="2624.0" />
+      <point x="-32.40000000000009" y="85.0" />
+    </edge>
+    <edge source="com.niit.entity.Project" target="com.niit.entity.ProjectImg">
+      <point x="293.5384615384619" y="-315.5" />
+      <point x="6755.761601146542" y="437.0" />
+      <point x="7298.271416083916" y="437.0" />
+      <point x="-73.45454545454504" y="73.5" />
+    </edge>
+    <edge source="com.niit.biz.impl.UserBizImp" target="com.niit.dao.IUsersInfoDao">
+      <point x="-124.30769230769238" y="-223.0" />
+      <point x="2228.0156563226064" y="3874.0" />
+      <point x="1951.8356930268833" y="3874.0" />
+      <point x="1951.8356930268833" y="2634.0" />
+      <point x="2147.3356930268833" y="2634.0" />
+      <point x="62.0" y="27.0" />
+    </edge>
+    <edge source="com.niit.utils.Exchange" target="com.niit.utils.JuheDemo">
+      <point x="-70.0" y="-39.0" />
+      <point x="0.0" y="108.0" />
+    </edge>
+    <edge source="com.niit.dao.impl.UsersDaoImp" target="com.niit.entity.UsersInfo">
+      <point x="-100.5" y="-85.0" />
+      <point x="1205.5833333333326" y="3894.0" />
+      <point x="1261.5833333333326" y="3894.0" />
+      <point x="1261.5833333333326" y="1228.0" />
+      <point x="1857.4487179487173" y="1228.0" />
+      <point x="-62.15384615384619" y="108.0" />
+    </edge>
+    <edge source="com.niit.entity.UsersInfo" target="com.niit.entity.Users">
+      <point x="77.69230769230762" y="108.0" />
+      <point x="1997.2948717948711" y="1158.0" />
+      <point x="2819.666068410518" y="1158.0" />
+      <point x="-89.30769230769238" y="-154.0" />
+    </edge>
+    <edge source="com.niit.utils.SaveToWord" target="com.niit.entity.Orders">
+      <point x="89.5" y="-62.5" />
+      <point x="5387.621841255868" y="3209.0" />
+      <point x="5860.621841255868" y="3209.0" />
+      <point x="-147.5" y="177.5" />
+    </edge>
+    <edge source="com.niit.dao.impl.UsersDaoImp" target="com.niit.dao.IUsersDao">
+      <point x="-33.5" y="-85.0" />
+      <point x="1272.5833333333326" y="2604.0" />
+      <point x="1739.3356930268833" y="2604.0" />
+      <point x="-67.0" y="73.0" />
+    </edge>
+    <edge source="com.niit.biz.IProjectBiz" target="com.niit.entity.Project">
+      <point x="38.0" y="-222.5" />
+      <point x="6714.440522574549" y="3249.0" />
+      <point x="6649.440522574549" y="3249.0" />
+      <point x="6649.440522574549" y="1258.0" />
+      <point x="6598.508853893794" y="1258.0" />
+      <point x="136.28571428571468" y="315.5" />
+    </edge>
+    <edge source="com.niit.controller.IndexController" target="com.niit.entity.Users">
+      <point x="36.16666666666697" y="-50.5" />
+      <point x="7478.083379717406" y="1626.0" />
+      <point x="3067.920189289639" y="1626.0" />
+      <point x="158.94642857142844" y="154.0" />
+    </edge>
+    <edge source="com.niit.entity.Users" target="com.niit.entity.UsersInfo">
+      <point x="-148.8461538461538" y="-154.0" />
+      <point x="2760.1276068720567" y="1178.0" />
+      <point x="1966.2179487179483" y="1178.0" />
+      <point x="46.61538461538453" y="108.0" />
+    </edge>
+    <edge source="com.niit.controller.OrderController" target="com.niit.biz.IProjectBiz">
+      <point x="226.1875" y="-39.0" />
+      <point x="6073.7001496071" y="4054.0" />
+      <point x="6615.640522574549" y="4054.0" />
+      <point x="-60.80000000000018" y="222.5" />
+    </edge>
+    <edge source="com.niit.dao.IUsersInfoDao" target="com.niit.entity.Users">
+      <point x="62.0" y="-27.0" />
+      <point x="2147.3356930268833" y="1906.0" />
+      <point x="2791.4916178610674" y="1906.0" />
+      <point x="-117.48214285714312" y="154.0" />
+    </edge>
+    <edge source="com.niit.controller.LoginController" target="com.niit.entity.UsersAddress">
+      <point x="-86.875" y="-62.0" />
+      <point x="3913.4343412558683" y="3964.0" />
+      <point x="4034.3926745892013" y="3964.0" />
+      <point x="4034.3926745892013" y="2644.0" />
+      <point x="4191.493589743589" y="2644.0" />
+      <point x="0.0" y="85.0" />
+    </edge>
+    <edge source="org.springframework.web.servlet.AsyncHandlerInterceptor" target="org.springframework.web.servlet.HandlerInterceptor">
+      <point x="9.094947017729282E-13" y="-27.0" />
+      <point x="0.0" y="50.0" />
+    </edge>
+    <edge source="com.niit.controller.OrderController" target="org.springframework.stereotype.Controller">
+      <point x="-226.1875" y="-39.0" />
+      <point x="5621.3251496071" y="3864.0" />
+      <point x="4852.996841255868" y="3864.0" />
+      <point x="26.625" y="27.0" />
+    </edge>
+    <edge source="com.niit.entity.Users" target="com.niit.entity.UsersAddress">
+      <point x="-6.9107142857146755" y="154.0" />
+      <point x="2902.063046432496" y="1756.0" />
+      <point x="4288.693589743589" y="1756.0" />
+      <point x="97.19999999999982" y="-85.0" />
+    </edge>
+    <edge source="com.niit.biz.IUserBiz" target="com.niit.entity.UsersAddress">
+      <point x="101.0" y="-165.0" />
+      <point x="3591.7956289243198" y="3059.0" />
+      <point x="3752.1624511944015" y="3059.0" />
+      <point x="3752.1624511944015" y="2634.0" />
+      <point x="4175.293589743589" y="2634.0" />
+      <point x="-16.199999999999818" y="85.0" />
+    </edge>
+    <edge source="com.niit.controller.ManageController" target="com.niit.biz.IUserBiz">
+      <point x="-214.66666666666697" y="-108.0" />
+      <point x="4910.6426745892" y="3904.0" />
+      <point x="3580.5734067020976" y="3904.0" />
+      <point x="89.77777777777783" y="165.0" />
+    </edge>
+    <edge source="com.niit.controller.ProjectController" target="com.niit.entity.UsersAddress">
+      <point x="-172.5" y="-142.5" />
+      <point x="7920.416713050739" y="3754.0" />
+      <point x="7820.056472941413" y="3754.0" />
+      <point x="7820.056472941413" y="2474.0" />
+      <point x="4304.8935897435895" y="2474.0" />
+      <point x="113.40000000000009" y="85.0" />
+    </edge>
+    <edge source="org.springframework.stereotype.Service" target="org.springframework.stereotype.Component">
+      <point x="-35.5" y="-27.0" />
+      <point x="5338.3258663487895" y="2644.0" />
+      <point x="5373.358173076922" y="2644.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="com.niit.controller.ProjectController" target="com.niit.utils.Exchange">
+      <point x="34.5" y="-142.5" />
+      <point x="8127.416713050739" y="4004.0" />
+      <point x="8227.91671305074" y="4004.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="com.niit.interceptor.LoginInterceptor" target="org.springframework.web.servlet.handler.HandlerInterceptorAdapter">
+      <point x="-183.0" y="-62.0" />
+      <point x="694.5833333333321" y="3894.0" />
+      <point x="637.8333333333321" y="3894.0" />
+      <point x="0.0" y="73.5" />
+    </edge>
+    <edge source="com.niit.controller.ProjectController" target="com.niit.entity.ProjectComment">
+      <point x="172.5" y="-142.5" />
+      <point x="8265.41671305074" y="4024.0" />
+      <point x="8508.14509008329" y="4024.0" />
+      <point x="8508.14509008329" y="407.0" />
+      <point x="6270.863456885466" y="407.0" />
+      <point x="67.33333333333303" y="96.5" />
+    </edge>
+    <edge source="com.niit.biz.impl.UserBizImp" target="org.springframework.stereotype.Service">
+      <point x="31.076923076922867" y="-223.0" />
+      <point x="2383.4002717072217" y="3824.0" />
+      <point x="2299.9606930268833" y="3824.0" />
+      <point x="2299.9606930268833" y="3149.0" />
+      <point x="5338.3258663487895" y="3149.0" />
+      <point x="-35.5" y="27.0" />
+    </edge>
+    <edge source="com.niit.dao.IUsersInfoDao" target="com.niit.entity.UsersInfo">
+      <point x="-62.0" y="-27.0" />
+      <point x="2023.3356930268833" y="1258.0" />
+      <point x="1919.6025641025635" y="1258.0" />
+      <point x="0.0" y="108.0" />
+    </edge>
+    <edge source="com.niit.biz.impl.IProjectBizImp" target="com.niit.entity.ProjectImg">
+      <point x="133.0" y="-246.0" />
+      <point x="6919.4188996071" y="4054.0" />
+      <point x="7467.083379717406" y="4054.0" />
+      <point x="7467.083379717406" y="477.0" />
+      <point x="7390.089597902097" y="477.0" />
+      <point x="18.363636363636033" y="73.5" />
+    </edge>
+    <edge source="com.niit.controller.IndexController" target="com.niit.biz.IUserBiz">
+      <point x="-180.83333333333303" y="-50.5" />
+      <point x="7261.083379717406" y="3814.0" />
+      <point x="3625.4622955909863" y="3814.0" />
+      <point x="134.66666666666652" y="165.0" />
+    </edge>
+    <edge source="com.niit.entity.ProjectComment" target="com.niit.entity.Project">
+      <point x="40.399999999999636" y="96.5" />
+      <point x="6243.9301235521325" y="477.0" />
+      <point x="6242.069293454233" y="477.0" />
+      <point x="-220.15384615384664" y="-315.5" />
+    </edge>
+    <edge source="com.niit.entity.ProjectType" target="com.niit.entity.Project">
+      <point x="-25.83333333333303" y="73.5" />
+      <point x="6542.9467902188" y="477.0" />
+      <point x="6535.607754992695" y="477.0" />
+      <point x="73.38461538461524" y="-315.5" />
+    </edge>
+    <edge source="com.niit.biz.impl.UserBizImp" target="com.niit.entity.Users">
+      <point x="-31.076923076922867" y="-223.0" />
+      <point x="2321.246425553376" y="3844.0" />
+      <point x="2252.8356930268833" y="3844.0" />
+      <point x="2252.8356930268833" y="1926.0" />
+      <point x="2819.134475003925" y="1926.0" />
+      <point x="-89.83928571428532" y="154.0" />
+    </edge>
+    <edge source="com.niit.controller.OrderController" target="com.niit.entity.Orders">
+      <point x="96.9375" y="-39.0" />
+      <point x="5944.4501496071" y="4004.0" />
+      <point x="5916.6688996071" y="4004.0" />
+      <point x="5916.6688996071" y="3239.0" />
+      <point x="6037.621841255868" y="3239.0" />
+      <point x="29.5" y="177.5" />
+    </edge>
+    <edge source="com.niit.biz.impl.UserBizImp" target="com.niit.entity.UsersInfo">
+      <point x="-186.46153846153857" y="-223.0" />
+      <point x="2165.8618101687603" y="3894.0" />
+      <point x="1842.6025641025635" y="3894.0" />
+      <point x="1842.6025641025635" y="2594.0" />
+      <point x="1661.8356930268833" y="2594.0" />
+      <point x="1661.8356930268833" y="1248.0" />
+      <point x="1888.5256410256407" y="1248.0" />
+      <point x="-31.076923076922867" y="108.0" />
+    </edge>
+    <edge source="com.niit.controller.ProjectController" target="com.niit.entity.Users">
+      <point x="-103.5" y="-142.5" />
+      <point x="7989.416713050739" y="3744.0" />
+      <point x="7831.056472941413" y="3744.0" />
+      <point x="7831.056472941413" y="1616.0" />
+      <point x="3081.7416178610674" y="1616.0" />
+      <point x="172.76785714285688" y="154.0" />
+    </edge>
+    <edge source="com.niit.dao.impl.ProjectDaoImp" target="com.niit.entity.Project">
+      <point x="0.0" y="-246.0" />
+      <point x="8728.91671305074" y="4024.0" />
+      <point x="8687.39509008329" y="4024.0" />
+      <point x="8687.39509008329" y="1208.0" />
+      <point x="6916.508853893794" y="1208.0" />
+      <point x="454.2857142857147" y="315.5" />
+    </edge>
+    <edge source="com.niit.dao.impl.UsersInfoDaoImp" target="com.niit.dao.IUsersInfoDao">
+      <point x="-31.0" y="-39.0" />
+      <point x="1710.8333333333326" y="3884.0" />
+      <point x="1618.0833333333326" y="3884.0" />
+      <point x="1618.0833333333326" y="2624.0" />
+      <point x="2023.3356930268833" y="2624.0" />
+      <point x="-62.0" y="27.0" />
+    </edge>
+    <edge source="com.niit.entity.Orders" target="javax.persistence.Entity">
+      <point x="90.76923076923049" y="-177.5" />
+      <point x="6098.891072025099" y="2484.0" />
+      <point x="5942.569293454234" y="2484.0" />
+      <point x="5942.569293454234" y="104.0" />
+      <point x="6077.78766025641" y="104.0" />
+      <point x="-9.0" y="27.0" />
+    </edge>
+    <edge source="com.niit.controller.SmsController" target="org.springframework.stereotype.Controller">
+      <point x="165.33333333333348" y="-39.0" />
+      <point x="4781.142674589201" y="4004.0" />
+      <point x="4817.496841255868" y="4004.0" />
+      <point x="-8.875" y="27.0" />
+    </edge>
+    <edge source="com.niit.controller.LoginController" target="com.niit.entity.Users">
+      <point x="86.875" y="-62.0" />
+      <point x="4087.1843412558683" y="3964.0" />
+      <point x="4045.3926745892013" y="3964.0" />
+      <point x="4045.3926745892013" y="3089.0" />
+      <point x="5154.5758663487895" y="3089.0" />
+      <point x="5154.5758663487895" y="1746.0" />
+      <point x="2915.884475003925" y="1746.0" />
+      <point x="6.9107142857146755" y="154.0" />
+    </edge>
+    <edge source="org.springframework.stereotype.Repository" target="org.springframework.stereotype.Component">
+      <point x="-35.5" y="-27.0" />
+      <point x="3748.2956289243193" y="3069.0" />
+      <point x="4503.627078680338" y="3069.0" />
+      <point x="4503.627078680338" y="2604.0" />
+      <point x="5310.247061965811" y="2604.0" />
+      <point x="-63.11111111111131" y="27.0" />
+    </edge>
+    <edge source="com.niit.controller.IndexController" target="org.springframework.stereotype.Controller">
+      <point x="-108.5" y="-50.5" />
+      <point x="7333.416713050739" y="3804.0" />
+      <point x="4870.746841255868" y="3804.0" />
+      <point x="44.375" y="27.0" />
+    </edge>
+    <edge source="com.niit.entity.Project" target="com.niit.entity.ProjectType">
+      <point x="0.0" y="-315.5" />
+      <point x="6462.22313960808" y="477.0" />
+      <point x="6491.280123552133" y="477.0" />
+      <point x="-77.5" y="73.5" />
+    </edge>
+    <edge source="com.niit.entity.Project" target="javax.persistence.Entity">
+      <point x="-146.7692307692305" y="-315.5" />
+      <point x="6315.030123552133" y="94.0" />
+      <point x="6113.78766025641" y="94.0" />
+      <point x="27.0" y="27.0" />
+    </edge>
+    <edge source="com.niit.dao.IOrderDao" target="com.niit.entity.Orders">
+      <point x="0.0" y="-50.0" />
+      <point x="6180.5126496071" y="3239.0" />
+      <point x="6096.621841255868" y="3239.0" />
+      <point x="88.5" y="177.5" />
+    </edge>
+    <edge source="com.niit.biz.IProjectBiz" target="com.niit.entity.Orders">
+      <point x="-114.0" y="-222.5" />
+      <point x="6562.440522574549" y="3039.0" />
+      <point x="6273.621841255868" y="3039.0" />
+      <point x="265.5" y="177.5" />
+    </edge>
+    <edge source="com.niit.biz.impl.IProjectBizImp" target="com.niit.entity.Orders">
+      <point x="-57.0" y="-246.0" />
+      <point x="6729.4188996071" y="3984.0" />
+      <point x="6513.940522574549" y="3984.0" />
+      <point x="6513.940522574549" y="3049.0" />
+      <point x="6214.621841255868" y="3049.0" />
+      <point x="206.5" y="177.5" />
+    </edge>
+    <edge source="com.niit.controller.ProjectController" target="com.niit.entity.ProjectType">
+      <point x="241.5" y="-142.5" />
+      <point x="8334.41671305074" y="4034.0" />
+      <point x="8519.14509008329" y="4034.0" />
+      <point x="8519.14509008329" y="397.0" />
+      <point x="6646.280123552133" y="397.0" />
+      <point x="77.5" y="73.5" />
+    </edge>
+    <edge source="com.niit.controller.AddressController" target="org.springframework.stereotype.Controller">
+      <point x="190.4000000000001" y="-62.0" />
+      <point x="3545.5218412558684" y="3984.0" />
+      <point x="4781.996841255868" y="3984.0" />
+      <point x="-44.375" y="27.0" />
+    </edge>
+    <edge source="org.springframework.stereotype.Controller" target="org.springframework.stereotype.Component">
+      <point x="-35.5" y="-27.0" />
+      <point x="4790.871841255868" y="3109.0" />
+      <point x="5224.075866348789" y="3109.0" />
+      <point x="5224.075866348789" y="2624.0" />
+      <point x="5341.802617521367" y="2624.0" />
+      <point x="-31.555555555555657" y="27.0" />
+    </edge>
+    <edge source="com.niit.biz.impl.IProjectBizImp" target="com.niit.dao.IOrderDao">
+      <point x="-133.0" y="-246.0" />
+      <point x="6653.4188996071" y="4004.0" />
+      <point x="6267.5126496071" y="4004.0" />
+      <point x="87.0" y="50.0" />
+    </edge>
+    <edge source="com.niit.entity.Project" target="com.niit.entity.Orders">
+      <point x="-90.85714285714312" y="315.5" />
+      <point x="6371.365996750937" y="1218.0" />
+      <point x="6345.809077582" y="1218.0" />
+      <point x="6345.809077582" y="2614.0" />
+      <point x="6189.660302794329" y="2614.0" />
+      <point x="181.5384615384619" y="-177.5" />
+    </edge>
+    <edge source="com.niit.entity.UsersAddress" target="com.niit.entity.Users">
+      <point x="0.0" y="-85.0" />
+      <point x="4191.493589743589" y="1776.0" />
+      <point x="2874.420189289639" y="1776.0" />
+      <point x="-34.55357142857156" y="154.0" />
+    </edge>
+    <edge source="com.niit.controller.ManageController" target="com.niit.entity.Users">
+      <point x="-107.33333333333303" y="-108.0" />
+      <point x="5017.976007922534" y="3884.0" />
+      <point x="4907.871841255868" y="3884.0" />
+      <point x="4907.871841255868" y="3129.0" />
+      <point x="5263.5758663487895" y="3129.0" />
+      <point x="5263.5758663487895" y="1726.0" />
+      <point x="2943.527332146782" y="1726.0" />
+      <point x="34.55357142857156" y="154.0" />
+    </edge>
+    <edge source="com.niit.controller.RegisterController" target="org.springframework.stereotype.Controller">
+      <point x="228.33333333333326" y="-50.5" />
+      <point x="502.33333333333303" y="3974.0" />
+      <point x="4764.246841255868" y="3974.0" />
+      <point x="-62.125" y="27.0" />
+    </edge>
+    <edge source="com.niit.controller.IndexController" target="com.niit.entity.ProjectImg">
+      <point x="180.83333333333303" y="-50.5" />
+      <point x="7622.750046384072" y="4054.0" />
+      <point x="7633.228423416624" y="4054.0" />
+      <point x="7633.228423416624" y="467.0" />
+      <point x="7408.453234265734" y="467.0" />
+      <point x="36.727272727272975" y="73.5" />
+    </edge>
+    <edge source="com.niit.interceptor.LoginInterceptor" target="com.niit.entity.Users">
+      <point x="0.0" y="-62.0" />
+      <point x="877.5833333333321" y="3894.0" />
+      <point x="934.333333333333" y="3894.0" />
+      <point x="934.333333333333" y="2594.0" />
+      <point x="1535.5664622576523" y="2594.0" />
+      <point x="1535.5664622576523" y="1876.0" />
+      <point x="2750.027332146782" y="1876.0" />
+      <point x="-158.94642857142844" y="154.0" />
+    </edge>
+    <edge source="com.niit.dao.impl.UsersInfoDaoImp" target="com.niit.entity.Users">
+      <point x="31.0" y="-39.0" />
+      <point x="1772.8333333333326" y="3894.0" />
+      <point x="1721.8333333333326" y="3894.0" />
+      <point x="1721.8333333333326" y="2644.0" />
+      <point x="2219.8356930268833" y="2644.0" />
+      <point x="2219.8356930268833" y="1916.0" />
+      <point x="2805.313046432496" y="1916.0" />
+      <point x="-103.66071428571468" y="154.0" />
+    </edge>
+    <edge source="com.niit.entity.UsersInfo" target="javax.persistence.Entity">
+      <point x="0.0" y="-108.0" />
+      <point x="1919.6025641025635" y="74.0" />
+      <point x="6023.78766025641" y="74.0" />
+      <point x="-63.0" y="27.0" />
+    </edge>
+    <edge source="com.niit.dao.IUsersDao" target="com.niit.entity.Users">
+      <point x="67.0" y="-73.0" />
+      <point x="1873.3356930268833" y="1886.0" />
+      <point x="2763.8487607182105" y="1886.0" />
+      <point x="-145.125" y="154.0" />
+    </edge>
+    <edge source="com.niit.entity.ProjectComment" target="com.niit.entity.Users">
+      <point x="-40.399999999999636" y="96.5" />
+      <point x="6163.130123552133" y="427.0" />
+      <point x="3141.668086677113" y="427.0" />
+      <point x="3141.668086677113" y="1178.0" />
+      <point x="2938.742991487441" y="1178.0" />
+      <point x="29.76923076923049" y="-154.0" />
+    </edge>
+    <edge source="com.niit.entity.Users" target="com.niit.entity.Orders">
+      <point x="89.83928571428532" y="154.0" />
+      <point x="2998.813046432496" y="1686.0" />
+      <point x="5920.569293454234" y="1686.0" />
+      <point x="5920.569293454234" y="2504.0" />
+      <point x="6008.121841255868" y="2504.0" />
+      <point x="0.0" y="-177.5" />
+    </edge>
+    <edge source="com.niit.dao.IUsersAddressDao" target="com.niit.entity.UsersAddress">
+      <point x="0.0" y="-50.0" />
+      <point x="2478.4606930268833" y="3119.0" />
+      <point x="2822.073348630299" y="3119.0" />
+      <point x="2822.073348630299" y="2584.0" />
+      <point x="4094.293589743589" y="2584.0" />
+      <point x="-97.19999999999982" y="85.0" />
+    </edge>
+    <edge source="com.niit.biz.impl.UserBizImp" target="com.niit.entity.Project">
+      <point x="-62.15384615384619" y="-223.0" />
+      <point x="2290.1695024764526" y="3854.0" />
+      <point x="2241.8356930268833" y="3854.0" />
+      <point x="2241.8356930268833" y="1846.0" />
+      <point x="2674.7848407077636" y="1846.0" />
+      <point x="2674.7848407077636" y="1198.0" />
+      <point x="6007.937425322365" y="1198.0" />
+      <point x="-454.2857142857147" y="315.5" />
+    </edge>
+    <edge source="com.niit.controller.ProjectController" target="com.niit.entity.Project">
+      <point x="-34.5" y="-142.5" />
+      <point x="8058.416713050739" y="4054.0" />
+      <point x="8000.416713050739" y="4054.0" />
+      <point x="8000.416713050739" y="1238.0" />
+      <point x="6780.22313960808" y="1238.0" />
+      <point x="318.0" y="315.5" />
+    </edge>
+    <edge source="com.niit.dao.impl.UserAddressDaoImp" target="com.niit.entity.UsersAddress">
+      <point x="-39.25" y="-62.0" />
+      <point x="2900.8718412558683" y="3884.0" />
+      <point x="2645.9606930268833" y="3884.0" />
+      <point x="2645.9606930268833" y="3129.0" />
+      <point x="2911.323348630299" y="3129.0" />
+      <point x="2911.323348630299" y="2594.0" />
+      <point x="4110.493589743589" y="2594.0" />
+      <point x="-81.0" y="85.0" />
+    </edge>
+    <edge source="com.niit.controller.ProjectController" target="com.niit.biz.IProjectBiz">
+      <point x="-241.5" y="-142.5" />
+      <point x="7851.416713050739" y="3764.0" />
+      <point x="6798.040522574549" y="3764.0" />
+      <point x="121.60000000000036" y="222.5" />
+    </edge>
+    <edge source="com.niit.interceptor.LoginInterceptor" target="com.niit.biz.IUserBiz">
+      <point x="183.0" y="-62.0" />
+      <point x="1060.5833333333321" y="3914.0" />
+      <point x="3356.1289622576533" y="3914.0" />
+      <point x="-134.66666666666652" y="165.0" />
+    </edge>
+    <edge source="com.niit.dao.impl.ProjectDaoImp" target="com.niit.dao.IProjectDao">
+      <point x="-134.66666666666606" y="-246.0" />
+      <point x="8594.250046384073" y="4054.0" />
+      <point x="8574.723139608079" y="4054.0" />
+      <point x="8574.723139608079" y="2444.0" />
+      <point x="7378.250046384072" y="2444.0" />
+      <point x="134.66666666666606" y="234.0" />
+    </edge>
+    <edge source="com.niit.biz.IUserBiz" target="com.niit.entity.Orders">
+      <point x="168.33333333333348" y="-165.0" />
+      <point x="3659.1289622576533" y="3199.0" />
+      <point x="5801.621841255868" y="3199.0" />
+      <point x="-206.5" y="177.5" />
+    </edge>
+    <edge source="com.niit.utils.Exchange" target="org.springframework.stereotype.Component">
+      <point x="70.0" y="-39.0" />
+      <point x="8297.91671305074" y="3249.0" />
+      <point x="8315.41671305074" y="3249.0" />
+      <point x="8315.41671305074" y="2454.0" />
+      <point x="5436.469284188033" y="2454.0" />
+      <point x="63.11111111111131" y="27.0" />
+    </edge>
+    <edge source="com.niit.biz.impl.UserBizImp" target="com.niit.entity.UsersAddress">
+      <point x="0.0" y="-223.0" />
+      <point x="2352.323348630299" y="3834.0" />
+      <point x="2263.8356930268833" y="3834.0" />
+      <point x="2263.8356930268833" y="3109.0" />
+      <point x="2675.573348630299" y="3109.0" />
+      <point x="2675.573348630299" y="2574.0" />
+      <point x="4078.093589743589" y="2574.0" />
+      <point x="-113.40000000000009" y="85.0" />
+    </edge>
+    <edge source="com.niit.controller.OrderController" target="com.niit.entity.UsersAddress">
+      <point x="-96.9375" y="-39.0" />
+      <point x="5750.5751496071" y="3844.0" />
+      <point x="5664.778091255868" y="3844.0" />
+      <point x="5664.778091255868" y="2584.0" />
+      <point x="4223.8935897435895" y="2584.0" />
+      <point x="32.40000000000009" y="85.0" />
+    </edge>
+    <edge source="com.niit.dao.impl.UserAddressDaoImp" target="org.springframework.stereotype.Repository">
+      <point x="117.75" y="-62.0" />
+      <point x="3057.8718412558683" y="3954.0" />
+      <point x="3783.7956289243193" y="3954.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="com.niit.entity.Orders" target="com.niit.entity.Project">
+      <point x="226.92307692307713" y="-177.5" />
+      <point x="6235.0449181789445" y="2624.0" />
+      <point x="6356.809077582" y="2624.0" />
+      <point x="6356.809077582" y="1228.0" />
+      <point x="6416.794568179508" y="1228.0" />
+      <point x="-45.42857142857156" y="315.5" />
+    </edge>
+    <edge source="com.niit.biz.impl.IProjectBizImp" target="com.niit.dao.IProjectDao">
+      <point x="57.0" y="-246.0" />
+      <point x="6843.4188996071" y="4034.0" />
+      <point x="7243.583379717406" y="4034.0" />
+      <point x="0.0" y="234.0" />
+    </edge>
+    <edge source="com.niit.controller.RegisterController" target="com.niit.entity.UsersInfo">
+      <point x="-137.0" y="-50.5" />
+      <point x="137.0" y="4054.0" />
+      <point x="177.16666666666606" y="4054.0" />
+      <point x="177.16666666666606" y="1218.0" />
+      <point x="1841.910256410256" y="1218.0" />
+      <point x="-77.69230769230762" y="108.0" />
+    </edge>
+    <edge source="com.niit.dao.impl.UsersInfoDaoImp" target="com.niit.entity.UsersInfo">
+      <point x="-93.0" y="-39.0" />
+      <point x="1648.8333333333326" y="3894.0" />
+      <point x="1519.0664622576523" y="3894.0" />
+      <point x="1519.0664622576523" y="1238.0" />
+      <point x="1872.9871794871788" y="1238.0" />
+      <point x="-46.615384615384755" y="108.0" />
+    </edge>
+    <edge source="com.niit.dao.IProjectDao" target="com.niit.entity.Project">
+      <point x="-50.5" y="-234.0" />
+      <point x="7193.083379717406" y="1636.0" />
+      <point x="6660.440522574549" y="1636.0" />
+      <point x="6660.440522574549" y="1248.0" />
+      <point x="6643.937425322365" y="1248.0" />
+      <point x="181.71428571428532" y="315.5" />
+    </edge>
+    <edge source="com.niit.entity.ProjectType" target="javax.persistence.Entity">
+      <point x="0.0" y="-73.5" />
+      <point x="6568.780123552133" y="84.0" />
+      <point x="6131.78766025641" y="84.0" />
+      <point x="45.0" y="27.0" />
+    </edge>
+    <edge source="com.niit.biz.impl.UserBizImp" target="com.niit.biz.IUserBiz">
+      <point x="124.30769230769238" y="-223.0" />
+      <point x="2476.631040937991" y="3924.0" />
+      <point x="3401.017851146542" y="3924.0" />
+      <point x="-89.77777777777783" y="165.0" />
+    </edge>
+    <edge source="com.niit.dao.impl.ProjectDaoImp" target="com.niit.entity.ProjectComment">
+      <point x="89.77777777777737" y="-246.0" />
+      <point x="8818.694490828517" y="4004.0" />
+      <point x="8709.39509008329" y="4004.0" />
+      <point x="8709.39509008329" y="357.0" />
+      <point x="6297.796790218799" y="357.0" />
+      <point x="94.26666666666642" y="96.5" />
+    </edge>
+    <edge source="com.niit.dao.IUsersDao" target="com.niit.entity.UsersInfo">
+      <point x="-67.0" y="-73.0" />
+      <point x="1739.3356930268833" y="1258.0" />
+      <point x="1904.064102564102" y="1258.0" />
+      <point x="-15.538461538461434" y="108.0" />
+    </edge>
+    <edge source="com.niit.entity.Orders" target="com.niit.entity.UsersAddress">
+      <point x="-226.92307692307713" y="-177.5" />
+      <point x="5781.19876433279" y="2554.0" />
+      <point x="4256.293589743589" y="2554.0" />
+      <point x="64.79999999999973" y="85.0" />
+    </edge>
+    <edge source="com.niit.controller.ManageController" target="com.niit.biz.IProjectBiz">
+      <point x="214.66666666666697" y="-108.0" />
+      <point x="5339.976007922534" y="4044.0" />
+      <point x="6554.840522574548" y="4044.0" />
+      <point x="-121.60000000000036" y="222.5" />
+    </edge>
+    <edge source="com.niit.controller.ProjectController" target="com.niit.entity.ProjectImg">
+      <point x="379.5" y="-142.5" />
+      <point x="8472.41671305074" y="4054.0" />
+      <point x="8541.14509008329" y="4054.0" />
+      <point x="8541.14509008329" y="377.0" />
+      <point x="7426.81687062937" y="377.0" />
+      <point x="55.09090909090901" y="73.5" />
+    </edge>
+    <edge source="com.niit.biz.impl.UserBizImp" target="com.niit.dao.IProjectDao">
+      <point x="155.38461538461524" y="-223.0" />
+      <point x="2507.707964014914" y="3964.0" />
+      <point x="3865.2956289243193" y="3964.0" />
+      <point x="3865.2956289243193" y="3249.0" />
+      <point x="6357.6688996071" y="3249.0" />
+      <point x="6357.6688996071" y="2644.0" />
+      <point x="7108.91671305074" y="2644.0" />
+      <point x="-134.66666666666606" y="234.0" />
+    </edge>
+    <edge source="com.niit.dao.impl.ProjectDaoImp" target="com.niit.entity.Users">
+      <point x="-89.77777777777737" y="-246.0" />
+      <point x="8639.138935272962" y="4044.0" />
+      <point x="8585.723139608079" y="4044.0" />
+      <point x="8585.723139608079" y="1606.0" />
+      <point x="3095.563046432496" y="1606.0" />
+      <point x="186.58928571428532" y="154.0" />
+    </edge>
+    <edge source="com.niit.entity.UsersAddress" target="javax.persistence.Entity">
+      <point x="-97.19999999999982" y="-85.0" />
+      <point x="4094.293589743589" y="1796.0" />
+      <point x="2663.7848407077636" y="1796.0" />
+      <point x="2663.7848407077636" y="84.0" />
+      <point x="6041.78766025641" y="84.0" />
+      <point x="-45.0" y="27.0" />
+    </edge>
+    <edge source="com.niit.dao.impl.UsersDaoImp" target="org.springframework.stereotype.Repository">
+      <point x="100.5" y="-85.0" />
+      <point x="1406.5833333333326" y="3934.0" />
+      <point x="3726.995628924319" y="3934.0" />
+      <point x="-56.80000000000018" y="27.0" />
+    </edge>
+    <edge source="com.niit.controller.OrderController" target="com.niit.entity.Project">
+      <point x="161.5625" y="-39.0" />
+      <point x="6009.0751496071" y="4024.0" />
+      <point x="6445.515471537481" y="4024.0" />
+      <point x="6445.515471537481" y="1248.0" />
+      <point x="6507.651711036651" y="1248.0" />
+      <point x="45.42857142857156" y="315.5" />
+    </edge>
+    <edge source="com.niit.biz.impl.UserBizImp" target="com.niit.entity.ProjectComment">
+      <point x="-93.23076923076951" y="-223.0" />
+      <point x="2259.0925793995293" y="3864.0" />
+      <point x="2230.8356930268833" y="3864.0" />
+      <point x="2230.8356930268833" y="1836.0" />
+      <point x="2641.7848407077636" y="1836.0" />
+      <point x="2641.7848407077636" y="387.0" />
+      <point x="6109.263456885466" y="387.0" />
+      <point x="-94.26666666666642" y="96.5" />
+    </edge>
+    <edge source="com.niit.controller.RegisterController" target="com.niit.entity.Users">
+      <point x="-45.66666666666697" y="-50.5" />
+      <point x="228.33333333333303" y="4054.0" />
+      <point x="188.16666666666606" y="4054.0" />
+      <point x="188.16666666666606" y="1856.0" />
+      <point x="2722.3844750039248" y="1856.0" />
+      <point x="-186.58928571428578" y="154.0" />
+    </edge>
+    <edge source="com.niit.controller.ManageController" target="com.niit.utils.SaveToWord">
+      <point x="107.33333333333303" y="-108.0" />
+      <point x="5232.6426745892" y="3994.0" />
+      <point x="5298.121841255868" y="3994.0" />
+      <point x="0.0" y="62.5" />
+    </edge>
+    <edge source="com.niit.controller.ManageController" target="org.springframework.stereotype.Controller">
+      <point x="-161.0" y="-108.0" />
+      <point x="4964.309341255868" y="3894.0" />
+      <point x="4835.246841255868" y="3894.0" />
+      <point x="8.875" y="27.0" />
+    </edge>
+    <edge source="com.niit.dao.impl.OrderDaoImp" target="com.niit.dao.IOrderDao">
+      <point x="-32.625" y="-62.0" />
+      <point x="6223.8876496071" y="4014.0" />
+      <point x="6180.5126496071" y="4014.0" />
+      <point x="0.0" y="50.0" />
+    </edge>
+    <edge source="com.niit.controller.AddressController" target="com.niit.entity.Users">
+      <point x="-190.4000000000001" y="-62.0" />
+      <point x="3164.721841255868" y="3864.0" />
+      <point x="2905.823348630299" y="3864.0" />
+      <point x="2905.823348630299" y="3099.0" />
+      <point x="2664.573348630299" y="3099.0" />
+      <point x="2664.573348630299" y="1936.0" />
+      <point x="2832.9559035753537" y="1936.0" />
+      <point x="-76.01785714285688" y="154.0" />
+    </edge>
+    <edge source="com.niit.biz.impl.UserBizImp" target="com.niit.entity.Orders">
+      <point x="62.15384615384619" y="-223.0" />
+      <point x="2414.477194784145" y="3814.0" />
+      <point x="2310.9606930268833" y="3814.0" />
+      <point x="2310.9606930268833" y="3189.0" />
+      <point x="5742.621841255868" y="3189.0" />
+      <point x="-265.5" y="177.5" />
+    </edge>
+    <edge source="com.niit.biz.impl.UserBizImp" target="com.niit.dao.IUsersDao">
+      <point x="-155.38461538461524" y="-223.0" />
+      <point x="2196.9387332456836" y="3884.0" />
+      <point x="1940.8356930268833" y="3884.0" />
+      <point x="1940.8356930268833" y="2604.0" />
+      <point x="1873.3356930268833" y="2604.0" />
+      <point x="67.0" y="73.0" />
+    </edge>
+    <edge source="com.niit.controller.OrderController" target="com.niit.entity.Users">
+      <point x="-32.3125" y="-39.0" />
+      <point x="5815.2001496071" y="3834.0" />
+      <point x="5702.621841255868" y="3834.0" />
+      <point x="5702.621841255868" y="2574.0" />
+      <point x="5480.298088571011" y="2574.0" />
+      <point x="5480.298088571011" y="1716.0" />
+      <point x="2957.3487607182105" y="1716.0" />
+      <point x="48.375" y="154.0" />
+    </edge>
+    <edge source="com.niit.dao.impl.UsersInfoDaoImp" target="org.springframework.stereotype.Repository">
+      <point x="93.0" y="-39.0" />
+      <point x="1834.8333333333326" y="3944.0" />
+      <point x="3755.395628924319" y="3944.0" />
+      <point x="-28.40000000000009" y="27.0" />
+    </edge>
+    <edge source="com.niit.controller.IndexController" target="com.niit.biz.IProjectBiz">
+      <point x="-36.16666666666697" y="-50.5" />
+      <point x="7405.750046384072" y="3794.0" />
+      <point x="6737.24052257455" y="3794.0" />
+      <point x="60.80000000000018" y="222.5" />
+    </edge>
+    <edge source="com.niit.controller.ManageController" target="com.niit.entity.Project">
+      <point x="53.66666666666697" y="-108.0" />
+      <point x="5178.976007922534" y="3994.0" />
+      <point x="5108.621841255868" y="3994.0" />
+      <point x="5108.621841255868" y="3179.0" />
+      <point x="5485.798088571011" y="3179.0" />
+      <point x="5485.798088571011" y="2644.0" />
+      <point x="5539.858173076922" y="2644.0" />
+      <point x="5539.858173076922" y="1258.0" />
+      <point x="6280.508853893794" y="1258.0" />
+      <point x="-181.71428571428532" y="315.5" />
+    </edge>
+    <edge source="com.niit.dao.impl.OrderDaoImp" target="com.niit.entity.Orders">
+      <point x="32.625" y="-62.0" />
+      <point x="6289.1376496071" y="4014.0" />
+      <point x="6332.5126496071" y="4014.0" />
+      <point x="6332.5126496071" y="3059.0" />
+      <point x="6155.621841255868" y="3059.0" />
+      <point x="147.5" y="177.5" />
+    </edge>
+    <edge source="com.niit.biz.impl.UserBizImp" target="com.niit.dao.IOrderDao">
+      <point x="186.46153846153857" y="-223.0" />
+      <point x="2538.7848870918374" y="4014.0" />
+      <point x="6093.5126496071" y="4014.0" />
+      <point x="-87.0" y="50.0" />
+    </edge>
+    <edge source="com.niit.entity.Users" target="com.niit.entity.Project">
+      <point x="119.07692307692287" y="-154.0" />
+      <point x="3028.0506837951334" y="1218.0" />
+      <point x="6098.794568179508" y="1218.0" />
+      <point x="-363.42857142857156" y="315.5" />
+    </edge>
+    <edge source="com.niit.dao.impl.ProjectDaoImp" target="com.niit.entity.ProjectImg">
+      <point x="179.55555555555475" y="-246.0" />
+      <point x="8908.472268606294" y="4054.0" />
+      <point x="8995.670847659047" y="4054.0" />
+      <point x="8995.670847659047" y="337.0" />
+      <point x="7463.544143356643" y="337.0" />
+      <point x="91.81818181818198" y="73.5" />
+    </edge>
+    <edge source="com.niit.entity.Orders" target="com.niit.entity.Users">
+      <point x="-45.384615384615245" y="-177.5" />
+      <point x="5962.737225871253" y="2514.0" />
+      <point x="5878.701934724858" y="2514.0" />
+      <point x="5878.701934724858" y="1696.0" />
+      <point x="2984.9916178610674" y="1696.0" />
+      <point x="76.01785714285688" y="154.0" />
+    </edge>
+    <edge source="com.niit.biz.impl.IProjectBizImp" target="com.niit.entity.Project">
+      <point x="95.0" y="-246.0" />
+      <point x="6881.4188996071" y="4044.0" />
+      <point x="7456.083379717406" y="4044.0" />
+      <point x="7456.083379717406" y="1258.0" />
+      <point x="6689.365996750937" y="1258.0" />
+      <point x="227.14285714285688" y="315.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.handler.HandlerInterceptorAdapter" target="org.springframework.web.servlet.AsyncHandlerInterceptor">
+      <point x="9.094947017729282E-13" y="-73.5" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="com.niit.biz.IUserBiz" target="com.niit.entity.Project">
+      <point x="33.666666666666515" y="-165.0" />
+      <point x="3523.845784527735" y="1248.0" />
+      <point x="6235.080282465223" y="1248.0" />
+      <point x="-227.14285714285688" y="315.5" />
+    </edge>
+    <edge source="com.niit.controller.RegisterController" target="com.niit.biz.IUserBiz">
+      <point x="137.0" y="-50.5" />
+      <point x="411.0" y="3904.0" />
+      <point x="3311.240073368764" y="3904.0" />
+      <point x="-179.55555555555566" y="165.0" />
+    </edge>
+    <edge source="com.niit.biz.IUserBiz" target="com.niit.entity.ProjectComment">
+      <point x="-101.0" y="-165.0" />
+      <point x="3389.7956289243198" y="3129.0" />
+      <point x="3219.4622955909863" y="3129.0" />
+      <point x="3219.4622955909863" y="1816.0" />
+      <point x="2652.7848407077636" y="1816.0" />
+      <point x="2652.7848407077636" y="397.0" />
+      <point x="6122.730123552133" y="397.0" />
+      <point x="-80.80000000000018" y="96.5" />
+    </edge>
+    <edge source="com.niit.controller.ManageController" target="com.niit.entity.Orders">
+      <point x="161.0" y="-108.0" />
+      <point x="5286.309341255868" y="4004.0" />
+      <point x="5487.621841255868" y="4004.0" />
+      <point x="5487.621841255868" y="3219.0" />
+      <point x="5919.621841255868" y="3219.0" />
+      <point x="-88.5" y="177.5" />
+    </edge>
+    <edge source="com.niit.dao.impl.ProjectDaoImp" target="org.springframework.stereotype.Repository">
+      <point x="-179.55555555555475" y="-246.0" />
+      <point x="8549.361157495185" y="3734.0" />
+      <point x="3840.5956289243195" y="3734.0" />
+      <point x="56.80000000000018" y="27.0" />
+    </edge>
+    <edge source="com.niit.controller.IndexController" target="com.niit.entity.Project">
+      <point x="108.5" y="-50.5" />
+      <point x="7550.416713050739" y="4044.0" />
+      <point x="7622.228423416624" y="4044.0" />
+      <point x="7622.228423416624" y="1248.0" />
+      <point x="6734.794568179508" y="1248.0" />
+      <point x="272.57142857142844" y="315.5" />
+    </edge>
+    <edge source="com.niit.dao.impl.UserAddressDaoImp" target="com.niit.dao.IUsersAddressDao">
+      <point x="-117.75" y="-62.0" />
+      <point x="2822.3718412558683" y="3894.0" />
+      <point x="2556.9606930268833" y="3894.0" />
+      <point x="78.5" y="50.0" />
+    </edge>
+    <edge source="com.niit.dao.IProjectDao" target="com.niit.entity.Users">
+      <point x="-151.5" y="-234.0" />
+      <point x="7092.083379717406" y="1646.0" />
+      <point x="3054.0987607182105" y="1646.0" />
+      <point x="145.125" y="154.0" />
+    </edge>
+    <edge source="com.niit.entity.ProjectImg" target="javax.persistence.Entity">
+      <point x="0.0" y="-73.5" />
+      <point x="7371.725961538461" y="74.0" />
+      <point x="6149.78766025641" y="74.0" />
+      <point x="63.0" y="27.0" />
+    </edge>
+    <edge source="com.niit.utils.JuheDemo" target="org.springframework.stereotype.Component">
+      <point x="0.0" y="-108.0" />
+      <point x="8157.916713050739" y="2464.0" />
+      <point x="5420.691506410256" y="2464.0" />
+      <point x="47.33333333333303" y="27.0" />
+    </edge>
+    <edge source="com.niit.biz.impl.IProjectBizImp" target="com.niit.entity.Users">
+      <point x="19.0" y="-246.0" />
+      <point x="6805.4188996071" y="4024.0" />
+      <point x="7031.083379717406" y="4024.0" />
+      <point x="7031.083379717406" y="1656.0" />
+      <point x="3040.277332146782" y="1656.0" />
+      <point x="131.30357142857156" y="154.0" />
+    </edge>
+    <edge source="com.niit.controller.SmsController" target="com.niit.entity.Users">
+      <point x="0.0" y="-39.0" />
+      <point x="4615.809341255868" y="3099.0" />
+      <point x="5165.575866348789" y="3099.0" />
+      <point x="5165.575866348789" y="1736.0" />
+      <point x="2929.7059035753537" y="1736.0" />
+      <point x="20.732142857143117" y="154.0" />
+    </edge>
+    <edge source="com.niit.biz.IProjectBiz" target="com.niit.entity.Users">
+      <point x="-38.0" y="-222.5" />
+      <point x="6638.440522574549" y="1666.0" />
+      <point x="3026.4559035753537" y="1666.0" />
+      <point x="117.48214285714312" y="154.0" />
+    </edge>
+    <edge source="com.niit.biz.IProjectBiz" target="com.niit.entity.ProjectImg">
+      <point x="114.0" y="-222.5" />
+      <point x="6790.440522574549" y="3249.0" />
+      <point x="7020.083379717406" y="3249.0" />
+      <point x="7020.083379717406" y="467.0" />
+      <point x="7353.362325174825" y="467.0" />
+      <point x="-18.363636363636033" y="73.5" />
+    </edge>
+    <edge source="com.niit.controller.SmsController" target="com.niit.biz.IUserBiz">
+      <point x="-165.33333333333348" y="-39.0" />
+      <point x="4450.476007922534" y="3914.0" />
+      <point x="3535.6845178132085" y="3914.0" />
+      <point x="44.88888888888869" y="165.0" />
+    </edge>
+    <edge source="com.niit.dao.IProjectDao" target="com.niit.entity.ProjectImg">
+      <point x="151.5" y="-234.0" />
+      <point x="7395.083379717406" y="1936.0" />
+      <point x="7333.561756749957" y="1936.0" />
+      <point x="7333.561756749957" y="477.0" />
+      <point x="7371.725961538461" y="477.0" />
+      <point x="0.0" y="73.5" />
+    </edge>
+    <edge source="com.niit.biz.impl.IProjectBizImp" target="org.springframework.stereotype.Service">
+      <point x="-95.0" y="-246.0" />
+      <point x="6691.4188996071" y="3994.0" />
+      <point x="6321.5126496071" y="3994.0" />
+      <point x="6321.5126496071" y="3069.0" />
+      <point x="5409.3258663487895" y="3069.0" />
+      <point x="35.5" y="27.0" />
+    </edge>
+    <edge source="com.niit.entity.UsersAddress" target="com.niit.entity.Orders">
+      <point x="97.19999999999982" y="85.0" />
+      <point x="4288.693589743589" y="2534.0" />
+      <point x="5871.967995102021" y="2534.0" />
+      <point x="-136.15384615384664" y="-177.5" />
+    </edge>
+    <edge source="com.niit.entity.Project" target="com.niit.entity.Users">
+      <point x="-272.57142857142844" y="315.5" />
+      <point x="6189.651711036651" y="1238.0" />
+      <point x="3087.5891453335953" y="1238.0" />
+      <point x="178.61538461538476" y="-154.0" />
+    </edge>
+    <edge source="com.niit.dao.impl.OrderDaoImp" target="com.niit.entity.Project">
+      <point x="97.875" y="-62.0" />
+      <point x="6354.3876496071" y="4034.0" />
+      <point x="6502.940522574549" y="4034.0" />
+      <point x="6502.940522574549" y="1258.0" />
+      <point x="6553.080282465223" y="1258.0" />
+      <point x="90.85714285714312" y="315.5" />
+    </edge>
+    <edge source="com.niit.entity.Users" target="com.niit.entity.ProjectComment">
+      <point x="-29.76923076923049" y="-154.0" />
+      <point x="2879.20452994898" y="1188.0" />
+      <point x="2886.554071476994" y="1188.0" />
+      <point x="2886.554071476994" y="407.0" />
+      <point x="6136.1967902188" y="407.0" />
+      <point x="-67.33333333333303" y="96.5" />
+    </edge>
+    <edge source="com.niit.biz.impl.UserBizImp" target="com.niit.dao.IUsersAddressDao">
+      <point x="93.23076923076928" y="-223.0" />
+      <point x="2445.5541178610683" y="3804.0" />
+      <point x="2399.9606930268833" y="3804.0" />
+      <point x="-78.5" y="50.0" />
+    </edge>
+    <edge source="com.niit.controller.ProjectController" target="org.springframework.stereotype.Controller">
+      <point x="-310.5" y="-142.5" />
+      <point x="7782.416713050739" y="3774.0" />
+      <point x="4888.496841255868" y="3774.0" />
+      <point x="62.125" y="27.0" />
+    </edge>
+    <edge source="com.niit.entity.ProjectComment" target="javax.persistence.Entity">
+      <point x="0.0" y="-96.5" />
+      <point x="6203.530123552133" y="104.0" />
+      <point x="6095.78766025641" y="104.0" />
+      <point x="9.0" y="27.0" />
+    </edge>
+    <edge source="com.niit.dao.IProjectDao" target="com.niit.entity.ProjectComment">
+      <point x="50.5" y="-234.0" />
+      <point x="7294.083379717406" y="417.0" />
+      <point x="6257.3967902188" y="417.0" />
+      <point x="53.86666666666679" y="96.5" />
+    </edge>
+    <edge source="com.niit.dao.impl.UsersDaoImp" target="com.niit.entity.Users">
+      <point x="33.5" y="-85.0" />
+      <point x="1339.5833333333326" y="3894.0" />
+      <point x="1283.5833333333326" y="3894.0" />
+      <point x="1283.5833333333326" y="2614.0" />
+      <point x="1950.8356930268833" y="2614.0" />
+      <point x="1950.8356930268833" y="1896.0" />
+      <point x="2777.670189289639" y="1896.0" />
+      <point x="-131.30357142857156" y="154.0" />
+    </edge>
+    <edge source="com.niit.controller.LoginController" target="org.springframework.stereotype.Controller">
+      <point x="260.625" y="-62.0" />
+      <point x="4260.934341255868" y="3994.0" />
+      <point x="4799.746841255868" y="3994.0" />
+      <point x="-26.625" y="27.0" />
+    </edge>
+    <edge source="com.niit.entity.ProjectImg" target="com.niit.entity.Project">
+      <point x="-36.727272727272975" y="73.5" />
+      <point x="7334.998688811188" y="457.0" />
+      <point x="6902.530831915772" y="457.0" />
+      <point x="440.3076923076924" y="-315.5" />
+    </edge>
+    <edge source="com.niit.entity.Project" target="com.niit.entity.ProjectComment">
+      <point x="-366.92307692307713" y="-315.5" />
+      <point x="6095.300062685003" y="467.0" />
+      <point x="6216.996790218799" y="467.0" />
+      <point x="13.466666666666242" y="96.5" />
+    </edge>
+    <edge source="com.niit.controller.ManageController" target="com.niit.entity.UsersInfo">
+      <point x="-53.66666666666697" y="-108.0" />
+      <point x="5071.6426745892" y="3874.0" />
+      <point x="4918.871841255868" y="3874.0" />
+      <point x="4918.871841255868" y="3139.0" />
+      <point x="5274.5758663487895" y="3139.0" />
+      <point x="5274.5758663487895" y="1148.0" />
+      <point x="2012.833333333333" y="1148.0" />
+      <point x="93.23076923076951" y="108.0" />
+    </edge>
+    <edge source="com.niit.biz.impl.IProjectBizImp" target="com.niit.biz.IProjectBiz">
+      <point x="-19.0" y="-246.0" />
+      <point x="6767.4188996071" y="3974.0" />
+      <point x="6676.440522574549" y="3974.0" />
+      <point x="0.0" y="222.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.15837290935370638" x="4833.0" y="2133.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

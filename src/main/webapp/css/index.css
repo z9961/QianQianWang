@@ -1,0 +1,205 @@
+body {
+    /*铺满屏幕*/
+    margin: 0;
+    background: #f9f9f9;
+    font-family: "微软雅黑 Light";
+}
+
+#Carousel_figure {
+    /*设置轮播图的高度*/
+    height: 420px;
+    width: 1320px;
+    border: 0;
+
+}
+
+#IndexText {
+    margin: 0;
+    width: 100%;
+}
+
+.IndexText {
+    border-left: 2px solid grey;
+    margin: 0;
+    height: 280px;
+    width: 33%;
+    float: left;
+}
+
+.IndexText img {
+    margin-left: 250px;
+    width: 150px;
+}
+
+.IndexText .IndexUl {
+    margin-top: 20px;
+    margin-left: 200px;
+    font-size: 20px;
+    line-height: 25px
+}
+
+.ptypea {
+!important;
+    clear: both;
+    padding-top: 1px;
+    padding-right: 1px;
+    color: #a5a5a5;
+    font-family: 'Microsoft Yahei';
+    font-size: 16px;
+}
+
+input {
+    border: 0px;
+    outline: none;
+    background-color: white;
+
+}
+
+#all {
+    margin: 0 auto;
+    padding-top: 145px;
+    width: 1400px
+}
+
+#catalog a {
+    line-height: 35px;
+    margin-left: 45px;
+}
+
+#b2 {
+    clear: both;
+    margin-top: 580px;
+    height: 600px;
+}
+
+#catalog {
+    height: 400px;
+    float: left;
+    background-color: #f4f4f4;
+    width: 320px;
+    font-family: 微软雅黑;
+    font-size: 1.2em;
+}
+
+#if {
+    float: left;
+    width: 1320px;
+    padding-top: 10px;
+}
+
+#b2 > div {
+
+    height: 420px;
+
+    margin-top: 10px;
+}
+
+#b2 li {
+    left: 0px;
+    border: 1px solid #f6f6f6;
+    box-shadow: 0 0 50px rgba(216, 216, 216, .8);
+    width: 300px;
+    height: 439px;
+    list-style-type: none;
+    float: left; /* 往左浮动 */
+    margin-right: 24px;
+    padding-left: 6px;
+    background-color: white;
+    margin-top: 15px;
+}
+
+#b2 li a {
+    display: block; /* 将链接设为块级元素 */
+    /*padding:8px 10px;  设置内边距*/
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 0px;
+    padding-right: 3px;
+    text-decoration: none; /* 去掉下划线 */
+
+    margin-top: 0px;
+}
+
+#b2 li a.last {
+    border-right: 0;
+    border-left: 0;
+}
+
+.body_box {
+    height: 370px;
+    width: 1320px;
+}
+
+.body_box img {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    top: 50%;
+}
+
+.body_box li {
+    width: 250px;
+}
+
+h2 {
+    padding-top: 20px;
+}
+
+.ptype {
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    color: #a5a5a5;
+}
+
+.imgtitle {
+    width: 230px;
+}
+
+.imgtitle2 {
+    width: 230px;
+}
+
+.ped {
+    width: 180px;
+}
+
+.pimg {
+    padding-left: 7px;
+    width: 280px;
+    height: 220px;
+}
+
+.show-number {
+    width: 1320px;
+    /*padding-left: 20px;*/
+    height: 120px;
+    background: white;
+    margin-top: 450px;
+    border: 1px solid #f2f2f2;
+    z-index: -1;
+    font-size: 20px;
+    position: absolute;
+}
+
+.show-number .show-list {
+    margin-top: 12px;
+    float: left;
+}
+
+.show-number .show-list li {
+    width: 150px;
+    /*padding-right: 85px;*/
+    height: 58px;
+    float: left;
+}
+
+#left3 {
+    margin-left: 70px;
+    float: left;
+}
+
+#right3 {
+    margin-top: 20px;
+    margin-left: 50px;
+    float: left;
+}

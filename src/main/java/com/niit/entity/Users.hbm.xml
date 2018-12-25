@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.niit.entity.Users" table="Users" schema="dbo" catalog="Qianqianwang">
+        <id name="uPhone" column="UPhone"/>
+        <property name="uName" column="UName"/>
+        <property name="uPwd" column="UPwd"/>
+        <property name="uType" column="UType"/>
+        <property name="uFlag" column="UFlag"/>
+        <one-to-one name="usersInfoByUPhone" class="com.niit.entity.UsersInfo"/>
+        <set name="ordersByUPhone" inverse="true" lazy="false">
+            <key>
+                <column name="UPhone" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.niit.entity.Orders"/>
+        </set>
+        <set name="projectsByUPhone" inverse="true" lazy="false">
+            <key>
+                <column name="UPhone" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.niit.entity.Project"/>
+        </set>
+        <set name="projectCommentsByUPhone" inverse="true" lazy="false">
+            <key>
+                <column name="UPhone" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.niit.entity.ProjectComment"/>
+        </set>
+        <set name="usersAddressesByUPhone" inverse="true" lazy="false">
+            <key>
+                <column name="aUPhone" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.niit.entity.UsersAddress"/>
+        </set>
+    </class>
+</hibernate-mapping>
